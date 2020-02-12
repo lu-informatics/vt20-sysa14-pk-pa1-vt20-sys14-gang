@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKonstruktion
 {
-    class Class1
+    class TenantDAL
     {
     }
 }
