@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKonstruktion
 {
-    class Storage
+    class Class1
     {
     }
 }
