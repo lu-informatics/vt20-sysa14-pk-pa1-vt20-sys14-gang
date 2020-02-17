@@ -13,7 +13,7 @@ namespace ProgramKonstruktion
         private string name;
         private string phoneNbr;
         private string email;
-        private DateTime rentDate;
+      
 
         public string Ssn {
             get => ssn;
@@ -31,9 +31,6 @@ namespace ProgramKonstruktion
             get => email;
             set => email = value;
         }
-        public DateTime RentDate {
-            get => rentDate;
-            set => rentDate = value;
-        }
+       
     }
 }

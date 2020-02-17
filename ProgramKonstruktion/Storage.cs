@@ -13,7 +13,7 @@ namespace ProgramKonstruktion
         private double size;
         private string address;
         private string tenantSsn; //eller om vi ska ha privat Tenant tenant
-      
+        private DateTime rentDate;
 
         public int StorageNumber
         {
@@ -41,8 +41,12 @@ namespace ProgramKonstruktion
             get => tenantSsn;
             set => tenantSsn = value;
         }
+        public DateTime RentDate
+        {
+            get => rentDate;
+            set => rentDate = value;
+        }
 
-        
-       
+
     }
 }
