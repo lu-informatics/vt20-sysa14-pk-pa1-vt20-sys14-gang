@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Connector.cs" />
+    <Compile Include="Storage.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantDAL.cs" />
     <Compile Include="StorageDAL.cs" />

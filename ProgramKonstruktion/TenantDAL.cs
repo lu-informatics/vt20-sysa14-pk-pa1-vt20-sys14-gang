@@ -8,5 +8,6 @@ namespace ProgramKonstruktion
 {
     class TenantDAL
     {
+
     }
 }

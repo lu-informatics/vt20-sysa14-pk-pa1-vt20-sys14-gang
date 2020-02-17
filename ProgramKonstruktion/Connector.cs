@@ -14,7 +14,7 @@ namespace ProgramKonstruktion
         private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = StoreIT_Database; User Id = tgang; Password = tgang1;";
         
 
-        public SqlConnection Connection
+        public SqlConnection connection
         {
             get;
             set;
@@ -23,29 +23,34 @@ namespace ProgramKonstruktion
 
         public Connector() //constructor to database
         {
-
+            OpenConnection();
         }
 
         public void OpenConnection()
         {
             try
             {
-                Connection = new SqlConnection(connectionString);
-                Connection.Open();
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+
+               // if (connection != null)
+               // {
+               //     Console.WriteLine("Det funkade!!! :)");
+               // }
 
             } catch (SqlException ex)
             {
-                //exhandler
+                Console.WriteLine(ex.Message);
 
             } catch (Exception e)
             {
-                //exhandler
+                Console.WriteLine(e.Message);
             }
         }
 
         public void CloseConnector() 
         {
-            Connection.Close();
+            connection.Close();
         }
   
 
