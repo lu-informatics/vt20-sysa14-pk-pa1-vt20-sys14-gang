@@ -11,9 +11,9 @@ namespace ProgramKonstruktion
 
         private string ssn;
         private string name;
-        private string phoneNumber;
-        private string emailAddress;
-        private DateTime rentingDate;
+        private string phoneNbr;
+        private string email;
+        private DateTime rentDate;
 
         public string Ssn {
             get => ssn;
@@ -24,16 +24,16 @@ namespace ProgramKonstruktion
             set => name = value;
         }
         public string PhoneNumber {
-            get => phoneNumber;
-            set => phoneNumber = value;
+            get => phoneNbr;
+            set => phoneNbr = value;
         }
         public string EmailAddress {
-            get => emailAddress;
-            set => emailAddress = value;
+            get => email;
+            set => email = value;
         }
-        public DateTime RentingDate {
-            get => rentingDate;
-            set => rentingDate = value;
+        public DateTime RentDate {
+            get => rentDate;
+            set => rentDate = value;
         }
     }
 }
