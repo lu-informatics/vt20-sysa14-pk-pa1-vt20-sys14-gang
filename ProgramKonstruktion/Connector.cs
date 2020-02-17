@@ -11,7 +11,7 @@ namespace ProgramKonstruktion
 
     {
 
-        private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = StoreIT; User Id = tgang; Password = tgang1;";
+        private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = SIT; User Id = tgang; Password = tgang1;";
         
 
         public SqlConnection connection
