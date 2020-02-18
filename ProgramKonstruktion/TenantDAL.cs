@@ -82,6 +82,10 @@ namespace ProgramKonstruktion
             {
                 errorHandler.HandleErrorExceptionSql(e);
             }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
             finally
             {
                 connect.CloseConnector();
@@ -115,6 +119,10 @@ namespace ProgramKonstruktion
             {
                 errorHandler.HandleErrorExceptionSql(e);
             }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
             finally
             {
                 connect.CloseConnector();
@@ -126,7 +134,7 @@ namespace ProgramKonstruktion
         {
             Boolean deletedTenant = false;
 
-            string query = "DELETE Tenant WHERE ssn = @ssn";
+            string query = "DELETE FROM Tenant WHERE ssn = @ssn";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -145,6 +153,10 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
             }
             finally
             {
@@ -175,6 +187,10 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
             }
             finally
             {
