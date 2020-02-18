@@ -19,6 +19,12 @@ namespace ProgramKonstruktion
             Application.Run(new Form1());
 
             Connector c = new Connector();
+            
+
+            /*TenantDAL dal = new TenantDAL();
+            Tenant tenant = dal.FindTenant("199303011243");
+            string name = tenant.Name;
+            Console.WriteLine(tenant.Name);*/
         }
     }
 }
