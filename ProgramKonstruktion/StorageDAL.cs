@@ -10,13 +10,16 @@ namespace ProgramKonstruktion
 {
     class StorageDAL
     {
-        private Connector c = new Connector();
+        private Connector conn = new Connector();
         private SqlConnection SqlConnection;
-
+        private Errorhandler errorHandler = new ErrorHandler(); 
+        
+       
+        //find tenant through storage 
         public StorageDAL() //constructor
         {
-            c = new Connector();
-            SQLConnection = c.connection;
+            conn = new Connector();
+            SQLConnection = conn.connection;
         }
         public Storage CreateStorage (Storage storage)
         { 
@@ -33,6 +36,12 @@ namespace ProgramKonstruktion
             {
                 command.Connection.Open(); 
                 command.ExecuteNonQuery(); //används för att vi inte returnerar någon data från SQL
+            }
+            catch (SqlException e) {    
+                
+            }
+            {
+
             }
         }
         
