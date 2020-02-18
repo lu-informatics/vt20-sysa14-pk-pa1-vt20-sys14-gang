@@ -31,12 +31,9 @@ namespace ProgramKonstruktion
             MessageBox.Show("Button from view 1 has been clicked!!!");
         }
 
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
-
-        
-       }
+        }
+    }
 }
-;

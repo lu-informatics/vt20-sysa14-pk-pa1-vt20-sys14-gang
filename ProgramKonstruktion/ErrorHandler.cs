@@ -10,13 +10,7 @@ namespace ProgramKonstruktion
     class ErrorHandler
     
     {
-    
-        public String HandleExceptions (Exception e)
-        {
 
-            return "Error, try again!";
-
-        }
     public  String HandleErrorExceptionSql (SqlException e)
         {
             switch (e.Number)
