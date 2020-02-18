@@ -12,6 +12,7 @@ namespace ProgramKonstruktion
     {
         private Connector c = new Connector();
         private SqlConnection SQLConnection;
+        private ErrorHandler eh = new ErrorHandler();
 
         public TenantDAL() //constructor
         {
@@ -38,10 +39,13 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                
+                eh.HandleErrorExceptionSql(e);
             }
 
             catch (Exception ex)
+            {
+
+            }
           
         
        
