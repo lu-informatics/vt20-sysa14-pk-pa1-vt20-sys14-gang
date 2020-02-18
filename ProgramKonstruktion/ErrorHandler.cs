@@ -10,6 +10,12 @@ namespace ProgramKonstruktion
     
     {
 
+    public void SqlCodes ()
+        {
+            int primaryKey = 2627;
+            int 
+        }
+
         
 
     public string HandleErrorExceptionSql (SqlException e)
