@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connector.cs" />
+    <Compile Include="ErrorHandler.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantDAL.cs" />
