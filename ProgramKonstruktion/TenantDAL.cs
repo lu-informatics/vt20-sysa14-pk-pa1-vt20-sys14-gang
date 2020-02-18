@@ -52,7 +52,7 @@ namespace ProgramKonstruktion
         public Tenant UpdateTenant (Tenant tenant)
         {
             string query = "UPDATE Tenant" +
-                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = " + tenant.Ssn;
+                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = @ssn";
 
             SqlCommand command = new SqlCommand(query, SQLConnection);
 
