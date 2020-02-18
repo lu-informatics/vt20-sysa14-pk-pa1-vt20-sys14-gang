@@ -49,14 +49,14 @@ namespace ProgramKonstruktion
             return tenant;
             }
           
-        public Tenant UpdateTenant (Tenant tenant)
+        public Tenant UpdateTenant (string ssn)
         {
             string query = "UPDATE Tenant" +
-                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = " + tenant.Ssn;
-
+                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn =" + ssn;
+            Tenant tenant = new Tenant();
             SqlCommand command = new SqlCommand(query, SQLConnection);
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
@@ -78,13 +78,13 @@ namespace ProgramKonstruktion
         }
     
 
-    public Tenant DeleteTenantFromStorage(Tenant tenant)
+    public String DeleteTenantFromStorage(string ssn)
     {
-        string query = "DELETE Tenant FROM Storage WHERE tenantSsn = @ssn"; //tenant.ssn?
+        string query = "DELETE Tenant FROM Storage WHERE tenantSsn =" + ssn; 
 
         SqlCommand command = new SqlCommand(query, SQLConnection);
 
-        command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+        command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
         
 
         try
@@ -100,16 +100,16 @@ namespace ProgramKonstruktion
         {
             connect.CloseConnector();
         }
-        return tenant;
+        return "Storage booking has been removed from tenant";
     }
 
-        public Tenant DeleteTenant(Tenant tenant)
+        public String DeleteTenant(string ssn)
         {
-            string query = "DELETE Tenant WHERE ssn = @ssn"; //tenant.ssn?
+            string query = "DELETE Tenant WHERE ssn =" + ssn; 
 
             SqlCommand command = new SqlCommand(query, SQLConnection);
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
 
             try
@@ -125,16 +125,16 @@ namespace ProgramKonstruktion
             {
                 connect.CloseConnector();
             }
-            return tenant;
+            return "Tenant has been removed from database";
         }
 
-        public Tenant FindTenant (Tenant tenant)
+        public Tenant FindTenant (string ssn)
         {
-            string query = "SELECT * FROM Tenant WHERE ssn = @ssn"; //tenant.ssn?
-
+            string query = "SELECT * FROM Tenant WHERE ssn =" + ssn;
+            Tenant tenant = new Tenant();
             SqlCommand command = new SqlCommand(query, SQLConnection);
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
