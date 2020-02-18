@@ -23,11 +23,11 @@ namespace ProgramKonstruktion
             get => name;
             set => name = value;
         }
-        public string PhoneNumber {
+        public string PhoneNbr {
             get => phoneNbr;
             set => phoneNbr = value;
         }
-        public string EmailAddress {
+        public string Email {
             get => email;
             set => email = value;
         }
