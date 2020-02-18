@@ -12,41 +12,22 @@ namespace ProgramKonstruktion
     {
 
         private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = SIT; User Id = tgang; Password = tgang1;";
-        
 
-        public SqlConnection connection
-        {
-            get;
-            set;
-        }
-
-
-        public Connector() //constructor to database
-        {
-            OpenConnection();
-        }
-
-        public void OpenConnection()
+        private SqlConnection connection; 
+        public SqlConnection getConnection()
         {
             try
             {
                 connection = new SqlConnection(connectionString);
                 connection.Open();
-
-               // if (connection != null)
-               // {
-               //     Console.WriteLine("Det funkade!!! :)");
-               // }
-
-            } catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-
-            } catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                return connection;
             }
+          catch (SqlException sqlE) { 
+                //Errorhantering
+                    }
+            return null;
         }
+
 
         public void CloseConnector() 
         {

@@ -11,23 +11,24 @@ namespace ProgramKonstruktion
     class TenantDAL
     {
         private Connector connect = new Connector();
-        private SqlConnection SQLConnection;
+        private SqlConnection connection;
         private ErrorHandler errorHandler = new ErrorHandler();
 
         public TenantDAL() //constructor
         {
             connect = new Connector();
-            SQLConnection = connect.connection;
-
+            connection = connect.getConnection();
         }
 
         //Create tenant
-        public Tenant CreateTenant (Tenant tenant) 
+        public Boolean CreateTenant (Tenant tenant) 
         {
+            Boolean added = false;
             string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email)";
-
+   
             //Create command and add parameters
-            SqlCommand command = new SqlCommand(query, SQLConnection);
+            SqlCommand command = new SqlCommand(query, connection);
+
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
@@ -35,36 +36,47 @@ namespace ProgramKonstruktion
 
             try
             {
-                command.Connection.Open();
-                command.ExecuteNonQuery();
+               int affectedRows = command.ExecuteNonQuery();  
+                if (affectedRows == 1)
+                {
+                    added = true;
+                }
             }
             catch (SqlException e)
             {
                 errorHandler.HandleErrorExceptionSql(e);
             }
+            
+            catch (Exception e)
+            {
+                errorHandler.HandleExceptions(e);
+            }
             finally
             {
                 connect.CloseConnector();
             }
-            return tenant;
+            return added;
             }
           
-        public Tenant UpdateTenant (Tenant tenant)
-        {
+        public Tenant UpdateTenant (string ssn)
+        {   
+            
             string query = "UPDATE Tenant" +
-                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = " + tenant.Ssn;
+                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn =" + ssn;
 
-            SqlCommand command = new SqlCommand(query, SQLConnection);
+            Tenant tenant = new Tenant();
+            SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
 
             try
             {
-                command.Connection.Open();
-                command.ExecuteNonQuery();
+
+               command.ExecuteNonQuery();
+               
             }
             catch (SqlException e)
             {
@@ -78,20 +90,27 @@ namespace ProgramKonstruktion
         }
     
 
-    public Tenant DeleteTenantFromStorage(Tenant tenant)
+    public Boolean DeleteTenantFromStorage(string ssn)
+
     {
-        string query = "DELETE Tenant FROM Storage WHERE tenantSsn = @ssn"; //tenant.ssn?
+            Boolean deletedTenantFromStorage = false;
 
-        SqlCommand command = new SqlCommand(query, SQLConnection);
+        string query = "DELETE Tenant FROM Storage WHERE tenantSsn =" + ssn; 
 
-        command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+        SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
         
 
         try
         {
-            command.Connection.Open();
-            command.ExecuteNonQuery();
-        }
+
+                int affectedRows = command.ExecuteNonQuery();
+                if (affectedRows == 1)
+                {
+                    deletedTenantFromStorage = true;
+                }
+            }
         catch (SqlException e)
         {
             errorHandler.HandleErrorExceptionSql(e);
@@ -100,21 +119,28 @@ namespace ProgramKonstruktion
         {
             connect.CloseConnector();
         }
-        return tenant;
+            return deletedTenantFromStorage;
     }
 
-        public Tenant DeleteTenant(Tenant tenant)
+        public Boolean DeleteTenant(string ssn)
         {
-            string query = "DELETE Tenant WHERE ssn = @ssn"; //tenant.ssn?
+            Boolean deletedTenant = false;
 
-            SqlCommand command = new SqlCommand(query, SQLConnection);
+            string query = "DELETE Tenant WHERE ssn =" + ssn; 
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
 
             try
             {
-                command.Connection.Open();
+                int affectedRows = command.ExecuteNonQuery();
+
+                if (affectedRows == 1)
+                {
+                    deletedTenant = true;
+                }
                 command.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -125,23 +151,24 @@ namespace ProgramKonstruktion
             {
                 connect.CloseConnector();
             }
-            return tenant;
+            return deletedTenant;
         }
 
-        public Tenant FindTenant (Tenant tenant)
+        public Tenant FindTenant (string ssn)
         {
-            string query = "SELECT * FROM Tenant WHERE ssn = @ssn"; //tenant.ssn?
+            string query = "SELECT * FROM Tenant WHERE ssn =" + ssn;
 
-            SqlCommand command = new SqlCommand(query, SQLConnection);
-
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            Tenant tenant = new Tenant();
+            SqlCommand command = new SqlCommand(query, connection);
+            
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
 
             try
             {
-                command.Connection.Open();
+                
                 command.ExecuteNonQuery();
             }
             catch (SqlException e)
