@@ -10,14 +10,14 @@ namespace ProgramKonstruktion
 {
     class TenantDAL
     {
-        private Connector c = new Connector();
+        private Connector connect = new Connector();
         private SqlConnection SQLConnection;
-        private ErrorHandler eh = new ErrorHandler();
+        private ErrorHandler errorHandler = new ErrorHandler();
 
         public TenantDAL() //constructor
         {
-            c = new Connector();
-            SQLConnection = c.connection;
+            connect = new Connector();
+            SQLConnection = connect.connection;
 
         }
 
@@ -40,11 +40,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                eh.HandleErrorExceptionSql(e);
+                errorHandler.HandleErrorExceptionSql(e);
             }
             finally
             {
-                c.CloseConnector();
+                connect.CloseConnector();
             }
             return tenant;
             }
@@ -68,18 +68,96 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                eh.HandleErrorExceptionSql(e);
+                errorHandler.HandleErrorExceptionSql(e);
             }
             finally
             {
-                c.CloseConnector();
+                connect.CloseConnector();
+            }
+            return tenant;
+        }
+    
+
+    public Tenant DeleteTenantFromStorage(Tenant tenant)
+    {
+        string query = "DELETE Tenant FROM Storage WHERE tenantSsn = @ssn"; //tenant.ssn?
+
+        SqlCommand command = new SqlCommand(query, SQLConnection);
+
+        command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+        
+
+        try
+        {
+            command.Connection.Open();
+            command.ExecuteNonQuery();
+        }
+        catch (SqlException e)
+        {
+            errorHandler.HandleErrorExceptionSql(e);
+        }
+        finally
+        {
+            connect.CloseConnector();
+        }
+        return tenant;
+    }
+
+        public Tenant DeleteTenant(Tenant tenant)
+        {
+            string query = "DELETE Tenant WHERE ssn = @ssn"; //tenant.ssn?
+
+            SqlCommand command = new SqlCommand(query, SQLConnection);
+
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+
+
+            try
+            {
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return tenant;
+        }
+
+        public Tenant FindTenant (Tenant tenant)
+        {
+            string query = "SELECT * FROM Tenant WHERE ssn = @ssn"; //tenant.ssn?
+
+            SqlCommand command = new SqlCommand(query, SQLConnection);
+
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
+            command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
+            command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
+
+            try
+            {
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            finally
+            {
+                connect.CloseConnector();
             }
             return tenant;
         }
     }
+
         
 
 
-
     }
-}
+
