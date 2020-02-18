@@ -22,7 +22,7 @@ namespace ProgramKonstruktion
 
         public Tenant CreateTenant (Tenant tenant) 
         {
-            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email)";
+            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email)"; 
 
             //Create command and add parameters
             SqlCommand command = new SqlCommand(query, SQLConnection);
