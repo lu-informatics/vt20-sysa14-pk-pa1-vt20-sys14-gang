@@ -21,6 +21,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //Create tenant
         public Tenant CreateTenant (Tenant tenant) 
         {
             string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email)";
@@ -41,15 +42,41 @@ namespace ProgramKonstruktion
             {
                 eh.HandleErrorExceptionSql(e);
             }
-
-            catch (Exception ex)
+            finally
             {
-
+                c.CloseConnector();
+            }
+            return tenant;
             }
           
-        
-       
+        public Tenant UpdateTenant (Tenant tenant)
+        {
+            string query = "UPDATE Tenant" +
+                "SET ssn = @ssn, name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = " + tenant.Ssn;
+
+            SqlCommand command = new SqlCommand(query, SQLConnection);
+
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = tenant.Ssn;
+            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
+            command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
+            command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
+
+            try
+            {
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                eh.HandleErrorExceptionSql(e);
+            }
+            finally
+            {
+                c.CloseConnector();
+            }
+            return tenant;
         }
+    }
         
 
 
