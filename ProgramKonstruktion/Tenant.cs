@@ -13,8 +13,8 @@ namespace ProgramKonstruktion
         private string name;
         private string phoneNbr;
         private string email;
-      
 
+        private string blabla;
         public string Ssn {
             get => ssn;
             set => ssn = value;
