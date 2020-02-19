@@ -30,6 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -86,6 +89,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
 
+            this.label5 = new System.Windows.Forms.Label();
+
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -114,6 +119,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.monthCalendar2);
             this.tabPage1.Controls.Add(this.comboBox3);
             this.tabPage1.Controls.Add(this.button12);
@@ -144,6 +150,29 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // monthCalendar2
+            // 
+            this.monthCalendar2.Location = new System.Drawing.Point(216, 186);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 27;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(216, 153);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 26;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(622, 469);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(108, 23);
+            this.button12.TabIndex = 25;
+            this.button12.Text = "Delete Booking";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -154,7 +183,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(62, 170);
+            this.textBox11.Location = new System.Drawing.Point(62, 155);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(130, 20);
             this.textBox11.TabIndex = 22;
@@ -219,7 +248,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 312);
+            this.label4.Location = new System.Drawing.Point(59, 286);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 12;
@@ -228,7 +257,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 261);
+            this.label3.Location = new System.Drawing.Point(59, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 11;
@@ -237,7 +266,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 205);
+            this.label2.Location = new System.Drawing.Point(59, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 10;
@@ -246,7 +275,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 153);
+            this.label1.Location = new System.Drawing.Point(59, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 9;
@@ -261,21 +290,21 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(62, 328);
+            this.textBox5.Location = new System.Drawing.Point(62, 302);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(130, 20);
             this.textBox5.TabIndex = 7;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 277);
+            this.textBox3.Location = new System.Drawing.Point(62, 253);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(130, 20);
             this.textBox3.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(62, 221);
+            this.textBox2.Location = new System.Drawing.Point(62, 202);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(130, 20);
             this.textBox2.TabIndex = 3;
@@ -561,28 +590,13 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-
             // 
-            this.button12.Location = new System.Drawing.Point(622, 469);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(108, 23);
-            this.button12.TabIndex = 25;
-            this.button12.Text = "Delete Booking";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(216, 153);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 26;
-            // 
-            // monthCalendar2
-            // 
-            this.monthCalendar2.Location = new System.Drawing.Point(216, 186);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 27;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(213, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Select Storage";
             // 
             // pictureBox1
             // 
@@ -680,6 +694,7 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.MonthCalendar monthCalendar2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label5;
     }
 }
 
