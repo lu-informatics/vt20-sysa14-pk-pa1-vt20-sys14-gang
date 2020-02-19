@@ -15,8 +15,8 @@ namespace ProgramKonstruktion
 
         public string Nbr
         {
-            get => Nbr;
-            set => Nbr = value;
+            get => nbr;
+            set => nbr = value;
 
         }
         public double Price

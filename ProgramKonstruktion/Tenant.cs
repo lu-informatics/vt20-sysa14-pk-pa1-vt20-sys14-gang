@@ -14,7 +14,7 @@ namespace ProgramKonstruktion
         private string phoneNbr;
         private string email;
         private string storageNbr;
-        private DateTime rentDate;
+        private DateTime rentDate = new DateTime();
         private string storageAddress;
 
         public string Ssn {
@@ -37,7 +37,7 @@ namespace ProgramKonstruktion
             get => storageNbr;
             set => storageNbr = value;
         }
-        public string RentDate {
+        public DateTime RentDate {
             get => rentDate;
             set => rentDate = value;
         }

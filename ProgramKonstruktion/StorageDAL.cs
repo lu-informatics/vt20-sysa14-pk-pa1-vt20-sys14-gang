@@ -20,10 +20,10 @@ namespace ProgramKonstruktion
             connect = new Connector();
             connection = connect.getConnection();
         }
-        public Boolean CreateStorage(Storage storage)
+        public Boolean  CreateStorage(Storage storage)
         {
             Boolean added = false;
-            string query = "INSERT INTO Storage (storageNbr, price, size, address) VALUES (@storageNbr, @price, @size, @address)";
+            string query = "INSERT INTO Storage VALUES (@storageNbr, @price, @size, @address)";
 
             SqlCommand command = new SqlCommand(query, connection);
 

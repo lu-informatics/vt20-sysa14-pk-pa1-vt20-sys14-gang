@@ -151,6 +151,9 @@ namespace ProgramKonstruktion
                     tenant.Name = reader.GetString(1);
                     tenant.PhoneNbr = reader.GetString(2);
                     tenant.Email = reader.GetString(3);
+                    tenant.StorageNbr = reader.GetString(4);
+                    tenant.RentDate = reader.GetDateTime(5);
+                    tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)
