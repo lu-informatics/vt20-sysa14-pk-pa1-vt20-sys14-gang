@@ -8,15 +8,15 @@ namespace ProgramKonstruktion
 {
     class Storage
     {
-        private int storageNbr;
+        private string nbr;
         private double price;
         private double size;
         private string address;
-       
-        public int StorageNumber
+
+        public string Nbr
         {
-            get => storageNbr;
-            set => storageNbr = value;
+            get => Nbr;
+            set => Nbr = value;
 
         }
         public double Price

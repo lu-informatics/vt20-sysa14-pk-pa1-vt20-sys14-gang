@@ -28,7 +28,7 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.StorageNumber;
+            command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.Nbr;
             command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
             command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
@@ -56,7 +56,7 @@ namespace ProgramKonstruktion
             return added;
         }
 
-        public Storage UpdateStorage (string nbr, string price, string size, string address)
+        public Storage UpdateStorage(string nbr, string price, string size, string address)
         {
             string query = "UPDATE Storage" +
                 "SET price = @price, size = @size, WHERE nbr = @nbr AND address = @address";
@@ -70,7 +70,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
 
-        try
+            try
             {
 
                 command.ExecuteNonQuery();
@@ -91,5 +91,116 @@ namespace ProgramKonstruktion
             return storage;
         }
 
+        public Boolean DeleteStorage(string nbr, string address)
+        {
+            Boolean deletedStorage = false;
+            string query = "DELETE FROM Storage WHERE nbr = @nbr AND address = @address";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+
+            try
+            {
+                int affectedRows = command.ExecuteNonQuery();
+
+                if (affectedRows == 1)
+                {
+                    deletedStorage = true;
+                }
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return deletedStorage;
+        }
+
+        public Boolean DeleteTenantFromStorage (string nbr, string address)
+        {
+            Boolean deleteTenantFromStorage = false;
+            string query = "DELETE Tenant FROM Storage WHERE storageNbr = @storageNbr and storageAddress = @storageAddress";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = nbr;
+            command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
+
+            try
+            {
+                int affectedRows = command.ExecuteNonQuery();
+
+                if (affectedRows == 1)
+                {
+                    deleteTenantFromStorage = true;
+                }
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return deleteTenantFromStorage;
+        }
+
+        public Storage FindStorage(string nbr, string address)
+        {
+            string query = "SELECT * FROM Storage WHERE nbr = @nbr AND address = @address";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            Storage storage = new Storage();
+
+            command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    storage.Nbr = reader.GetString(1);
+                    storage.Price = reader.GetFloat(2);
+                    storage.Size = reader.GetFloat(3);
+                    storage.Address = reader.GetString(4);
+                   
+                }
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return storage;
+        }
+
     }
-}
+
+         }
+     
+
+   
+
