@@ -8,17 +8,15 @@ namespace ProgramKonstruktion
 {
     class Storage
     {
-        private int storageNbr;
+        private string nbr;
         private double price;
         private double size;
         private string address;
-        private string tenantSsn; //eller om vi ska ha privat Tenant tenant
-        private DateTime rentDate;
 
-        public int StorageNumber
+        public string Nbr
         {
-            get => storageNbr;
-            set => storageNbr = value;
+            get => nbr;
+            set => nbr = value;
 
         }
         public double Price
@@ -36,17 +34,7 @@ namespace ProgramKonstruktion
             get => address;
             set => address = value;
         }
-        public string TenantSsn
-        {
-            get => tenantSsn;
-            set => tenantSsn = value;
-        }
-        public DateTime RentDate
-        {
-            get => rentDate;
-            set => rentDate = value;
-        }
-
+       
 
     }
 }

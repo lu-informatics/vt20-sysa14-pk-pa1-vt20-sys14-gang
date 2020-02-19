@@ -13,8 +13,10 @@ namespace ProgramKonstruktion
         private string name;
         private string phoneNbr;
         private string email;
+        private string storageNbr;
+        private DateTime rentDate = new DateTime();
+        private string storageAddress;
 
-        private string blabla;
         public string Ssn {
             get => ssn;
             set => ssn = value;
@@ -31,6 +33,17 @@ namespace ProgramKonstruktion
             get => email;
             set => email = value;
         }
-       
+        public string StorageNbr {
+            get => storageNbr;
+            set => storageNbr = value;
+        }
+        public DateTime RentDate {
+            get => rentDate;
+            set => rentDate = value;
+        }
+        public string StorageAddress {
+            get => storageAddress;
+            set => storageAddress = value;
+        }
     }
 }
