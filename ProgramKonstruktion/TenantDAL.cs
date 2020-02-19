@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
@@ -24,7 +25,7 @@ namespace ProgramKonstruktion
         public Boolean CreateTenant(Tenant tenant)
         {
             Boolean added = false;
-            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email)";
+            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email, @storageNbr, @rentDate, @storageAddress)";
 
             //Create command and add parameters
             SqlCommand command = new SqlCommand(query, connection);
@@ -33,6 +34,11 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = tenant.Name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = tenant.PhoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
+            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
+            command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
+            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageAddress;
+
+
 
             try
             {
@@ -91,43 +97,6 @@ namespace ProgramKonstruktion
                 connect.CloseConnector();
             }
             return tenant;
-        }
-
-
-        public Boolean DeleteTenantFromStorage(string ssn)
-
-        {
-            Boolean deletedTenantFromStorage = false;
-
-            string query = "DELETE Tenant FROM Storage WHERE tenantSsn =@ssn";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-
-
-            try
-            {
-
-                int affectedRows = command.ExecuteNonQuery();
-                if (affectedRows == 1)
-                {
-                    deletedTenantFromStorage = true;
-                }
-            }
-            catch (SqlException e)
-            {
-                errorHandler.HandleErrorExceptionSql(e);
-            }
-            catch (Exception ex)
-            {
-                errorHandler.HandleExceptions(ex);
-            }
-            finally
-            {
-                connect.CloseConnector();
-            }
-            return deletedTenantFromStorage;
         }
 
         public Boolean DeleteTenant(string ssn)
