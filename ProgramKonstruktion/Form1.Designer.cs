@@ -29,87 +29,80 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.bookStorage = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.comboBoxStorage = new System.Windows.Forms.ComboBox();
+            this.deleteBookingBtn = new System.Windows.Forms.Button();
+            this.dataGridBookings = new System.Windows.Forms.DataGridView();
+            this.ssnBookTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.errorBoxBooking = new System.Windows.Forms.RichTextBox();
+            this.updateTenantBtn = new System.Windows.Forms.Button();
+            this.bookBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.ssnSearchTxt = new System.Windows.Forms.TextBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
+            this.phoneNbrTxt = new System.Windows.Forms.TextBox();
+            this.tenantNameTxt = new System.Windows.Forms.TextBox();
+            this.searchTenantBtn = new System.Windows.Forms.Button();
+            this.updateStorage = new System.Windows.Forms.TabPage();
+            this.errorBoxUpdateStorages = new System.Windows.Forms.RichTextBox();
+            this.storageSearchBtn = new System.Windows.Forms.Button();
+            this.storageNmbrSearch = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.updateStorageBtn = new System.Windows.Forms.Button();
+            this.addStorageBtn = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataGridStorages = new System.Windows.Forms.DataGridView();
+            this.storageLocationTxt = new System.Windows.Forms.TextBox();
+            this.storagePriceTxt = new System.Windows.Forms.TextBox();
+            this.storageSizeTxt = new System.Windows.Forms.TextBox();
+            this.storageNbrTxt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.programkonst2 = new System.Windows.Forms.TabPage();
+            this.numberOfRowsBtn = new System.Windows.Forms.Button();
+            this.allColumnNamesBtn = new System.Windows.Forms.Button();
+            this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
+            this.integration1 = new System.Windows.Forms.TabPage();
+            this.integrations2 = new System.Windows.Forms.TabPage();
+            this.ERP = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
 
 
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-
-
-            this.button12 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-
             this.label5 = new System.Windows.Forms.Label();
 
+
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.bookStorage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
+            this.updateStorage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).BeginInit();
+            this.programkonst2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.bookStorage);
+            this.tabControl1.Controls.Add(this.updateStorage);
+            this.tabControl1.Controls.Add(this.programkonst2);
+            this.tabControl1.Controls.Add(this.integration1);
+            this.tabControl1.Controls.Add(this.integrations2);
+            this.tabControl1.Controls.Add(this.ERP);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -117,76 +110,85 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPage1
+            // bookStorage
             // 
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.monthCalendar2);
-            this.tabPage1.Controls.Add(this.comboBox3);
-            this.tabPage1.Controls.Add(this.button12);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 511);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Book Storage";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.bookStorage.Controls.Add(this.label5);
+            this.bookStorage.Controls.Add(this.monthCalendar);
+            this.bookStorage.Controls.Add(this.comboBoxStorage);
+            this.bookStorage.Controls.Add(this.deleteBookingBtn);
+            this.bookStorage.Controls.Add(this.dataGridBookings);
+            this.bookStorage.Controls.Add(this.pictureBox1);
+            this.bookStorage.Controls.Add(this.ssnBookTxt);
+            this.bookStorage.Controls.Add(this.label11);
+            this.bookStorage.Controls.Add(this.label10);
+            this.bookStorage.Controls.Add(this.label7);
+            this.bookStorage.Controls.Add(this.errorBoxBooking);
+            this.bookStorage.Controls.Add(this.updateTenantBtn);
+            this.bookStorage.Controls.Add(this.bookBtn);
+            this.bookStorage.Controls.Add(this.label4);
+            this.bookStorage.Controls.Add(this.label3);
+            this.bookStorage.Controls.Add(this.label2);
+            this.bookStorage.Controls.Add(this.label1);
+            this.bookStorage.Controls.Add(this.ssnSearchTxt);
+            this.bookStorage.Controls.Add(this.emailTxt);
+            this.bookStorage.Controls.Add(this.phoneNbrTxt);
+            this.bookStorage.Controls.Add(this.tenantNameTxt);
+            this.bookStorage.Controls.Add(this.searchTenantBtn);
+            this.bookStorage.Location = new System.Drawing.Point(4, 22);
+            this.bookStorage.Name = "bookStorage";
+            this.bookStorage.Padding = new System.Windows.Forms.Padding(3);
+            this.bookStorage.Size = new System.Drawing.Size(768, 511);
+            this.bookStorage.TabIndex = 0;
+            this.bookStorage.Text = "Book Storage";
+            this.bookStorage.UseVisualStyleBackColor = true;
+            this.bookStorage.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // monthCalendar2
+            // label5
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(216, 186);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 27;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(213, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Select Storage";
             // 
-            // comboBox3
+            // monthCalendar
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(216, 153);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 26;
+            this.monthCalendar.Location = new System.Drawing.Point(216, 186);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 27;
             // 
-            // button12
+            // comboBoxStorage
             // 
-            this.button12.Location = new System.Drawing.Point(622, 469);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(108, 23);
-            this.button12.TabIndex = 25;
-            this.button12.Text = "Delete Booking";
-            this.button12.UseVisualStyleBackColor = true;
+            this.comboBoxStorage.FormattingEnabled = true;
+            this.comboBoxStorage.Location = new System.Drawing.Point(216, 153);
+            this.comboBoxStorage.Name = "comboBoxStorage";
+            this.comboBoxStorage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStorage.TabIndex = 26;
             // 
-            // dataGridView1
+            // deleteBookingBtn
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(470, 199);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(260, 257);
-            this.dataGridView1.TabIndex = 24;
+            this.deleteBookingBtn.Location = new System.Drawing.Point(622, 469);
+            this.deleteBookingBtn.Name = "deleteBookingBtn";
+            this.deleteBookingBtn.Size = new System.Drawing.Size(108, 23);
+            this.deleteBookingBtn.TabIndex = 25;
+            this.deleteBookingBtn.Text = "Delete Booking";
+            this.deleteBookingBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // dataGridBookings
             // 
-            this.textBox11.Location = new System.Drawing.Point(62, 155);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(130, 20);
-            this.textBox11.TabIndex = 22;
+            this.dataGridBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridBookings.Location = new System.Drawing.Point(470, 199);
+            this.dataGridBookings.Name = "dataGridBookings";
+            this.dataGridBookings.Size = new System.Drawing.Size(260, 257);
+            this.dataGridBookings.TabIndex = 24;
+            // 
+            // ssnBookTxt
+            // 
+            this.ssnBookTxt.Location = new System.Drawing.Point(62, 155);
+            this.ssnBookTxt.Name = "ssnBookTxt";
+            this.ssnBookTxt.Size = new System.Drawing.Size(130, 20);
+            this.ssnBookTxt.TabIndex = 22;
             // 
             // label11
             // 
@@ -219,31 +221,31 @@
             this.label7.Text = "Make new Booking";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // richTextBox1
+            // errorBoxBooking
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(62, 433);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(374, 59);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.errorBoxBooking.Location = new System.Drawing.Point(62, 433);
+            this.errorBoxBooking.Name = "errorBoxBooking";
+            this.errorBoxBooking.Size = new System.Drawing.Size(374, 59);
+            this.errorBoxBooking.TabIndex = 15;
+            this.errorBoxBooking.Text = "";
             // 
-            // button3
+            // updateTenantBtn
             // 
-            this.button3.Location = new System.Drawing.Point(262, 368);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Update";
-            this.button3.UseVisualStyleBackColor = true;
+            this.updateTenantBtn.Location = new System.Drawing.Point(262, 368);
+            this.updateTenantBtn.Name = "updateTenantBtn";
+            this.updateTenantBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateTenantBtn.TabIndex = 14;
+            this.updateTenantBtn.Text = "Update";
+            this.updateTenantBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bookBtn
             // 
-            this.button2.Location = new System.Drawing.Point(361, 368);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Book";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bookBtn.Location = new System.Drawing.Point(361, 368);
+            this.bookBtn.Name = "bookBtn";
+            this.bookBtn.Size = new System.Drawing.Size(75, 23);
+            this.bookBtn.TabIndex = 13;
+            this.bookBtn.Text = "Book";
+            this.bookBtn.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -281,95 +283,95 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Social Security Number";
             // 
-            // textBox6
+            // ssnSearchTxt
             // 
-            this.textBox6.Location = new System.Drawing.Point(470, 170);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(129, 20);
-            this.textBox6.TabIndex = 8;
+            this.ssnSearchTxt.Location = new System.Drawing.Point(470, 170);
+            this.ssnSearchTxt.Name = "ssnSearchTxt";
+            this.ssnSearchTxt.Size = new System.Drawing.Size(129, 20);
+            this.ssnSearchTxt.TabIndex = 8;
             // 
-            // textBox5
+            // emailTxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(62, 302);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 20);
-            this.textBox5.TabIndex = 7;
+            this.emailTxt.Location = new System.Drawing.Point(62, 302);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(130, 20);
+            this.emailTxt.TabIndex = 7;
             // 
-            // textBox3
+            // phoneNbrTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 253);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(130, 20);
-            this.textBox3.TabIndex = 4;
+            this.phoneNbrTxt.Location = new System.Drawing.Point(62, 253);
+            this.phoneNbrTxt.Name = "phoneNbrTxt";
+            this.phoneNbrTxt.Size = new System.Drawing.Size(130, 20);
+            this.phoneNbrTxt.TabIndex = 4;
             // 
-            // textBox2
+            // tenantNameTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(62, 202);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 3;
+            this.tenantNameTxt.Location = new System.Drawing.Point(62, 202);
+            this.tenantNameTxt.Name = "tenantNameTxt";
+            this.tenantNameTxt.Size = new System.Drawing.Size(130, 20);
+            this.tenantNameTxt.TabIndex = 3;
             // 
-            // button1
+            // searchTenantBtn
             // 
-            this.button1.Location = new System.Drawing.Point(655, 170);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.searchTenantBtn.Location = new System.Drawing.Point(655, 170);
+            this.searchTenantBtn.Name = "searchTenantBtn";
+            this.searchTenantBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchTenantBtn.TabIndex = 0;
+            this.searchTenantBtn.Text = "Search";
+            this.searchTenantBtn.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // updateStorage
             // 
-            this.tabPage3.Controls.Add(this.pictureBox3);
-            this.tabPage3.Controls.Add(this.richTextBox3);
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.textBox10);
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.textBox8);
-            this.tabPage3.Controls.Add(this.textBox7);
-            this.tabPage3.Controls.Add(this.textBox4);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(768, 511);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Update Storage";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.updateStorage.Controls.Add(this.pictureBox3);
+            this.updateStorage.Controls.Add(this.errorBoxUpdateStorages);
+            this.updateStorage.Controls.Add(this.storageSearchBtn);
+            this.updateStorage.Controls.Add(this.storageNmbrSearch);
+            this.updateStorage.Controls.Add(this.label18);
+            this.updateStorage.Controls.Add(this.button8);
+            this.updateStorage.Controls.Add(this.label17);
+            this.updateStorage.Controls.Add(this.updateStorageBtn);
+            this.updateStorage.Controls.Add(this.addStorageBtn);
+            this.updateStorage.Controls.Add(this.label16);
+            this.updateStorage.Controls.Add(this.label15);
+            this.updateStorage.Controls.Add(this.label14);
+            this.updateStorage.Controls.Add(this.dataGridStorages);
+            this.updateStorage.Controls.Add(this.storageLocationTxt);
+            this.updateStorage.Controls.Add(this.storagePriceTxt);
+            this.updateStorage.Controls.Add(this.storageSizeTxt);
+            this.updateStorage.Controls.Add(this.storageNbrTxt);
+            this.updateStorage.Controls.Add(this.label13);
+            this.updateStorage.Controls.Add(this.label12);
+            this.updateStorage.Location = new System.Drawing.Point(4, 22);
+            this.updateStorage.Name = "updateStorage";
+            this.updateStorage.Padding = new System.Windows.Forms.Padding(3);
+            this.updateStorage.Size = new System.Drawing.Size(768, 511);
+            this.updateStorage.TabIndex = 2;
+            this.updateStorage.Text = "Update Storage";
+            this.updateStorage.UseVisualStyleBackColor = true;
             // 
-            // richTextBox3
+            // errorBoxUpdateStorages
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(65, 403);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(331, 67);
-            this.richTextBox3.TabIndex = 17;
-            this.richTextBox3.Text = "";
+            this.errorBoxUpdateStorages.Location = new System.Drawing.Point(65, 403);
+            this.errorBoxUpdateStorages.Name = "errorBoxUpdateStorages";
+            this.errorBoxUpdateStorages.Size = new System.Drawing.Size(331, 67);
+            this.errorBoxUpdateStorages.TabIndex = 17;
+            this.errorBoxUpdateStorages.Text = "";
             // 
-            // button9
+            // storageSearchBtn
             // 
-            this.button9.Location = new System.Drawing.Point(654, 162);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "Search";
-            this.button9.UseVisualStyleBackColor = true;
+            this.storageSearchBtn.Location = new System.Drawing.Point(654, 162);
+            this.storageSearchBtn.Name = "storageSearchBtn";
+            this.storageSearchBtn.Size = new System.Drawing.Size(75, 23);
+            this.storageSearchBtn.TabIndex = 16;
+            this.storageSearchBtn.Text = "Search";
+            this.storageSearchBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox10
+            // storageNmbrSearch
             // 
-            this.textBox10.Location = new System.Drawing.Point(466, 164);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(130, 20);
-            this.textBox10.TabIndex = 15;
+            this.storageNmbrSearch.Location = new System.Drawing.Point(466, 164);
+            this.storageNmbrSearch.Name = "storageNmbrSearch";
+            this.storageNmbrSearch.Size = new System.Drawing.Size(130, 20);
+            this.storageNmbrSearch.TabIndex = 15;
             // 
             // label18
             // 
@@ -399,86 +401,86 @@
             this.label17.TabIndex = 12;
             this.label17.Text = "Storage Overview";
             // 
-            // button7
+            // updateStorageBtn
             // 
-            this.button7.Location = new System.Drawing.Point(219, 332);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
+            this.updateStorageBtn.Location = new System.Drawing.Point(227, 332);
+            this.updateStorageBtn.Name = "updateStorageBtn";
+            this.updateStorageBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateStorageBtn.TabIndex = 11;
+            this.updateStorageBtn.Text = "Update";
+            this.updateStorageBtn.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // addStorageBtn
             // 
-            this.button6.Location = new System.Drawing.Point(321, 332);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Add";
-            this.button6.UseVisualStyleBackColor = true;
+            this.addStorageBtn.Location = new System.Drawing.Point(321, 332);
+            this.addStorageBtn.Name = "addStorageBtn";
+            this.addStorageBtn.Size = new System.Drawing.Size(75, 23);
+            this.addStorageBtn.TabIndex = 10;
+            this.addStorageBtn.Text = "Add";
+            this.addStorageBtn.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(267, 232);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 13);
+            this.label16.Size = new System.Drawing.Size(48, 13);
             this.label16.TabIndex = 9;
-            this.label16.Text = "Address";
+            this.label16.Text = "Location";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(62, 232);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 13);
+            this.label15.Size = new System.Drawing.Size(67, 13);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Size";
+            this.label15.Text = "Storage Size";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(263, 148);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 7;
-            this.label14.Text = "Price";
+            this.label14.Text = "Storage Price";
             // 
-            // dataGridView3
+            // dataGridStorages
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(466, 191);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(263, 258);
-            this.dataGridView3.TabIndex = 6;
+            this.dataGridStorages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridStorages.Location = new System.Drawing.Point(466, 191);
+            this.dataGridStorages.Name = "dataGridStorages";
+            this.dataGridStorages.Size = new System.Drawing.Size(263, 258);
+            this.dataGridStorages.TabIndex = 6;
             // 
-            // textBox9
+            // storageLocationTxt
             // 
-            this.textBox9.Location = new System.Drawing.Point(266, 250);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(130, 20);
-            this.textBox9.TabIndex = 5;
+            this.storageLocationTxt.Location = new System.Drawing.Point(266, 250);
+            this.storageLocationTxt.Name = "storageLocationTxt";
+            this.storageLocationTxt.Size = new System.Drawing.Size(130, 20);
+            this.storageLocationTxt.TabIndex = 5;
             // 
-            // textBox8
+            // storagePriceTxt
             // 
-            this.textBox8.Location = new System.Drawing.Point(266, 164);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(130, 20);
-            this.textBox8.TabIndex = 4;
+            this.storagePriceTxt.Location = new System.Drawing.Point(266, 164);
+            this.storagePriceTxt.Name = "storagePriceTxt";
+            this.storagePriceTxt.Size = new System.Drawing.Size(130, 20);
+            this.storagePriceTxt.TabIndex = 4;
             // 
-            // textBox7
+            // storageSizeTxt
             // 
-            this.textBox7.Location = new System.Drawing.Point(65, 250);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(130, 20);
-            this.textBox7.TabIndex = 3;
+            this.storageSizeTxt.Location = new System.Drawing.Point(65, 250);
+            this.storageSizeTxt.Name = "storageSizeTxt";
+            this.storageSizeTxt.Size = new System.Drawing.Size(130, 20);
+            this.storageSizeTxt.TabIndex = 3;
             // 
-            // textBox4
+            // storageNbrTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(65, 164);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(130, 20);
-            this.textBox4.TabIndex = 2;
+            this.storageNbrTxt.Location = new System.Drawing.Point(65, 164);
+            this.storageNbrTxt.Name = "storageNbrTxt";
+            this.storageNbrTxt.Size = new System.Drawing.Size(130, 20);
+            this.storageNbrTxt.TabIndex = 2;
             // 
             // label13
             // 
@@ -502,72 +504,74 @@
             // tabPage4
             // 
 
-            this.tabPage4.Controls.Add(this.button11);
-            this.tabPage4.Controls.Add(this.button10);
-            this.tabPage4.Controls.Add(this.dataGridView4);
-
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(768, 511);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Programkonstruktion 2";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button11
+            
+            // programkonst2
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(458, 117);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 25);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "Number of Rows";
-            this.button11.UseVisualStyleBackColor = true;
+            this.programkonst2.Controls.Add(this.numberOfRowsBtn);
+            this.programkonst2.Controls.Add(this.allColumnNamesBtn);
+            this.programkonst2.Controls.Add(this.dataGridProgram2);
+            this.programkonst2.Location = new System.Drawing.Point(4, 22);
+            this.programkonst2.Name = "programkonst2";
+            this.programkonst2.Size = new System.Drawing.Size(768, 511);
+            this.programkonst2.TabIndex = 3;
+            this.programkonst2.Text = "Programkonstruktion 2";
+            this.programkonst2.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // numberOfRowsBtn
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(180, 117);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 25);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "All Column Names";
-            this.button10.UseVisualStyleBackColor = true;
+            this.numberOfRowsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfRowsBtn.Location = new System.Drawing.Point(458, 117);
+            this.numberOfRowsBtn.Name = "numberOfRowsBtn";
+            this.numberOfRowsBtn.Size = new System.Drawing.Size(150, 25);
+            this.numberOfRowsBtn.TabIndex = 2;
+            this.numberOfRowsBtn.Text = "Number of Rows";
+            this.numberOfRowsBtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // allColumnNamesBtn
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(83, 172);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(623, 303);
-            this.dataGridView4.TabIndex = 0;
+            this.allColumnNamesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allColumnNamesBtn.Location = new System.Drawing.Point(180, 117);
+            this.allColumnNamesBtn.Name = "allColumnNamesBtn";
+            this.allColumnNamesBtn.Size = new System.Drawing.Size(150, 25);
+            this.allColumnNamesBtn.TabIndex = 1;
+            this.allColumnNamesBtn.Text = "All Column Names";
+            this.allColumnNamesBtn.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
-
+            // dataGridProgram2
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(768, 511);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Interaktionsteknologier 1";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.dataGridProgram2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridProgram2.Location = new System.Drawing.Point(83, 172);
+            this.dataGridProgram2.Name = "dataGridProgram2";
+            this.dataGridProgram2.Size = new System.Drawing.Size(623, 303);
+            this.dataGridProgram2.TabIndex = 0;
             // 
-            // tabPage6
+            // integration1
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(768, 511);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Interaktionsteknologier 2";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.integration1.Location = new System.Drawing.Point(4, 22);
+            this.integration1.Name = "integration1";
+            this.integration1.Size = new System.Drawing.Size(768, 511);
+            this.integration1.TabIndex = 4;
+            this.integration1.Text = "Interaktionsteknologier 1";
+            this.integration1.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // integrations2
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(768, 511);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "ERP";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.integrations2.Location = new System.Drawing.Point(4, 22);
+            this.integrations2.Name = "integrations2";
+            this.integrations2.Size = new System.Drawing.Size(768, 511);
+            this.integrations2.TabIndex = 5;
+            this.integrations2.Text = "Interaktionsteknologier 2";
+            this.integrations2.UseVisualStyleBackColor = true;
+            // 
+            // ERP
+            // 
+            this.ERP.Location = new System.Drawing.Point(4, 22);
+            this.ERP.Name = "ERP";
+            this.ERP.Size = new System.Drawing.Size(768, 511);
+            this.ERP.TabIndex = 6;
+            this.ERP.Text = "ERP";
+            this.ERP.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -590,6 +594,7 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(213, 137);
@@ -619,6 +624,7 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,14 +634,14 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            this.bookStorage.ResumeLayout(false);
+            this.bookStorage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
+            this.updateStorage.ResumeLayout(false);
+            this.updateStorage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).EndInit();
+            this.programkonst2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -645,55 +651,55 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage bookStorage;
+        private System.Windows.Forms.Button searchTenantBtn;
+        private System.Windows.Forms.TabPage updateStorage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox ssnSearchTxt;
+        private System.Windows.Forms.TextBox emailTxt;
+        private System.Windows.Forms.TextBox phoneNbrTxt;
+        private System.Windows.Forms.TextBox tenantNameTxt;
+        private System.Windows.Forms.Button updateTenantBtn;
+        private System.Windows.Forms.Button bookBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox errorBoxBooking;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.RichTextBox errorBoxUpdateStorages;
+        private System.Windows.Forms.Button storageSearchBtn;
+        private System.Windows.Forms.TextBox storageNmbrSearch;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button updateStorageBtn;
+        private System.Windows.Forms.Button addStorageBtn;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridView dataGridStorages;
+        private System.Windows.Forms.TextBox storageLocationTxt;
+        private System.Windows.Forms.TextBox storagePriceTxt;
+        private System.Windows.Forms.TextBox storageSizeTxt;
+        private System.Windows.Forms.TextBox storageNbrTxt;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox ssnBookTxt;
+        private System.Windows.Forms.DataGridView dataGridBookings;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.MonthCalendar monthCalendar2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TabPage programkonst2;
+        private System.Windows.Forms.TabPage integration1;
+        private System.Windows.Forms.TabPage integrations2;
+        private System.Windows.Forms.TabPage ERP;
+        private System.Windows.Forms.Button numberOfRowsBtn;
+        private System.Windows.Forms.Button allColumnNamesBtn;
+        private System.Windows.Forms.DataGridView dataGridProgram2;
+        private System.Windows.Forms.Button deleteBookingBtn;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
+        private System.Windows.Forms.ComboBox comboBoxStorage;
         private System.Windows.Forms.Label label5;
     }
 }
