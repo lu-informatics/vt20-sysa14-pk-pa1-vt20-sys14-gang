@@ -29,9 +29,9 @@ namespace ProgramKonstruktion
 
 
             command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.StorageNumber;
-            command.Parameters.Add("@storageNbr", SqlDbType.Float).Value = storage.Price;
-            command.Parameters.Add("@storageNbr", SqlDbType.Float).Value = storage.Size;
-            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = storage.Address;
+            command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
+            command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
 
             try
             {
@@ -55,5 +55,41 @@ namespace ProgramKonstruktion
             }
             return added;
         }
+
+        public Storage UpdateStorage (string nbr, string price, string size, string address)
+        {
+            string query = "UPDATE Storage" +
+                "SET price = @price, size = @size, WHERE nbr = @nbr AND address = @address";
+
+            Storage storage = new Storage();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
+            command.Parameters.Add("@price", SqlDbType.NVarChar).Value = price;
+            command.Parameters.Add("@size", SqlDbType.NVarChar).Value = size;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+
+
+        try
+            {
+
+                command.ExecuteNonQuery();
+
+            }
+            catch (SqlException e)
+            {
+                errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return storage;
+        }
+
     }
 }
