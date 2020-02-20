@@ -21,8 +21,21 @@ namespace ProgramKonstruktion
             Connector c = new Connector();
 
 
-             TenantDAL dal2 = new TenantDAL();
-             Tenant tenant = new Tenant();
+            StorageDAL dal = new StorageDAL();
+            /* Storage storage = new Storage();
+             storage.Address = "Götagatan 10";
+             storage.Price = 150;
+             storage.Nbr = "13";
+             storage.Size = 11;*/
+            List<Storage> storages = dal.GetListOfStorages();
+            foreach (Storage s in storages) {
+                Console.WriteLine(s.Price);
+                
+            }
+
+
+         
+
             /* tenant.Email = "hej@";
              tenant.Name = "hej";
              tenant.PhoneNbr = "00";
@@ -35,8 +48,8 @@ namespace ProgramKonstruktion
                                            /*Tenant t = dal2.FindTenant("999");
                                            Console.WriteLine(t.Name);*/
 
-            Tenant t =dal2.FindTenant("99");
-            Console.WriteLine(t.Name);
+
+
 
 
             /*StorageDAL dal = new StorageDAL();
@@ -49,18 +62,18 @@ namespace ProgramKonstruktion
             dal.CreateStorage(storage);
             Console.WriteLine(storage.Address);*/
 
-         
 
-           /* TenantDAL dal = new TenantDAL();
-            Tenant tenant = new Tenant();
-            tenant.Ssn = "23";
-            tenant.Email = "hej@gmail.com";
-            tenant.PhoneNbr = "112";
-            tenant.StorageNbr = "4";
-            tenant.StorageAddress = storage.Address;
-             DateTime value = new DateTime(2018, 1, 10);
-             tenant.RentDate = value;
-            dal.CreateTenant(tenant);*/
+
+            /* TenantDAL dal = new TenantDAL();
+             Tenant tenant = new Tenant();
+             tenant.Ssn = "23";
+             tenant.Email = "hej@gmail.com";
+             tenant.PhoneNbr = "112";
+             tenant.StorageNbr = "4";
+             tenant.StorageAddress = storage.Address;
+              DateTime value = new DateTime(2018, 1, 10);
+              tenant.RentDate = value;
+             dal.CreateTenant(tenant);*/
 
 
             // Tenant finded = dal.FindTenant("23");

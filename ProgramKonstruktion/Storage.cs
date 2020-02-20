@@ -9,22 +9,35 @@ namespace ProgramKonstruktion
     class Storage
     {
         private string nbr;
-        private double price;
-        private double size;
+        private float price;
+        private float size;
         private string address;
 
+       public Storage (string nbr, float price, float size, string address)
+        {
+            this.nbr = nbr;
+            this.price = price;
+            this.size = size;
+            this.address = address;
+
+        }
+        
+        public Storage()
+        {
+
+        }
         public string Nbr
         {
             get => nbr;
             set => nbr = value;
 
         }
-        public double Price
+        public float Price
         {
             get => price;
             set => price = value;
         }
-        public double Size
+        public float Size
         {
             get => size;
             set => size = value;

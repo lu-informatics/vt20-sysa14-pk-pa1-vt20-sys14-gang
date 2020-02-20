@@ -21,6 +21,59 @@ namespace ProgramKonstruktion
             connection = connect.getConnection();
         }
 
+        public List<Tenant> GetTenantBookings()
+        {
+            List<Tenant> tenantBookings = new List<Tenant>();
+            string query = "Select * FROM Tenant JOIN Storage ON nbr = storageNbr AND address = storageAddress";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+
+                SqlDataReader reader = command.ExecuteReader();
+
+
+
+                while (reader.Read())
+                {
+
+                    Tenant tenant = new Tenant();
+                    {
+                        tenant.Name = reader.GetString(1);
+                        tenant.PhoneNbr = reader.GetString(2);
+                        tenant.Email = reader.GetString(3);
+                        tenant.StorageNbr = reader.GetString(4);
+                        tenant.RentDate = reader.GetDateTime(5);
+                        tenant.StorageAddress = reader.GetString(6);
+                    }
+
+                    tenantBookings.Add(tenant);
+                }
+                reader.Close();
+
+            }
+
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                errorHandler.HandleExceptions(ex);
+            }
+            finally
+            {
+                connect.CloseConnector();
+            }
+            return tenantBookings;
+        
+
+    }
+
+
+
         //Create tenant
         public Boolean CreateTenant(Tenant tenant)
         {
@@ -63,29 +116,29 @@ namespace ProgramKonstruktion
             return added;
         }
 
-        public Tenant UpdateTenant(string ssn, string name, string email, string phoneNbr)
+        public Tenant UpdateTenant(string ssn, string name, string phoneNbr, string email)
         {
 
-            string query = "UPDATE Tenant" +
-                "SET name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = @ssn";
+            string query = "UPDATE Tenant SET name = @name, phoneNbr = @phoneNbr, email = @email WHERE ssn = @ssn";
 
             Tenant tenant = new Tenant();
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
             command.Parameters.Add("@phoneNbr", SqlDbType.NVarChar).Value = phoneNbr;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
             try
             {
 
                 command.ExecuteNonQuery();
 
-            }
+            } 
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
             }
             catch (Exception ex)
             {
@@ -169,6 +222,8 @@ namespace ProgramKonstruktion
             }
             return tenant;
         }
+
+        
     }
 
 

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
@@ -20,6 +21,51 @@ namespace ProgramKonstruktion
             connect = new Connector();
             connection = connect.getConnection();
         }
+
+        public List<Storage> GetListOfStorages()
+        {
+            List<Storage> getListOfStorages = new List<Storage>();
+            string query = "SELECT * FROM Storage";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Storage storage = new Storage();
+                    {
+                        storage.Nbr = reader.GetString(1);
+                        storage.Price = reader.GetFloat(2);
+                        storage.Size = reader.GetFloat(3);
+                        storage.Address = reader.GetString(4);
+
+                    }
+                    getListOfStorages.Add(storage);
+                }
+                reader.Close();
+
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+               // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+               // errorHandler.HandleExceptions(e);
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return getListOfStorages;
+        }
+
         public Boolean  CreateStorage(Storage storage)
         {
             Boolean added = false;
@@ -56,39 +102,46 @@ namespace ProgramKonstruktion
             return added;
         }
 
-        public Storage UpdateStorage(string nbr, string price, string size, string address)
+        public Boolean UpdateStorage(string nbr, string address, float price, float size)
         {
-            string query = "UPDATE Storage" +
-                "SET price = @price, size = @size, WHERE nbr = @nbr AND address = @address";
+            Boolean updated = false;
+            string query = "UPDATE Storage SET price = @price, size = @size WHERE nbr = @nbr AND address = @address";
 
-            Storage storage = new Storage();
+            
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.Add("@price", SqlDbType.Float).Value = price;
+            command.Parameters.Add("@size", SqlDbType.Float).Value = size;
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-            command.Parameters.Add("@price", SqlDbType.NVarChar).Value = price;
-            command.Parameters.Add("@size", SqlDbType.NVarChar).Value = size;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
 
             try
             {
-
-                command.ExecuteNonQuery();
+                
+               int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected == 1)
+                {
+                    updated = true;
+                }
 
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+
+                MessageBox.Show(ex.Message);
+                // errorHandler.HandleExceptions(ex);
             }
             finally
             {
                 connect.CloseConnector();
             }
-            return storage;
+            return updated;
         }
 
         public Boolean DeleteStorage(string nbr, string address)
@@ -183,11 +236,14 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
+                //errorHandler.HandleErrorExceptionSql(e);
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+
+                MessageBox.Show(ex.Message);
+                //errorHandler.HandleExceptions(ex);
             }
             finally
             {
