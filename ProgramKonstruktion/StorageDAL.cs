@@ -169,7 +169,6 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
-
             try
             {
                 SqlDataReader reader = command.ExecuteReader();

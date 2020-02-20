@@ -36,9 +36,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
             command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
-            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageAddress;
-
-
+            command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = tenant.StorageAddress;
 
             try
             {
@@ -50,7 +48,8 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
+                //   errorHandler.HandleErrorExceptionSql(e);
             }
 
             catch (Exception e)
