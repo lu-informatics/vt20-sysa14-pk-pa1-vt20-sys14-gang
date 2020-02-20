@@ -213,6 +213,7 @@
             this.deleteBookingBtn.TabIndex = 25;
             this.deleteBookingBtn.Text = "Delete Booking";
             this.deleteBookingBtn.UseVisualStyleBackColor = true;
+            this.deleteBookingBtn.Click += new System.EventHandler(this.deleteBookingBtn_Click);
             // 
             // dataGridBookings
             // 

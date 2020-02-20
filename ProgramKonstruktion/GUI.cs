@@ -109,5 +109,30 @@ namespace ProgramKonstruktion
         {
 
         }
+
+        private void deleteBookingBtn_Click(object sender, EventArgs e)
+        {
+            //stores ssn from selected tenant
+            string ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
+
+            tenantDal.DeleteTenant(ssn);
+
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            List<Tenant> listOfTenantBookings = tenantDal.GetTenantBookings();
+            
+
+
+
+            foreach (Tenant t in listOfTenantBookings)
+            {
+                dataGridBookings.Rows.Add(t.Ssn, t.Name, t.PhoneNbr, t.Email, t.StorageNbr, t.RentDate, t.StorageAddress);
+            }
+        }
     }
+
+   
 }
