@@ -88,12 +88,17 @@ namespace ProgramKonstruktion
            
 
         }
-
+        //fungerar
         private void addStorageBtn_Click(object sender, EventArgs e)
         {
-            string nbr = storageNbrTxt.Text;
-            //float price = stora
+            storage.Nbr = storageNbrTxt.Text;
+            storage.Address = storagePriceTxt.Text;
+            //ToSingle eller ToDouble?
+            storage.Price = (float)Convert.ToSingle(storageLocationTxt.Text);
+            storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
+           
 
+            storageDal.CreateStorage(storage);
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -117,20 +122,42 @@ namespace ProgramKonstruktion
 
             tenantDal.DeleteTenant(ssn);
 
-            UpdateTable();
+           
+        }
+
+        private void dataGridStorages_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string ssn = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+            string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+
+            storageDal.DeleteStorage(ssn, address);
+
+           
         }
 
         public void UpdateTable()
         {
             List<Tenant> listOfTenantBookings = tenantDal.GetTenantBookings();
-            
-
-
-
+            List<Storage> listOfStorages = storageDal.GetListOfStorages();
             foreach (Tenant t in listOfTenantBookings)
             {
                 dataGridBookings.Rows.Add(t.Ssn, t.Name, t.PhoneNbr, t.Email, t.StorageNbr, t.RentDate, t.StorageAddress);
             }
+
+            foreach (Storage s in listOfStorages)
+            {
+                dataGridStorages.Rows.Add(s.Nbr, s.Price, s.Size, s.Address);
+            }
+        }
+
+        private void storageLocationTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

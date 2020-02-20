@@ -38,6 +38,15 @@
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
             this.deleteBookingBtn = new System.Windows.Forms.Button();
             this.dataGridBookings = new System.Windows.Forms.DataGridView();
+            this.ssnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storageNbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storageAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenantBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT2DataSet1 = new ProgramKonstruktion.StoreIT2DataSet1();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ssnBookTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,6 +78,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridStorages = new System.Windows.Forms.DataGridView();
+            this.nbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT2DataSet = new ProgramKonstruktion.StoreIT2DataSet();
             this.storageLocationTxt = new System.Windows.Forms.TextBox();
             this.storagePriceTxt = new System.Windows.Forms.TextBox();
             this.storageSizeTxt = new System.Windows.Forms.TextBox();
@@ -82,36 +97,21 @@
             this.integration1 = new System.Windows.Forms.TabPage();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.ERP = new System.Windows.Forms.TabPage();
-            this.storeIT2DataSet = new ProgramKonstruktion.StoreIT2DataSet();
-            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.storageTableAdapter = new ProgramKonstruktion.StoreIT2DataSetTableAdapters.StorageTableAdapter();
-            this.nbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeIT2DataSet1 = new ProgramKonstruktion.StoreIT2DataSet1();
-            this.tenantBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tenantTableAdapter = new ProgramKonstruktion.StoreIT2DataSet1TableAdapters.TenantTableAdapter();
-            this.ssnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storageNbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storageAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.updateStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -233,6 +233,58 @@
             this.dataGridBookings.Size = new System.Drawing.Size(546, 257);
             this.dataGridBookings.TabIndex = 24;
             this.dataGridBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBookings_CellContentClick);
+            // 
+            // ssnDataGridViewTextBoxColumn
+            // 
+            this.ssnDataGridViewTextBoxColumn.DataPropertyName = "ssn";
+            this.ssnDataGridViewTextBoxColumn.HeaderText = "ssn";
+            this.ssnDataGridViewTextBoxColumn.Name = "ssnDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // phoneNbrDataGridViewTextBoxColumn
+            // 
+            this.phoneNbrDataGridViewTextBoxColumn.DataPropertyName = "phoneNbr";
+            this.phoneNbrDataGridViewTextBoxColumn.HeaderText = "phoneNbr";
+            this.phoneNbrDataGridViewTextBoxColumn.Name = "phoneNbrDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // storageNbrDataGridViewTextBoxColumn
+            // 
+            this.storageNbrDataGridViewTextBoxColumn.DataPropertyName = "storageNbr";
+            this.storageNbrDataGridViewTextBoxColumn.HeaderText = "storageNbr";
+            this.storageNbrDataGridViewTextBoxColumn.Name = "storageNbrDataGridViewTextBoxColumn";
+            // 
+            // rentDateDataGridViewTextBoxColumn
+            // 
+            this.rentDateDataGridViewTextBoxColumn.DataPropertyName = "rentDate";
+            this.rentDateDataGridViewTextBoxColumn.HeaderText = "rentDate";
+            this.rentDateDataGridViewTextBoxColumn.Name = "rentDateDataGridViewTextBoxColumn";
+            // 
+            // storageAddressDataGridViewTextBoxColumn
+            // 
+            this.storageAddressDataGridViewTextBoxColumn.DataPropertyName = "storageAddress";
+            this.storageAddressDataGridViewTextBoxColumn.HeaderText = "storageAddress";
+            this.storageAddressDataGridViewTextBoxColumn.Name = "storageAddressDataGridViewTextBoxColumn";
+            // 
+            // tenantBindingSource
+            // 
+            this.tenantBindingSource.DataMember = "Tenant";
+            this.tenantBindingSource.DataSource = this.storeIT2DataSet1;
+            // 
+            // storeIT2DataSet1
+            // 
+            this.storeIT2DataSet1.DataSetName = "StoreIT2DataSet1";
+            this.storeIT2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -466,6 +518,7 @@
             this.button8.TabIndex = 13;
             this.button8.Text = "Delete Storage";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label17
             // 
@@ -537,6 +590,41 @@
             this.dataGridStorages.Name = "dataGridStorages";
             this.dataGridStorages.Size = new System.Drawing.Size(425, 258);
             this.dataGridStorages.TabIndex = 6;
+            this.dataGridStorages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStorages_CellContentClick);
+            // 
+            // nbrDataGridViewTextBoxColumn
+            // 
+            this.nbrDataGridViewTextBoxColumn.DataPropertyName = "nbr";
+            this.nbrDataGridViewTextBoxColumn.HeaderText = "nbr";
+            this.nbrDataGridViewTextBoxColumn.Name = "nbrDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "size";
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // storageBindingSource
+            // 
+            this.storageBindingSource.DataMember = "Storage";
+            this.storageBindingSource.DataSource = this.storeIT2DataSet;
+            // 
+            // storeIT2DataSet
+            // 
+            this.storeIT2DataSet.DataSetName = "StoreIT2DataSet";
+            this.storeIT2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // storageLocationTxt
             // 
@@ -544,6 +632,7 @@
             this.storageLocationTxt.Name = "storageLocationTxt";
             this.storageLocationTxt.Size = new System.Drawing.Size(130, 20);
             this.storageLocationTxt.TabIndex = 5;
+            this.storageLocationTxt.TextChanged += new System.EventHandler(this.storageLocationTxt_TextChanged);
             // 
             // storagePriceTxt
             // 
@@ -592,7 +681,7 @@
             this.programkonst2.Controls.Add(this.dataGridProgram2);
             this.programkonst2.Location = new System.Drawing.Point(4, 22);
             this.programkonst2.Name = "programkonst2";
-            this.programkonst2.Size = new System.Drawing.Size(768, 511);
+            this.programkonst2.Size = new System.Drawing.Size(1106, 626);
             this.programkonst2.TabIndex = 3;
             this.programkonst2.Text = "Programkonstruktion 2";
             this.programkonst2.UseVisualStyleBackColor = true;
@@ -629,7 +718,7 @@
             // 
             this.integration1.Location = new System.Drawing.Point(4, 22);
             this.integration1.Name = "integration1";
-            this.integration1.Size = new System.Drawing.Size(768, 511);
+            this.integration1.Size = new System.Drawing.Size(1106, 626);
             this.integration1.TabIndex = 4;
             this.integration1.Text = "Interaktionsteknologier 1";
             this.integration1.UseVisualStyleBackColor = true;
@@ -638,7 +727,7 @@
             // 
             this.integrations2.Location = new System.Drawing.Point(4, 22);
             this.integrations2.Name = "integrations2";
-            this.integrations2.Size = new System.Drawing.Size(768, 511);
+            this.integrations2.Size = new System.Drawing.Size(1106, 626);
             this.integrations2.TabIndex = 5;
             this.integrations2.Text = "Interaktionsteknologier 2";
             this.integrations2.UseVisualStyleBackColor = true;
@@ -647,104 +736,18 @@
             // 
             this.ERP.Location = new System.Drawing.Point(4, 22);
             this.ERP.Name = "ERP";
-            this.ERP.Size = new System.Drawing.Size(768, 511);
+            this.ERP.Size = new System.Drawing.Size(1106, 626);
             this.ERP.TabIndex = 6;
             this.ERP.Text = "ERP";
             this.ERP.UseVisualStyleBackColor = true;
-            // 
-            // storeIT2DataSet
-            // 
-            this.storeIT2DataSet.DataSetName = "StoreIT2DataSet";
-            this.storeIT2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // storageBindingSource
-            // 
-            this.storageBindingSource.DataMember = "Storage";
-            this.storageBindingSource.DataSource = this.storeIT2DataSet;
             // 
             // storageTableAdapter
             // 
             this.storageTableAdapter.ClearBeforeFill = true;
             // 
-            // nbrDataGridViewTextBoxColumn
-            // 
-            this.nbrDataGridViewTextBoxColumn.DataPropertyName = "nbr";
-            this.nbrDataGridViewTextBoxColumn.HeaderText = "nbr";
-            this.nbrDataGridViewTextBoxColumn.Name = "nbrDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // sizeDataGridViewTextBoxColumn
-            // 
-            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "size";
-            this.sizeDataGridViewTextBoxColumn.HeaderText = "size";
-            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // storeIT2DataSet1
-            // 
-            this.storeIT2DataSet1.DataSetName = "StoreIT2DataSet1";
-            this.storeIT2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tenantBindingSource
-            // 
-            this.tenantBindingSource.DataMember = "Tenant";
-            this.tenantBindingSource.DataSource = this.storeIT2DataSet1;
-            // 
             // tenantTableAdapter
             // 
             this.tenantTableAdapter.ClearBeforeFill = true;
-            // 
-            // ssnDataGridViewTextBoxColumn
-            // 
-            this.ssnDataGridViewTextBoxColumn.DataPropertyName = "ssn";
-            this.ssnDataGridViewTextBoxColumn.HeaderText = "ssn";
-            this.ssnDataGridViewTextBoxColumn.Name = "ssnDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // phoneNbrDataGridViewTextBoxColumn
-            // 
-            this.phoneNbrDataGridViewTextBoxColumn.DataPropertyName = "phoneNbr";
-            this.phoneNbrDataGridViewTextBoxColumn.HeaderText = "phoneNbr";
-            this.phoneNbrDataGridViewTextBoxColumn.Name = "phoneNbrDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // storageNbrDataGridViewTextBoxColumn
-            // 
-            this.storageNbrDataGridViewTextBoxColumn.DataPropertyName = "storageNbr";
-            this.storageNbrDataGridViewTextBoxColumn.HeaderText = "storageNbr";
-            this.storageNbrDataGridViewTextBoxColumn.Name = "storageNbrDataGridViewTextBoxColumn";
-            // 
-            // rentDateDataGridViewTextBoxColumn
-            // 
-            this.rentDateDataGridViewTextBoxColumn.DataPropertyName = "rentDate";
-            this.rentDateDataGridViewTextBoxColumn.HeaderText = "rentDate";
-            this.rentDateDataGridViewTextBoxColumn.Name = "rentDateDataGridViewTextBoxColumn";
-            // 
-            // storageAddressDataGridViewTextBoxColumn
-            // 
-            this.storageAddressDataGridViewTextBoxColumn.DataPropertyName = "storageAddress";
-            this.storageAddressDataGridViewTextBoxColumn.HeaderText = "storageAddress";
-            this.storageAddressDataGridViewTextBoxColumn.Name = "storageAddressDataGridViewTextBoxColumn";
             // 
             // GUI
             // 
@@ -759,17 +762,17 @@
             this.bookStorage.ResumeLayout(false);
             this.bookStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.updateStorage.ResumeLayout(false);
             this.updateStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
             this.programkonst2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

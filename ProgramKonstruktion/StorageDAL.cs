@@ -93,7 +93,10 @@ namespace ProgramKonstruktion
             }
             catch (Exception e)
             {
-                errorHandler.HandleExceptions(e);
+                MessageBox.Show(e.Message);
+
+               
+                // errorHandler.HandleExceptions(e);
             }
             finally
             {
