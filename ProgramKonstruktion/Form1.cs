@@ -45,5 +45,12 @@ namespace ProgramKonstruktion
         {
 
         }
+
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            
+                dateTxtBox.Text = monthCalendar.SelectionRange.Start.ToShortDateString();
+            
+        }
     }
 }

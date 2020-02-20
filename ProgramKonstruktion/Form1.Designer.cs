@@ -30,11 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.bookStorage = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
             this.deleteBookingBtn = new System.Windows.Forms.Button();
             this.dataGridBookings = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ssnBookTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,6 +55,7 @@
             this.tenantNameTxt = new System.Windows.Forms.TextBox();
             this.searchTenantBtn = new System.Windows.Forms.Button();
             this.updateStorage = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorBoxUpdateStorages = new System.Windows.Forms.RichTextBox();
             this.storageSearchBtn = new System.Windows.Forms.Button();
             this.storageNmbrSearch = new System.Windows.Forms.TextBox();
@@ -77,22 +81,15 @@
             this.integration1 = new System.Windows.Forms.TabPage();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.ERP = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-
-
-            this.label5 = new System.Windows.Forms.Label();
-
-
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.updateStorage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).BeginInit();
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,6 +109,8 @@
             // 
             // bookStorage
             // 
+            this.bookStorage.Controls.Add(this.label6);
+            this.bookStorage.Controls.Add(this.dateTxtBox);
             this.bookStorage.Controls.Add(this.label5);
             this.bookStorage.Controls.Add(this.monthCalendar);
             this.bookStorage.Controls.Add(this.comboBoxStorage);
@@ -143,6 +142,22 @@
             this.bookStorage.UseVisualStyleBackColor = true;
             this.bookStorage.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(333, 351);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Date Selected";
+            // 
+            // dateTxtBox
+            // 
+            this.dateTxtBox.Location = new System.Drawing.Point(336, 367);
+            this.dateTxtBox.Name = "dateTxtBox";
+            this.dateTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.dateTxtBox.TabIndex = 29;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -157,20 +172,21 @@
             this.monthCalendar.Location = new System.Drawing.Point(216, 186);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 27;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             // 
             // comboBoxStorage
             // 
             this.comboBoxStorage.FormattingEnabled = true;
             this.comboBoxStorage.Location = new System.Drawing.Point(216, 153);
             this.comboBoxStorage.Name = "comboBoxStorage";
-            this.comboBoxStorage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStorage.Size = new System.Drawing.Size(220, 21);
             this.comboBoxStorage.TabIndex = 26;
             // 
             // deleteBookingBtn
             // 
-            this.deleteBookingBtn.Location = new System.Drawing.Point(622, 469);
+            this.deleteBookingBtn.Location = new System.Drawing.Point(630, 469);
             this.deleteBookingBtn.Name = "deleteBookingBtn";
-            this.deleteBookingBtn.Size = new System.Drawing.Size(108, 23);
+            this.deleteBookingBtn.Size = new System.Drawing.Size(100, 23);
             this.deleteBookingBtn.TabIndex = 25;
             this.deleteBookingBtn.Text = "Delete Booking";
             this.deleteBookingBtn.UseVisualStyleBackColor = true;
@@ -182,6 +198,16 @@
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.Size = new System.Drawing.Size(260, 257);
             this.dataGridBookings.TabIndex = 24;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
+            this.pictureBox1.Location = new System.Drawing.Point(622, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // ssnBookTxt
             // 
@@ -231,20 +257,20 @@
             // 
             // updateTenantBtn
             // 
-            this.updateTenantBtn.Location = new System.Drawing.Point(262, 368);
+            this.updateTenantBtn.Location = new System.Drawing.Point(92, 393);
             this.updateTenantBtn.Name = "updateTenantBtn";
-            this.updateTenantBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.updateTenantBtn.TabIndex = 14;
-            this.updateTenantBtn.Text = "Update";
+            this.updateTenantBtn.Text = "Update Tenant";
             this.updateTenantBtn.UseVisualStyleBackColor = true;
             // 
             // bookBtn
             // 
-            this.bookBtn.Location = new System.Drawing.Point(361, 368);
+            this.bookBtn.Location = new System.Drawing.Point(336, 393);
             this.bookBtn.Name = "bookBtn";
-            this.bookBtn.Size = new System.Drawing.Size(75, 23);
+            this.bookBtn.Size = new System.Drawing.Size(100, 23);
             this.bookBtn.TabIndex = 13;
-            this.bookBtn.Text = "Book";
+            this.bookBtn.Text = "Book Storage";
             this.bookBtn.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -313,11 +339,11 @@
             // 
             // searchTenantBtn
             // 
-            this.searchTenantBtn.Location = new System.Drawing.Point(655, 170);
+            this.searchTenantBtn.Location = new System.Drawing.Point(630, 170);
             this.searchTenantBtn.Name = "searchTenantBtn";
-            this.searchTenantBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.searchTenantBtn.TabIndex = 0;
-            this.searchTenantBtn.Text = "Search";
+            this.searchTenantBtn.Text = "Search Tenant";
             this.searchTenantBtn.UseVisualStyleBackColor = true;
             // 
             // updateStorage
@@ -348,6 +374,17 @@
             this.updateStorage.TabIndex = 2;
             this.updateStorage.Text = "Update Storage";
             this.updateStorage.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
+            this.pictureBox3.Location = new System.Drawing.Point(622, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(140, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // errorBoxUpdateStorages
             // 
@@ -422,7 +459,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(267, 232);
+            this.label16.Location = new System.Drawing.Point(263, 148);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(48, 13);
             this.label16.TabIndex = 9;
@@ -440,7 +477,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(263, 148);
+            this.label14.Location = new System.Drawing.Point(263, 234);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 7;
@@ -501,11 +538,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Update Storage Units";
             // 
-            // tabPage4
-            // 
-
-            // 
-            
             // programkonst2
             // 
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
@@ -573,58 +605,6 @@
             this.ERP.Text = "ERP";
             this.ERP.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
-            this.pictureBox1.Location = new System.Drawing.Point(622, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
-            this.pictureBox3.Location = new System.Drawing.Point(622, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(140, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(213, 137);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Select Storage";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
-            this.pictureBox1.Location = new System.Drawing.Point(622, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
-            this.pictureBox3.Location = new System.Drawing.Point(622, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(140, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,13 +617,13 @@
             this.bookStorage.ResumeLayout(false);
             this.bookStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.updateStorage.ResumeLayout(false);
             this.updateStorage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).EndInit();
             this.programkonst2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,6 +681,8 @@
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ComboBox comboBoxStorage;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox dateTxtBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 
