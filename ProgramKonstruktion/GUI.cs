@@ -27,15 +27,15 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
        
 
-        private void SetAllStoragesToComboBox()
+        public void SetAllStoragesToComboBox()
         {
-           
-            List<Tenant> listOfTenants = tenantDal.GetTenantBookings();
-           foreach (Tenant t in listOfTenants)
+            comboBoxStorage.Text = "Select available storage";
+            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
+           foreach (Storage s in listOfStorage)
             {
-                string storageInfo = t.Ssn;
+               
+            comboBoxStorage.Items.Add(s);
                 
-                comboBoxStorage.Items.Add(storageInfo);
                 
 
             }
@@ -100,13 +100,22 @@ namespace ProgramKonstruktion
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
+            cleanBoxes();
             tenant.Ssn = ssnBookTxt.Text;
             tenant.Name = tenantNameTxt.Text;
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
+            // Storage storage = comboBoxStorage
+            
+            Object selectedItem = comboBoxStorage.SelectedItem;
+            var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
+
+          //  tenant.StorageAddress = comboBoxStorage.SelectedValue.ToString();
+            tenant.RentDate = monthCalendar.SelectionRange.Start;
+
+            tenantDal.CreateTenant(tenant);
 
         }
-
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
            
@@ -134,6 +143,8 @@ namespace ProgramKonstruktion
 
         private void GUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'storeIT2DataSet3.Storage' table. You can move, or remove it, as needed.
+            this.storageTableAdapter1.Fill(this.storeIT2DataSet3.Storage);
             // TODO: This line of code loads data into the 'storeIT2DataSet2.Tenant' table. You can move, or remove it, as needed.
             this.tenantTableAdapter1.Fill(this.storeIT2DataSet2.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet1.Tenant' table. You can move, or remove it, as needed.

@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StoreIT2DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StoreIT2DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreIT2DataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantDAL.cs" />
     <Compile Include="StorageDAL.cs" />
@@ -129,6 +134,17 @@
     </None>
     <None Include="StoreIT2DataSet2.xss">
       <DependentUpon>StoreIT2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT2DataSet3.xsc">
+      <DependentUpon>StoreIT2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT2DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StoreIT2DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StoreIT2DataSet3.xss">
+      <DependentUpon>StoreIT2DataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

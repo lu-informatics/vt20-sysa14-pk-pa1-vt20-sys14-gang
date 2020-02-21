@@ -21,17 +21,7 @@ namespace ProgramKonstruktion
             Connector c = new Connector();
 
 
-            StorageDAL dal = new StorageDAL();
-            /* Storage storage = new Storage();
-             storage.Address = "Götagatan 10";
-             storage.Price = 150;
-             storage.Nbr = "13";
-             storage.Size = 11;*/
-           List<Storage> storages = dal.GetListOfStorages();
-            foreach (Storage s in storages) {
-                Console.WriteLine(s.Price);
-                
-            }
+          
 
 
          
@@ -52,8 +42,14 @@ namespace ProgramKonstruktion
 
 
 
-            /*StorageDAL dal = new StorageDAL();
-            Storage storage = new Storage();
+           StorageDAL dal2 = new StorageDAL();
+           List<Storage> listOfAS = dal2.listOfAvailableStorages();
+
+            foreach(Storage s in listOfAS)
+            {
+                Console.WriteLine(s.Nbr);
+            }
+           /* Storage storage = new Storage();
             storage.Address = "Fågelvägen 1";
             storage.Nbr = "15";
             storage.Price = 9000;

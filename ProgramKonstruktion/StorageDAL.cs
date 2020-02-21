@@ -22,6 +22,7 @@ namespace ProgramKonstruktion
             connection = connect.getConnection();
         }
 
+        //VARFÖR I HELVETE FUNGER AR INTE DENNA?!??!?!?!?!
         public List<Storage> GetListOfStorages()
         {
             List<Storage> getListOfStorages = new List<Storage>();
@@ -39,10 +40,10 @@ namespace ProgramKonstruktion
                 {
                     Storage storage = new Storage();
                     {
-                        storage.Nbr = reader.GetString(1);
-                        storage.Price = reader.GetFloat(2);
-                        storage.Size = reader.GetFloat(3);
-                        storage.Address = reader.GetString(4);
+                        storage.Nbr = reader.GetString(0);
+                        storage.Price = reader.GetFloat(1);
+                        storage.Size = reader.GetFloat(2);
+                        storage.Address = reader.GetString(3);
 
                     }
                     getListOfStorages.Add(storage);
@@ -69,7 +70,54 @@ namespace ProgramKonstruktion
             return getListOfStorages;
         }
 
-        public Boolean  CreateStorage(Storage storage)
+        public List<Storage> listOfAvailableStorages()
+        {
+            List<Storage> getListOfAvailableStorages = new List<Storage>();
+            string query = "Select nbr, address FROM Storage WHERE NOT EXISTS( Select storageNbr, storageAddress FROM Tenant WHERE nbr = storageNbr AND address = storageAddress)";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            { 
+                SqlDataReader reader = command.ExecuteReader();
+
+
+
+                while (reader.Read())
+                {
+                    Storage storage = new Storage();
+                    {
+                        storage.Nbr = reader.GetString(0);
+                        storage.Address = reader.GetString(1);
+                    }
+                    getListOfAvailableStorages.Add(storage);
+                }
+                reader.Close();
+
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleExceptions(e);
+
+            }
+            finally
+            {
+                connection.Close();
+                connect.CloseConnector();
+
+            }
+            return getListOfAvailableStorages;
+        }
+
+    
+
+    public Boolean  CreateStorage(Storage storage)
         {
             Boolean added = false;
             string query = "INSERT INTO Storage VALUES (@storageNbr, @price, @size, @address)";
@@ -240,10 +288,10 @@ namespace ProgramKonstruktion
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    storage.Nbr = reader.GetString(1);
-                    storage.Price = reader.GetFloat(2);
-                    storage.Size = reader.GetFloat(3);
-                    storage.Address = reader.GetString(4);
+                    storage.Nbr = reader.GetString(0);
+                    storage.Price = reader.GetFloat(1);
+                    storage.Size = reader.GetFloat(2);
+                    storage.Address = reader.GetString(3);
                    
                 }
             }
