@@ -109,10 +109,9 @@ namespace ProgramKonstruktion
             
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
-
-          //  tenant.StorageAddress = comboBoxStorage.SelectedValue.ToString();
+            tenant.StorageNbr = selected;
+            tenant.StorageAddress = "Fågelvägen 43"; 
             tenant.RentDate = monthCalendar.SelectionRange.Start;
-
             tenantDal.CreateTenant(tenant);
 
         }
