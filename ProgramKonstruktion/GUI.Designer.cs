@@ -204,6 +204,7 @@
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(220, 21);
             this.comboBoxStorage.TabIndex = 26;
+            this.comboBoxStorage.SelectedIndexChanged += new System.EventHandler(this.comboBoxStorage_SelectedIndexChanged);
             // 
             // deleteBookingBtn
             // 
@@ -350,6 +351,7 @@
             this.updateTenantBtn.TabIndex = 14;
             this.updateTenantBtn.Text = "Update Tenant";
             this.updateTenantBtn.UseVisualStyleBackColor = true;
+            this.updateTenantBtn.Click += new System.EventHandler(this.updateTenantBtn_Click);
             // 
             // bookBtn
             // 
@@ -538,6 +540,7 @@
             this.updateStorageBtn.TabIndex = 11;
             this.updateStorageBtn.Text = "Update";
             this.updateStorageBtn.UseVisualStyleBackColor = true;
+            this.updateStorageBtn.Click += new System.EventHandler(this.updateStorageBtn_Click);
             // 
             // addStorageBtn
             // 

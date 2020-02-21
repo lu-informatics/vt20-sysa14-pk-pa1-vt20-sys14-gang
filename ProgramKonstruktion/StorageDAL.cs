@@ -105,12 +105,12 @@ namespace ProgramKonstruktion
             return added;
         }
 
-        public Boolean UpdateStorage(string nbr, string address, float price, float size)
+        public Storage UpdateStorage(string nbr, string address, float price, float size)
         {
-            Boolean updated = false;
+           
             string query = "UPDATE Storage SET price = @price, size = @size WHERE nbr = @nbr AND address = @address";
 
-            
+            Storage storage = new Storage();
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@price", SqlDbType.Float).Value = price;
@@ -121,30 +121,32 @@ namespace ProgramKonstruktion
 
             try
             {
-                
-               int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected == 1)
-                {
-                    updated = true;
-                }
+               command.ExecuteNonQuery();
+                storage.Price = price;
+                storage.Size = size;
+                storage.Nbr = nbr;
+                storage.Address = address;
+                     
 
             }
             catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
                 // errorHandler.HandleErrorExceptionSql(e);
+                return null;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
                 // errorHandler.HandleExceptions(ex);
+                return null;
             }
             finally
             {
                 connect.CloseConnector();
             }
-            return updated;
+            return storage;
         }
 
         public Boolean DeleteStorage(string nbr, string address)
@@ -168,11 +170,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+                MessageBox.Show(ex.Message);
             }
             finally
             {

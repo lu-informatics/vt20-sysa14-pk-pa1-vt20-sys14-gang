@@ -133,16 +133,21 @@ namespace ProgramKonstruktion
             {
 
                 command.ExecuteNonQuery();
-
+                tenant.Name = name;
+                tenant.PhoneNbr = phoneNbr;
+                tenant.Email = email;
+                tenant.Ssn = ssn;
             } 
             catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
                 // errorHandler.HandleErrorExceptionSql(e);
+                return null;
             }
             catch (Exception ex)
             {
                 errorHandler.HandleExceptions(ex);
+                return null;
             }
             finally
             {

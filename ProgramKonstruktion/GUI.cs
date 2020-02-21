@@ -15,6 +15,7 @@ namespace ProgramKonstruktion
         public GUI()
         {
             InitializeComponent();
+
         }
 
         private TenantDAL tenantDal = new TenantDAL();
@@ -80,6 +81,10 @@ namespace ProgramKonstruktion
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
+            tenant.Ssn = ssnBookTxt.Text;
+            tenant.Name = tenantNameTxt.Text;
+            tenant.PhoneNbr = phoneNbrTxt.Text;
+            tenant.Email = emailTxt.Text;
 
         }
 
@@ -98,7 +103,14 @@ namespace ProgramKonstruktion
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
            
 
-            storageDal.CreateStorage(storage);
+            Boolean added = storageDal.CreateStorage(storage);
+            if (!added)
+            {
+                    errorBoxUpdateStorages.Text = "Failed to add, try again";
+                }
+                else { 
+                    errorBoxUpdateStorages.Text = "Storage was added succefully!";
+            }
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -115,14 +127,23 @@ namespace ProgramKonstruktion
 
         }
 
+        //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
         {
-            //stores ssn from selected tenant
+            cleanBoxes();
             string ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
 
-            tenantDal.DeleteTenant(ssn);
+            Boolean deleted = tenantDal.DeleteTenant(ssn);
 
-           
+            if (!deleted)
+            {
+                errorBoxBooking.Text = "Failed to delete, try again!";
+            }
+            else
+            {
+                errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
+            }
+
         }
 
         private void dataGridStorages_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,36 +151,85 @@ namespace ProgramKonstruktion
 
         }
 
+        //fungerar ej
         private void button8_Click(object sender, EventArgs e)
         {
+            cleanBoxes();
             string ssn = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
-            string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+            string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
-            storageDal.DeleteStorage(ssn, address);
+            Boolean deleted = storageDal.DeleteStorage(ssn, address);
+            if (!deleted)
+            {
+                errorBoxUpdateStorages.Text = "Failed, try again";
+            }
+            else
+                errorBoxUpdateStorages.Text = "Storage was deleted succefully!";
 
            
         }
 
-        public void UpdateTable()
-        {
-            List<Tenant> listOfTenantBookings = tenantDal.GetTenantBookings();
-            List<Storage> listOfStorages = storageDal.GetListOfStorages();
-            foreach (Tenant t in listOfTenantBookings)
-            {
-                dataGridBookings.Rows.Add(t.Ssn, t.Name, t.PhoneNbr, t.Email, t.StorageNbr, t.RentDate, t.StorageAddress);
-            }
-
-            foreach (Storage s in listOfStorages)
-            {
-                dataGridStorages.Rows.Add(s.Nbr, s.Price, s.Size, s.Address);
-            }
-        }
 
         private void storageLocationTxt_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void comboBoxStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateTenantBtn_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            tenant.Ssn = ssnBookTxt.Text;
+            tenant.Name = tenantNameTxt.Text;
+            tenant.PhoneNbr = phoneNbrTxt.Text;
+            tenant.Email = emailTxt.Text;
+
+            Tenant updated = tenantDal.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
+
+            if(updated == null)
+            {
+                errorBoxBooking.Text = "Failed to update, try again!";
+            } 
+            else
+            {
+                errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
+            }
+
+        }
+
+        private void updateStorageBtn_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            storage.Nbr = storageNbrTxt.Text;
+            storage.Address = storagePriceTxt.Text;
+            //ToSingle eller ToDouble?
+            storage.Price = (float)Convert.ToSingle(storageLocationTxt.Text);
+            storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
+
+
+            Storage updated = storageDal.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
+            if (updated == null)
+            {
+                errorBoxUpdateStorages.Text = "Failed to update, try again";
+            }
+            else
+            {
+                errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
+            }
+        }
+
+        public void cleanBoxes()
+        {
+            errorBoxUpdateStorages.Text = "";
+            errorBoxBooking.Text = "";
+
+
+        }
+    }
     }
 
-   
-}
+  
