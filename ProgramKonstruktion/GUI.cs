@@ -142,6 +142,7 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
+                
             }
 
         }
@@ -219,6 +220,7 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
+
             }
         }
 

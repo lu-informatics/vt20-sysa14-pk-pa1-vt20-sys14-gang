@@ -30,7 +30,7 @@ namespace ProgramKonstruktion
 
             try
             {
-
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
 
@@ -93,6 +93,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
                 if (affectedRows == 1)
                 {
@@ -131,7 +132,7 @@ namespace ProgramKonstruktion
 
             try
             {
-
+                connection.Open();
                 command.ExecuteNonQuery();
                 tenant.Name = name;
                 tenant.PhoneNbr = phoneNbr;
@@ -169,20 +170,25 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
 
                 if (affectedRows == 1)
                 {
                     deletedTenant = true;
+                    
                 }
+                
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
+                //errorHandler.HandleErrorExceptionSql(e);
             }
-            catch (Exception ex)
-            {
-                errorHandler.HandleExceptions(ex);
+            catch (Exception ex) {
+
+                MessageBox.Show(ex.Message);
+               // errorHandler.HandleExceptions(ex);
             }
             finally
             {
@@ -200,9 +206,12 @@ namespace ProgramKonstruktion
 
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
+            SqlDataReader reader = command.ExecuteReader();
+
             try
             {
-                SqlDataReader reader = command.ExecuteReader();
+                
+                connection.Open();
                 while (reader.Read())
                 {
                     tenant.Name = reader.GetString(1);

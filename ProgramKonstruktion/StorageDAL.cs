@@ -31,6 +31,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -81,6 +82,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
                 if (affectedRows == 1)
                 {
@@ -121,6 +123,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connrction.Open();
                command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;
@@ -161,6 +164,8 @@ namespace ProgramKonstruktion
 
             try
             {
+
+                connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
 
                 if (affectedRows == 1)
@@ -195,6 +200,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
 
                 if (affectedRows == 1)
