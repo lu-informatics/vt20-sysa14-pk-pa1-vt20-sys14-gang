@@ -36,6 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
+            this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.deleteBookingBtn = new System.Windows.Forms.Button();
             this.dataGridBookings = new System.Windows.Forms.DataGridView();
             this.ssnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,8 +100,13 @@
             this.ERP = new System.Windows.Forms.TabPage();
             this.storageTableAdapter = new ProgramKonstruktion.StoreIT2DataSetTableAdapters.StorageTableAdapter();
             this.tenantTableAdapter = new ProgramKonstruktion.StoreIT2DataSet1TableAdapters.TenantTableAdapter();
+            this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT2DataSet2 = new ProgramKonstruktion.StoreIT2DataSet2();
+            this.tenantBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tenantTableAdapter1 = new ProgramKonstruktion.StoreIT2DataSet2TableAdapters.TenantTableAdapter();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).BeginInit();
@@ -112,6 +118,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -199,12 +208,19 @@
             // 
             // comboBoxStorage
             // 
+            this.comboBoxStorage.DataSource = this.tenantBindingSource1;
+            this.comboBoxStorage.DisplayMember = "ssn";
             this.comboBoxStorage.FormattingEnabled = true;
             this.comboBoxStorage.Location = new System.Drawing.Point(216, 153);
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(220, 21);
             this.comboBoxStorage.TabIndex = 26;
+            this.comboBoxStorage.ValueMember = "ssn";
             this.comboBoxStorage.SelectedIndexChanged += new System.EventHandler(this.comboBoxStorage_SelectedIndexChanged);
+            // 
+            // storageBindingSource2
+            // 
+            this.storageBindingSource2.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
             // deleteBookingBtn
             // 
@@ -318,7 +334,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(467, 153);
+            this.label10.Location = new System.Drawing.Point(59, 374);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 13);
             this.label10.TabIndex = 17;
@@ -345,7 +361,7 @@
             // 
             // updateTenantBtn
             // 
-            this.updateTenantBtn.Location = new System.Drawing.Point(92, 393);
+            this.updateTenantBtn.Location = new System.Drawing.Point(92, 341);
             this.updateTenantBtn.Name = "updateTenantBtn";
             this.updateTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.updateTenantBtn.TabIndex = 14;
@@ -401,7 +417,7 @@
             // 
             // ssnSearchTxt
             // 
-            this.ssnSearchTxt.Location = new System.Drawing.Point(470, 170);
+            this.ssnSearchTxt.Location = new System.Drawing.Point(63, 396);
             this.ssnSearchTxt.Name = "ssnSearchTxt";
             this.ssnSearchTxt.Size = new System.Drawing.Size(129, 20);
             this.ssnSearchTxt.TabIndex = 8;
@@ -430,7 +446,7 @@
             // 
             // searchTenantBtn
             // 
-            this.searchTenantBtn.Location = new System.Drawing.Point(630, 170);
+            this.searchTenantBtn.Location = new System.Drawing.Point(216, 393);
             this.searchTenantBtn.Name = "searchTenantBtn";
             this.searchTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.searchTenantBtn.TabIndex = 0;
@@ -752,6 +768,24 @@
             // 
             this.tenantTableAdapter.ClearBeforeFill = true;
             // 
+            // storageBindingSource1
+            // 
+            this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
+            // 
+            // storeIT2DataSet2
+            // 
+            this.storeIT2DataSet2.DataSetName = "StoreIT2DataSet2";
+            this.storeIT2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tenantBindingSource1
+            // 
+            this.tenantBindingSource1.DataMember = "Tenant";
+            this.tenantBindingSource1.DataSource = this.storeIT2DataSet2;
+            // 
+            // tenantTableAdapter1
+            // 
+            this.tenantTableAdapter1.ClearBeforeFill = true;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -764,6 +798,7 @@
             this.tabControl1.ResumeLayout(false);
             this.bookStorage.ResumeLayout(false);
             this.bookStorage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).EndInit();
@@ -776,6 +811,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
             this.programkonst2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -852,6 +890,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn storageNbrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn storageAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource storageBindingSource1;
+        private System.Windows.Forms.BindingSource storageBindingSource2;
+        private StoreIT2DataSet2 storeIT2DataSet2;
+        private System.Windows.Forms.BindingSource tenantBindingSource1;
+        private StoreIT2DataSet2TableAdapters.TenantTableAdapter tenantTableAdapter1;
     }
 
    

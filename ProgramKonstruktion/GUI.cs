@@ -15,14 +15,33 @@ namespace ProgramKonstruktion
         public GUI()
         {
             InitializeComponent();
+            SetAllStoragesToComboBox();
+           
 
-        }
+
+    }
 
         private TenantDAL tenantDal = new TenantDAL();
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
        
+
+        private void SetAllStoragesToComboBox()
+        {
+           
+            List<Tenant> listOfTenants = tenantDal.GetTenantBookings();
+           foreach (Tenant t in listOfTenants)
+            {
+                string storageInfo = t.Ssn;
+                
+                comboBoxStorage.Items.Add(storageInfo);
+                
+
+            }
+
+        }
+
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
    
@@ -115,6 +134,8 @@ namespace ProgramKonstruktion
 
         private void GUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'storeIT2DataSet2.Tenant' table. You can move, or remove it, as needed.
+            this.tenantTableAdapter1.Fill(this.storeIT2DataSet2.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet1.Tenant' table. You can move, or remove it, as needed.
             this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet.Storage' table. You can move, or remove it, as needed.
@@ -142,6 +163,7 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
+                
                 
             }
 

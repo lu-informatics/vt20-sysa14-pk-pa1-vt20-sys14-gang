@@ -31,8 +31,9 @@ namespace ProgramKonstruktion
 
             try
             {
-                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
+                
+                
 
                 while (reader.Read())
                 {
@@ -63,6 +64,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connection.Close();
+                
             }
             return getListOfStorages;
         }
@@ -123,7 +125,7 @@ namespace ProgramKonstruktion
 
             try
             {
-                connrction.Open();
+                connection.Open();
                command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;

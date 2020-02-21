@@ -170,8 +170,9 @@ namespace ProgramKonstruktion
 
             try
             {
-                connection.Open();
+                
                 int affectedRows = command.ExecuteNonQuery();
+                connection.Open();
 
                 if (affectedRows == 1)
                 {
@@ -192,7 +193,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connection.Close();
             }
             return deletedTenant;
         }

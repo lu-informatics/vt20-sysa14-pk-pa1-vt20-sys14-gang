@@ -27,7 +27,7 @@ namespace ProgramKonstruktion
              storage.Price = 150;
              storage.Nbr = "13";
              storage.Size = 11;*/
-           /* List<Storage> storages = dal.GetListOfStorages();
+           List<Storage> storages = dal.GetListOfStorages();
             foreach (Storage s in storages) {
                 Console.WriteLine(s.Price);
                 
