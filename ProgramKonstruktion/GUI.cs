@@ -16,27 +16,27 @@ namespace ProgramKonstruktion
         {
             InitializeComponent();
             SetAllStoragesToComboBox();
-           
 
 
-    }
+
+        }
 
         private TenantDAL tenantDal = new TenantDAL();
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
-       
+
 
         public void SetAllStoragesToComboBox()
         {
             comboBoxStorage.Text = "Select available storage";
             List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
-           foreach (Storage s in listOfStorage)
+            foreach (Storage s in listOfStorage)
             {
-               
-            comboBoxStorage.Items.Add(s);
-                
-                
+
+                comboBoxStorage.Items.Add(s);
+
+
 
             }
 
@@ -44,7 +44,7 @@ namespace ProgramKonstruktion
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-   
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -73,18 +73,18 @@ namespace ProgramKonstruktion
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            
-                dateTxtBox.Text = monthCalendar.SelectionRange.Start.ToShortDateString();
-            
+
+            dateTxtBox.Text = monthCalendar.SelectionRange.Start.ToShortDateString();
+
         }
 
         private void ssnSearchTxt_TextChanged(object sender, EventArgs e)
         {
             TextBox ssnSearchTxt = (TextBox)sender;
             string inputSsn = ssnSearchTxt.Text;
-            
 
-            
+
+
         }
 
         private void dateTxtBox_TextChanged(object sender, EventArgs e)
@@ -94,7 +94,12 @@ namespace ProgramKonstruktion
 
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
-            
+            cleanBoxes();
+            tenant.Ssn = Convert.ToString(ssnSearchTxt.Text);
+
+            tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
+
+            errorBoxBooking.Text = "Tenant " + tenant.Ssn + ", " + tenant.Name + "," + tenant.StorageNbr;
 
         }
 
@@ -105,15 +110,23 @@ namespace ProgramKonstruktion
             tenant.Name = tenantNameTxt.Text;
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
-            // Storage storage = comboBoxStorage
             
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
-            tenant.StorageAddress = "Fågelvägen 43"; 
+            tenant.StorageAddress = "Fågelvägen 43"; //databasen ska ändras till att alla storage ligger på fågelvägen 43 eller om fk inte ska vara en kombo:)
+           
             tenant.RentDate = monthCalendar.SelectionRange.Start;
             tenantDal.CreateTenant(tenant);
-
+            Boolean added = tenantDal.CreateTenant(tenant);
+            if (!added)
+            {
+                errorBoxBooking.Text = "Failed to add booking, try again.";
+            }
+            else
+            {
+                errorBoxBooking.Text = "Booking completed.";
+            }
         }
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
@@ -124,9 +137,9 @@ namespace ProgramKonstruktion
         private void addStorageBtn_Click(object sender, EventArgs e)
         {
             storage.Nbr = storageNbrTxt.Text;
-            storage.Address = storagePriceTxt.Text;
+            storage.Address = storageLocationTxt.Text;
             //ToSingle eller ToDouble?
-            storage.Price = (float)Convert.ToSingle(storageLocationTxt.Text);
+            storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
            
 
@@ -238,9 +251,9 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = storageNbrTxt.Text;
-            storage.Address = storagePriceTxt.Text;
+            storage.Address = storageLocationTxt.Text;
             //ToSingle eller ToDouble?
-            storage.Price = (float)Convert.ToSingle(storageLocationTxt.Text);
+            storage.Price = (float)Convert.ToSingle(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
 
@@ -261,6 +274,11 @@ namespace ProgramKonstruktion
             errorBoxUpdateStorages.Text = "";
             errorBoxBooking.Text = "";
 
+
+        }
+
+        private void storageSearchBtn_Click(object sender, EventArgs e)
+        {
 
         }
     }

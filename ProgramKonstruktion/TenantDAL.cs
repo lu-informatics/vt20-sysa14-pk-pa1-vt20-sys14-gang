@@ -170,9 +170,9 @@ namespace ProgramKonstruktion
 
             try
             {
-                
-                int affectedRows = command.ExecuteNonQuery();
                 connection.Open();
+                int affectedRows = command.ExecuteNonQuery();
+               
 
                 if (affectedRows == 1)
                 {
@@ -193,9 +193,10 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connection.Close();
+                connect.CloseConnector();
             }
             return deletedTenant;
+            
         }
 
         public Tenant FindTenant(string ssn)
@@ -206,39 +207,42 @@ namespace ProgramKonstruktion
             Tenant tenant = new Tenant();
 
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-
+            connection.Open();
             SqlDataReader reader = command.ExecuteReader();
 
             try
             {
-                
                 connection.Open();
                 while (reader.Read())
                 {
-                    tenant.Name = reader.GetString(1);
-                    tenant.PhoneNbr = reader.GetString(2);
-                    tenant.Email = reader.GetString(3);
-                    tenant.StorageNbr = reader.GetString(4);
-                    tenant.RentDate = reader.GetDateTime(5);
-                    tenant.StorageAddress = reader.GetString(6);
+                    tenant.Name = reader.GetString(0);
+                    tenant.PhoneNbr = reader.GetString(1);
+                    tenant.Email = reader.GetString(2);
+                    tenant.StorageNbr = reader.GetString(3);
+                    tenant.RentDate = reader.GetDateTime(4);
+                    tenant.StorageAddress = reader.GetString(5);
                 }
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
+                // errorHandler.HandleErrorExceptionSql(e);
+                MessageBox.Show(e.Message);
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+                //errorHandler.HandleExceptions(ex);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
+               
             }
+          
             return tenant;
-        }
-
-        
+           
+        }  
     }
 
 

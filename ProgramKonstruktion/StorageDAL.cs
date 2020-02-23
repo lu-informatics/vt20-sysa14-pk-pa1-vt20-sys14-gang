@@ -174,7 +174,7 @@ namespace ProgramKonstruktion
             try
             {
                 connection.Open();
-               command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;
                 storage.Nbr = nbr;
