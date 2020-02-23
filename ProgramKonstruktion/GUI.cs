@@ -95,14 +95,15 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            tenant.Ssn = Convert.ToString(ssnSearchTxt.Text);
+            tenant.Ssn = ssnSearchTxt.Text;
 
             tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
 
-            errorBoxBooking.Text = "Tenant " + tenant.Ssn + ", " + tenant.Name + "," + tenant.StorageNbr;
-
+            errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
+    
         }
 
+        //Book tenant on Storage
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -127,6 +128,10 @@ namespace ProgramKonstruktion
             {
                 errorBoxBooking.Text = "Booking completed.";
             }
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+            cleanTextFields();
+
+
         }
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
@@ -151,6 +156,11 @@ namespace ProgramKonstruktion
                 else { 
                     errorBoxUpdateStorages.Text = "Storage was added succefully!";
             }
+
+            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            cleanTextFields();
+
+
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -166,10 +176,10 @@ namespace ProgramKonstruktion
 
         }
 
-        private void updateStorage_Click(object sender, EventArgs e)
+      /*  private void updateStorage_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
@@ -189,6 +199,8 @@ namespace ProgramKonstruktion
                 
                 
             }
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+            cleanTextFields();
 
         }
 
@@ -196,8 +208,7 @@ namespace ProgramKonstruktion
         {
 
         }
-
-        //fungerar ej
+        
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -212,7 +223,9 @@ namespace ProgramKonstruktion
             else
                 errorBoxUpdateStorages.Text = "Storage was deleted succefully!";
 
-           
+            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            cleanTextFields();
+
         }
 
 
@@ -244,6 +257,8 @@ namespace ProgramKonstruktion
             {
                 errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
             }
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+            cleanTextFields();
 
         }
 
@@ -267,19 +282,46 @@ namespace ProgramKonstruktion
                 errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
 
             }
+
+            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            cleanTextFields();
+        }
+
+
+
+        private void storageSearchBtn_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            storage.Nbr = storageNmbrSearch.Text;
+            storage.Address = storageAddressSearch.Text;
+
+            storage = storageDal.FindStorage(storageNmbrSearch.Text, storageAddressSearch.Text);
+
+            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr + ", " + storage.Address;
+
+            cleanTextFields();
         }
 
         public void cleanBoxes()
         {
             errorBoxUpdateStorages.Text = "";
             errorBoxBooking.Text = "";
-
-
         }
 
-        private void storageSearchBtn_Click(object sender, EventArgs e)
+        public void cleanTextFields()
         {
-
+            ssnBookTxt.Text = "";
+            tenantNameTxt.Text = "";
+            comboBoxStorage.Text = "Select storage";
+            phoneNbrTxt.Text = "";
+            emailTxt.Text = "";
+            ssnSearchTxt.Text = "";
+            dateTxtBox.Text = "Select date";
+            storageNbrTxt.Text = "";
+            storageSizeTxt.Text = "";
+            storagePriceTxt.Text = "";
+            storageLocationTxt.Text = "";
+            
         }
     }
     }

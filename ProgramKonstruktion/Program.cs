@@ -21,10 +21,10 @@ namespace ProgramKonstruktion
             Connector c = new Connector();
 
 
-          
 
 
-         
+
+
 
             /* tenant.Email = "hej@";
              tenant.Name = "hej";
@@ -35,14 +35,13 @@ namespace ProgramKonstruktion
              tenant.RentDate = new DateTime(2009,06,01);
             dal2.CreateTenant(tenant);
             Console.WriteLine(tenant); /* //createTenant saknas!!
-                                           /*Tenant t = dal2.FindTenant("999");
-                                           Console.WriteLine(t.Name);*/
+              
 
 
 
 
 
-           StorageDAL dal2 = new StorageDAL();
+          StorageDAL dal2 = new StorageDAL();
            List<Storage> listOfAS = dal2.listOfAvailableStorages();
 
             foreach(Storage s in listOfAS)
@@ -71,9 +70,14 @@ namespace ProgramKonstruktion
               tenant.RentDate = value;
              dal.CreateTenant(tenant);*/
 
+            StorageDAL storageDal = new StorageDAL();
 
-            // Tenant finded = dal.FindTenant("23");
-            // Console.WriteLine(finded.Ssn);
+            Storage storage = new Storage("130", 40, 30, "Fågelvägen 43");
+            storageDal.CreateStorage(storage);
+            
+
+            
+
 
 
         }

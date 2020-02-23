@@ -207,20 +207,22 @@ namespace ProgramKonstruktion
             Tenant tenant = new Tenant();
 
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
+           
+          
 
             try
             {
-                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    tenant.Name = reader.GetString(0);
-                    tenant.PhoneNbr = reader.GetString(1);
-                    tenant.Email = reader.GetString(2);
-                    tenant.StorageNbr = reader.GetString(3);
-                    tenant.RentDate = reader.GetDateTime(4);
-                    tenant.StorageAddress = reader.GetString(5);
+                    tenant.Ssn = reader.GetString(0);
+                    tenant.Name = reader.GetString(1);
+                    tenant.PhoneNbr = reader.GetString(2);
+                    tenant.Email = reader.GetString(3);
+                    tenant.StorageNbr = reader.GetString(4);
+                    tenant.RentDate = reader.GetDateTime(5);
+                    tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)

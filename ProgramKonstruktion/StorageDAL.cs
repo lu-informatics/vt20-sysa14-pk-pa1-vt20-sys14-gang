@@ -65,7 +65,9 @@ namespace ProgramKonstruktion
             finally
             {
                 connection.Close();
-                
+                connect.CloseConnector();
+
+
             }
             return getListOfStorages;
         }
@@ -153,6 +155,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
             }
             return added;
         }
@@ -198,6 +201,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
             }
             return storage;
         }
@@ -234,6 +238,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
             }
             return deletedStorage;
         }
@@ -269,6 +274,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
             }
             return deleteTenantFromStorage;
         }
@@ -283,15 +289,19 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
+            
+
             try
             {
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    storage.Nbr = reader.GetString(0);
-                    storage.Price = reader.GetFloat(1);
-                    storage.Size = reader.GetFloat(2);
-                    storage.Address = reader.GetString(3);
+                   storage.Nbr = reader.GetString(0);
+                   storage.Price = reader.GetFloat(1);
+                   storage.Size = reader.GetFloat(2);
+                   storage.Address = reader.GetString(3);
                    
                 }
             }
@@ -309,6 +319,7 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
+                connection.Close();
             }
             return storage;
         }

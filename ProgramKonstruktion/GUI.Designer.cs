@@ -108,6 +108,8 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.storageAddressSearch = new System.Windows.Forms.TextBox();
+            this.labelStorageAddress = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -458,6 +460,8 @@
             // 
             // updateStorage
             // 
+            this.updateStorage.Controls.Add(this.labelStorageAddress);
+            this.updateStorage.Controls.Add(this.storageAddressSearch);
             this.updateStorage.Controls.Add(this.pictureBox3);
             this.updateStorage.Controls.Add(this.errorBoxUpdateStorages);
             this.updateStorage.Controls.Add(this.storageSearchBtn);
@@ -507,7 +511,7 @@
             // 
             // storageSearchBtn
             // 
-            this.storageSearchBtn.Location = new System.Drawing.Point(654, 162);
+            this.storageSearchBtn.Location = new System.Drawing.Point(407, 352);
             this.storageSearchBtn.Name = "storageSearchBtn";
             this.storageSearchBtn.Size = new System.Drawing.Size(75, 23);
             this.storageSearchBtn.TabIndex = 16;
@@ -517,7 +521,7 @@
             // 
             // storageNmbrSearch
             // 
-            this.storageNmbrSearch.Location = new System.Drawing.Point(466, 164);
+            this.storageNmbrSearch.Location = new System.Drawing.Point(65, 354);
             this.storageNmbrSearch.Name = "storageNmbrSearch";
             this.storageNmbrSearch.Size = new System.Drawing.Size(130, 20);
             this.storageNmbrSearch.TabIndex = 15;
@@ -525,7 +529,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(463, 148);
+            this.label18.Location = new System.Drawing.Point(62, 335);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(84, 13);
             this.label18.TabIndex = 14;
@@ -553,7 +557,7 @@
             // 
             // updateStorageBtn
             // 
-            this.updateStorageBtn.Location = new System.Drawing.Point(227, 332);
+            this.updateStorageBtn.Location = new System.Drawing.Point(247, 290);
             this.updateStorageBtn.Name = "updateStorageBtn";
             this.updateStorageBtn.Size = new System.Drawing.Size(75, 23);
             this.updateStorageBtn.TabIndex = 11;
@@ -563,7 +567,7 @@
             // 
             // addStorageBtn
             // 
-            this.addStorageBtn.Location = new System.Drawing.Point(321, 332);
+            this.addStorageBtn.Location = new System.Drawing.Point(328, 290);
             this.addStorageBtn.Name = "addStorageBtn";
             this.addStorageBtn.Size = new System.Drawing.Size(75, 23);
             this.addStorageBtn.TabIndex = 10;
@@ -576,9 +580,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(263, 232);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 13);
+            this.label16.Size = new System.Drawing.Size(45, 13);
             this.label16.TabIndex = 9;
-            this.label16.Text = "Location";
+            this.label16.Text = "Address";
             // 
             // label15
             // 
@@ -608,7 +612,7 @@
             this.sizeDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn});
             this.dataGridStorages.DataSource = this.storageBindingSource;
-            this.dataGridStorages.Location = new System.Drawing.Point(466, 191);
+            this.dataGridStorages.Location = new System.Drawing.Point(498, 191);
             this.dataGridStorages.Name = "dataGridStorages";
             this.dataGridStorages.Size = new System.Drawing.Size(425, 258);
             this.dataGridStorages.TabIndex = 6;
@@ -811,6 +815,22 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
+            // storageAddressSearch
+            // 
+            this.storageAddressSearch.Location = new System.Drawing.Point(247, 354);
+            this.storageAddressSearch.Name = "storageAddressSearch";
+            this.storageAddressSearch.Size = new System.Drawing.Size(130, 20);
+            this.storageAddressSearch.TabIndex = 19;
+            // 
+            // labelStorageAddress
+            // 
+            this.labelStorageAddress.AutoSize = true;
+            this.labelStorageAddress.Location = new System.Drawing.Point(246, 335);
+            this.labelStorageAddress.Name = "labelStorageAddress";
+            this.labelStorageAddress.Size = new System.Drawing.Size(85, 13);
+            this.labelStorageAddress.TabIndex = 20;
+            this.labelStorageAddress.Text = "Storage Address";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -927,6 +947,8 @@
         private System.Windows.Forms.BindingSource storageBindingSource3;
         private StoreIT2DataSet3TableAdapters.StorageTableAdapter storageTableAdapter1;
         private System.Windows.Forms.BindingSource storageBindingSource4;
+        private System.Windows.Forms.Label labelStorageAddress;
+        private System.Windows.Forms.TextBox storageAddressSearch;
     }
 
    
