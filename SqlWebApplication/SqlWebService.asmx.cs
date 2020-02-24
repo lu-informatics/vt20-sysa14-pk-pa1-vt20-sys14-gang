@@ -19,21 +19,17 @@ namespace SqlWebApplication
 
 
     {
-
         Connector c = new Connector(); 
         StorageDAL storageDAL = new StorageDAL();
-        TenantDAL tenantDAL = new TenantDAL(); 
+        TenantDAL tenantDAL = new TenantDAL();
 
         [WebMethod]
         public Tenant UpdateTenant(string ssn, string name, string phoneNbr, string email)
         {
             return tenantDAL.UpdateTenant(ssn, name, phoneNbr, email); 
 
-
         }
        
-
-
         [WebMethod]
         public bool CreateTenant(string ssn, string name, string phoneNbr, string email, string storageNbr, DateTime rentDate, string storageAddrress)
         {
@@ -47,11 +43,60 @@ namespace SqlWebApplication
             t.StorageAddress = storageAddrress; 
             return tenantDAL.CreateTenant(t);
 
-            
+        }
 
+        [WebMethod]
+        public Boolean DeleteTenant(string ssn)
+        {
+            return tenantDAL.DeleteTenant(ssn); 
+        }
+
+        [WebMethod]
+        public Tenant FindTenant(string ssn)
+        {
+            return tenantDAL.FindTenant(ssn);
+        }
+
+        
+       
+
+        // Starting with Storage methods
+
+        [WebMethod]
+        public Boolean CreateStorage(string nbr, float price, float size, string address)
+        {
+            Storage s = new Storage();
+            s.Nbr = nbr;
+            s.Price = price;
+            s.Size = size; 
+            s.Address = address;
+            return storageDAL.CreateStorage(s);
 
         }
-       
+
+        [WebMethod]
+        public Storage UpdateStorage(string nbr, string address, float price, float size)
+        {
+            return storageDAL.UpdateStorage(nbr, address, price, size);
+        }
+
+        [WebMethod]
+        public Boolean DeleteStorage(string nbr, string address)
+        {
+            return storageDAL.DeleteStorage(nbr, address);
+        }
+
+        [WebMethod]
+        public Boolean DeleteTenantFromStorage(string nbr, string address)
+        {
+            return storageDAL.DeleteTenantFromStorage(nbr, address);
+        }
+
+        [WebMethod]
+        public Storage FindStorage(string nbr, string address)
+        {
+            return storageDAL.FindStorage(nbr, address);
+        }
 
     }
 }
