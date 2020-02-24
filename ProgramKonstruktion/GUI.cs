@@ -132,10 +132,11 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking completed.";
+                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                cleanTextFields();
+                SetAllStoragesToComboBox();
             }
-            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
-            cleanTextFields();
-            SetAllStoragesToComboBox();
+            
 
 
         }
