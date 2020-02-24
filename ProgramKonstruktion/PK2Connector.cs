@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace ProgramKonstruktion
 {
-    class MetaDataPK2
+    class PK2Connector
     {
         private static readonly string host = "uwdb18.srv.lu.se";
         private static readonly string instanceName = "icssql001";
@@ -21,7 +21,22 @@ namespace ProgramKonstruktion
 
         public SqlConnection Connection { get; set; }
 
-        public MetaDataPK2()
+        public void CloseConnection(SqlConnection connection)
+        {
+            connection.Close();
+        }
+
+        private string ConnectionString()
+        {
+            string connectionString = String.Format(
+                "Data Source={0}\\{1}; Initial Catalog={2}; User id={3}; Password={4};",
+                host, instanceName, dbName, username, password
+            );
+
+            return connectionString;
+        }
+        
+        public PK2Connector()
         {
             ConnectToDb();
         }
@@ -30,25 +45,17 @@ namespace ProgramKonstruktion
         {
             try
             {
-                Connection = new SqlConnection(ConnectionString());
+                Connection = new SqlConnection(this.ConnectionString());
+                Connection.Open();
+                if (Connection == null)
+                {
+                    Console.WriteLine("error");
+                }
             }
             catch (SqlException e)
             {
                 exceptionHandler.HandleErrorExceptionSql(e);
             }
-        }
-        private string ConnectionString()
-        {
-            string connectionString = String.Format(
-                "Data Source={0}\\{1}; Database name={2}; User id={3}; Password={4};",
-                host, instanceName, dbName, username, password
-            );
-
-            return connectionString;
-        }
-        public void CloseConnection(SqlConnection connection)
-        {
-            connection.Close();
         }
 
     }

@@ -18,13 +18,13 @@ namespace ProgramKonstruktion
             SetAllStoragesToComboBox();
 
 
-
         }
 
         private TenantDAL tenantDal = new TenantDAL();
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
+        private PK2DAL PK2Dal = new PK2DAL();
 
 
         public void SetAllStoragesToComboBox()
@@ -35,8 +35,6 @@ namespace ProgramKonstruktion
             {
 
                 comboBoxStorage.Items.Add(s);
-
-
 
             }
 
@@ -278,6 +276,24 @@ namespace ProgramKonstruktion
         }
 
         private void storageSearchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phoneNbrTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void allColumnNamesBtn_Click(object sender, EventArgs e)
+        {
+
+            
+            dataGridProgram2.DataSource = (PK2Dal.AllColumnNames());
+
+        }
+
+        private void dataGridProgram2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

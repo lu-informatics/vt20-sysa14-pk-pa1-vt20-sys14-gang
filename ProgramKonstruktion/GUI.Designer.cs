@@ -438,6 +438,7 @@
             this.phoneNbrTxt.Name = "phoneNbrTxt";
             this.phoneNbrTxt.Size = new System.Drawing.Size(130, 20);
             this.phoneNbrTxt.TabIndex = 4;
+            this.phoneNbrTxt.TextChanged += new System.EventHandler(this.phoneNbrTxt_TextChanged);
             // 
             // tenantNameTxt
             // 
@@ -727,6 +728,7 @@
             this.allColumnNamesBtn.TabIndex = 1;
             this.allColumnNamesBtn.Text = "All Column Names";
             this.allColumnNamesBtn.UseVisualStyleBackColor = true;
+            this.allColumnNamesBtn.Click += new System.EventHandler(this.allColumnNamesBtn_Click);
             // 
             // dataGridProgram2
             // 
@@ -735,6 +737,7 @@
             this.dataGridProgram2.Name = "dataGridProgram2";
             this.dataGridProgram2.Size = new System.Drawing.Size(623, 303);
             this.dataGridProgram2.TabIndex = 0;
+            this.dataGridProgram2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProgram2_CellContentClick);
             // 
             // integration1
             // 
@@ -815,7 +818,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 667);
+            this.ClientSize = new System.Drawing.Size(1020, 667);
             this.Controls.Add(this.tabControl1);
             this.Name = "GUI";
             this.Text = "Form1";

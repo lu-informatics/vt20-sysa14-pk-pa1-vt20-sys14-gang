@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Connector.cs" />
     <Compile Include="ErrorHandler.cs" />
+    <Compile Include="PK2TableObjects.cs" />
+    <Compile Include="PK2Connector.cs" />
+    <Compile Include="PK2DAL.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="StoreIT2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -21,9 +21,6 @@ namespace ProgramKonstruktion
             Connector c = new Connector();
 
 
-          
-
-
          
 
             /* tenant.Email = "hej@";
