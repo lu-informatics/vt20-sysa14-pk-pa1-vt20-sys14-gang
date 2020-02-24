@@ -30,7 +30,8 @@ namespace ProgramKonstruktion
         public void SetAllStoragesToComboBox()
         {
             comboBoxStorage.Text = "Select available storage";
-            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
+            List<Storage>  listOfStorage = storageDal.listOfAvailableStorages();
+            comboBoxStorage.Items.Clear();
             foreach (Storage s in listOfStorage)
             {
 
@@ -41,6 +42,8 @@ namespace ProgramKonstruktion
             }
 
         }
+
+       
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -158,7 +161,9 @@ namespace ProgramKonstruktion
             }
 
             this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            SetAllStoragesToComboBox();
             cleanTextFields();
+            
 
 
         }
@@ -225,6 +230,8 @@ namespace ProgramKonstruktion
 
             this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
             cleanTextFields();
+
+            SetAllStoragesToComboBox();
 
         }
 

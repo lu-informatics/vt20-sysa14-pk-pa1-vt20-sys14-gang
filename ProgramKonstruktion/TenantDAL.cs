@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class TenantDAL
+    public class TenantDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;

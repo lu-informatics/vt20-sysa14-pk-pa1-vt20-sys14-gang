@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace ProgramKonstruktion
 {
-    class Connector
+   public class Connector
 
     {
 

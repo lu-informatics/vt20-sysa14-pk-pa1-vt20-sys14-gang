@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class StorageDAL
+    public class StorageDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;
@@ -80,9 +80,10 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             try
-            { 
-                SqlDataReader reader = command.ExecuteReader();
+            {
+                connection.Open();
 
+                SqlDataReader reader = command.ExecuteReader();
 
 
                 while (reader.Read())
