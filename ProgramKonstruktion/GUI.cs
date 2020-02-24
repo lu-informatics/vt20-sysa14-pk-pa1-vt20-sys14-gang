@@ -135,6 +135,7 @@ namespace ProgramKonstruktion
             }
             this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
             cleanTextFields();
+            SetAllStoragesToComboBox();
 
 
         }
@@ -210,7 +211,7 @@ namespace ProgramKonstruktion
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
                 this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
                 cleanTextFields();
-
+                SetAllStoragesToComboBox();
 
             }
            
