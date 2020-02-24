@@ -302,7 +302,7 @@ namespace ProgramKonstruktion
             }
             else
             {
-                errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
+                errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was updated succefully!";
                 this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
                 cleanTextFields();
 
