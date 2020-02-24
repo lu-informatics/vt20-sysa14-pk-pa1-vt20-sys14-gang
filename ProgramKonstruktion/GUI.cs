@@ -156,13 +156,23 @@ namespace ProgramKonstruktion
             {
                     errorBoxUpdateStorages.Text = "Failed to add, try again";
                 }
-                else { 
+             else if (!(storage.Address.Equals("Fågelvägen 43")))
+                    {
+
+                errorBoxUpdateStorages.Text = "We dont have storages on this address, try with Fågelvägen 43";
+                    }
+
+          
+                else if (added) { 
                     errorBoxUpdateStorages.Text = "Storage was added succefully!";
+                     cleanTextFields();
+                     this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+                     SetAllStoragesToComboBox();
             }
 
-            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-            SetAllStoragesToComboBox();
-            cleanTextFields();
+            
+          
+            
             
 
 
@@ -217,13 +227,15 @@ namespace ProgramKonstruktion
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            string ssn = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+            string nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
             string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
-            Boolean deleted = storageDal.DeleteStorage(ssn, address);
+            Boolean deleted = storageDal.DeleteStorage(nbr, address);
             if (!deleted)
             {
                 errorBoxUpdateStorages.Text = "Failed, try again";
+            
+
             }
             else
                 errorBoxUpdateStorages.Text = "Storage was deleted succefully!";

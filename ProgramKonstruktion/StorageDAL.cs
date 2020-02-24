@@ -131,7 +131,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.Nbr;
             command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
             command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = "Fågelvägen 43";
 
             try
             {
@@ -155,7 +155,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                
                 connection.Close();
             }
             return added;

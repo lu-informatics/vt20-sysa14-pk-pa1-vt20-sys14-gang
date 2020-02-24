@@ -65,12 +65,14 @@
             this.tenantNameTxt = new System.Windows.Forms.TextBox();
             this.searchTenantBtn = new System.Windows.Forms.Button();
             this.updateStorage = new System.Windows.Forms.TabPage();
+            this.labelStorageAddress = new System.Windows.Forms.Label();
+            this.storageAddressSearch = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorBoxUpdateStorages = new System.Windows.Forms.RichTextBox();
             this.storageSearchBtn = new System.Windows.Forms.Button();
             this.storageNmbrSearch = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.deleteStorageBtn = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.updateStorageBtn = new System.Windows.Forms.Button();
             this.addStorageBtn = new System.Windows.Forms.Button();
@@ -108,8 +110,6 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.storageAddressSearch = new System.Windows.Forms.TextBox();
-            this.labelStorageAddress = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -467,7 +467,7 @@
             this.updateStorage.Controls.Add(this.storageSearchBtn);
             this.updateStorage.Controls.Add(this.storageNmbrSearch);
             this.updateStorage.Controls.Add(this.label18);
-            this.updateStorage.Controls.Add(this.button8);
+            this.updateStorage.Controls.Add(this.deleteStorageBtn);
             this.updateStorage.Controls.Add(this.label17);
             this.updateStorage.Controls.Add(this.updateStorageBtn);
             this.updateStorage.Controls.Add(this.addStorageBtn);
@@ -489,6 +489,22 @@
             this.updateStorage.Text = "Update Storage";
             this.updateStorage.UseVisualStyleBackColor = true;
             this.updateStorage.Click += new System.EventHandler(this.updateStorage_Click);
+            // 
+            // labelStorageAddress
+            // 
+            this.labelStorageAddress.AutoSize = true;
+            this.labelStorageAddress.Location = new System.Drawing.Point(246, 335);
+            this.labelStorageAddress.Name = "labelStorageAddress";
+            this.labelStorageAddress.Size = new System.Drawing.Size(85, 13);
+            this.labelStorageAddress.TabIndex = 20;
+            this.labelStorageAddress.Text = "Storage Address";
+            // 
+            // storageAddressSearch
+            // 
+            this.storageAddressSearch.Location = new System.Drawing.Point(247, 354);
+            this.storageAddressSearch.Name = "storageAddressSearch";
+            this.storageAddressSearch.Size = new System.Drawing.Size(130, 20);
+            this.storageAddressSearch.TabIndex = 19;
             // 
             // pictureBox3
             // 
@@ -535,15 +551,15 @@
             this.label18.TabIndex = 14;
             this.label18.Text = "Storage Number";
             // 
-            // button8
+            // deleteStorageBtn
             // 
-            this.button8.Location = new System.Drawing.Point(638, 455);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(91, 23);
-            this.button8.TabIndex = 13;
-            this.button8.Text = "Delete Storage";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.deleteStorageBtn.Location = new System.Drawing.Point(638, 455);
+            this.deleteStorageBtn.Name = "deleteStorageBtn";
+            this.deleteStorageBtn.Size = new System.Drawing.Size(91, 23);
+            this.deleteStorageBtn.TabIndex = 13;
+            this.deleteStorageBtn.Text = "Delete Storage";
+            this.deleteStorageBtn.UseVisualStyleBackColor = true;
+            this.deleteStorageBtn.Click += new System.EventHandler(this.button8_Click);
             // 
             // label17
             // 
@@ -815,22 +831,6 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
-            // storageAddressSearch
-            // 
-            this.storageAddressSearch.Location = new System.Drawing.Point(247, 354);
-            this.storageAddressSearch.Name = "storageAddressSearch";
-            this.storageAddressSearch.Size = new System.Drawing.Size(130, 20);
-            this.storageAddressSearch.TabIndex = 19;
-            // 
-            // labelStorageAddress
-            // 
-            this.labelStorageAddress.AutoSize = true;
-            this.labelStorageAddress.Location = new System.Drawing.Point(246, 335);
-            this.labelStorageAddress.Name = "labelStorageAddress";
-            this.labelStorageAddress.Size = new System.Drawing.Size(85, 13);
-            this.labelStorageAddress.TabIndex = 20;
-            this.labelStorageAddress.Text = "Storage Address";
-            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,7 +890,7 @@
         private System.Windows.Forms.Button storageSearchBtn;
         private System.Windows.Forms.TextBox storageNmbrSearch;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button deleteStorageBtn;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button updateStorageBtn;
         private System.Windows.Forms.Button addStorageBtn;
