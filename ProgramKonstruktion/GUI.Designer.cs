@@ -251,6 +251,7 @@
             this.dataGridBookings.DataSource = this.tenantBindingSource;
             this.dataGridBookings.Location = new System.Drawing.Point(470, 177);
             this.dataGridBookings.Name = "dataGridBookings";
+            this.dataGridBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridBookings.Size = new System.Drawing.Size(546, 257);
             this.dataGridBookings.TabIndex = 24;
             this.dataGridBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBookings_CellContentClick);
@@ -488,7 +489,6 @@
             this.updateStorage.TabIndex = 2;
             this.updateStorage.Text = "Update Storage";
             this.updateStorage.UseVisualStyleBackColor = true;
-            this.updateStorage.Click += new System.EventHandler(this.updateStorage_Click);
             // 
             // labelStorageAddress
             // 
@@ -630,6 +630,7 @@
             this.dataGridStorages.DataSource = this.storageBindingSource;
             this.dataGridStorages.Location = new System.Drawing.Point(498, 191);
             this.dataGridStorages.Name = "dataGridStorages";
+            this.dataGridStorages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridStorages.Size = new System.Drawing.Size(425, 258);
             this.dataGridStorages.TabIndex = 6;
             this.dataGridStorages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStorages_CellContentClick);

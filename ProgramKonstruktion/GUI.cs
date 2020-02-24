@@ -191,11 +191,6 @@ namespace ProgramKonstruktion
 
         }
 
-      private void updateStorage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
         {
@@ -224,6 +219,7 @@ namespace ProgramKonstruktion
 
         }
         
+        //delete storage
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -241,6 +237,7 @@ namespace ProgramKonstruktion
                 errorBoxUpdateStorages.Text = "Storage was deleted succefully!";
 
             this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
             cleanTextFields();
 
             SetAllStoragesToComboBox();
