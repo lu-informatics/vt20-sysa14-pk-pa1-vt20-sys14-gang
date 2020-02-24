@@ -69,6 +69,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StoreIT2DataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StoreIT3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreIT3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StoreIT3DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreIT3DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StoreIT3DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreIT3DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="STOREITNEWDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STOREITNEWDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="STOREITNEWDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STOREITNEWDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantDAL.cs" />
     <Compile Include="StorageDAL.cs" />
@@ -145,6 +170,61 @@
     </None>
     <None Include="StoreIT2DataSet3.xss">
       <DependentUpon>StoreIT2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet.xsc">
+      <DependentUpon>StoreIT3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StoreIT3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StoreIT3DataSet.xss">
+      <DependentUpon>StoreIT3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet1.xsc">
+      <DependentUpon>StoreIT3DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StoreIT3DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StoreIT3DataSet1.xss">
+      <DependentUpon>StoreIT3DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet2.xsc">
+      <DependentUpon>StoreIT3DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StoreIT3DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StoreIT3DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StoreIT3DataSet2.xss">
+      <DependentUpon>StoreIT3DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="STOREITNEWDataSet.xsc">
+      <DependentUpon>STOREITNEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="STOREITNEWDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STOREITNEWDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="STOREITNEWDataSet.xss">
+      <DependentUpon>STOREITNEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="STOREITNEWDataSet1.xsc">
+      <DependentUpon>STOREITNEWDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="STOREITNEWDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STOREITNEWDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="STOREITNEWDataSet1.xss">
+      <DependentUpon>STOREITNEWDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

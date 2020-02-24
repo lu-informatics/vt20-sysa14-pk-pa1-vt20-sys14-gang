@@ -24,7 +24,7 @@ namespace ProgramKonstruktion
         public List<Tenant> GetTenantBookings()
         {
             List<Tenant> tenantBookings = new List<Tenant>();
-            string query = "Select * FROM Tenant JOIN Storage ON nbr = storageNbr AND address = storageAddress";
+            string query = "Select * FROM Tenant JOIN Storage ON nbr = storageNbr"; //AND address = storageAddress";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -45,7 +45,7 @@ namespace ProgramKonstruktion
                         tenant.Email = reader.GetString(3);
                         tenant.StorageNbr = reader.GetString(4);
                         tenant.RentDate = reader.GetDateTime(5);
-                        tenant.StorageAddress = reader.GetString(6);
+                       // tenant.StorageAddress = reader.GetString(6);
                     }
 
                     tenantBookings.Add(tenant);
@@ -78,7 +78,7 @@ namespace ProgramKonstruktion
         public Boolean CreateTenant(Tenant tenant)
         {
             Boolean added = false;
-            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email, @storageNbr, @rentDate, @storageAddress)";
+            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email, @storageNbr, @rentDate)";// @storageAddress)";
 
             //Create command and add parameters
             SqlCommand command = new SqlCommand(query, connection);
@@ -89,7 +89,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
             command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
-            command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = tenant.StorageAddress;
+           // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = tenant.StorageAddress;
 
             try
             {
@@ -221,7 +221,7 @@ namespace ProgramKonstruktion
                     tenant.Email = reader.GetString(3);
                     tenant.StorageNbr = reader.GetString(4);
                     tenant.RentDate = reader.GetDateTime(5);
-                    tenant.StorageAddress = reader.GetString(6);
+                   // tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)
