@@ -27,17 +27,19 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
 
 
+       
+
         public void SetAllStoragesToComboBox()
+
         {
+            comboBoxStorage.Items.Clear();
             comboBoxStorage.Text = "Select available storage";
             List<Storage>  listOfStorage = storageDal.listOfAvailableStorages();
-            comboBoxStorage.Items.Clear();
+            Console.WriteLine(listOfStorage.Count);
             foreach (Storage s in listOfStorage)
             {
 
                 comboBoxStorage.Items.Add(s);
-
-
 
             }
 
@@ -156,13 +158,23 @@ namespace ProgramKonstruktion
             {
                     errorBoxUpdateStorages.Text = "Failed to add, try again";
                 }
-                else { 
+             else if (!(storage.Address.Equals("Fågelvägen 43")))
+                    {
+
+                errorBoxUpdateStorages.Text = "We dont have storages on this address, try with Fågelvägen 43";
+                    }
+
+          
+                else if (added) { 
                     errorBoxUpdateStorages.Text = "Storage was added succefully!";
+                     cleanTextFields();
+                     this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+                     SetAllStoragesToComboBox();
             }
 
-            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-            SetAllStoragesToComboBox();
-            cleanTextFields();
+            
+          
+            
             
 
 
@@ -181,18 +193,13 @@ namespace ProgramKonstruktion
 
         }
 
-      private void updateStorage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            string ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
+            tenant.Ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
 
-            Boolean deleted = tenantDal.DeleteTenant(ssn);
+            Boolean deleted = tenantDal.DeleteTenant(tenant.Ssn);
 
             if (!deleted)
             {
@@ -201,11 +208,12 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
-                
-                
+                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                cleanTextFields();
+
+
             }
-            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
-            cleanTextFields();
+           
 
         }
 
@@ -214,24 +222,25 @@ namespace ProgramKonstruktion
 
         }
         
+        //delete storage
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            string ssn = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
-            string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
+            storage.Nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+            storage.Address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
-            Boolean deleted = storageDal.DeleteStorage(ssn, address);
+            Boolean deleted = storageDal.DeleteStorage(storage.Nbr, storage.Address);
             if (!deleted)
             {
                 errorBoxUpdateStorages.Text = "Failed, try again";
+
             }
             else
-                errorBoxUpdateStorages.Text = "Storage was deleted succefully!";
-
-            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-            cleanTextFields();
-
-            SetAllStoragesToComboBox();
+                errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was deleted succefully!";
+                this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                cleanTextFields();
+                SetAllStoragesToComboBox();
 
         }
 
@@ -317,6 +326,7 @@ namespace ProgramKonstruktion
 
         public void cleanTextFields()
         {
+            
             ssnBookTxt.Text = "";
             tenantNameTxt.Text = "";
             comboBoxStorage.Text = "Select storage";

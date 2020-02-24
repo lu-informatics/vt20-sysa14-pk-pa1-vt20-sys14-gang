@@ -19,10 +19,9 @@ namespace ProgramKonstruktion
         { //constructor
 
             connect = new Connector();
-            connection = connect.getConnection();
+            connection = connect.Connection;
         }
-
-        //VARFÖR I HELVETE FUNGER AR INTE DENNA?!??!?!?!?!
+        
         public List<Storage> GetListOfStorages()
         {
             List<Storage> getListOfStorages = new List<Storage>();
@@ -32,6 +31,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 
                 
@@ -64,8 +64,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connection.Close();
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
 
 
             }
@@ -111,8 +110,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connection.Close();
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
 
             }
             return getListOfAvailableStorages;
@@ -131,7 +129,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.Nbr;
             command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
             command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = "Fågelvägen 43";
 
             try
             {
@@ -155,8 +153,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
+                connect.CloseConnector(connection);
             }
             return added;
         }
@@ -201,7 +198,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return storage;
         }
@@ -237,8 +234,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
+                connect.CloseConnector(connection);
             }
             return deletedStorage;
         }
@@ -273,8 +269,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
+                connect.CloseConnector(connection);
             }
             return deleteTenantFromStorage;
         }
@@ -318,8 +313,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
+                connect.CloseConnector(connection);
             }
             return storage;
         }
