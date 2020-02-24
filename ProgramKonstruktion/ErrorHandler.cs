@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKonstruktion
 {
-    class ErrorHandler
+   public class ErrorHandler
 
     {
 

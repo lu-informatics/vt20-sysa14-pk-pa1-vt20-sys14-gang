@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class StorageDAL
+    public class StorageDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;
@@ -80,9 +80,10 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             try
-            { 
-                SqlDataReader reader = command.ExecuteReader();
+            {
+                connection.Open();
 
+                SqlDataReader reader = command.ExecuteReader();
 
 
                 while (reader.Read())
@@ -201,7 +202,6 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
-                connection.Close();
             }
             return storage;
         }
@@ -298,11 +298,11 @@ namespace ProgramKonstruktion
 
                 while (reader.Read())
                 {
-                   storage.Nbr = reader.GetString(0);
-                   storage.Price = reader.GetFloat(1);
-                   storage.Size = reader.GetFloat(2);
                    storage.Address = reader.GetString(3);
-                   
+                   storage.Nbr = reader.GetString(0);
+                   storage.Price = (float) reader.GetDouble(1);
+                   storage.Size = (float) reader.GetDouble(2);
+
                 }
             }
             catch (SqlException e)

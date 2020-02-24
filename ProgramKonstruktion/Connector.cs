@@ -7,13 +7,19 @@ using System.Data.SqlClient;
 
 namespace ProgramKonstruktion
 {
-    class Connector
+   public class Connector
 
     {
 
         private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = StoreIT2; User Id = tgang; Password = tgang1;";
 
         private SqlConnection connection;
+
+        public Connector()
+        {
+            getConnection();
+        }
+
         public SqlConnection getConnection()
         {
             try

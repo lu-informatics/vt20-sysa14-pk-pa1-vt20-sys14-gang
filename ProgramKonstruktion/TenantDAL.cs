@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class TenantDAL
+    public class TenantDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;
@@ -132,7 +132,6 @@ namespace ProgramKonstruktion
 
             try
             {
-                connection.Open();
                 command.ExecuteNonQuery();
                 tenant.Name = name;
                 tenant.PhoneNbr = phoneNbr;
@@ -152,7 +151,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connection.Close();
             }
             return tenant;
         }
