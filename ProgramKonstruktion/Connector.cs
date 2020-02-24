@@ -13,32 +13,32 @@ namespace ProgramKonstruktion
 
         private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = StoreIT2; User Id = tgang; Password = tgang1;";
 
-        private SqlConnection connection;
+        public SqlConnection Connection { get; private set; }
 
         public Connector()
         {
             getConnection();
         }
 
-        public SqlConnection getConnection()
+        public void getConnection()
         {
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
-                return connection;
+                Connection = new SqlConnection(connectionString);
+                //connection.Open();
+                //return connection;
             }
             catch (SqlException sqlE)
             {
                 //Errorhantering
             }
-            return null;
+            //return null;
         }
 
 
-        public void CloseConnector()
+        public void CloseConnector(SqlConnection con)
         {
-            connection.Close();
+            con.Close();
         }
 
 

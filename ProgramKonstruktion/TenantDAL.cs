@@ -18,7 +18,7 @@ namespace ProgramKonstruktion
         public TenantDAL() //constructor
         {
             connect = new Connector();
-            connection = connect.getConnection();
+            connection = connect.Connection;
         }
 
         public List<Tenant> GetTenantBookings()
@@ -65,7 +65,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return tenantBookings;
         
@@ -112,7 +112,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return added;
         }
@@ -132,6 +132,7 @@ namespace ProgramKonstruktion
 
             try
             {
+                connection.Open();
                 command.ExecuteNonQuery();
                 tenant.Name = name;
                 tenant.PhoneNbr = phoneNbr;
@@ -151,7 +152,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connection.Close();
+                connect.CloseConnector(connection);
             }
             return tenant;
         }
@@ -192,7 +193,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return deletedTenant;
             
@@ -205,12 +206,11 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
             Tenant tenant = new Tenant();
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-           
-          
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;          
 
             try
             {
+                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -236,9 +236,8 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
-               
+                connect.CloseConnector(connection);
+
             }
           
             return tenant;
