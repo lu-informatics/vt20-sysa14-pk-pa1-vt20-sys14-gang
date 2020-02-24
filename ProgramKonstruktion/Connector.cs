@@ -21,6 +21,7 @@ namespace ProgramKonstruktion
             {
                 connection = new SqlConnection(connectionString);
                 connection.Open();
+                Console.WriteLine("FUngerar");
                 return connection;
             }
             catch (SqlException sqlE)

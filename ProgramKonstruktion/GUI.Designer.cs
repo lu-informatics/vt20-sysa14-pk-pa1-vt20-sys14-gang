@@ -93,7 +93,6 @@
             this.programkonst2 = new System.Windows.Forms.TabPage();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
-            this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
             this.integration1 = new System.Windows.Forms.TabPage();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.ERP = new System.Windows.Forms.TabPage();
@@ -108,6 +107,7 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridPK2 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -120,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
             this.programkonst2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).BeginInit();
@@ -128,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -698,10 +698,10 @@
             this.label12.Text = "Update Storage Units";
             // 
             // programkonst2
-            // 
+            //
+            this.programkonst2.Controls.Add(this.dataGridPK2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
-            this.programkonst2.Controls.Add(this.dataGridProgram2);
             this.programkonst2.Location = new System.Drawing.Point(4, 22);
             this.programkonst2.Name = "programkonst2";
             this.programkonst2.Size = new System.Drawing.Size(1106, 626);
@@ -718,6 +718,7 @@
             this.numberOfRowsBtn.TabIndex = 2;
             this.numberOfRowsBtn.Text = "Number of Rows";
             this.numberOfRowsBtn.UseVisualStyleBackColor = true;
+            this.numberOfRowsBtn.Click += new System.EventHandler(this.numberOfRowsBtn_Click);
             // 
             // allColumnNamesBtn
             // 
@@ -729,15 +730,6 @@
             this.allColumnNamesBtn.Text = "All Column Names";
             this.allColumnNamesBtn.UseVisualStyleBackColor = true;
             this.allColumnNamesBtn.Click += new System.EventHandler(this.allColumnNamesBtn_Click);
-            // 
-            // dataGridProgram2
-            // 
-            this.dataGridProgram2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridProgram2.Location = new System.Drawing.Point(83, 172);
-            this.dataGridProgram2.Name = "dataGridProgram2";
-            this.dataGridProgram2.Size = new System.Drawing.Size(623, 303);
-            this.dataGridProgram2.TabIndex = 0;
-            this.dataGridProgram2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProgram2_CellContentClick);
             // 
             // integration1
             // 
@@ -814,6 +806,14 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
+            // dataGridPK2
+            // 
+            this.dataGridPK2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPK2.Location = new System.Drawing.Point(132, 163);
+            this.dataGridPK2.Name = "dataGridPK2";
+            this.dataGridPK2.Size = new System.Drawing.Size(516, 259);
+            this.dataGridPK2.TabIndex = 3;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -837,7 +837,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
             this.programkonst2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).EndInit();
@@ -845,6 +844,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -897,7 +897,6 @@
         private System.Windows.Forms.TabPage ERP;
         private System.Windows.Forms.Button numberOfRowsBtn;
         private System.Windows.Forms.Button allColumnNamesBtn;
-        private System.Windows.Forms.DataGridView dataGridProgram2;
         private System.Windows.Forms.Button deleteBookingBtn;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ComboBox comboBoxStorage;
@@ -930,6 +929,7 @@
         private System.Windows.Forms.BindingSource storageBindingSource3;
         private StoreIT2DataSet3TableAdapters.StorageTableAdapter storageTableAdapter1;
         private System.Windows.Forms.BindingSource storageBindingSource4;
+        private System.Windows.Forms.DataGridView dataGridPK2;
     }
 
    

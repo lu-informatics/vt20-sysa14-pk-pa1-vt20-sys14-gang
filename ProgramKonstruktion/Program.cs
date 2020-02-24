@@ -18,10 +18,16 @@ namespace ProgramKonstruktion
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUI());
 
-            Connector c = new Connector();
+            PK2DAL PK2Dal = new PK2DAL();
+
+            List<String> listofTablename = PK2Dal.AllColumnNames();
+            foreach (String tO in listofTablename)
+            {
+                Console.WriteLine(tO);
+            }
 
 
-         
+
 
             /* tenant.Email = "hej@";
              tenant.Name = "hej";
@@ -39,7 +45,7 @@ namespace ProgramKonstruktion
 
 
 
-           StorageDAL dal2 = new StorageDAL();
+            StorageDAL dal2 = new StorageDAL();
            List<Storage> listOfAS = dal2.listOfAvailableStorages();
 
             foreach(Storage s in listOfAS)

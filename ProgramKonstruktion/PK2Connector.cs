@@ -11,13 +11,46 @@ namespace ProgramKonstruktion
 {
     class PK2Connector
     {
+
+
+        /*private string connectionString = "Data Source = uwdb18.srv.lu.se; Initial Catalog = SYSA14_PK_ProgAssignment2; User Id = sysa14reader; Password = INFreader1;";
+
+        public SqlConnection Connection { get; private set; }
+
+        public PK2Connector()
+        {
+            getConnection();
+        }
+
+        public void getConnection() {
+
+            try
+            {
+                Connection = new SqlConnection(connectionString);
+                Console.WriteLine("fungerar");
+            }
+
+            catch (SqlException sqlE)
+            {
+
+                Console.WriteLine(":(");
+            }
+        }
+
+            public void CloseConnector(SqlConnection con)
+            {
+                con.Close();
+            }*/
+
+
+
         private static readonly string host = "uwdb18.srv.lu.se";
         private static readonly string instanceName = "icssql001";
         private static readonly string dbName = "SYSA14_PK_ProgAssignment2";
         private static readonly string username = "sysa14reader";
         private static readonly string password = "INFreader1";
 
-        ErrorHandler exceptionHandler = new ErrorHandler(); 
+        ErrorHandler exceptionHandler = new ErrorHandler();
 
         public SqlConnection Connection { get; set; }
 
@@ -35,7 +68,7 @@ namespace ProgramKonstruktion
 
             return connectionString;
         }
-        
+
         public PK2Connector()
         {
             ConnectToDb();
@@ -57,6 +90,7 @@ namespace ProgramKonstruktion
                 exceptionHandler.HandleErrorExceptionSql(e);
             }
         }
-
     }
 }
+
+   
