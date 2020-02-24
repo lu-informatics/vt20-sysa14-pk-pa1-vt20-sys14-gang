@@ -201,7 +201,6 @@ namespace ProgramKonstruktion
             finally
             {
                 connect.CloseConnector();
-                connection.Close();
             }
             return storage;
         }
@@ -298,11 +297,11 @@ namespace ProgramKonstruktion
 
                 while (reader.Read())
                 {
-                   storage.Nbr = reader.GetString(0);
-                   storage.Price = reader.GetFloat(1);
-                   storage.Size = reader.GetFloat(2);
                    storage.Address = reader.GetString(3);
-                   
+                   storage.Nbr = reader.GetString(0);
+                   storage.Price = (float) reader.GetDouble(1);
+                   storage.Size = (float) reader.GetDouble(2);
+
                 }
             }
             catch (SqlException e)

@@ -176,10 +176,10 @@ namespace ProgramKonstruktion
 
         }
 
-      /*  private void updateStorage_Click(object sender, EventArgs e)
+      private void updateStorage_Click(object sender, EventArgs e)
         {
 
-        }*/
+        }
 
         //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
