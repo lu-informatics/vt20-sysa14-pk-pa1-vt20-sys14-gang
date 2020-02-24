@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    public class StorageDAL
+    class StorageDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;
@@ -19,9 +19,10 @@ namespace ProgramKonstruktion
         { //constructor
 
             connect = new Connector();
-            connection = connect.Connection;
+            connection = connect.getConnection();
         }
-        
+
+        //VARFÖR I HELVETE FUNGER AR INTE DENNA?!??!?!?!?!
         public List<Storage> GetListOfStorages()
         {
             List<Storage> getListOfStorages = new List<Storage>();
@@ -31,7 +32,6 @@ namespace ProgramKonstruktion
 
             try
             {
-                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 
                 
@@ -64,9 +64,8 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
-
-
+                connection.Close();
+                
             }
             return getListOfStorages;
         }
@@ -79,10 +78,9 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             try
-            {
-                connection.Open();
-
+            { 
                 SqlDataReader reader = command.ExecuteReader();
+
 
 
                 while (reader.Read())
@@ -110,7 +108,8 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connection.Close();
+                connect.CloseConnector();
 
             }
             return getListOfAvailableStorages;
@@ -129,7 +128,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.Nbr;
             command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
             command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = "Fågelvägen 43";
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
 
             try
             {
@@ -153,7 +152,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connect.CloseConnector();
             }
             return added;
         }
@@ -198,7 +197,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connect.CloseConnector();
             }
             return storage;
         }
@@ -234,7 +233,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connect.CloseConnector();
             }
             return deletedStorage;
         }
@@ -269,7 +268,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connect.CloseConnector();
             }
             return deleteTenantFromStorage;
         }
@@ -284,20 +283,16 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
-            
-
             try
             {
-                connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-
                 while (reader.Read())
                 {
-                   storage.Address = reader.GetString(3);
-                   storage.Nbr = reader.GetString(0);
-                   storage.Price = (float) reader.GetDouble(1);
-                   storage.Size = (float) reader.GetDouble(2);
-
+                    storage.Nbr = reader.GetString(0);
+                    storage.Price = reader.GetFloat(1);
+                    storage.Size = reader.GetFloat(2);
+                    storage.Address = reader.GetString(3);
+                   
                 }
             }
             catch (SqlException e)
@@ -313,7 +308,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector(connection);
+                connect.CloseConnector();
             }
             return storage;
         }
