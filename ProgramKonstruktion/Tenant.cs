@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKonstruktion
 {
-    class Tenant
+   public class Tenant
     {
 
         private string ssn;

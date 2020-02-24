@@ -28,10 +28,15 @@ namespace ProgramKonstruktion
         private PK2DAL PK2Dal = new PK2DAL();
 
 
+       
+
         public void SetAllStoragesToComboBox()
+
         {
+            comboBoxStorage.Items.Clear();
             comboBoxStorage.Text = "Select available storage";
-            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
+            List<Storage>  listOfStorage = storageDal.listOfAvailableStorages();
+            Console.WriteLine(listOfStorage.Count);
             foreach (Storage s in listOfStorage)
             {
 
@@ -40,6 +45,8 @@ namespace ProgramKonstruktion
             }
 
         }
+
+       
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,14 +101,15 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            tenant.Ssn = Convert.ToString(ssnSearchTxt.Text);
+            tenant.Ssn = ssnSearchTxt.Text;
 
             tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
 
-            errorBoxBooking.Text = "Tenant " + tenant.Ssn + ", " + tenant.Name + "," + tenant.StorageNbr;
-
+            errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
+    
         }
 
+        //Book tenant on Storage
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -126,6 +134,10 @@ namespace ProgramKonstruktion
             {
                 errorBoxBooking.Text = "Booking completed.";
             }
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+            cleanTextFields();
+
+
         }
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
@@ -147,9 +159,26 @@ namespace ProgramKonstruktion
             {
                     errorBoxUpdateStorages.Text = "Failed to add, try again";
                 }
-                else { 
+             else if (!(storage.Address.Equals("Fågelvägen 43")))
+                    {
+
+                errorBoxUpdateStorages.Text = "We dont have storages on this address, try with Fågelvägen 43";
+                    }
+
+          
+                else if (added) { 
                     errorBoxUpdateStorages.Text = "Storage was added succefully!";
+                     cleanTextFields();
+                     this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+                     SetAllStoragesToComboBox();
             }
+
+            
+          
+            
+            
+
+
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -165,18 +194,13 @@ namespace ProgramKonstruktion
 
         }
 
-        private void updateStorage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //delete tenantBooking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            string ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
+            tenant.Ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
 
-            Boolean deleted = tenantDal.DeleteTenant(ssn);
+            Boolean deleted = tenantDal.DeleteTenant(tenant.Ssn);
 
             if (!deleted)
             {
@@ -185,9 +209,12 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
-                
-                
+                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                cleanTextFields();
+
+
             }
+           
 
         }
 
@@ -195,23 +222,27 @@ namespace ProgramKonstruktion
         {
 
         }
-
-        //fungerar ej
+        
+        //delete storage
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            string ssn = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
-            string address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
+            storage.Nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
+            storage.Address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
-            Boolean deleted = storageDal.DeleteStorage(ssn, address);
+            Boolean deleted = storageDal.DeleteStorage(storage.Nbr, storage.Address);
             if (!deleted)
             {
                 errorBoxUpdateStorages.Text = "Failed, try again";
+
             }
             else
-                errorBoxUpdateStorages.Text = "Storage was deleted succefully!";
+                errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was deleted succefully!";
+                this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                cleanTextFields();
+                SetAllStoragesToComboBox();
 
-           
         }
 
 
@@ -243,6 +274,8 @@ namespace ProgramKonstruktion
             {
                 errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
             }
+            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+            cleanTextFields();
 
         }
 
@@ -266,19 +299,47 @@ namespace ProgramKonstruktion
                 errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
 
             }
+
+            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+            cleanTextFields();
+        }
+
+
+
+        private void storageSearchBtn_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            storage.Nbr = storageNmbrSearch.Text;
+            storage.Address = storageAddressSearch.Text;
+
+            storage = storageDal.FindStorage(storageNmbrSearch.Text, storageAddressSearch.Text);
+
+            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr + ", " + storage.Address;
+
+            cleanTextFields();
         }
 
         public void cleanBoxes()
         {
             errorBoxUpdateStorages.Text = "";
             errorBoxBooking.Text = "";
-
-
         }
 
-        private void storageSearchBtn_Click(object sender, EventArgs e)
+        public void cleanTextFields()
         {
-
+            
+            ssnBookTxt.Text = "";
+            tenantNameTxt.Text = "";
+            comboBoxStorage.Text = "Select storage";
+            phoneNbrTxt.Text = "";
+            emailTxt.Text = "";
+            ssnSearchTxt.Text = "";
+            dateTxtBox.Text = "Select date";
+            storageNbrTxt.Text = "";
+            storageSizeTxt.Text = "";
+            storagePriceTxt.Text = "";
+            storageLocationTxt.Text = "";
+            
         }
 
         private void phoneNbrTxt_TextChanged(object sender, EventArgs e)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKonstruktion
 {
-    class Storage
+    public class Storage
     {
         private string nbr;
         private float price;

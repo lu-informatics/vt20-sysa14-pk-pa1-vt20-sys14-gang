@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class TenantDAL
+    public class TenantDAL
     {
         private Connector connect = new Connector();
         private SqlConnection connection;
@@ -18,7 +18,7 @@ namespace ProgramKonstruktion
         public TenantDAL() //constructor
         {
             connect = new Connector();
-            connection = connect.getConnection();
+            connection = connect.Connection;
         }
 
         public List<Tenant> GetTenantBookings()
@@ -65,7 +65,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return tenantBookings;
         
@@ -112,7 +112,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return added;
         }
@@ -152,7 +152,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return tenant;
         }
@@ -193,7 +193,7 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
+                connect.CloseConnector(connection);
             }
             return deletedTenant;
             
@@ -206,21 +206,22 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
             Tenant tenant = new Tenant();
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;          
 
             try
             {
                 connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    tenant.Name = reader.GetString(0);
-                    tenant.PhoneNbr = reader.GetString(1);
-                    tenant.Email = reader.GetString(2);
-                    tenant.StorageNbr = reader.GetString(3);
-                    tenant.RentDate = reader.GetDateTime(4);
-                    tenant.StorageAddress = reader.GetString(5);
+                    tenant.Ssn = reader.GetString(0);
+                    tenant.Name = reader.GetString(1);
+                    tenant.PhoneNbr = reader.GetString(2);
+                    tenant.Email = reader.GetString(3);
+                    tenant.StorageNbr = reader.GetString(4);
+                    tenant.RentDate = reader.GetDateTime(5);
+                    tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)
@@ -235,9 +236,8 @@ namespace ProgramKonstruktion
             }
             finally
             {
-                connect.CloseConnector();
-                connection.Close();
-               
+                connect.CloseConnector(connection);
+
             }
           
             return tenant;
