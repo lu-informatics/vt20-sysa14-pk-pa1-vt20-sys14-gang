@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProgramKonstruktion
 {
-    class EmployeeDAL
+    public class EmployeeDAL
     {
 
         private ConnectorForCronus connect = new ConnectorForCronus();
@@ -77,9 +77,8 @@ namespace ProgramKonstruktion
 
         }
 
-        public Boolean CreateEmployee(Employee employee)
+        public Employee CreateEmployee(Employee employee)
         {
-            Boolean added = false;
 
             string query = "INSERT INTO [CRONUS Sverige AB$Employee] ([No_], [First Name], [Last Name], [Job Title], [Address], [Phone No_], [E-Mail], [Social Security No_]) VALUES (@No, @FirstName, @LastName, @JobTitle, @Address, @PhoneNumber, @Email, @Ssn)";
 
@@ -98,27 +97,27 @@ namespace ProgramKonstruktion
             {
                 connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
+                employee.No = "HEJ";
 
-                if (affectedRows == 1)
-                {
-                    added = true;
-                }
+              
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(e.Message);
+              //  MessageBox.Show(e.Message);
                 //errorhandling?
 
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(e.Message);
+                //  MessageBox.Show(e.Message);
             }
             finally
             {
                 connect.CloseConnector(connection);
             }
-            return added;
+            return employee;
         }
 
         public Employee FindEmployee(string no)
@@ -146,7 +145,7 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+               // MessageBox.Show(e.Message);
 
             }
             catch (Exception e)

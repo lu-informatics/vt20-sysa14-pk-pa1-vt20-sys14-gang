@@ -21,8 +21,11 @@ namespace ProgramKonstruktion
             Connector c = new Connector();
 
             EmployeeDAL dal = new EmployeeDAL();
-
-            Boolean emp = dal.DeleteEmployee("SB");
+            Employee emp = new Employee();
+           
+            dal.FindEmployee("SA");
+            Console.WriteLine(emp.FirstName);
+           
         
 
         }
