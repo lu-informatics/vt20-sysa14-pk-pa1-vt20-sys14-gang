@@ -23,9 +23,54 @@ namespace ProgramKonstruktion
 
         }
 
-        public string No()
+        public string No
         {
-            return "hej";
+            get => no;
+            set => no = value;
+        }
+
+        public string FirstName
+        {
+            get => firstname;
+            set => firstname = value;
+
+        }
+
+        public string LastName
+        {
+            get => lastname;
+            set => lastname = value;
+        }
+
+        public string JobTitle
+        {
+            get => jobTitle;
+            set => jobTitle = value;
+        }
+
+        public string Address
+        {
+            get => address;
+            set => address = value;
+
+        }
+
+        public string PhoneNumber
+        {
+            get => phoneNumber;
+            set => phoneNumber = value;
+        }
+
+        public string Ssn
+        {
+            get => ssn;
+            set => ssn = value;
+        }
+
+        public string Email
+        {
+            get => email;
+            set => email = value;
         }
     }
 }
