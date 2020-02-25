@@ -29,7 +29,6 @@ namespace ProgramKonstruktion
             {
                 Connection = new SqlConnection(connectionString);
 
-
             }
             catch (SqlException sqlE)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using ProgramKonstruktion;
 
 namespace WebApplication1
 {
@@ -16,11 +17,29 @@ namespace WebApplication1
     // [System.Web.Script.Services.ScriptService]
     public class WebServiceERP1 : System.Web.Services.WebService
     {
+        EmployeeDAL employeeDal = new EmployeeDAL();
 
         [WebMethod]
-        public string HelloWorld()
+        public Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn)
         {
-            return "Hello World";
+            Employee employee = new Employee();
+            employee.No = no;
+            employee.FirstName = FirstName;
+            employee.LastName = lastName;
+            employee.JobTitle = jobTitle;
+            employee.Address = address;
+            employee.PhoneNumber = phoneNumber;
+            employee.Email = email;
+            employee.Ssn = ssn;
+
+            return employeeDal.CreateEmployee(employee);   
+        }
+
+        [WebMethod]
+        public Employee FindEmployee (string no)
+        {
+            Employee e = employeeDal.FindEmployee(no);
+            return e;
         }
     }
 }
