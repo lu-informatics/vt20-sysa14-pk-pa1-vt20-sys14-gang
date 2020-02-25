@@ -10,12 +10,14 @@ namespace ConsoleApp
     class Program
     {
         static void Main(string[] args)
+
         {
-            WebReference.WebAssignment1 obj = new WebReference.WebAssignment1();
-
-            Console.WriteLine(obj);
-
             
+            WebReference.WebAssignment1 obj = new WebReference.WebAssignment1();
+            string s = Console.ReadLine(); 
+            Console.WriteLine(obj.ShowFile(s));
+            Console.ReadLine(); 
+
         }  
     }
 }
