@@ -25,9 +25,6 @@ namespace ProgramKonstruktion
            
             dal.FindEmployee("SA");
             Console.WriteLine(emp.FirstName);
-           
-        
-
         }
     }
 }
