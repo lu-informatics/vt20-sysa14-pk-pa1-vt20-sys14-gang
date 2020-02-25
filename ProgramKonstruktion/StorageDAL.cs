@@ -41,8 +41,8 @@ namespace ProgramKonstruktion
                     Storage storage = new Storage();
                     {
                         storage.Nbr = reader.GetString(0);
-                        storage.Price = reader.GetFloat(1);
-                        storage.Size = reader.GetFloat(2);
+                        storage.Price = (float) reader.GetSqlDouble(1);
+                        storage.Size = (float) reader.GetSqlDouble(2);
                         storage.Address = reader.GetString(3);
 
                     }
