@@ -25,9 +25,8 @@ namespace ProgramKonstruktion
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
+        private PK2DAL PK2Dal = new PK2DAL();
 
-
-       
 
         public void SetAllStoragesToComboBox()
 
@@ -345,6 +344,21 @@ namespace ProgramKonstruktion
             storagePriceTxt.Text = "";
             storageLocationTxt.Text = "";
             
+        }
+
+        private void allColumnNamesBtn_Click(object sender, EventArgs e)
+        {
+                dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+        }
+
+        private void dataGridProgram2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void numberOfRowsBtn_Click(object sender, EventArgs e)
+        {
+            dataGridProgram2.DataSource = PK2Dal.ShowNumberOfRows();
         }
     }
     }

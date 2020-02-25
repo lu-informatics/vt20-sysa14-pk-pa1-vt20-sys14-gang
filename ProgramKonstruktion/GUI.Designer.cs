@@ -117,11 +117,11 @@
             this.storeIT3DataSet2 = new ProgramKonstruktion.StoreIT3DataSet2();
             this.tenantBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
+            this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
+            this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
-            this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -260,7 +260,10 @@
             // 
             // dataGridBookings
             // 
+            this.dataGridBookings.AllowUserToAddRows = false;
+            this.dataGridBookings.AllowUserToDeleteRows = false;
             this.dataGridBookings.AutoGenerateColumns = false;
+            this.dataGridBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ssnDataGridViewTextBoxColumn,
@@ -272,6 +275,7 @@
             this.dataGridBookings.DataSource = this.tenantBindingSource4;
             this.dataGridBookings.Location = new System.Drawing.Point(470, 163);
             this.dataGridBookings.Name = "dataGridBookings";
+            this.dataGridBookings.ReadOnly = true;
             this.dataGridBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridBookings.Size = new System.Drawing.Size(560, 253);
             this.dataGridBookings.TabIndex = 24;
@@ -282,36 +286,42 @@
             this.ssnDataGridViewTextBoxColumn.DataPropertyName = "ssn";
             this.ssnDataGridViewTextBoxColumn.HeaderText = "ssn";
             this.ssnDataGridViewTextBoxColumn.Name = "ssnDataGridViewTextBoxColumn";
+            this.ssnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phoneNbrDataGridViewTextBoxColumn
             // 
             this.phoneNbrDataGridViewTextBoxColumn.DataPropertyName = "phoneNbr";
             this.phoneNbrDataGridViewTextBoxColumn.HeaderText = "phoneNbr";
             this.phoneNbrDataGridViewTextBoxColumn.Name = "phoneNbrDataGridViewTextBoxColumn";
+            this.phoneNbrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // storageNbrDataGridViewTextBoxColumn
             // 
             this.storageNbrDataGridViewTextBoxColumn.DataPropertyName = "storageNbr";
             this.storageNbrDataGridViewTextBoxColumn.HeaderText = "storageNbr";
             this.storageNbrDataGridViewTextBoxColumn.Name = "storageNbrDataGridViewTextBoxColumn";
+            this.storageNbrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rentDateDataGridViewTextBoxColumn
             // 
             this.rentDateDataGridViewTextBoxColumn.DataPropertyName = "rentDate";
             this.rentDateDataGridViewTextBoxColumn.HeaderText = "rentDate";
             this.rentDateDataGridViewTextBoxColumn.Name = "rentDateDataGridViewTextBoxColumn";
+            this.rentDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tenantBindingSource4
             // 
@@ -617,7 +627,10 @@
             // 
             // dataGridStorages
             // 
+            this.dataGridStorages.AllowUserToAddRows = false;
+            this.dataGridStorages.AllowUserToDeleteRows = false;
             this.dataGridStorages.AutoGenerateColumns = false;
+            this.dataGridStorages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridStorages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridStorages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nbrDataGridViewTextBoxColumn,
@@ -627,6 +640,7 @@
             this.dataGridStorages.DataSource = this.storageBindingSource6;
             this.dataGridStorages.Location = new System.Drawing.Point(498, 191);
             this.dataGridStorages.Name = "dataGridStorages";
+            this.dataGridStorages.ReadOnly = true;
             this.dataGridStorages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridStorages.Size = new System.Drawing.Size(425, 258);
             this.dataGridStorages.TabIndex = 6;
@@ -637,24 +651,28 @@
             this.nbrDataGridViewTextBoxColumn.DataPropertyName = "nbr";
             this.nbrDataGridViewTextBoxColumn.HeaderText = "nbr";
             this.nbrDataGridViewTextBoxColumn.Name = "nbrDataGridViewTextBoxColumn";
+            this.nbrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "price";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sizeDataGridViewTextBoxColumn
             // 
             this.sizeDataGridViewTextBoxColumn.DataPropertyName = "size";
             this.sizeDataGridViewTextBoxColumn.HeaderText = "size";
             this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // addressDataGridViewTextBoxColumn
             // 
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
             this.addressDataGridViewTextBoxColumn.HeaderText = "address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // storageBindingSource6
             // 
@@ -735,6 +753,7 @@
             this.numberOfRowsBtn.TabIndex = 2;
             this.numberOfRowsBtn.Text = "Number of Rows";
             this.numberOfRowsBtn.UseVisualStyleBackColor = true;
+            this.numberOfRowsBtn.Click += new System.EventHandler(this.numberOfRowsBtn_Click);
             // 
             // allColumnNamesBtn
             // 
@@ -745,14 +764,20 @@
             this.allColumnNamesBtn.TabIndex = 1;
             this.allColumnNamesBtn.Text = "All Column Names";
             this.allColumnNamesBtn.UseVisualStyleBackColor = true;
+            this.allColumnNamesBtn.Click += new System.EventHandler(this.allColumnNamesBtn_Click);
             // 
             // dataGridProgram2
             // 
+            this.dataGridProgram2.AllowUserToAddRows = false;
+            this.dataGridProgram2.AllowUserToDeleteRows = false;
+            this.dataGridProgram2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridProgram2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProgram2.Location = new System.Drawing.Point(83, 172);
             this.dataGridProgram2.Name = "dataGridProgram2";
+            this.dataGridProgram2.ReadOnly = true;
             this.dataGridProgram2.Size = new System.Drawing.Size(623, 303);
             this.dataGridProgram2.TabIndex = 0;
+            this.dataGridProgram2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProgram2_CellContentClick);
             // 
             // integration1
             // 
@@ -879,6 +904,14 @@
             // 
             this.tenantTableAdapter3.ClearBeforeFill = true;
             // 
+            // tenantTableAdapter4
+            // 
+            this.tenantTableAdapter4.ClearBeforeFill = true;
+            // 
+            // storageTableAdapter3
+            // 
+            this.storageTableAdapter3.ClearBeforeFill = true;
+            // 
             // storageBindingSource4
             // 
             this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
@@ -890,14 +923,6 @@
             // storageBindingSource1
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
-            // tenantTableAdapter4
-            // 
-            this.tenantTableAdapter4.ClearBeforeFill = true;
-            // 
-            // storageTableAdapter3
-            // 
-            this.storageTableAdapter3.ClearBeforeFill = true;
             // 
             // GUI
             // 
