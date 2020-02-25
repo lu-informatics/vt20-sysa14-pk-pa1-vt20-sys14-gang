@@ -9,8 +9,8 @@ namespace ProgramKonstruktion
     public class Employee
     {
         private string no;
-        private string firstname;
-        private string lastname;
+        private string firstName;
+        private string lastName;
         private string jobTitle;
         private string address;
         private string phoneNumber;
@@ -23,6 +23,18 @@ namespace ProgramKonstruktion
 
         }
 
+        public Employee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string ssn, string email)
+        {
+            this.no = no;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.jobTitle = jobTitle;
+            this.address = address;
+            this.phoneNumber = phoneNumber;
+            this.ssn = ssn;
+            this.email = email;
+        }
+
         public string No
         {
             get => no;
@@ -31,15 +43,15 @@ namespace ProgramKonstruktion
 
         public string FirstName
         {
-            get => firstname;
-            set => firstname = value;
+            get => firstName;
+            set => firstName = value;
 
         }
 
         public string LastName
         {
-            get => lastname;
-            set => lastname = value;
+            get => lastName;
+            set => lastName = value;
         }
 
         public string JobTitle

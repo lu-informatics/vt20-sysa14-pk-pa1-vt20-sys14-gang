@@ -81,7 +81,7 @@ namespace ProgramKonstruktion
         {
             Boolean added = false;
 
-            string query = "INSERT INTO [CRONUS Sverige AB$Employee] ([No_], [First Name], [Last Name], [Job Title], [Address], [Phone No_], [E-Mail], [Social Secuirty No_]) VALUES (@No, @FirstName, @LastName, @JobTitle, @Address, @PhoneNumber, @Email, @Ssn)";
+            string query = "INSERT INTO [CRONUS Sverige AB$Employee] ([No_], [First Name], [Last Name], [Job Title], [Address], [Phone No_], [E-Mail], [Social Security No_]) VALUES (@No, @FirstName, @LastName, @JobTitle, @Address, @PhoneNumber, @Email, @Ssn)";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -138,9 +138,9 @@ namespace ProgramKonstruktion
 
                 while (reader.Read())
                 {
-                    employee.LastName = reader.GetString(4);
-                    employee.JobTitle = reader.GetString(6);
-                    employee.Email = reader.GetString(16);
+                    employee.LastName = reader.GetString(0);
+                    employee.JobTitle = reader.GetString(1);
+                    employee.Email = reader.GetString(2);
 
                 }
             }
