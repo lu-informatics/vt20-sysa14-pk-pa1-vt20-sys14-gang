@@ -121,7 +121,6 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
-            tenantDal.CreateTenant(tenant);
             Boolean added = tenantDal.CreateTenant(tenant);
             if (!added)
             {

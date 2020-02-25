@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectorForCronus.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Connector.cs" />
+    <Compile Include="EmployeeDAL.cs" />
     <Compile Include="ErrorHandler.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="StoreIT2DataSet.Designer.cs">
