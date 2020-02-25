@@ -78,7 +78,7 @@ namespace ProgramKonstruktion
         public Boolean CreateTenant(Tenant tenant)
         {
             Boolean added = false;
-            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email, @storageNbr, @rentDate)";// @storageAddress)";
+            string query = "INSERT INTO Tenant VALUES (@ssn, @name, @phoneNbr, @email, @storageNbr, @rentDate)";
 
             //Create command and add parameters
             SqlCommand command = new SqlCommand(query, connection);
@@ -89,7 +89,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
             command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
-           // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = tenant.StorageAddress;
+           
 
             try
             {
@@ -108,7 +108,7 @@ namespace ProgramKonstruktion
 
             catch (Exception e)
             {
-                errorHandler.HandleExceptions(e);
+                MessageBox.Show(e.Message);
             }
             finally
             {

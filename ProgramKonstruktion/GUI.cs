@@ -120,8 +120,6 @@ namespace ProgramKonstruktion
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
-           // tenant.StorageAddress = "Fågelvägen 43"; //databasen ska ändras till att alla storage ligger på fågelvägen 43 eller om fk inte ska vara en kombo:)
-           
             tenant.RentDate = monthCalendar.SelectionRange.Start;
             tenantDal.CreateTenant(tenant);
             Boolean added = tenantDal.CreateTenant(tenant);
