@@ -26,5 +26,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=SYST4DEV01;Initial Catalog=STOREITNEW;Persist Security Info=True;User ID=tgang;Password=tgang1</Value>
     </Setting>
+    <Setting Name="ProgramKonstruktion_OpenFileService_WebServiceAssignment" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/WebApplication/WebServiceAssignment.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -10,7 +10,7 @@ namespace SqlWebApplication
     /// <summary>
     /// Summary description for SqlWebService
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")] //grupp2.ics.lu.se
+    [WebService(Namespace = "http://grupp2.ics.lu.se/")] //grupp2.ics.lu.se/
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -31,7 +31,7 @@ namespace SqlWebApplication
         }
        
         [WebMethod]
-        public bool CreateTenant(string ssn, string name, string phoneNbr, string email, string storageNbr, DateTime rentDate, string storageAddrress)
+        public bool CreateTenant(string ssn, string name, string phoneNbr, string email, string storageNbr, DateTime rentDate)
         {
             Tenant t = new Tenant();
             t.Name = name;
@@ -40,7 +40,6 @@ namespace SqlWebApplication
             t.Email = email;
             t.StorageNbr = storageNbr;
             t.RentDate = rentDate;
-            t.StorageAddress = storageAddrress; 
             return tenantDAL.CreateTenant(t);
 
         }
@@ -81,21 +80,21 @@ namespace SqlWebApplication
         }
 
         [WebMethod]
-        public Boolean DeleteStorage(string nbr, string address)
+        public Boolean DeleteStorage(string nbr)
         {
-            return storageDAL.DeleteStorage(nbr, address);
+            return storageDAL.DeleteStorage(nbr);
         }
 
         [WebMethod]
-        public Boolean DeleteTenantFromStorage(string nbr, string address)
+        public Boolean DeleteTenantFromStorage(string nbr)
         {
-            return storageDAL.DeleteTenantFromStorage(nbr, address);
+            return storageDAL.DeleteTenantFromStorage(nbr);
         }
 
         [WebMethod]
-        public Storage FindStorage(string nbr, string address)
+        public Storage FindStorage(string nbr)
         {
-            return storageDAL.FindStorage(nbr, address);
+            return storageDAL.FindStorage(nbr);
         }
 
     }

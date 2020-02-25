@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace ConsoleApp.WebReference {
+namespace ProgramKonstruktion.OpenFileService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -26,16 +26,16 @@ namespace ConsoleApp.WebReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="WebAssignment1Soap", Namespace="http://tempuri.org/")]
-    public partial class WebAssignment1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceAssignmentSoap", Namespace="http://grupp2.ics.lu.se/")]
+    public partial class WebServiceAssignment : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback ShowFileOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public WebAssignment1() {
-            this.Url = global::ConsoleApp.Properties.Settings.Default.ConsoleApp_WebReference_WebAssignment1;
+        public WebServiceAssignment() {
+            this.Url = global::ProgramKonstruktion.Properties.Settings.Default.ProgramKonstruktion_OpenFileService_WebServiceAssignment;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -73,7 +73,7 @@ namespace ConsoleApp.WebReference {
         public event ShowFileCompletedEventHandler ShowFileCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ShowFile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowFile", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string ShowFile(string fileName) {
             object[] results = this.Invoke("ShowFile", new object[] {
                         fileName});

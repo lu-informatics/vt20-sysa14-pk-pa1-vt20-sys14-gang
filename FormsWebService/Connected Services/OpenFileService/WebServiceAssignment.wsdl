@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://grupp2.ics.lu.se/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://grupp2.ics.lu.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://grupp2.ics.lu.se/">
       <s:element name="ShowFile">
         <s:complexType>
           <s:sequence>
@@ -24,16 +24,16 @@
   <wsdl:message name="ShowFileSoapOut">
     <wsdl:part name="parameters" element="tns:ShowFileResponse" />
   </wsdl:message>
-  <wsdl:portType name="WebAssignment1Soap">
+  <wsdl:portType name="WebServiceAssignmentSoap">
     <wsdl:operation name="ShowFile">
       <wsdl:input message="tns:ShowFileSoapIn" />
       <wsdl:output message="tns:ShowFileSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WebAssignment1Soap" type="tns:WebAssignment1Soap">
+  <wsdl:binding name="WebServiceAssignmentSoap" type="tns:WebServiceAssignmentSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ShowFile">
-      <soap:operation soapAction="http://tempuri.org/ShowFile" style="document" />
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowFile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -42,10 +42,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WebAssignment1Soap12" type="tns:WebAssignment1Soap">
+  <wsdl:binding name="WebServiceAssignmentSoap12" type="tns:WebServiceAssignmentSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ShowFile">
-      <soap12:operation soapAction="http://tempuri.org/ShowFile" style="document" />
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowFile" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -54,12 +54,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="WebAssignment1">
-    <wsdl:port name="WebAssignment1Soap" binding="tns:WebAssignment1Soap">
-      <soap:address location="http://localhost:50484/WebAssignment1.asmx" />
+  <wsdl:service name="WebServiceAssignment">
+    <wsdl:port name="WebServiceAssignmentSoap" binding="tns:WebServiceAssignmentSoap">
+      <soap:address location="http://localhost/WebApplication/WebServiceAssignment.asmx" />
     </wsdl:port>
-    <wsdl:port name="WebAssignment1Soap12" binding="tns:WebAssignment1Soap12">
-      <soap12:address location="http://localhost:50484/WebAssignment1.asmx" />
+    <wsdl:port name="WebServiceAssignmentSoap12" binding="tns:WebServiceAssignmentSoap12">
+      <soap12:address location="http://localhost/WebApplication/WebServiceAssignment.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -8,19 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsoleApp.ServiceReference {
+namespace FormsWebService.OpenFileService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.WebAssignment1Soap")]
-    public interface WebAssignment1Soap {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://grupp2.ics.lu.se/", ConfigurationName="OpenFileService.WebServiceAssignmentSoap")]
+    public interface WebServiceAssignmentSoap {
         
-        // CODEGEN: Generating message contract since element name fileName from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowFile", ReplyAction="*")]
-        ConsoleApp.ServiceReference.ShowFileResponse ShowFile(ConsoleApp.ServiceReference.ShowFileRequest request);
+        // CODEGEN: Generating message contract since element name fileName from namespace http://grupp2.ics.lu.se/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowFile", ReplyAction="*")]
+        FormsWebService.OpenFileService.ShowFileResponse ShowFile(FormsWebService.OpenFileService.ShowFileRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowFile", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApp.ServiceReference.ShowFileResponse> ShowFileAsync(ConsoleApp.ServiceReference.ShowFileRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowFile", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormsWebService.OpenFileService.ShowFileResponse> ShowFileAsync(FormsWebService.OpenFileService.ShowFileRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -29,13 +29,13 @@ namespace ConsoleApp.ServiceReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class ShowFileRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowFile", Namespace="http://tempuri.org/", Order=0)]
-        public ConsoleApp.ServiceReference.ShowFileRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowFile", Namespace="http://grupp2.ics.lu.se/", Order=0)]
+        public FormsWebService.OpenFileService.ShowFileRequestBody Body;
         
         public ShowFileRequest() {
         }
         
-        public ShowFileRequest(ConsoleApp.ServiceReference.ShowFileRequestBody Body) {
+        public ShowFileRequest(FormsWebService.OpenFileService.ShowFileRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -43,7 +43,7 @@ namespace ConsoleApp.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
     public partial class ShowFileRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -63,13 +63,13 @@ namespace ConsoleApp.ServiceReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class ShowFileResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowFileResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ConsoleApp.ServiceReference.ShowFileResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowFileResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
+        public FormsWebService.OpenFileService.ShowFileResponseBody Body;
         
         public ShowFileResponse() {
         }
         
-        public ShowFileResponse(ConsoleApp.ServiceReference.ShowFileResponseBody Body) {
+        public ShowFileResponse(FormsWebService.OpenFileService.ShowFileResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -77,7 +77,7 @@ namespace ConsoleApp.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
     public partial class ShowFileResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -92,55 +92,55 @@ namespace ConsoleApp.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WebAssignment1SoapChannel : ConsoleApp.ServiceReference.WebAssignment1Soap, System.ServiceModel.IClientChannel {
+    public interface WebServiceAssignmentSoapChannel : FormsWebService.OpenFileService.WebServiceAssignmentSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebAssignment1SoapClient : System.ServiceModel.ClientBase<ConsoleApp.ServiceReference.WebAssignment1Soap>, ConsoleApp.ServiceReference.WebAssignment1Soap {
+    public partial class WebServiceAssignmentSoapClient : System.ServiceModel.ClientBase<FormsWebService.OpenFileService.WebServiceAssignmentSoap>, FormsWebService.OpenFileService.WebServiceAssignmentSoap {
         
-        public WebAssignment1SoapClient() {
+        public WebServiceAssignmentSoapClient() {
         }
         
-        public WebAssignment1SoapClient(string endpointConfigurationName) : 
+        public WebServiceAssignmentSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public WebAssignment1SoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public WebServiceAssignmentSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WebAssignment1SoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WebServiceAssignmentSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WebAssignment1SoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WebServiceAssignmentSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApp.ServiceReference.ShowFileResponse ConsoleApp.ServiceReference.WebAssignment1Soap.ShowFile(ConsoleApp.ServiceReference.ShowFileRequest request) {
+        FormsWebService.OpenFileService.ShowFileResponse FormsWebService.OpenFileService.WebServiceAssignmentSoap.ShowFile(FormsWebService.OpenFileService.ShowFileRequest request) {
             return base.Channel.ShowFile(request);
         }
         
         public string ShowFile(string fileName) {
-            ConsoleApp.ServiceReference.ShowFileRequest inValue = new ConsoleApp.ServiceReference.ShowFileRequest();
-            inValue.Body = new ConsoleApp.ServiceReference.ShowFileRequestBody();
+            FormsWebService.OpenFileService.ShowFileRequest inValue = new FormsWebService.OpenFileService.ShowFileRequest();
+            inValue.Body = new FormsWebService.OpenFileService.ShowFileRequestBody();
             inValue.Body.fileName = fileName;
-            ConsoleApp.ServiceReference.ShowFileResponse retVal = ((ConsoleApp.ServiceReference.WebAssignment1Soap)(this)).ShowFile(inValue);
+            FormsWebService.OpenFileService.ShowFileResponse retVal = ((FormsWebService.OpenFileService.WebServiceAssignmentSoap)(this)).ShowFile(inValue);
             return retVal.Body.ShowFileResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApp.ServiceReference.ShowFileResponse> ConsoleApp.ServiceReference.WebAssignment1Soap.ShowFileAsync(ConsoleApp.ServiceReference.ShowFileRequest request) {
+        System.Threading.Tasks.Task<FormsWebService.OpenFileService.ShowFileResponse> FormsWebService.OpenFileService.WebServiceAssignmentSoap.ShowFileAsync(FormsWebService.OpenFileService.ShowFileRequest request) {
             return base.Channel.ShowFileAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApp.ServiceReference.ShowFileResponse> ShowFileAsync(string fileName) {
-            ConsoleApp.ServiceReference.ShowFileRequest inValue = new ConsoleApp.ServiceReference.ShowFileRequest();
-            inValue.Body = new ConsoleApp.ServiceReference.ShowFileRequestBody();
+        public System.Threading.Tasks.Task<FormsWebService.OpenFileService.ShowFileResponse> ShowFileAsync(string fileName) {
+            FormsWebService.OpenFileService.ShowFileRequest inValue = new FormsWebService.OpenFileService.ShowFileRequest();
+            inValue.Body = new FormsWebService.OpenFileService.ShowFileRequestBody();
             inValue.Body.fileName = fileName;
-            return ((ConsoleApp.ServiceReference.WebAssignment1Soap)(this)).ShowFileAsync(inValue);
+            return ((FormsWebService.OpenFileService.WebServiceAssignmentSoap)(this)).ShowFileAsync(inValue);
         }
     }
 }
