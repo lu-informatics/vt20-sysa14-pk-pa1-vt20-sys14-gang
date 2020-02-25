@@ -70,10 +70,10 @@ namespace ProgramKonstruktion
               tenant.RentDate = value;
              dal.CreateTenant(tenant);*/
 
-            StorageDAL storageDal = new StorageDAL();
+            /*StorageDAL storageDal = new StorageDAL();
 
             Storage storage = new Storage("130", 40, 30, "Fågelvägen 43");
-            storageDal.CreateStorage(storage);
+            storageDal.CreateStorage(storage);*/
             
 
             
