@@ -74,7 +74,7 @@ namespace ProgramKonstruktion
         public List<Storage> listOfAvailableStorages()
         {
             List<Storage> getListOfAvailableStorages = new List<Storage>();
-            string query = "Select nbr, address FROM Storage WHERE NOT EXISTS( Select storageNbr, storageAddress FROM Tenant WHERE nbr = storageNbr AND address = storageAddress)";
+            string query = "Select nbr FROM Storage WHERE NOT EXISTS(Select storageNbr FROM Tenant WHERE nbr = storageNbr)";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -90,7 +90,6 @@ namespace ProgramKonstruktion
                     Storage storage = new Storage();
                     {
                         storage.Nbr = reader.GetString(0);
-                        storage.Address = reader.GetString(1);
                     }
                     getListOfAvailableStorages.Add(storage);
                 }
@@ -129,7 +128,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@storageNbr", SqlDbType.Int).Value = storage.Nbr;
             command.Parameters.Add("@price", SqlDbType.Float).Value = storage.Price;
             command.Parameters.Add("@size", SqlDbType.Float).Value = storage.Size;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = "Fågelvägen 43";
+            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = storage.Address;
 
             try
             {
@@ -160,8 +159,8 @@ namespace ProgramKonstruktion
 
         public Storage UpdateStorage(string nbr, string address, float price, float size)
         {
-           
-            string query = "UPDATE Storage SET price = @price, size = @size WHERE nbr = @nbr AND address = @address";
+
+            string query = "UPDATE Storage SET price = @price, size = @size, address = @address WHERE nbr = @nbr"; //AND address = @address";
 
             Storage storage = new Storage();
             SqlCommand command = new SqlCommand(query, connection);
@@ -178,7 +177,7 @@ namespace ProgramKonstruktion
                 command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;
-                storage.Nbr = nbr;
+               // storage.Nbr = nbr;
                 storage.Address = address;
                      
 
@@ -203,15 +202,15 @@ namespace ProgramKonstruktion
             return storage;
         }
 
-        public Boolean DeleteStorage(string nbr, string address)
+        public Boolean DeleteStorage(string nbr)
         {
             Boolean deletedStorage = false;
-            string query = "DELETE FROM Storage WHERE nbr = @nbr AND address = @address";
+            string query = "DELETE FROM Storage WHERE nbr = @nbr";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+           // command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
             try
             {
@@ -239,15 +238,15 @@ namespace ProgramKonstruktion
             return deletedStorage;
         }
 
-        public Boolean DeleteTenantFromStorage (string nbr, string address)
+        public Boolean DeleteTenantFromStorage (string nbr)
         {
             Boolean deleteTenantFromStorage = false;
-            string query = "DELETE Tenant FROM Storage WHERE storageNbr = @storageNbr and storageAddress = @storageAddress";
+            string query = "DELETE Tenant FROM Storage WHERE storageNbr = @storageNbr";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = nbr;
-            command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
+           // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
 
             try
             {
@@ -274,15 +273,15 @@ namespace ProgramKonstruktion
             return deleteTenantFromStorage;
         }
 
-        public Storage FindStorage(string nbr, string address)
+        public Storage FindStorage(string nbr)
         {
-            string query = "SELECT * FROM Storage WHERE nbr = @nbr AND address = @address";
+            string query = "SELECT * FROM Storage WHERE nbr = @nbr"; //AND address = @address";
 
             SqlCommand command = new SqlCommand(query, connection);
             Storage storage = new Storage();
 
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+            //command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
             
 
@@ -293,11 +292,12 @@ namespace ProgramKonstruktion
 
                 while (reader.Read())
                 {
-                   storage.Address = reader.GetString(3);
-                   storage.Nbr = reader.GetString(0);
-                   storage.Price = (float) reader.GetDouble(1);
-                   storage.Size = (float) reader.GetDouble(2);
-
+                    storage.Nbr = reader.GetString(0);
+                    storage.Price = (float)reader.GetDouble(1);
+                    storage.Size = (float)reader.GetDouble(2);
+                    storage.Address = reader.GetString(3);
+                  
+                  
                 }
             }
             catch (SqlException e)

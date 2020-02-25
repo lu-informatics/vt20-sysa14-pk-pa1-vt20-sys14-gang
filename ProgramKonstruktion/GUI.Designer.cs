@@ -44,9 +44,8 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storageNbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storageAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenantBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.storeIT2DataSet1 = new ProgramKonstruktion.StoreIT2DataSet1();
+            this.tenantBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.sTOREITNEWDataSet = new ProgramKonstruktion.STOREITNEWDataSet();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ssnBookTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,8 +64,6 @@
             this.tenantNameTxt = new System.Windows.Forms.TextBox();
             this.searchTenantBtn = new System.Windows.Forms.Button();
             this.updateStorage = new System.Windows.Forms.TabPage();
-            this.labelStorageAddress = new System.Windows.Forms.Label();
-            this.storageAddressSearch = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorBoxUpdateStorages = new System.Windows.Forms.RichTextBox();
             this.storageSearchBtn = new System.Windows.Forms.Button();
@@ -84,8 +81,8 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.storeIT2DataSet = new ProgramKonstruktion.StoreIT2DataSet();
+            this.storageBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.sTOREITNEWDataSet1 = new ProgramKonstruktion.STOREITNEWDataSet1();
             this.storageLocationTxt = new System.Windows.Forms.TextBox();
             this.storagePriceTxt = new System.Windows.Forms.TextBox();
             this.storageSizeTxt = new System.Windows.Forms.TextBox();
@@ -99,6 +96,14 @@
             this.integration1 = new System.Windows.Forms.TabPage();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.ERP = new System.Windows.Forms.TabPage();
+            this.tenantBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT3DataSet = new ProgramKonstruktion.StoreIT3DataSet();
+            this.storageBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT3DataSet1 = new ProgramKonstruktion.StoreIT3DataSet1();
+            this.tenantBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT2DataSet1 = new ProgramKonstruktion.StoreIT2DataSet1();
+            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeIT2DataSet = new ProgramKonstruktion.StoreIT2DataSet();
             this.storageBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.storeIT2DataSet3 = new ProgramKonstruktion.StoreIT2DataSet3();
             this.tenantBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -107,26 +112,43 @@
             this.tenantTableAdapter = new ProgramKonstruktion.StoreIT2DataSet1TableAdapters.TenantTableAdapter();
             this.tenantTableAdapter1 = new ProgramKonstruktion.StoreIT2DataSet2TableAdapters.TenantTableAdapter();
             this.storageTableAdapter1 = new ProgramKonstruktion.StoreIT2DataSet3TableAdapters.StorageTableAdapter();
+            this.tenantTableAdapter2 = new ProgramKonstruktion.StoreIT3DataSetTableAdapters.TenantTableAdapter();
+            this.storageTableAdapter2 = new ProgramKonstruktion.StoreIT3DataSet1TableAdapters.StorageTableAdapter();
+            this.storeIT3DataSet2 = new ProgramKonstruktion.StoreIT3DataSet2();
+            this.tenantBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
+            this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.updateStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet1)).BeginInit();
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
@@ -246,13 +268,12 @@
             this.phoneNbrDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.storageNbrDataGridViewTextBoxColumn,
-            this.rentDateDataGridViewTextBoxColumn,
-            this.storageAddressDataGridViewTextBoxColumn});
-            this.dataGridBookings.DataSource = this.tenantBindingSource;
-            this.dataGridBookings.Location = new System.Drawing.Point(470, 177);
+            this.rentDateDataGridViewTextBoxColumn});
+            this.dataGridBookings.DataSource = this.tenantBindingSource4;
+            this.dataGridBookings.Location = new System.Drawing.Point(470, 163);
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridBookings.Size = new System.Drawing.Size(546, 257);
+            this.dataGridBookings.Size = new System.Drawing.Size(560, 253);
             this.dataGridBookings.TabIndex = 24;
             this.dataGridBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBookings_CellContentClick);
             // 
@@ -292,21 +313,15 @@
             this.rentDateDataGridViewTextBoxColumn.HeaderText = "rentDate";
             this.rentDateDataGridViewTextBoxColumn.Name = "rentDateDataGridViewTextBoxColumn";
             // 
-            // storageAddressDataGridViewTextBoxColumn
+            // tenantBindingSource4
             // 
-            this.storageAddressDataGridViewTextBoxColumn.DataPropertyName = "storageAddress";
-            this.storageAddressDataGridViewTextBoxColumn.HeaderText = "storageAddress";
-            this.storageAddressDataGridViewTextBoxColumn.Name = "storageAddressDataGridViewTextBoxColumn";
+            this.tenantBindingSource4.DataMember = "Tenant";
+            this.tenantBindingSource4.DataSource = this.sTOREITNEWDataSet;
             // 
-            // tenantBindingSource
+            // sTOREITNEWDataSet
             // 
-            this.tenantBindingSource.DataMember = "Tenant";
-            this.tenantBindingSource.DataSource = this.storeIT2DataSet1;
-            // 
-            // storeIT2DataSet1
-            // 
-            this.storeIT2DataSet1.DataSetName = "StoreIT2DataSet1";
-            this.storeIT2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.sTOREITNEWDataSet.DataSetName = "STOREITNEWDataSet";
+            this.sTOREITNEWDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -461,8 +476,6 @@
             // 
             // updateStorage
             // 
-            this.updateStorage.Controls.Add(this.labelStorageAddress);
-            this.updateStorage.Controls.Add(this.storageAddressSearch);
             this.updateStorage.Controls.Add(this.pictureBox3);
             this.updateStorage.Controls.Add(this.errorBoxUpdateStorages);
             this.updateStorage.Controls.Add(this.storageSearchBtn);
@@ -490,22 +503,6 @@
             this.updateStorage.Text = "Update Storage";
             this.updateStorage.UseVisualStyleBackColor = true;
             // 
-            // labelStorageAddress
-            // 
-            this.labelStorageAddress.AutoSize = true;
-            this.labelStorageAddress.Location = new System.Drawing.Point(246, 335);
-            this.labelStorageAddress.Name = "labelStorageAddress";
-            this.labelStorageAddress.Size = new System.Drawing.Size(85, 13);
-            this.labelStorageAddress.TabIndex = 20;
-            this.labelStorageAddress.Text = "Storage Address";
-            // 
-            // storageAddressSearch
-            // 
-            this.storageAddressSearch.Location = new System.Drawing.Point(247, 354);
-            this.storageAddressSearch.Name = "storageAddressSearch";
-            this.storageAddressSearch.Size = new System.Drawing.Size(130, 20);
-            this.storageAddressSearch.TabIndex = 19;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
@@ -527,7 +524,7 @@
             // 
             // storageSearchBtn
             // 
-            this.storageSearchBtn.Location = new System.Drawing.Point(407, 352);
+            this.storageSearchBtn.Location = new System.Drawing.Point(219, 352);
             this.storageSearchBtn.Name = "storageSearchBtn";
             this.storageSearchBtn.Size = new System.Drawing.Size(75, 23);
             this.storageSearchBtn.TabIndex = 16;
@@ -627,7 +624,7 @@
             this.priceDataGridViewTextBoxColumn,
             this.sizeDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn});
-            this.dataGridStorages.DataSource = this.storageBindingSource;
+            this.dataGridStorages.DataSource = this.storageBindingSource6;
             this.dataGridStorages.Location = new System.Drawing.Point(498, 191);
             this.dataGridStorages.Name = "dataGridStorages";
             this.dataGridStorages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -659,15 +656,15 @@
             this.addressDataGridViewTextBoxColumn.HeaderText = "address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             // 
-            // storageBindingSource
+            // storageBindingSource6
             // 
-            this.storageBindingSource.DataMember = "Storage";
-            this.storageBindingSource.DataSource = this.storeIT2DataSet;
+            this.storageBindingSource6.DataMember = "Storage";
+            this.storageBindingSource6.DataSource = this.sTOREITNEWDataSet1;
             // 
-            // storeIT2DataSet
+            // sTOREITNEWDataSet1
             // 
-            this.storeIT2DataSet.DataSetName = "StoreIT2DataSet";
-            this.storeIT2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.sTOREITNEWDataSet1.DataSetName = "STOREITNEWDataSet1";
+            this.sTOREITNEWDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // storageLocationTxt
             // 
@@ -784,6 +781,46 @@
             this.ERP.Text = "ERP";
             this.ERP.UseVisualStyleBackColor = true;
             // 
+            // tenantBindingSource2
+            // 
+            this.tenantBindingSource2.DataMember = "Tenant";
+            this.tenantBindingSource2.DataSource = this.storeIT3DataSet;
+            // 
+            // storeIT3DataSet
+            // 
+            this.storeIT3DataSet.DataSetName = "StoreIT3DataSet";
+            this.storeIT3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // storageBindingSource5
+            // 
+            this.storageBindingSource5.DataMember = "Storage";
+            this.storageBindingSource5.DataSource = this.storeIT3DataSet1;
+            // 
+            // storeIT3DataSet1
+            // 
+            this.storeIT3DataSet1.DataSetName = "StoreIT3DataSet1";
+            this.storeIT3DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tenantBindingSource
+            // 
+            this.tenantBindingSource.DataMember = "Tenant";
+            this.tenantBindingSource.DataSource = this.storeIT2DataSet1;
+            // 
+            // storeIT2DataSet1
+            // 
+            this.storeIT2DataSet1.DataSetName = "StoreIT2DataSet1";
+            this.storeIT2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // storageBindingSource
+            // 
+            this.storageBindingSource.DataMember = "Storage";
+            this.storageBindingSource.DataSource = this.storeIT2DataSet;
+            // 
+            // storeIT2DataSet
+            // 
+            this.storeIT2DataSet.DataSetName = "StoreIT2DataSet";
+            this.storeIT2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // storageBindingSource3
             // 
             this.storageBindingSource3.DataMember = "Storage";
@@ -820,6 +857,28 @@
             // 
             this.storageTableAdapter1.ClearBeforeFill = true;
             // 
+            // tenantTableAdapter2
+            // 
+            this.tenantTableAdapter2.ClearBeforeFill = true;
+            // 
+            // storageTableAdapter2
+            // 
+            this.storageTableAdapter2.ClearBeforeFill = true;
+            // 
+            // storeIT3DataSet2
+            // 
+            this.storeIT3DataSet2.DataSetName = "StoreIT3DataSet2";
+            this.storeIT3DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tenantBindingSource3
+            // 
+            this.tenantBindingSource3.DataMember = "Tenant";
+            this.tenantBindingSource3.DataSource = this.storeIT3DataSet2;
+            // 
+            // tenantTableAdapter3
+            // 
+            this.tenantTableAdapter3.ClearBeforeFill = true;
+            // 
             // storageBindingSource4
             // 
             this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
@@ -831,6 +890,14 @@
             // storageBindingSource1
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
+            // 
+            // tenantTableAdapter4
+            // 
+            this.tenantTableAdapter4.ClearBeforeFill = true;
+            // 
+            // storageTableAdapter3
+            // 
+            this.storageTableAdapter3.ClearBeforeFill = true;
             // 
             // GUI
             // 
@@ -845,21 +912,31 @@
             this.bookStorage.ResumeLayout(false);
             this.bookStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.updateStorage.ResumeLayout(false);
             this.updateStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStorages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet1)).EndInit();
             this.programkonst2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
@@ -938,7 +1015,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn storageNbrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storageAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource storageBindingSource1;
         private System.Windows.Forms.BindingSource storageBindingSource2;
         private StoreIT2DataSet2 storeIT2DataSet2;
@@ -948,8 +1024,21 @@
         private System.Windows.Forms.BindingSource storageBindingSource3;
         private StoreIT2DataSet3TableAdapters.StorageTableAdapter storageTableAdapter1;
         private System.Windows.Forms.BindingSource storageBindingSource4;
-        private System.Windows.Forms.Label labelStorageAddress;
-        private System.Windows.Forms.TextBox storageAddressSearch;
+        private StoreIT3DataSet storeIT3DataSet;
+        private System.Windows.Forms.BindingSource tenantBindingSource2;
+        private StoreIT3DataSetTableAdapters.TenantTableAdapter tenantTableAdapter2;
+        private StoreIT3DataSet1 storeIT3DataSet1;
+        private System.Windows.Forms.BindingSource storageBindingSource5;
+        private StoreIT3DataSet1TableAdapters.StorageTableAdapter storageTableAdapter2;
+        private StoreIT3DataSet2 storeIT3DataSet2;
+        private System.Windows.Forms.BindingSource tenantBindingSource3;
+        private StoreIT3DataSet2TableAdapters.TenantTableAdapter tenantTableAdapter3;
+        private STOREITNEWDataSet sTOREITNEWDataSet;
+        private System.Windows.Forms.BindingSource tenantBindingSource4;
+        private STOREITNEWDataSetTableAdapters.TenantTableAdapter tenantTableAdapter4;
+        private STOREITNEWDataSet1 sTOREITNEWDataSet1;
+        private System.Windows.Forms.BindingSource storageBindingSource6;
+        private STOREITNEWDataSet1TableAdapters.StorageTableAdapter storageTableAdapter3;
     }
 
    

@@ -85,8 +85,8 @@ namespace ProgramKonstruktion
 
         private void ssnSearchTxt_TextChanged(object sender, EventArgs e)
         {
-            TextBox ssnSearchTxt = (TextBox)sender;
-            string inputSsn = ssnSearchTxt.Text;
+            //TextBox ssnSearchTxt = (TextBox)sender;
+            //string inputSsn = ssnSearchTxt.Text;
 
 
 
@@ -120,8 +120,6 @@ namespace ProgramKonstruktion
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
-            tenant.StorageAddress = "Fågelvägen 43"; //databasen ska ändras till att alla storage ligger på fågelvägen 43 eller om fk inte ska vara en kombo:)
-           
             tenant.RentDate = monthCalendar.SelectionRange.Start;
             tenantDal.CreateTenant(tenant);
             Boolean added = tenantDal.CreateTenant(tenant);
@@ -132,9 +130,11 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking completed.";
+                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+                cleanTextFields();
+                SetAllStoragesToComboBox();
             }
-            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
-            cleanTextFields();
+            
 
 
         }
@@ -143,7 +143,7 @@ namespace ProgramKonstruktion
            
 
         }
-        //fungerar
+        //addstorage
         private void addStorageBtn_Click(object sender, EventArgs e)
         {
             storage.Nbr = storageNbrTxt.Text;
@@ -156,40 +156,43 @@ namespace ProgramKonstruktion
             Boolean added = storageDal.CreateStorage(storage);
             if (!added)
             {
-                    errorBoxUpdateStorages.Text = "Failed to add, try again";
-                }
-             else if (!(storage.Address.Equals("Fågelvägen 43")))
-                    {
-
-                errorBoxUpdateStorages.Text = "We dont have storages on this address, try with Fågelvägen 43";
-                    }
-
-          
-                else if (added) { 
-                    errorBoxUpdateStorages.Text = "Storage was added succefully!";
-                     cleanTextFields();
-                     this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-                     SetAllStoragesToComboBox();
+                errorBoxUpdateStorages.Text = "Failed to add, try again";
             }
 
-            
-          
-            
-            
-
+           else if (added)
+            {
+                errorBoxUpdateStorages.Text = "Storage was added succefully!";
+                cleanTextFields();
+                this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);//this.storageTableAdapter2.Fill(this.storeIT3DataSet1.Storage);
+                SetAllStoragesToComboBox();
+            }
 
         }
 
+        
+
         private void GUI_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sTOREITNEWDataSet1.Storage' table. You can move, or remove it, as needed.
+            this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
+            // TODO: This line of code loads data into the 'sTOREITNEWDataSet.Tenant' table. You can move, or remove it, as needed.
+            this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+            // TODO: This line of code loads data into the 'storeIT3DataSet2.Tenant' table. You can move, or remove it, as needed.
+          //  this.tenantTableAdapter3.Fill(this.storeIT3DataSet2.Tenant);
+            // TODO: This line of code loads data into the 'storeIT3DataSet1.Storage' table. You can move, or remove it, as needed.
+          //  this.storageTableAdapter2.Fill(this.storeIT3DataSet1.Storage);
+            // TODO: This line of code loads data into the 'storeIT3DataSet.Tenant' table. You can move, or remove it, as needed.
+           // this.tenantTableAdapter2.Fill(this.storeIT3DataSet.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet3.Storage' table. You can move, or remove it, as needed.
-            this.storageTableAdapter1.Fill(this.storeIT2DataSet3.Storage);
+            //this.storageTableAdapter1.Fill(this.storeIT2DataSet3.Storage);
             // TODO: This line of code loads data into the 'storeIT2DataSet2.Tenant' table. You can move, or remove it, as needed.
-            this.tenantTableAdapter1.Fill(this.storeIT2DataSet2.Tenant);
+          // this.tenantTableAdapter1.Fill(this.storeIT2DataSet2.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet1.Tenant' table. You can move, or remove it, as needed.
-            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+           // this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet.Storage' table. You can move, or remove it, as needed.
-            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+           // this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
+
+           
 
         }
 
@@ -208,9 +211,9 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Booking with ssn: " + tenant.Ssn + " was deleted succefully!";
-                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
+                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
                 cleanTextFields();
-
+                SetAllStoragesToComboBox();
 
             }
            
@@ -227,9 +230,9 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
-            storage.Address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
+            //storage.Address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
-            Boolean deleted = storageDal.DeleteStorage(storage.Nbr, storage.Address);
+            Boolean deleted = storageDal.DeleteStorage(storage.Nbr);
             if (!deleted)
             {
                 errorBoxUpdateStorages.Text = "Failed, try again";
@@ -237,9 +240,10 @@ namespace ProgramKonstruktion
             }
             else
                 errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was deleted succefully!";
-                this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-                this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
-                cleanTextFields();
+
+            this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
+            this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+            cleanTextFields();
                 SetAllStoragesToComboBox();
 
         }
@@ -272,9 +276,10 @@ namespace ProgramKonstruktion
             else
             {
                 errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
+                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+                cleanTextFields();
             }
-            this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
-            cleanTextFields();
+            
 
         }
 
@@ -295,12 +300,13 @@ namespace ProgramKonstruktion
             }
             else
             {
-                errorBoxUpdateStorages.Text = "Storage with nbr: " + updated.Nbr + " was updated succefully!";
+                errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was updated succefully!";
+                this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
+                cleanTextFields();
 
             }
 
-            this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-            cleanTextFields();
+            
         }
 
 
@@ -309,11 +315,11 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = storageNmbrSearch.Text;
-            storage.Address = storageAddressSearch.Text;
+           // storage.Address = storageAddressSearch.Text;
 
-            storage = storageDal.FindStorage(storageNmbrSearch.Text, storageAddressSearch.Text);
+            storage = storageDal.FindStorage(storageNmbrSearch.Text);
 
-            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr + ", " + storage.Address;
+            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
 
             cleanTextFields();
         }
