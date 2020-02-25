@@ -360,6 +360,15 @@ namespace ProgramKonstruktion
         {
             dataGridProgram2.DataSource = PK2Dal.ShowNumberOfRows();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
+            string response = client.ShowFile(textBoxFileName.Text);
+
+            lblResult.Text = response;
+
+        }
     }
     }
 

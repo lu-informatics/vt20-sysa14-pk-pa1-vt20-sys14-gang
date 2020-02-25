@@ -122,6 +122,11 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.filename = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxFileName = new System.Windows.Forms.TextBox();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -135,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet1)).BeginInit();
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
+            this.integration1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).BeginInit();
@@ -781,6 +787,11 @@
             // 
             // integration1
             // 
+            this.integration1.Controls.Add(this.button1);
+            this.integration1.Controls.Add(this.lblResult);
+            this.integration1.Controls.Add(this.textBoxFileName);
+            this.integration1.Controls.Add(this.label8);
+            this.integration1.Controls.Add(this.filename);
             this.integration1.Location = new System.Drawing.Point(4, 22);
             this.integration1.Name = "integration1";
             this.integration1.Size = new System.Drawing.Size(1106, 626);
@@ -924,6 +935,51 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
+            // filename
+            // 
+            this.filename.AutoSize = true;
+            this.filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filename.Location = new System.Drawing.Point(31, 29);
+            this.filename.Name = "filename";
+            this.filename.Size = new System.Drawing.Size(78, 20);
+            this.filename.TabIndex = 0;
+            this.filename.Text = "Filename:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(34, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Result: ";
+            // 
+            // textBoxFileName
+            // 
+            this.textBoxFileName.Location = new System.Drawing.Point(133, 29);
+            this.textBoxFileName.Name = "textBoxFileName";
+            this.textBoxFileName.Size = new System.Drawing.Size(154, 20);
+            this.textBoxFileName.TabIndex = 2;
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(133, 68);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(0, 13);
+            this.lblResult.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(211, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Open File";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,6 +1004,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet1)).EndInit();
             this.programkonst2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
+            this.integration1.ResumeLayout(false);
+            this.integration1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).EndInit();
@@ -1064,6 +1122,11 @@
         private STOREITNEWDataSet1 sTOREITNEWDataSet1;
         private System.Windows.Forms.BindingSource storageBindingSource6;
         private STOREITNEWDataSet1TableAdapters.StorageTableAdapter storageTableAdapter3;
+        private System.Windows.Forms.TextBox textBoxFileName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label filename;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblResult;
     }
 
    
