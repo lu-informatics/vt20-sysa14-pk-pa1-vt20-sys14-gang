@@ -18,17 +18,6 @@ namespace ProgramKonstruktion
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUI());
 
-            PK2DAL PK2Dal = new PK2DAL();
-
-            List<String> listofTablename = PK2Dal.AllColumnNames();
-            foreach (String tO in listofTablename)
-            {
-                Console.WriteLine(tO);
-            }
-
-
-
-
             /* tenant.Email = "hej@";
              tenant.Name = "hej";
              tenant.PhoneNbr = "00";

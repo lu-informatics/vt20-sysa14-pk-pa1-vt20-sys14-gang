@@ -289,23 +289,7 @@ namespace ProgramKonstruktion
         private void allColumnNamesBtn_Click(object sender, EventArgs e)
         {
 
-        //SqlDataAdapter adp = new SqlDataAdapter(PK2Dal.AllColumnNames);
-
-            //DataTable dt = new DataTable();
-
-            //this.dataGridProgram2.DataSource = adp.Fill(dt);
-
-        
-            this.dataGridPK2.DataSource = null;
-            this.dataGridPK2.Rows.Clear();
-
-            //List<String> columns = PK2Dal.AllColumnNames();
-             //foreach (String s in columns)
-             //{
-
-            // }
-            
-            this.dataGridPK2.DataSource = (PK2Dal.AllColumnNames());
+            dataGridPK2.DataSource = PK2Dal.ShowAllColumnNames();
 
         }
 
@@ -316,9 +300,12 @@ namespace ProgramKonstruktion
 
         private void numberOfRowsBtn_Click(object sender, EventArgs e)
         {
-            this.dataGridPK2.DataSource = null;
-            this.dataGridPK2.Rows.Clear();
-            this.dataGridPK2.DataSource = (PK2Dal.NumberOfRows());
+            dataGridPK2.DataSource = PK2Dal.ShowNumberOfRows();
+        }
+
+        private void dataGridPK2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,95 +22,83 @@ namespace ProgramKonstruktion
             connection = connect.Connection;
         }
 
+        //Show all column names method 2
 
-        // Show number of rows
-        public List<String> NumberOfRows()
+        public DataTable ShowAllColumnNames()
         {
-            List<String> rowNumber = new List<String>();
-            string query = "SELECT COUNT(*) AS NumberOfRows FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME in (select tablename from TablesOfInterest)";
-
-           
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string numberOfRows = reader.GetString(0);
-                    rowNumber.Add(numberOfRows);
-                }
-
-                reader.Close();
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            finally
-            {
-                connect.CloseConnection(connection);
-            }
-
-            return rowNumber;
-
-        }
-
-        //Show all Column Names
-        public List<String> AllColumnNames()
-        {
-            List<String> columnNames = new List<String>();
-
-            
+            DataTable dtNames = new DataTable();
             string query = "SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME in (select tablename from TablesOfInterest)";
 
-            SqlCommand command = new SqlCommand(query, connection);
-
-            try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-
-                // Loop through resultset
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string columnNamesFromSQL = reader.GetString(0).ToString();
-                    columnNames.Add(columnNamesFromSQL);
+                    try
+                    {
 
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        dtNames.Load(reader);
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        // errorHandler.HandleErrorExceptionSql(e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    finally
+                    {
+                       
+                        connect.CloseConnection(connection);
+                    }
+                    return dtNames;
                 }
 
-                reader.Close();
             }
+        }
 
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
-            }
-            catch (Exception ex)
-            {
-                errorHandler.HandleExceptions(ex);
-            }
-            finally
-            {
-                connect.CloseConnection(connection);
-            }
 
-                return columnNames;
+        //Show Number of rows method 2
+
+        public DataTable ShowNumberOfRows()
+        {
+            DataTable dtRows = new DataTable();
+            string query = "SELECT COUNT(*) AS NumberOfRows FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME in (select tablename from TablesOfInterest)";
+
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        dtRows.Load(reader);
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        // errorHandler.HandleErrorExceptionSql(e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    finally
+                    {
+                        //connection.Close();
+                        connect.CloseConnection(connection);
+                    }
+                    return dtRows;
+                }
 
             }
-        
-            
+        }
+     
         }
         
     }

@@ -91,6 +91,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.programkonst2 = new System.Windows.Forms.TabPage();
+            this.dataGridPK2 = new System.Windows.Forms.DataGridView();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.integration1 = new System.Windows.Forms.TabPage();
@@ -107,7 +108,6 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridPK2 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -120,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).BeginInit();
             this.programkonst2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).BeginInit();
@@ -127,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -698,7 +698,7 @@
             this.label12.Text = "Update Storage Units";
             // 
             // programkonst2
-            //
+            // 
             this.programkonst2.Controls.Add(this.dataGridPK2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
@@ -709,10 +709,23 @@
             this.programkonst2.Text = "Programkonstruktion 2";
             this.programkonst2.UseVisualStyleBackColor = true;
             // 
+            // dataGridPK2
+            // 
+            this.dataGridPK2.AllowUserToAddRows = false;
+            this.dataGridPK2.AllowUserToDeleteRows = false;
+            this.dataGridPK2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridPK2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPK2.Location = new System.Drawing.Point(132, 163);
+            this.dataGridPK2.Name = "dataGridPK2";
+            this.dataGridPK2.ReadOnly = true;
+            this.dataGridPK2.Size = new System.Drawing.Size(709, 345);
+            this.dataGridPK2.TabIndex = 3;
+            this.dataGridPK2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPK2_CellContentClick);
+            // 
             // numberOfRowsBtn
             // 
             this.numberOfRowsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfRowsBtn.Location = new System.Drawing.Point(458, 117);
+            this.numberOfRowsBtn.Location = new System.Drawing.Point(568, 117);
             this.numberOfRowsBtn.Name = "numberOfRowsBtn";
             this.numberOfRowsBtn.Size = new System.Drawing.Size(150, 25);
             this.numberOfRowsBtn.TabIndex = 2;
@@ -723,7 +736,7 @@
             // allColumnNamesBtn
             // 
             this.allColumnNamesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allColumnNamesBtn.Location = new System.Drawing.Point(180, 117);
+            this.allColumnNamesBtn.Location = new System.Drawing.Point(267, 117);
             this.allColumnNamesBtn.Name = "allColumnNamesBtn";
             this.allColumnNamesBtn.Size = new System.Drawing.Size(150, 25);
             this.allColumnNamesBtn.TabIndex = 1;
@@ -806,19 +819,11 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
-            // dataGridPK2
-            // 
-            this.dataGridPK2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPK2.Location = new System.Drawing.Point(132, 163);
-            this.dataGridPK2.Name = "dataGridPK2";
-            this.dataGridPK2.Size = new System.Drawing.Size(516, 259);
-            this.dataGridPK2.TabIndex = 3;
-            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 667);
+            this.ClientSize = new System.Drawing.Size(1020, 629);
             this.Controls.Add(this.tabControl1);
             this.Name = "GUI";
             this.Text = "Form1";
@@ -837,6 +842,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet)).EndInit();
             this.programkonst2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource1)).EndInit();
@@ -844,7 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPK2)).EndInit();
             this.ResumeLayout(false);
 
         }
