@@ -735,6 +735,7 @@
             this.numberOfRowsBtn.TabIndex = 2;
             this.numberOfRowsBtn.Text = "Number of Rows";
             this.numberOfRowsBtn.UseVisualStyleBackColor = true;
+            this.numberOfRowsBtn.Click += new System.EventHandler(this.numberOfRowsBtn_Click);
             // 
             // allColumnNamesBtn
             // 
@@ -745,6 +746,7 @@
             this.allColumnNamesBtn.TabIndex = 1;
             this.allColumnNamesBtn.Text = "All Column Names";
             this.allColumnNamesBtn.UseVisualStyleBackColor = true;
+            this.allColumnNamesBtn.Click += new System.EventHandler(this.allColumnNamesBtn_Click);
             // 
             // dataGridProgram2
             // 
@@ -753,6 +755,7 @@
             this.dataGridProgram2.Name = "dataGridProgram2";
             this.dataGridProgram2.Size = new System.Drawing.Size(623, 303);
             this.dataGridProgram2.TabIndex = 0;
+            this.dataGridProgram2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProgram2_CellContentClick);
             // 
             // integration1
             // 
