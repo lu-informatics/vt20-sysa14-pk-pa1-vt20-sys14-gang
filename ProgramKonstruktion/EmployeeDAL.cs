@@ -210,7 +210,7 @@ namespace ProgramKonstruktion
         public Boolean DeleteEmployee(string no)
         {
             Boolean deleted = false;
-            string query = "DELETE FROM [CRONUS SverigeAB$Employee] WHERE [No_] = @No";
+            string query = "DELETE FROM [CRONUS Sverige AB$Employee] WHERE [No_] = @No";
 
             SqlCommand command = new SqlCommand(query, connection);
 

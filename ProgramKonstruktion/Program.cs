@@ -22,17 +22,8 @@ namespace ProgramKonstruktion
 
             EmployeeDAL dal = new EmployeeDAL();
 
-            Employee emp = new Employee("SA", "Sofia", "Ander", "Chef", "Gårdsgatan", "078888", "90303", "sofia@live.se");
-
-            dal.CreateEmployee(emp);
-
-         
-;            
-
-         
-            
-
-
+            Boolean emp = dal.DeleteEmployee("SB");
+        
 
         }
     }
