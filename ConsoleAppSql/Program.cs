@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProgramKonstruktion;
+using SqlWebApplication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +12,15 @@ namespace ConsoleAppSql
     {
         static void Main(string[] args)
         {
-            SqlServiceReference.SqlWebServiceSoapClient obj = new SqlServiceReference.SqlWebServiceSoapClient();
-            Console.WriteLine("Pls fill in a fileName:"); 
+            var service = new SqlWebService();
+            Console.WriteLine("Skriv in ett ssn: ");
             string s = Console.ReadLine();
-            Console.WriteLine(obj.Showfile(s));
-            Console.Read
+            Tenant t = service.FindTenant(s);
+            Console.WriteLine("Name:{0}n/ PhoneNumber:{1}n/ Ssn:{2}n/ StorageNbr:{3}n/", t.Name, t.PhoneNbr, t.Ssn, t.StorageAddress, t.StorageNbr); 
+            Console.ReadLine(); 
+            
+
+
         }
     }
 }

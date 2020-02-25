@@ -27,6 +27,3 @@ namespace ConsoleAppWebService
                 
     }
 }
-//WebReference.WebAssignment();
-// ConsoleAppWebService.RefService obj = ConsoleAppWebService.RefService(); 
-//RefService.WebServiceAssignment  obj = new WebReference.WebAssignment();

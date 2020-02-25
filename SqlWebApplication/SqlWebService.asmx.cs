@@ -33,6 +33,12 @@ namespace SqlWebApplication
         }
 
         [WebMethod]
+        public List<Storage> GetListOfStorages()
+        {
+            return storageDAL.GetListOfStorages(); 
+        }
+
+        [WebMethod]
         public Storage FindStorage(string nbr)
         {
             return storageDAL.FindStorage(nbr);

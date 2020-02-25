@@ -37,6 +37,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,71 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\SqlServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.CreateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.CreateTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.DeleteStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.DeleteTenantFromStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.DeleteTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.FindStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.FindTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.Storage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.Tenant.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.UpdateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ConsoleAppSql.SqlServiceReference.UpdateTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\sqlWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\SqlServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SqlServiceReference\sqlWebService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SqlServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SqlServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SqlServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\ProgramKonstruktion\ProgramKonstruktion.csproj">
+      <Project>{31236E5C-81A9-4294-97AF-83C1411389BA}</Project>
+      <Name>ProgramKonstruktion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlWebApplication\SqlWebApplication.csproj">
+      <Project>{18c6cb25-3d09-4042-87fd-dbf813ace856}</Project>
+      <Name>SqlWebApplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
