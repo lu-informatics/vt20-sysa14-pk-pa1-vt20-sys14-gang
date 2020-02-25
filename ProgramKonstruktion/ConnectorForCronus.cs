@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace ProgramKonstruktion
 {
-   public class Connector
-
+    class ConnectorForCronus
     {
 
-        private string connectionString = "Data Source = SYST4DEV01; Initial Catalog = STOREITNEW; User Id = tgang; Password = tgang1;";
+        private string connectionString = "Data Source=SYST4DEV01;Initial Catalog = Demo Database NAV (5-0); Integrated Security = True";
 
-        public SqlConnection Connection {
-            get; private set;
+        public SqlConnection Connection
+        {
+            get;
+            private set;
         }
 
-        public Connector()
+        public ConnectorForCronus()
         {
             GetConnection();
         }
@@ -27,24 +28,18 @@ namespace ProgramKonstruktion
             try
             {
                 Connection = new SqlConnection(connectionString);
-                //connection.Open();
-                //return connection;
+
+
             }
             catch (SqlException sqlE)
             {
-                //Errorhantering
+
             }
-            //return null;
         }
-
-
+        
         public void CloseConnector(SqlConnection con)
         {
             con.Close();
         }
-
-
-
-
     }
 }
