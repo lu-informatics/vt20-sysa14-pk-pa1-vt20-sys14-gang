@@ -29,5 +29,8 @@
     <Setting Name="ProgramKonstruktion_OpenFileService_WebServiceAssignment" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost/WebApplication/WebServiceAssignment.asmx</Value>
     </Setting>
+    <Setting Name="ProgramKonstruktion_SqlWebReference_SqlWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/SqlWebApplication/SqlWebService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

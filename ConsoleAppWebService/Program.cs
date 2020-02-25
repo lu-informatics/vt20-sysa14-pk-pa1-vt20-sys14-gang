@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlWebApplication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,18 @@ namespace ConsoleAppWebService
         {
 
             RefService.WebServiceAssignmentSoapClient obj = new RefService.WebServiceAssignmentSoapClient();
-            Console.WriteLine("Pls write in a filename: "); 
+            Console.WriteLine("Pls fill in a fileName:");
             string s = Console.ReadLine();
             Console.WriteLine(obj.ShowFile(s));
-            Console.ReadLine();
+            Console.ReadLine(); 
+            
+
+           
+
+
+
         }
+                
     }
 }
 //WebReference.WebAssignment();

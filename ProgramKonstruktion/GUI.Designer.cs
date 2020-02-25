@@ -94,6 +94,11 @@
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
             this.integration1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.textBoxFileName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.filename = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.ERP = new System.Windows.Forms.TabPage();
             this.tenantBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -122,11 +127,15 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.filename = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxFileName = new System.Windows.Forms.TextBox();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ssnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNbrDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storageNbrDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -141,6 +150,7 @@
             this.programkonst2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).BeginInit();
             this.integration1.SuspendLayout();
+            this.integrations2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).BeginInit();
@@ -158,6 +168,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -799,14 +811,63 @@
             this.integration1.Text = "Interaktionsteknologier 1";
             this.integration1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(211, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Open File";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(133, 68);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(0, 13);
+            this.lblResult.TabIndex = 3;
+            // 
+            // textBoxFileName
+            // 
+            this.textBoxFileName.Location = new System.Drawing.Point(133, 29);
+            this.textBoxFileName.Name = "textBoxFileName";
+            this.textBoxFileName.Size = new System.Drawing.Size(154, 20);
+            this.textBoxFileName.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(34, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Result: ";
+            // 
+            // filename
+            // 
+            this.filename.AutoSize = true;
+            this.filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filename.Location = new System.Drawing.Point(31, 29);
+            this.filename.Name = "filename";
+            this.filename.Size = new System.Drawing.Size(78, 20);
+            this.filename.TabIndex = 0;
+            this.filename.Text = "Filename:";
+            // 
             // integrations2
             // 
+            this.integrations2.Controls.Add(this.button2);
+            this.integrations2.Controls.Add(this.dataGridView2);
+            this.integrations2.Controls.Add(this.dataGridView1);
             this.integrations2.Location = new System.Drawing.Point(4, 22);
             this.integrations2.Name = "integrations2";
             this.integrations2.Size = new System.Drawing.Size(1106, 626);
             this.integrations2.TabIndex = 5;
             this.integrations2.Text = "Interaktionsteknologier 2";
             this.integrations2.UseVisualStyleBackColor = true;
+            this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
             // 
             // ERP
             // 
@@ -935,50 +996,77 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
-            // filename
+            // dataGridView1
             // 
-            this.filename.AutoSize = true;
-            this.filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filename.Location = new System.Drawing.Point(31, 29);
-            this.filename.Name = "filename";
-            this.filename.Size = new System.Drawing.Size(78, 20);
-            this.filename.TabIndex = 0;
-            this.filename.Text = "Filename:";
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ssnDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.phoneNbrDataGridViewTextBoxColumn1,
+            this.emailDataGridViewTextBoxColumn1,
+            this.storageNbrDataGridViewTextBoxColumn1,
+            this.rentDateDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.tenantBindingSource4;
+            this.dataGridView1.Location = new System.Drawing.Point(66, 43);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(638, 150);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label8
+            // ssnDataGridViewTextBoxColumn1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(34, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 20);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Result: ";
+            this.ssnDataGridViewTextBoxColumn1.DataPropertyName = "ssn";
+            this.ssnDataGridViewTextBoxColumn1.HeaderText = "ssn";
+            this.ssnDataGridViewTextBoxColumn1.Name = "ssnDataGridViewTextBoxColumn1";
             // 
-            // textBoxFileName
+            // nameDataGridViewTextBoxColumn1
             // 
-            this.textBoxFileName.Location = new System.Drawing.Point(133, 29);
-            this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(154, 20);
-            this.textBoxFileName.TabIndex = 2;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
             // 
-            // lblResult
+            // phoneNbrDataGridViewTextBoxColumn1
             // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(133, 68);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(0, 13);
-            this.lblResult.TabIndex = 3;
+            this.phoneNbrDataGridViewTextBoxColumn1.DataPropertyName = "phoneNbr";
+            this.phoneNbrDataGridViewTextBoxColumn1.HeaderText = "phoneNbr";
+            this.phoneNbrDataGridViewTextBoxColumn1.Name = "phoneNbrDataGridViewTextBoxColumn1";
             // 
-            // button1
+            // emailDataGridViewTextBoxColumn1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Open File";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // storageNbrDataGridViewTextBoxColumn1
+            // 
+            this.storageNbrDataGridViewTextBoxColumn1.DataPropertyName = "storageNbr";
+            this.storageNbrDataGridViewTextBoxColumn1.HeaderText = "storageNbr";
+            this.storageNbrDataGridViewTextBoxColumn1.Name = "storageNbrDataGridViewTextBoxColumn1";
+            // 
+            // rentDateDataGridViewTextBoxColumn1
+            // 
+            this.rentDateDataGridViewTextBoxColumn1.DataPropertyName = "rentDate";
+            this.rentDateDataGridViewTextBoxColumn1.HeaderText = "rentDate";
+            this.rentDateDataGridViewTextBoxColumn1.Name = "rentDateDataGridViewTextBoxColumn1";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(774, 189);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(789, 43);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // GUI
             // 
@@ -1006,6 +1094,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
             this.integration1.ResumeLayout(false);
             this.integration1.PerformLayout();
+            this.integrations2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).EndInit();
@@ -1023,6 +1112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1127,6 +1218,15 @@
         private System.Windows.Forms.Label filename;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ssnDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNbrDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storageNbrDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button2;
     }
 
    

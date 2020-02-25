@@ -64,5 +64,15 @@ namespace ProgramKonstruktion.Properties {
                 return ((string)(this["ProgramKonstruktion_OpenFileService_WebServiceAssignment"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/SqlWebApplication/SqlWebService.asmx")]
+        public string ProgramKonstruktion_SqlWebReference_SqlWebService {
+            get {
+                return ((string)(this["ProgramKonstruktion_SqlWebReference_SqlWebService"]));
+            }
+        }
     }
 }
