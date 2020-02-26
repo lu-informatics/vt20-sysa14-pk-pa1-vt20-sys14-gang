@@ -17,6 +17,7 @@ namespace ProgramKonstruktion
         {
             InitializeComponent();
             SetAllStoragesToComboBox();
+            setDataToShowComboBox();
 
 
 
@@ -45,6 +46,21 @@ namespace ProgramKonstruktion
                 comboBoxStorage.Items.Add(s);
 
             }
+
+        }
+
+        public void setDataToShowComboBox()
+        {
+            comboBoxChooseData.Items.Add("Content and metadata for Employee tables");
+            comboBoxChooseData.Items.Add("Employees and their relatives");
+            comboBoxChooseData.Items.Add("Sick employees 2004");
+            comboBoxChooseData.Items.Add("Most absent employee");
+            comboBoxChooseData.Items.Add("Metadata: Keys");
+            comboBoxChooseData.Items.Add("Metadata: Indexes");
+            comboBoxChooseData.Items.Add("Metadata: Table constraint");
+            comboBoxChooseData.Items.Add("Metadata: All tables");
+            comboBoxChooseData.Items.Add("Metadata: All columns");
+
 
         }
 
@@ -523,7 +539,7 @@ namespace ProgramKonstruktion
             if (!(ssn.Equals(""))){
                 richTextBox1.Text = "Can't update ssn, remove and try again!";
             }
-            else if (emp == null) {
+               else if (emp == null) {
                 richTextBox1.Text = "Can't update employee, try again!";
           
             } else
@@ -531,6 +547,11 @@ namespace ProgramKonstruktion
                 richTextBox1.Text = "Employee is updated!";
                 cleanTextFields();
             }
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

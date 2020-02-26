@@ -240,5 +240,36 @@ namespace ProgramKonstruktion
             return deleted;
         }
 
+        public DataTable ShowContentOfCronus()
+        {
+            DataTable content = new DataTable();
+
+            string query = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA IN('dbo', 'meta') AND TABLE_NAME like '%Employ%' AND TABLE_NAME NOT LIKE '%Warehouse%'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                content.Load(reader);
+
+            } catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                //felhantering
+
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally {
+                connect.CloseConnector(connection);
+            }
+            return content;
+
+        } 
+
     }
 }
+

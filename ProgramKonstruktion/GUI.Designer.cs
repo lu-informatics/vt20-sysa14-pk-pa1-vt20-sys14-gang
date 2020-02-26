@@ -151,6 +151,11 @@
             this.button7 = new System.Windows.Forms.Button();
             this.noTextBoxSearch = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.comboBoxChooseData = new System.Windows.Forms.ComboBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.runButton = new System.Windows.Forms.Button();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -186,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
@@ -918,6 +924,11 @@
             // 
             // ERP
             // 
+            this.ERP.Controls.Add(this.runButton);
+            this.ERP.Controls.Add(this.dataGridView3);
+            this.ERP.Controls.Add(this.comboBoxChooseData);
+            this.ERP.Controls.Add(this.label29);
+            this.ERP.Controls.Add(this.label28);
             this.ERP.Controls.Add(this.label27);
             this.ERP.Controls.Add(this.noTextBoxSearch);
             this.ERP.Controls.Add(this.button7);
@@ -1200,9 +1211,10 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(19, 4);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 17);
+            this.label26.Size = new System.Drawing.Size(154, 17);
             this.label26.TabIndex = 17;
-            this.label26.Text = "Employee";
+            this.label26.Text = "ERP DEL 1 - Employee";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // button4
             // 
@@ -1259,6 +1271,50 @@
             this.label27.Size = new System.Drawing.Size(56, 13);
             this.label27.TabIndex = 24;
             this.label27.Text = "Search no";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(453, 4);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(0, 13);
+            this.label28.TabIndex = 25;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(406, 4);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(154, 17);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "ERP DEL 2 - Employee";
+            // 
+            // comboBoxChooseData
+            // 
+            this.comboBoxChooseData.FormattingEnabled = true;
+            this.comboBoxChooseData.Location = new System.Drawing.Point(385, 47);
+            this.comboBoxChooseData.Name = "comboBoxChooseData";
+            this.comboBoxChooseData.Size = new System.Drawing.Size(175, 21);
+            this.comboBoxChooseData.TabIndex = 27;
+            this.comboBoxChooseData.Text = "Choose:";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(385, 92);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(718, 400);
+            this.dataGridView3.TabIndex = 28;
+            // 
+            // runButton
+            // 
+            this.runButton.Location = new System.Drawing.Point(577, 44);
+            this.runButton.Name = "runButton";
+            this.runButton.Size = new System.Drawing.Size(75, 23);
+            this.runButton.TabIndex = 29;
+            this.runButton.Text = "Run";
+            this.runButton.UseVisualStyleBackColor = true;
             // 
             // storageBindingSource4
             // 
@@ -1317,6 +1373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
@@ -1451,6 +1508,11 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox noTextBoxSearch;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button runButton;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ComboBox comboBoxChooseData;
+        private System.Windows.Forms.Label label29;
     }
 
    
