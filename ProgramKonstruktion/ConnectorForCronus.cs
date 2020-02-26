@@ -35,7 +35,7 @@ namespace ProgramKonstruktion
 
             }
         }
-        
+
         public void CloseConnector(SqlConnection con)
         {
             con.Close();

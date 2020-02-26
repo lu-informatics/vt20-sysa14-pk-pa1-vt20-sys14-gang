@@ -61,6 +61,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connector.cs" />
+    <Compile Include="ConnectorForCronus.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeDAL.cs" />
     <Compile Include="ErrorHandler.cs" />
     <Compile Include="PK2Connector.cs" />
     <Compile Include="PK2DAL.cs" />

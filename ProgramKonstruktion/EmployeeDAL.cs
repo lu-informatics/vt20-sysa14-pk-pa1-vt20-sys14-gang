@@ -97,12 +97,12 @@ namespace ProgramKonstruktion
                 int affectedRows = command.ExecuteNonQuery();
                 employee.No = "HEJ";
 
-              
+
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
-              //  MessageBox.Show(e.Message);
+                //  MessageBox.Show(e.Message);
                 //errorhandling?
 
             }
@@ -143,7 +143,7 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-               // MessageBox.Show(e.Message);
+                // MessageBox.Show(e.Message);
 
             }
             catch (Exception e)
