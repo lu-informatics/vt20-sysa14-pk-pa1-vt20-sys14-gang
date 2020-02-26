@@ -240,5 +240,50 @@ namespace ProgramKonstruktion
             return deleted;
         }
 
+
+        public List<Tenant> listOfTenantSsn()
+        {
+            List<Tenant> getListOfTenantSsn = new List<Tenant>();
+            string query = "Select ssn FROM Tenant";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    Tenant tenant = new Tenant();
+                    {
+                        tenant.Ssn = reader.GetString(0);
+                    }
+                    getListOfTenantSsn.Add(tenant);
+                }
+                reader.Close();
+
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleExceptions(e);
+
+            }
+            finally
+            {
+                connect.CloseConnector(connection);
+
+            }
+            return getListOfTenantSsn;
+        }
+
     }
 }
