@@ -17,11 +17,7 @@ namespace ConsoleAppWebService
             string s = Console.ReadLine();
             Console.WriteLine(obj.ShowFile(s));
             Console.ReadLine(); 
-            
-
            
-
-
 
         }
                 
