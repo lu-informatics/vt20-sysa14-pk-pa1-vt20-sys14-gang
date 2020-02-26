@@ -127,9 +127,6 @@
             this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
             this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
             this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
-            this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.noTextBox = new System.Windows.Forms.TextBox();
             this.jobTitleTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
@@ -154,6 +151,9 @@
             this.button7 = new System.Windows.Forms.Button();
             this.noTextBoxSearch = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -1055,18 +1055,6 @@
             // 
             this.storageTableAdapter3.ClearBeforeFill = true;
             // 
-            // storageBindingSource4
-            // 
-            this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
-            // storageBindingSource2
-            // 
-            this.storageBindingSource2.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
-            // storageBindingSource1
-            // 
-            this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
             // noTextBox
             // 
             this.noTextBox.Location = new System.Drawing.Point(19, 47);
@@ -1218,7 +1206,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(159, 223);
+            this.button4.Location = new System.Drawing.Point(178, 223);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 19;
@@ -1228,21 +1216,23 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(19, 223);
+            this.button5.Location = new System.Drawing.Point(22, 223);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 20;
             this.button5.Text = "Update";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(240, 223);
+            this.button6.Location = new System.Drawing.Point(222, 273);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 21;
             this.button6.Text = "Delete";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -1252,6 +1242,7 @@
             this.button7.TabIndex = 22;
             this.button7.Text = "Find";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // noTextBoxSearch
             // 
@@ -1268,6 +1259,18 @@
             this.label27.Size = new System.Drawing.Size(56, 13);
             this.label27.TabIndex = 24;
             this.label27.Text = "Search no";
+            // 
+            // storageBindingSource4
+            // 
+            this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
+            // 
+            // storageBindingSource2
+            // 
+            this.storageBindingSource2.DataSource = typeof(ProgramKonstruktion.Storage);
+            // 
+            // storageBindingSource1
+            // 
+            this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
             // GUI
             // 

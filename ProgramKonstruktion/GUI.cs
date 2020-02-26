@@ -352,11 +352,13 @@ namespace ProgramKonstruktion
             lastNameTextBox.Text = "";
             jobTitleTextBox.Text = "";
             addressTextBox.Text = "";
-            ssnBookTxt.Text = "";
+            phoneNumberTextBox.Text = "";
             emailTextBox.Text = "";
-            phoneNbrTxt.Text = "";
+            ssnTextBox.Text = "";
+            noTextBoxSearch.Text = "";
 
-            
+
+
         }
 
         private void allColumnNamesBtn_Click(object sender, EventArgs e)
@@ -440,6 +442,7 @@ namespace ProgramKonstruktion
             else
             {
                 richTextBox1.Text = "Employee added!";
+                cleanTextFields();
             }
 
 
@@ -452,6 +455,82 @@ namespace ProgramKonstruktion
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Find Employee
+        private void button7_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            string no = noTextBoxSearch.Text;
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+            emp = erpWebService.FindEmployee(no);
+
+            if (emp == null)
+            {
+                richTextBox1.Text = "Could not find employee, try again!";
+            }
+            else
+            {
+
+                richTextBox1.Text = "Employee with lastname: " + emp.LastName + ", Jobtitle: " + emp.JobTitle + ", Email: " + emp.Email;
+                cleanTextFields();
+            }
+
+
+        }
+
+        //Delete employee
+        private void button6_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            string no = noTextBoxSearch.Text;
+
+             Boolean deleted =  erpWebService.DeleteEmployee(no);
+
+            if (!deleted)
+            {
+                richTextBox1.Text = "Failed to delete, try again";
+            }
+            else
+            {
+                richTextBox1.Text = "Employee deleted!";
+                cleanTextFields();
+            }
+
+        }
+
+        //update Employee
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+
+            string no = noTextBox.Text;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string jobTitle = jobTitleTextBox.Text;
+            string address = addressTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string ssn = ssnTextBox.Text;
+            string email = emailTextBox.Text;
+
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+            emp = erpWebService.UpdateEmployee(no, firstName,lastName, jobTitle,address, phoneNumber, email);
+
+            if (!(ssn.Equals(""))){
+                richTextBox1.Text = "Can't update ssn, remove and try again!";
+            }
+            else if (emp == null) {
+                richTextBox1.Text = "Can't update employee, try again!";
+          
+            } else
+            {
+                richTextBox1.Text = "Employee is updated!";
+                cleanTextFields();
+            }
         }
     }
     }
