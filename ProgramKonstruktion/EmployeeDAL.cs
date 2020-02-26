@@ -11,10 +11,8 @@ namespace ProgramKonstruktion
 {
     public class EmployeeDAL
     {
-
         private ConnectorForCronus connect = new ConnectorForCronus();
         private SqlConnection connection;
-
 
         public EmployeeDAL()
         { //constructor
