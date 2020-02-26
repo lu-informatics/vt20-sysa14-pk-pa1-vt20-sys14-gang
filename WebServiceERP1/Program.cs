@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProgramKonstruktion
+namespace WebServiceERP1
 {
     static class Program
     {
@@ -16,15 +16,7 @@ namespace ProgramKonstruktion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI());
-
-            Connector c = new Connector();
-
-            EmployeeDAL dal = new EmployeeDAL();
-            Employee emp = new Employee();
-           
-            dal.FindEmployee("SA");
-            Console.WriteLine(emp.FirstName);
+            Application.Run(new Form1());
         }
     }
 }
