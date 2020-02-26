@@ -18,7 +18,7 @@ namespace ProgramKonstruktion
         private string email;
 
 
-        public  Employee()
+        public Employee()
         {
 
         }

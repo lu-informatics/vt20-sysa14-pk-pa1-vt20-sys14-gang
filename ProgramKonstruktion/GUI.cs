@@ -359,6 +359,30 @@ namespace ProgramKonstruktion
         {
             dataGridProgram2.DataSource = PK2Dal.ShowNumberOfRows();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
+            string response = client.ShowFile(textBoxFileName.Text);
+
+            lblResult.Text = response;
+
+        }
+
+        private void integrations2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     }
 

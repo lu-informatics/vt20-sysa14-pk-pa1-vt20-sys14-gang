@@ -24,7 +24,7 @@ namespace ProgramKonstruktion
         public List<Tenant> GetTenantBookings()
         {
             List<Tenant> tenantBookings = new List<Tenant>();
-            string query = "Select * FROM Tenant JOIN Storage ON nbr = storageNbr"; //AND address = storageAddress";
+            string query = "Select * FROM Tenant"; 
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -40,12 +40,13 @@ namespace ProgramKonstruktion
 
                     Tenant tenant = new Tenant();
                     {
+                        tenant.Ssn = reader.GetString(0);
                         tenant.Name = reader.GetString(1);
                         tenant.PhoneNbr = reader.GetString(2);
                         tenant.Email = reader.GetString(3);
                         tenant.StorageNbr = reader.GetString(4);
                         tenant.RentDate = reader.GetDateTime(5);
-                       // tenant.StorageAddress = reader.GetString(6);
+                       
                     }
 
                     tenantBookings.Add(tenant);
