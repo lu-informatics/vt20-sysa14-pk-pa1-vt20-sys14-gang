@@ -553,6 +553,21 @@ namespace ProgramKonstruktion
         {
 
         }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+
+            Object selectedItem = comboBoxChooseData.SelectedItem;
+            var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
+            string choosenData = selected;
+
+            if (choosenData.Equals("Content and metadata for Employee tables"))
+            {
+                
+                DataTable dt = erpWebService.ShowContentOfCronus();
+            }
+            dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+        }
     }
     }
 

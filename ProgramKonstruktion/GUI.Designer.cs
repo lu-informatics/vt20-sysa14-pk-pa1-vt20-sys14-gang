@@ -1315,6 +1315,7 @@
             this.runButton.TabIndex = 29;
             this.runButton.Text = "Run";
             this.runButton.UseVisualStyleBackColor = true;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
             // storageBindingSource4
             // 
