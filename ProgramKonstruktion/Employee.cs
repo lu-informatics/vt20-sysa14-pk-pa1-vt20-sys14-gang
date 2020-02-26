@@ -23,7 +23,7 @@ namespace ProgramKonstruktion
 
         }
 
-        public Employee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string ssn, string email)
+       /* public Employee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string ssn, string email)
         {
             this.no = no;
             this.firstName = firstName;
@@ -33,7 +33,7 @@ namespace ProgramKonstruktion
             this.phoneNumber = phoneNumber;
             this.ssn = ssn;
             this.email = email;
-        }
+        }*/
 
         public string No
         {

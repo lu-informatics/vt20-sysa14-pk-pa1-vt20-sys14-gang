@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramKonstruktion.ERP1WebRef;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,10 @@ namespace ProgramKonstruktion
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
+        private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
+        private ERP1WebService erpWebService = new ERP1WebService();
+
 
 
         public void SetAllStoragesToComboBox()
@@ -326,6 +330,7 @@ namespace ProgramKonstruktion
         {
             errorBoxUpdateStorages.Text = "";
             errorBoxBooking.Text = "";
+            richTextBox1.Text = "";
         }
 
         public void cleanTextFields()
@@ -342,6 +347,15 @@ namespace ProgramKonstruktion
             storageSizeTxt.Text = "";
             storagePriceTxt.Text = "";
             storageLocationTxt.Text = "";
+            noTextBox.Text = "";
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            jobTitleTextBox.Text = "";
+            addressTextBox.Text = "";
+            ssnBookTxt.Text = "";
+            emailTextBox.Text = "";
+            phoneNbrTxt.Text = "";
+
             
         }
 
@@ -380,6 +394,62 @@ namespace ProgramKonstruktion
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void noTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Add Employee
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+
+            string no = noTextBox.Text;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string jobTitle = jobTitleTextBox.Text;
+            string address = addressTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string ssn = ssnTextBox.Text;
+            string email = emailTextBox.Text;
+
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+        
+           emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
+
+            if (emp == null)
+            {
+                richTextBox1.Text = "Failed to create employee, try again!";
+            }
+            else
+            {
+                richTextBox1.Text = "Employee added!";
+            }
+
+
+
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

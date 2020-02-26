@@ -130,6 +130,30 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.noTextBox = new System.Windows.Forms.TextBox();
+            this.jobTitleTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.noTextBoxSearch = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -147,6 +171,7 @@
             this.integrations2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ERP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).BeginInit();
@@ -871,6 +896,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView2
             // 
@@ -892,6 +918,30 @@
             // 
             // ERP
             // 
+            this.ERP.Controls.Add(this.label27);
+            this.ERP.Controls.Add(this.noTextBoxSearch);
+            this.ERP.Controls.Add(this.button7);
+            this.ERP.Controls.Add(this.button6);
+            this.ERP.Controls.Add(this.button5);
+            this.ERP.Controls.Add(this.button4);
+            this.ERP.Controls.Add(this.label26);
+            this.ERP.Controls.Add(this.label25);
+            this.ERP.Controls.Add(this.label24);
+            this.ERP.Controls.Add(this.label23);
+            this.ERP.Controls.Add(this.label22);
+            this.ERP.Controls.Add(this.label21);
+            this.ERP.Controls.Add(this.label20);
+            this.ERP.Controls.Add(this.label19);
+            this.ERP.Controls.Add(this.label9);
+            this.ERP.Controls.Add(this.richTextBox1);
+            this.ERP.Controls.Add(this.phoneNumberTextBox);
+            this.ERP.Controls.Add(this.lastNameTextBox);
+            this.ERP.Controls.Add(this.firstNameTextBox);
+            this.ERP.Controls.Add(this.emailTextBox);
+            this.ERP.Controls.Add(this.ssnTextBox);
+            this.ERP.Controls.Add(this.addressTextBox);
+            this.ERP.Controls.Add(this.jobTitleTextBox);
+            this.ERP.Controls.Add(this.noTextBox);
             this.ERP.Location = new System.Drawing.Point(4, 22);
             this.ERP.Name = "ERP";
             this.ERP.Size = new System.Drawing.Size(1106, 626);
@@ -1017,6 +1067,208 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
+            // noTextBox
+            // 
+            this.noTextBox.Location = new System.Drawing.Point(19, 47);
+            this.noTextBox.Name = "noTextBox";
+            this.noTextBox.Size = new System.Drawing.Size(100, 20);
+            this.noTextBox.TabIndex = 0;
+            this.noTextBox.TextChanged += new System.EventHandler(this.noTextBox_TextChanged);
+            // 
+            // jobTitleTextBox
+            // 
+            this.jobTitleTextBox.Location = new System.Drawing.Point(19, 92);
+            this.jobTitleTextBox.Name = "jobTitleTextBox";
+            this.jobTitleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.jobTitleTextBox.TabIndex = 1;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(19, 139);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addressTextBox.TabIndex = 2;
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Location = new System.Drawing.Point(19, 188);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ssnTextBox.TabIndex = 3;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(153, 188);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.emailTextBox.TabIndex = 4;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(153, 47);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.TabIndex = 5;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(153, 92);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.TabIndex = 6;
+            // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(153, 139);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.phoneNumberTextBox.TabIndex = 7;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(19, 308);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(342, 124);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "No_";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(153, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "First name";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 13);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Job title";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(153, 73);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 13);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "Last name";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(19, 119);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Address";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(156, 119);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(76, 13);
+            this.label23.TabIndex = 14;
+            this.label23.Text = "Phone number";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(19, 166);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(25, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Ssn";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(156, 169);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(32, 13);
+            this.label25.TabIndex = 16;
+            this.label25.Text = "Email";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(19, 4);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 17);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Employee";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(159, 223);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(19, 223);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Update";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(240, 223);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Delete";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(141, 273);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Find";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // noTextBoxSearch
+            // 
+            this.noTextBoxSearch.Location = new System.Drawing.Point(22, 277);
+            this.noTextBoxSearch.Name = "noTextBoxSearch";
+            this.noTextBoxSearch.Size = new System.Drawing.Size(100, 20);
+            this.noTextBoxSearch.TabIndex = 23;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(22, 258);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(56, 13);
+            this.label27.TabIndex = 24;
+            this.label27.Text = "Search no";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1046,6 +1298,8 @@
             this.integrations2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ERP.ResumeLayout(false);
+            this.ERP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).EndInit();
@@ -1170,6 +1424,30 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox phoneNumberTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox ssnTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox jobTitleTextBox;
+        private System.Windows.Forms.TextBox noTextBox;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox noTextBoxSearch;
     }
 
    
