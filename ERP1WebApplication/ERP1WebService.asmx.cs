@@ -74,6 +74,7 @@ namespace ERP1WebApplication
         public DataTable ShowContentOfCronus()
         {
             DataTable content = employeeDal.ShowContentOfCronus();
+            
 
             return content;
 
@@ -86,7 +87,7 @@ namespace ERP1WebApplication
 
             
     
-}
+
 
     /*[WebMethod]
         public string HelloWorld()

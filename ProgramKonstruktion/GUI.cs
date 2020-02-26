@@ -563,10 +563,11 @@ namespace ProgramKonstruktion
 
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
-                
-                DataTable dt = erpWebService.ShowContentOfCronus();
+              
+              
+               
             }
-            dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+           // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
         }
     }
     }

@@ -242,34 +242,37 @@ namespace ProgramKonstruktion
 
         public DataTable ShowContentOfCronus()
         {
-            DataTable content = new DataTable();
+            DataTable dataTable = new DataTable();
+
 
             string query = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA IN('dbo', 'meta') AND TABLE_NAME like '%Employ%' AND TABLE_NAME NOT LIKE '%Warehouse%'";
 
-            SqlCommand command = new SqlCommand(query, connection);
 
-            try
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                content.Load(reader);
 
-            } catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                //felhantering
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    sda.SelectCommand = command;
 
-            } catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
+                    using (DataTable dt = new DataTable())
+                    {
+                        dt.TableName = "";
+                        sda.Fill(dt);
+                        return dt;
+                    }
+
+                }
+
             }
-            finally {
-                connect.CloseConnector(connection);
-            }
-            return content;
-
-        } 
-
+        }
     }
 }
+        
+    
+    
 
+
+   
