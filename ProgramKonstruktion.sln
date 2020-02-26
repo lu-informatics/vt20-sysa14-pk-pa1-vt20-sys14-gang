@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSql", "ConsoleApp
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856} = {18C6CB25-3D09-4042-87FD-DBF813ACE856}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppERP1", "WebAppERP1\WebAppERP1.csproj", "{B0E18A3C-7D8A-476F-B08D-FA01767FCF58}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +42,6 @@ Global
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0E18A3C-7D8A-476F-B08D-FA01767FCF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0E18A3C-7D8A-476F-B08D-FA01767FCF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0E18A3C-7D8A-476F-B08D-FA01767FCF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0E18A3C-7D8A-476F-B08D-FA01767FCF58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
