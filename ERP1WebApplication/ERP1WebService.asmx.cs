@@ -1,6 +1,7 @@
 ﻿using ProgramKonstruktion;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -68,9 +69,25 @@ namespace ERP1WebApplication
 
                 return deleted;
             }
+
+        [WebMethod]
+        public DataTable ShowContentOfCronus()
+        {
+            DataTable content = employeeDal.ShowContentOfCronus();
+            
+
+            return content;
+
+
         }
+
+        }
+
+        }
+
+            
     
-}
+
 
     /*[WebMethod]
         public string HelloWorld()

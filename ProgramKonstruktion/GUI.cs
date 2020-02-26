@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramKonstruktion.ERP1WebRef;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace ProgramKonstruktion
         {
             InitializeComponent();
             SetAllStoragesToComboBox();
+            setDataToShowComboBox();
 
 
 
@@ -25,7 +27,10 @@ namespace ProgramKonstruktion
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
         private Storage storage = new Storage();
+        private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
+        private ERP1WebService erpWebService = new ERP1WebService();
+
 
 
         public void SetAllStoragesToComboBox()
@@ -41,6 +46,21 @@ namespace ProgramKonstruktion
                 comboBoxStorage.Items.Add(s);
 
             }
+
+        }
+
+        public void setDataToShowComboBox()
+        {
+            comboBoxChooseData.Items.Add("Content and metadata for Employee tables");
+            comboBoxChooseData.Items.Add("Employees and their relatives");
+            comboBoxChooseData.Items.Add("Sick employees 2004");
+            comboBoxChooseData.Items.Add("Most absent employee");
+            comboBoxChooseData.Items.Add("Metadata: Keys");
+            comboBoxChooseData.Items.Add("Metadata: Indexes");
+            comboBoxChooseData.Items.Add("Metadata: Table constraint");
+            comboBoxChooseData.Items.Add("Metadata: All tables");
+            comboBoxChooseData.Items.Add("Metadata: All columns");
+
 
         }
 
@@ -326,6 +346,7 @@ namespace ProgramKonstruktion
         {
             errorBoxUpdateStorages.Text = "";
             errorBoxBooking.Text = "";
+            richTextBox1.Text = "";
         }
 
         public void cleanTextFields()
@@ -342,7 +363,18 @@ namespace ProgramKonstruktion
             storageSizeTxt.Text = "";
             storagePriceTxt.Text = "";
             storageLocationTxt.Text = "";
-            
+            noTextBox.Text = "";
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            jobTitleTextBox.Text = "";
+            addressTextBox.Text = "";
+            phoneNumberTextBox.Text = "";
+            emailTextBox.Text = "";
+            ssnTextBox.Text = "";
+            noTextBoxSearch.Text = "";
+
+
+
         }
 
         private void allColumnNamesBtn_Click(object sender, EventArgs e)
@@ -382,6 +414,160 @@ namespace ProgramKonstruktion
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void noTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Add Employee
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+
+            string no = noTextBox.Text;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string jobTitle = jobTitleTextBox.Text;
+            string address = addressTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string ssn = ssnTextBox.Text;
+            string email = emailTextBox.Text;
+
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+        
+           emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
+
+            if (emp == null)
+            {
+                richTextBox1.Text = "Failed to create employee, try again!";
+            }
+            else
+            {
+                richTextBox1.Text = "Employee added!";
+                cleanTextFields();
+            }
+
+
+
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Find Employee
+        private void button7_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            string no = noTextBoxSearch.Text;
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+            emp = erpWebService.FindEmployee(no);
+
+            if (emp == null)
+            {
+                richTextBox1.Text = "Could not find employee, try again!";
+            }
+            else
+            {
+
+                richTextBox1.Text = "Employee with lastname: " + emp.LastName + ", Jobtitle: " + emp.JobTitle + ", Email: " + emp.Email;
+                cleanTextFields();
+            }
+
+
+        }
+
+        //Delete employee
+        private void button6_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+            string no = noTextBoxSearch.Text;
+
+             Boolean deleted =  erpWebService.DeleteEmployee(no);
+
+            if (!deleted)
+            {
+                richTextBox1.Text = "Failed to delete, try again";
+            }
+            else
+            {
+                richTextBox1.Text = "Employee deleted!";
+                cleanTextFields();
+            }
+
+        }
+
+        //update Employee
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cleanBoxes();
+
+            string no = noTextBox.Text;
+            string firstName = firstNameTextBox.Text;
+            string lastName = lastNameTextBox.Text;
+            string jobTitle = jobTitleTextBox.Text;
+            string address = addressTextBox.Text;
+            string phoneNumber = phoneNumberTextBox.Text;
+            string ssn = ssnTextBox.Text;
+            string email = emailTextBox.Text;
+
+
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+
+            emp = erpWebService.UpdateEmployee(no, firstName,lastName, jobTitle,address, phoneNumber, email);
+
+            if (!(ssn.Equals(""))){
+                richTextBox1.Text = "Can't update ssn, remove and try again!";
+            }
+               else if (emp == null) {
+                richTextBox1.Text = "Can't update employee, try again!";
+          
+            } else
+            {
+                richTextBox1.Text = "Employee is updated!";
+                cleanTextFields();
+            }
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+
+            Object selectedItem = comboBoxChooseData.SelectedItem;
+            var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
+            string choosenData = selected;
+
+            if (choosenData.Equals("Content and metadata for Employee tables"))
+            {
+              
+              
+               
+            }
+           // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
         }
     }
     }

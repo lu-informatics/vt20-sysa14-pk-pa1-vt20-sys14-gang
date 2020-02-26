@@ -285,5 +285,40 @@ namespace ProgramKonstruktion
             return getListOfTenantSsn;
         }
 
+        public DataTable ShowContentOfCronus()
+        {
+            DataTable dataTable = new DataTable();
+
+
+            string query = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA IN('dbo', 'meta') AND TABLE_NAME like '%Employ%' AND TABLE_NAME NOT LIKE '%Warehouse%'";
+
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    sda.SelectCommand = command;
+
+                    using (DataTable dt = new DataTable())
+                    {
+                        dt.TableName = "";
+                        sda.Fill(dt);
+                        return dt;
+                    }
+
+                }
+
+            }
+        }
+
     }
 }
+        
+    
+    
+
+
+   
