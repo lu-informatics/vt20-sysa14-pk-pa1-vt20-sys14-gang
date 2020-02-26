@@ -73,7 +73,6 @@
   <ItemGroup>
     <Compile Include="ERP1WebService.asmx.cs">
       <DependentUpon>ERP1WebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
