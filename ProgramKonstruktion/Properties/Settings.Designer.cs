@@ -74,5 +74,15 @@ namespace ProgramKonstruktion.Properties {
                 return ((string)(this["ProgramKonstruktion_SqlWebReference_SqlWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/ERP1WebApplication/ERP1WebService.asmx")]
+        public string ProgramKonstruktion_ERP1WebRef_ERP1WebService {
+            get {
+                return ((string)(this["ProgramKonstruktion_ERP1WebRef_ERP1WebService"]));
+            }
+        }
     }
 }

@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSql", "ConsoleApp
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856} = {18C6CB25-3D09-4042-87FD-DBF813ACE856}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP1WebApplication", "ERP1WebApplication\ERP1WebApplication.csproj", "{4041AB2A-D9AE-4D7F-A198-C130824D5A2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4041AB2A-D9AE-4D7F-A198-C130824D5A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4041AB2A-D9AE-4D7F-A198-C130824D5A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4041AB2A-D9AE-4D7F-A198-C130824D5A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4041AB2A-D9AE-4D7F-A198-C130824D5A2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
