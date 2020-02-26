@@ -30,6 +30,7 @@ namespace ProgramKonstruktion
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
         private ERP1WebService erpWebService = new ERP1WebService();
+       
 
 
 
@@ -554,6 +555,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //run
         private void runButton_Click(object sender, EventArgs e)
         {
 
@@ -563,12 +565,44 @@ namespace ProgramKonstruktion
 
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
-              
-              
                
+            }
+            else if (choosenData.Equals("Employees and their relatives"))
+            {
+
+            }
+            else if (choosenData.Equals("Sick employees 2004"))
+            {
+
+            }
+            else if (choosenData.Equals("Most absent employee"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: Keys"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: Indexes"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: Table constraint"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: All tables"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: All columns"))
+            {
+
             }
            // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
         }
+
+
     }
     }
 

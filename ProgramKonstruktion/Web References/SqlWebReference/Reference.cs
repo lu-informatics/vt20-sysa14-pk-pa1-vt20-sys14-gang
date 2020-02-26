@@ -29,21 +29,9 @@ namespace ProgramKonstruktion.SqlWebReference {
     [System.Web.Services.WebServiceBindingAttribute(Name="SqlWebServiceSoap", Namespace="http://grupp2.ics.lu.se/")]
     public partial class SqlWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback UpdateTenantOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback CreateTenantOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback DeleteTenantOperationCompleted;
-        
         private System.Threading.SendOrPostCallback FindTenantOperationCompleted;
         
-        private System.Threading.SendOrPostCallback CreateStorageOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback UpdateStorageOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback DeleteStorageOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback DeleteTenantFromStorageOperationCompleted;
+        private System.Threading.SendOrPostCallback GetListOfStoragesOperationCompleted;
         
         private System.Threading.SendOrPostCallback FindStorageOperationCompleted;
         
@@ -86,134 +74,13 @@ namespace ProgramKonstruktion.SqlWebReference {
         }
         
         /// <remarks/>
-        public event UpdateTenantCompletedEventHandler UpdateTenantCompleted;
-        
-        /// <remarks/>
-        public event CreateTenantCompletedEventHandler CreateTenantCompleted;
-        
-        /// <remarks/>
-        public event DeleteTenantCompletedEventHandler DeleteTenantCompleted;
-        
-        /// <remarks/>
         public event FindTenantCompletedEventHandler FindTenantCompleted;
         
         /// <remarks/>
-        public event CreateStorageCompletedEventHandler CreateStorageCompleted;
-        
-        /// <remarks/>
-        public event UpdateStorageCompletedEventHandler UpdateStorageCompleted;
-        
-        /// <remarks/>
-        public event DeleteStorageCompletedEventHandler DeleteStorageCompleted;
-        
-        /// <remarks/>
-        public event DeleteTenantFromStorageCompletedEventHandler DeleteTenantFromStorageCompleted;
+        public event GetListOfStoragesCompletedEventHandler GetListOfStoragesCompleted;
         
         /// <remarks/>
         public event FindStorageCompletedEventHandler FindStorageCompleted;
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/UpdateTenant", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Tenant UpdateTenant(string ssn, string name, string phoneNbr, string email) {
-            object[] results = this.Invoke("UpdateTenant", new object[] {
-                        ssn,
-                        name,
-                        phoneNbr,
-                        email});
-            return ((Tenant)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UpdateTenantAsync(string ssn, string name, string phoneNbr, string email) {
-            this.UpdateTenantAsync(ssn, name, phoneNbr, email, null);
-        }
-        
-        /// <remarks/>
-        public void UpdateTenantAsync(string ssn, string name, string phoneNbr, string email, object userState) {
-            if ((this.UpdateTenantOperationCompleted == null)) {
-                this.UpdateTenantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateTenantOperationCompleted);
-            }
-            this.InvokeAsync("UpdateTenant", new object[] {
-                        ssn,
-                        name,
-                        phoneNbr,
-                        email}, this.UpdateTenantOperationCompleted, userState);
-        }
-        
-        private void OnUpdateTenantOperationCompleted(object arg) {
-            if ((this.UpdateTenantCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateTenantCompleted(this, new UpdateTenantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/CreateTenant", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool CreateTenant(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate) {
-            object[] results = this.Invoke("CreateTenant", new object[] {
-                        ssn,
-                        name,
-                        phoneNbr,
-                        email,
-                        storageNbr,
-                        rentDate});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void CreateTenantAsync(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate) {
-            this.CreateTenantAsync(ssn, name, phoneNbr, email, storageNbr, rentDate, null);
-        }
-        
-        /// <remarks/>
-        public void CreateTenantAsync(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate, object userState) {
-            if ((this.CreateTenantOperationCompleted == null)) {
-                this.CreateTenantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateTenantOperationCompleted);
-            }
-            this.InvokeAsync("CreateTenant", new object[] {
-                        ssn,
-                        name,
-                        phoneNbr,
-                        email,
-                        storageNbr,
-                        rentDate}, this.CreateTenantOperationCompleted, userState);
-        }
-        
-        private void OnCreateTenantOperationCompleted(object arg) {
-            if ((this.CreateTenantCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateTenantCompleted(this, new CreateTenantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/DeleteTenant", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool DeleteTenant(string ssn) {
-            object[] results = this.Invoke("DeleteTenant", new object[] {
-                        ssn});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void DeleteTenantAsync(string ssn) {
-            this.DeleteTenantAsync(ssn, null);
-        }
-        
-        /// <remarks/>
-        public void DeleteTenantAsync(string ssn, object userState) {
-            if ((this.DeleteTenantOperationCompleted == null)) {
-                this.DeleteTenantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteTenantOperationCompleted);
-            }
-            this.InvokeAsync("DeleteTenant", new object[] {
-                        ssn}, this.DeleteTenantOperationCompleted, userState);
-        }
-        
-        private void OnDeleteTenantOperationCompleted(object arg) {
-            if ((this.DeleteTenantCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.DeleteTenantCompleted(this, new DeleteTenantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/FindTenant", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -245,130 +112,29 @@ namespace ProgramKonstruktion.SqlWebReference {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/CreateStorage", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool CreateStorage(string nbr, float price, float size, string address) {
-            object[] results = this.Invoke("CreateStorage", new object[] {
-                        nbr,
-                        price,
-                        size,
-                        address});
-            return ((bool)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/GetListOfStorages", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Storage[] GetListOfStorages() {
+            object[] results = this.Invoke("GetListOfStorages", new object[0]);
+            return ((Storage[])(results[0]));
         }
         
         /// <remarks/>
-        public void CreateStorageAsync(string nbr, float price, float size, string address) {
-            this.CreateStorageAsync(nbr, price, size, address, null);
+        public void GetListOfStoragesAsync() {
+            this.GetListOfStoragesAsync(null);
         }
         
         /// <remarks/>
-        public void CreateStorageAsync(string nbr, float price, float size, string address, object userState) {
-            if ((this.CreateStorageOperationCompleted == null)) {
-                this.CreateStorageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateStorageOperationCompleted);
+        public void GetListOfStoragesAsync(object userState) {
+            if ((this.GetListOfStoragesOperationCompleted == null)) {
+                this.GetListOfStoragesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListOfStoragesOperationCompleted);
             }
-            this.InvokeAsync("CreateStorage", new object[] {
-                        nbr,
-                        price,
-                        size,
-                        address}, this.CreateStorageOperationCompleted, userState);
+            this.InvokeAsync("GetListOfStorages", new object[0], this.GetListOfStoragesOperationCompleted, userState);
         }
         
-        private void OnCreateStorageOperationCompleted(object arg) {
-            if ((this.CreateStorageCompleted != null)) {
+        private void OnGetListOfStoragesOperationCompleted(object arg) {
+            if ((this.GetListOfStoragesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateStorageCompleted(this, new CreateStorageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/UpdateStorage", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Storage UpdateStorage(string nbr, string address, float price, float size) {
-            object[] results = this.Invoke("UpdateStorage", new object[] {
-                        nbr,
-                        address,
-                        price,
-                        size});
-            return ((Storage)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UpdateStorageAsync(string nbr, string address, float price, float size) {
-            this.UpdateStorageAsync(nbr, address, price, size, null);
-        }
-        
-        /// <remarks/>
-        public void UpdateStorageAsync(string nbr, string address, float price, float size, object userState) {
-            if ((this.UpdateStorageOperationCompleted == null)) {
-                this.UpdateStorageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateStorageOperationCompleted);
-            }
-            this.InvokeAsync("UpdateStorage", new object[] {
-                        nbr,
-                        address,
-                        price,
-                        size}, this.UpdateStorageOperationCompleted, userState);
-        }
-        
-        private void OnUpdateStorageOperationCompleted(object arg) {
-            if ((this.UpdateStorageCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateStorageCompleted(this, new UpdateStorageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/DeleteStorage", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool DeleteStorage(string nbr) {
-            object[] results = this.Invoke("DeleteStorage", new object[] {
-                        nbr});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void DeleteStorageAsync(string nbr) {
-            this.DeleteStorageAsync(nbr, null);
-        }
-        
-        /// <remarks/>
-        public void DeleteStorageAsync(string nbr, object userState) {
-            if ((this.DeleteStorageOperationCompleted == null)) {
-                this.DeleteStorageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteStorageOperationCompleted);
-            }
-            this.InvokeAsync("DeleteStorage", new object[] {
-                        nbr}, this.DeleteStorageOperationCompleted, userState);
-        }
-        
-        private void OnDeleteStorageOperationCompleted(object arg) {
-            if ((this.DeleteStorageCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.DeleteStorageCompleted(this, new DeleteStorageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/DeleteTenantFromStorage", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool DeleteTenantFromStorage(string nbr) {
-            object[] results = this.Invoke("DeleteTenantFromStorage", new object[] {
-                        nbr});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void DeleteTenantFromStorageAsync(string nbr) {
-            this.DeleteTenantFromStorageAsync(nbr, null);
-        }
-        
-        /// <remarks/>
-        public void DeleteTenantFromStorageAsync(string nbr, object userState) {
-            if ((this.DeleteTenantFromStorageOperationCompleted == null)) {
-                this.DeleteTenantFromStorageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteTenantFromStorageOperationCompleted);
-            }
-            this.InvokeAsync("DeleteTenantFromStorage", new object[] {
-                        nbr}, this.DeleteTenantFromStorageOperationCompleted, userState);
-        }
-        
-        private void OnDeleteTenantFromStorageOperationCompleted(object arg) {
-            if ((this.DeleteTenantFromStorageCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.DeleteTenantFromStorageCompleted(this, new DeleteTenantFromStorageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetListOfStoragesCompleted(this, new GetListOfStoragesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -572,84 +338,6 @@ namespace ProgramKonstruktion.SqlWebReference {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void UpdateTenantCompletedEventHandler(object sender, UpdateTenantCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateTenantCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UpdateTenantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Tenant Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Tenant)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void CreateTenantCompletedEventHandler(object sender, CreateTenantCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CreateTenantCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal CreateTenantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void DeleteTenantCompletedEventHandler(object sender, DeleteTenantCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class DeleteTenantCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal DeleteTenantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     public delegate void FindTenantCompletedEventHandler(object sender, FindTenantCompletedEventArgs e);
     
     /// <remarks/>
@@ -676,104 +364,26 @@ namespace ProgramKonstruktion.SqlWebReference {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void CreateStorageCompletedEventHandler(object sender, CreateStorageCompletedEventArgs e);
+    public delegate void GetListOfStoragesCompletedEventHandler(object sender, GetListOfStoragesCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CreateStorageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetListOfStoragesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal CreateStorageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetListOfStoragesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public bool Result {
+        public Storage[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void UpdateStorageCompletedEventHandler(object sender, UpdateStorageCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateStorageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UpdateStorageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Storage Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Storage)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void DeleteStorageCompletedEventHandler(object sender, DeleteStorageCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class DeleteStorageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal DeleteStorageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void DeleteTenantFromStorageCompletedEventHandler(object sender, DeleteTenantFromStorageCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class DeleteTenantFromStorageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal DeleteTenantFromStorageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((Storage[])(this.results[0]));
             }
         }
     }

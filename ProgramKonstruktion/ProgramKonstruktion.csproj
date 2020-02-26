@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ERP12Reference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\OpenFileService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +161,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\ERP12Reference\ERP1WebService.wsdl" />
+    <None Include="Connected Services\ERP12Reference\ProgramKonstruktion.ERP12Reference.CreateEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ERP12Reference\ProgramKonstruktion.ERP12Reference.DeleteEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ERP12Reference\ProgramKonstruktion.ERP12Reference.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ERP12Reference\ProgramKonstruktion.ERP12Reference.FindEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ERP12Reference\ProgramKonstruktion.ERP12Reference.UpdateEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\OpenFileService\ProgramKonstruktion.OpenFileService.ShowFileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -387,6 +408,7 @@
     <None Include="Web References\OpenFileService\WebServiceAssignment.disco" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ERP12Reference\" />
     <WCFMetadataStorage Include="Connected Services\OpenFileService\" />
     <WCFMetadataStorage Include="Connected Services\SqlServiceReference\" />
   </ItemGroup>
@@ -425,6 +447,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\ERP1WebRef\ERP1WebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ERP12Reference\ERP1WebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ERP12Reference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ERP12Reference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ERP12Reference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
