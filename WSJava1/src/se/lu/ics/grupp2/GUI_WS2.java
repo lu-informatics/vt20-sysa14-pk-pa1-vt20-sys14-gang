@@ -82,6 +82,7 @@ public class GUI_WS2 {
 		// method for viewing a chosen file 
 		btnViewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtOutput.setText(""); 
 				String chosenList = cBoxFiles.getSelectedItem().toString(); 
 				if (chosenList.contentEquals("Storage")){ 
 					try {
