@@ -37,57 +37,70 @@ public class GUI_WS2 {
 
 	/**
 	 * Create the application.
+	 * @throws RemoteException 
 	 */
-	public GUI_WS2() {
+	public GUI_WS2() throws RemoteException {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @throws RemoteException 
 	 */
-	private void initialize() {
+	private void initialize() throws RemoteException {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnViewFile = new JButton("View");
-		btnViewFile.setBounds(119, 26, 89, 23);
+		btnViewFile.setBounds(289, 26, 89, 23);
 		frame.getContentPane().add(btnViewFile);
 		
-		final JTextPane txtFileOutput = new JTextPane();
-		txtFileOutput.setBounds(10, 60, 197, 190);
-		frame.getContentPane().add(txtFileOutput);
+		final JTextPane txtOutput = new JTextPane();
+		txtOutput.setBounds(10, 60, 360, 190);
+		frame.getContentPane().add(txtOutput);
 		
 		final JComboBox<String> cBoxFiles = new JComboBox<String>();
-		//Lista med valbara filer att visa
 		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Test"); 
-		files.add("Top Secret"); 
+		files.add("Storage"); 
+		files.add("Tenant"); 
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
+		myProxy.getListOfStorages();
+		
+		//for each loop that populates cBox with up to date from database 
+		/*
+		for (Storage s : myProxy.getListOfStorages()) { 
+			 cBoxFiles.addItem(s.toString()); 
+		}
+		*/
 		 
 		frame.getContentPane().add(cBoxFiles);
-		cBoxFiles.setBounds(10, 26, 111, 23); 
+		cBoxFiles.setBounds(10, 26, 281, 23); 
 		// method for viewing a chosen file 
-		/*btnViewFile.addActionListener(new ActionListener() {
+		btnViewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-						String chosenFile = cBoxFiles.getSelectedItem().toString(); 
-						//String fileOutput = myProxy.showFile(chosenFile); 
-						; 
-						//txtFileOutput.setText(fileOutput);
+				String chosenList = cBoxFiles.getSelectedItem().toString(); 
+				if (chosenList.contentEquals("Storage")){ 
+					try {
+						txtOutput.setText(myProxy.getListOfStorages().toString());
 					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					} 
-				
-				
-				
-				
+						txtOutput.setText("Failed to get list of storages");
+					}
+					
+				}			
 			}
-		});*/
+		});
 		
+		
+	}
+
+	private void fillComboBox() {
+		// TODO Auto-generated method stub
 		
 	}
 }

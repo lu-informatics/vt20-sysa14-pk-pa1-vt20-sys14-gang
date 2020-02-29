@@ -19,12 +19,11 @@ namespace SqlWebApplication
 
 
     {
-        Connector c = new Connector(); 
+        Connector c = new Connector();
         StorageDAL storageDAL = new StorageDAL();
         TenantDAL tenantDAL = new TenantDAL();
 
-       
-       
+
 
         [WebMethod]
         public Tenant FindTenant(string ssn)
@@ -37,16 +36,23 @@ namespace SqlWebApplication
             return tenantDAL.GetTenantBookings();
         }
 
-       [WebMethod]
+        [WebMethod]
         public List<Storage> GetListOfStorages()
         {
-            return storageDAL.GetListOfStorages(); 
+            return storageDAL.GetListOfStorages();
         }
 
         [WebMethod]
         public Storage FindStorage(string nbr)
         {
             return storageDAL.FindStorage(nbr);
+        }
+        [WebMethod]
+        public List<Storage> PrintStorages() 
+        {
+            List<Storage> storageList = storageDAL.GetListOfStorages(); 
+            return storageList;
+
         }
 
     }
