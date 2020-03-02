@@ -47,13 +47,7 @@ namespace SqlWebApplication
         {
             return storageDAL.FindStorage(nbr);
         }
-        [WebMethod]
-        public List<Storage> PrintStorages() 
-        {
-            List<Storage> storageList = storageDAL.GetListOfStorages(); 
-            return storageList;
-
-        }
+        
 
     }
 }
