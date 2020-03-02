@@ -25,7 +25,7 @@ namespace SqlWebApplication
 
 
 
-        
+        [WebMethod]
         public List<Tenant> GetTenantBookings()
         {
             return tenantDAL.GetTenantBookings();
