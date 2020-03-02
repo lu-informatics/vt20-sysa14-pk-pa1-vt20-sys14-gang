@@ -25,12 +25,7 @@ namespace SqlWebApplication
 
 
 
-        [WebMethod]
-        public Tenant FindTenant(string ssn)
-        {
-            return tenantDAL.FindTenant(ssn);
-        }
-
+        
         public List<Tenant> GetTenantBookings()
         {
             return tenantDAL.GetTenantBookings();
@@ -42,11 +37,7 @@ namespace SqlWebApplication
             return storageDAL.GetListOfStorages();
         }
 
-        [WebMethod]
-        public Storage FindStorage(string nbr)
-        {
-            return storageDAL.FindStorage(nbr);
-        }
+    
         
 
     }
