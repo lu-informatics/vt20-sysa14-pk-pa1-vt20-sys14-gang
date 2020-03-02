@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -32,13 +33,35 @@ namespace SqlWebApplication
         }
 
         [WebMethod]
+        public DataTable ShowAllBookings()
+        {
+            DataTable showAllBooking = tenantDAL.ShowAllBookings();
+            return showAllBooking;
+
+        }     
+
+        [WebMethod]
         public List<Storage> GetListOfStorages()
         {
             return storageDAL.GetListOfStorages();
         }
 
-    
-        
+        [WebMethod]
+        public Storage FindStorage(string nbr)
+        {
+            return storageDAL.FindStorage(nbr);
+        }
+
+        [WebMethod]
+        public DataTable ShowAllStorages()
+        {
+            DataTable allStorages = storageDAL.ShowAllStorages();
+            return allStorages; 
+        }
+
+          
+
+
 
     }
 }

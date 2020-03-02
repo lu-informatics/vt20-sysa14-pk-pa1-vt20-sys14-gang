@@ -71,16 +71,96 @@ namespace WebAppERP
             return deleted;
         }
 
+
+        //Methods for collecting metadata from CRONUS database
+
         [WebMethod]
         public DataTable ShowContentOfCronus()
         {
             DataTable content = employeeDal.ShowContentOfCronus();
 
-
             return content;
 
-
         }
+
+        [WebMethod]
+        public DataTable EmployeeAndRelatives()
+        {
+            DataTable empRel = employeeDal.EmployeeAndRelatives();
+            return empRel;
+        }
+
+        [WebMethod]
+        public DataTable ShowSickEmployees2004()
+        {
+            DataTable sickEmp = employeeDal.ShowSickEmployees2004();
+            return sickEmp; 
+        }
+
+        [WebMethod]
+        public DataTable MostAbsentEmployees()
+        {
+            DataTable mostAbsentEmp = employeeDal.MostAbsentEmployees();
+            return mostAbsentEmp; 
+        }
+
+
+        [WebMethod]
+        public DataTable AllKeys()
+        {
+            DataTable keys = employeeDal.AllKeys();
+            return keys; 
+        }
+
+        [WebMethod]
+        public DataTable AllIndexes()
+        {
+            DataTable index = employeeDal.AllIndexes();
+            return index; 
+        }
+
+        [WebMethod]
+        public DataTable AllTableConstrains()
+        {
+            DataTable tableConstraints = employeeDal.AllTableConstrains(); 
+            return tableConstraints;
+        }
+
+        [WebMethod]
+        public DataTable AllTablesInDatabaseSolOne()
+        {
+            DataTable allTables = employeeDal.AllTablesInDatabaseSolOne();
+            return allTables; 
+        }
+
+        [WebMethod]
+        public DataTable AllTablesInDatabaseSolTwo()
+        {
+            DataTable allTables = employeeDal.AllTablesInDatabaseSolTwo(); 
+            return allTables;
+        }
+
+        [WebMethod]
+        public DataTable AllColEmpTableSolOne()
+        {
+            DataTable allEmpTables = employeeDal.AllColEmpTableSolOne(); 
+            return allEmpTables;
+        }
+
+        [WebMethod]
+        public DataTable AllColEmpTableSolTwo()
+        {
+            DataTable allEmpTables = employeeDal.AllColEmpTableSolTwo(); 
+            return allEmpTables;
+        }
+
+
+
+
+
+
+
+        //Webbmethod for showing what a file holds.
         [WebMethod]
         public string ShowFile(string fileName)
         {
@@ -88,8 +168,10 @@ namespace WebAppERP
             string text = File.ReadAllText(location);
             return text;
 
-
         }
+
+
+
 
     }
 

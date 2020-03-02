@@ -83,6 +83,37 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ShowContentOfCronus">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowContentOfCronusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowContentOfCronusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CreateEmployeeSoapIn">
@@ -109,7 +140,19 @@
   <wsdl:message name="DeleteEmployeeSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
   </wsdl:message>
-  <wsdl:portType name="ERP1WebServiceSoap">
+  <wsdl:message name="ShowContentOfCronusSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronus" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowFile" />
+  </wsdl:message>
+  <wsdl:message name="ShowFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceERP12Soap">
     <wsdl:operation name="CreateEmployee">
       <wsdl:input message="tns:CreateEmployeeSoapIn" />
       <wsdl:output message="tns:CreateEmployeeSoapOut" />
@@ -126,8 +169,16 @@
       <wsdl:input message="tns:DeleteEmployeeSoapIn" />
       <wsdl:output message="tns:DeleteEmployeeSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <wsdl:input message="tns:ShowContentOfCronusSoapIn" />
+      <wsdl:output message="tns:ShowContentOfCronusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <wsdl:input message="tns:ShowFileSoapIn" />
+      <wsdl:output message="tns:ShowFileSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="ERP1WebServiceSoap" type="tns:ERP1WebServiceSoap">
+  <wsdl:binding name="WebServiceERP12Soap" type="tns:WebServiceERP12Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateEmployee">
       <soap:operation soapAction="http://tempuri.org/CreateEmployee" style="document" />
@@ -165,8 +216,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap:operation soapAction="http://tempuri.org/ShowContentOfCronus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <soap:operation soapAction="http://tempuri.org/ShowFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="ERP1WebServiceSoap12" type="tns:ERP1WebServiceSoap">
+  <wsdl:binding name="WebServiceERP12Soap12" type="tns:WebServiceERP12Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateEmployee">
       <soap12:operation soapAction="http://tempuri.org/CreateEmployee" style="document" />
@@ -204,13 +273,31 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap12:operation soapAction="http://tempuri.org/ShowContentOfCronus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <soap12:operation soapAction="http://tempuri.org/ShowFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ERP1WebService">
-    <wsdl:port name="ERP1WebServiceSoap" binding="tns:ERP1WebServiceSoap">
-      <soap:address location="http://localhost/ERP1WebApplication/ERP1WebService.asmx" />
+  <wsdl:service name="WebServiceERP12">
+    <wsdl:port name="WebServiceERP12Soap" binding="tns:WebServiceERP12Soap">
+      <soap:address location="http://localhost/WebAppERP/WebServiceERP12.asmx" />
     </wsdl:port>
-    <wsdl:port name="ERP1WebServiceSoap12" binding="tns:ERP1WebServiceSoap12">
-      <soap12:address location="http://localhost/ERP1WebApplication/ERP1WebService.asmx" />
+    <wsdl:port name="WebServiceERP12Soap12" binding="tns:WebServiceERP12Soap12">
+      <soap12:address location="http://localhost/WebAppERP/WebServiceERP12.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
