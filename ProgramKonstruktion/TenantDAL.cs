@@ -100,6 +100,10 @@ namespace ProgramKonstruktion
                 {
                     added = true;
                 }
+                else
+                {
+                    added = false;
+                }
             }
             catch (SqlException e)
             {
@@ -211,7 +215,8 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
             try
-            {
+            { 
+            
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -228,13 +233,13 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                // errorHandler.HandleErrorExceptionSql(e);
-                MessageBox.Show(e.Message);
+                errorHandler.HandleErrorExceptionSql(e);
+               // MessageBox.Show(e.Message);
             }
             catch (Exception ex)
             {
-                //errorHandler.HandleExceptions(ex);
-                MessageBox.Show(ex.Message);
+                errorHandler.HandleExceptions(ex);
+                //MessageBox.Show(ex.Message);
             }
             finally
             {

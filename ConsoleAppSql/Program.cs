@@ -17,6 +17,8 @@ namespace ConsoleAppSql
             //Console.WriteLine("Skriv in ett ssn: ");
             //string s = Console.ReadLine();
             // Tenant t = service.FindTenant(s);
+
+
             List<Storage> listOfStorage = service.GetListOfStorages();
             Console.WriteLine("----- STORAGE -----");
             foreach (Storage s in listOfStorage)
