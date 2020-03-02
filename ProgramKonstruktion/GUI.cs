@@ -336,13 +336,15 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = storageNmbrSearch.Text;
-           // storage.Address = storageAddressSearch.Text;
 
-            storage = storageDal.FindStorage(storageNmbrSearch.Text);
+            dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
+            // storage.Address = storageAddressSearch.Text;
 
-            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
+            //storage = storageDal.FindStorage(storageNmbrSearch.Text);
 
-            cleanTextFields();
+            //errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
+
+            //cleanTextFields();
         }
 
         public void cleanBoxes()
@@ -571,6 +573,16 @@ namespace ProgramKonstruktion
                
             }
            // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+        }
+
+        private void showAllBookingsBtn_Click(object sender, EventArgs e)
+        {
+            dataGridBookings.DataSource = tenantDal.ShowAllBookings();
+        }
+
+        private void showAllStorages_Click(object sender, EventArgs e)
+        {
+            dataGridStorages.DataSource = storageDal.ShowAllStorages();
         }
     }
     }
