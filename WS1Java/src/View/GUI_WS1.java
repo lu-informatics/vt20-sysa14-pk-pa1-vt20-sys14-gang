@@ -64,25 +64,27 @@ public class GUI_WS1 {
 		
 		final JComboBox<String> cBoxFiles = new JComboBox<String>();
 		
-		//List of files from filesystem
+		//List of files from file system
 		ArrayList<String>files = new ArrayList<String>(); 
 		files.add("Test"); 
-		files.add("Top Secret.txt"); 
+		files.add("Top Secret"); 
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
 		 
 		frame.getContentPane().add(cBoxFiles);
 		cBoxFiles.setBounds(10, 26, 111, 23); 
+		
 		// method for viewing a chosen file 
 		btnViewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-						String chosenFile = cBoxFiles.getSelectedItem().toString(); 
+						String chosenFile = cBoxFiles.getSelectedItem().toString() + ".txt"; 
 						String fileOutput = myProxy.showFile(chosenFile); 
 						
 						txtFileOutput.setText(fileOutput);
 					} catch (RemoteException e1) {
+						txtFileOutput.setText("ojsan");
 						e1.printStackTrace();
 					} 
 				
