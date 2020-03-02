@@ -160,6 +160,7 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -263,9 +264,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(213, 384);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Date Selected";
+            this.label6.Text = "Date Selected:";
             // 
             // dateTxtBox
             // 
@@ -422,9 +423,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(58, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 20);
+            this.label7.Size = new System.Drawing.Size(152, 20);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Make new Booking";
+            this.label7.Text = "Create new Booking";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // errorBoxBooking
@@ -647,7 +648,7 @@
             // 
             // addStorageBtn
             // 
-            this.addStorageBtn.Location = new System.Drawing.Point(169, 387);
+            this.addStorageBtn.Location = new System.Drawing.Point(150, 387);
             this.addStorageBtn.Name = "addStorageBtn";
             this.addStorageBtn.Size = new System.Drawing.Size(75, 23);
             this.addStorageBtn.TabIndex = 10;
@@ -791,6 +792,7 @@
             // 
             // programkonst2
             // 
+            this.programkonst2.Controls.Add(this.richTextBox2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
             this.programkonst2.Controls.Add(this.dataGridProgram2);
@@ -1343,6 +1345,14 @@
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(83, 502);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(622, 69);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = "";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1529,6 +1539,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button showAllBookingsBtn;
         private System.Windows.Forms.Button showAllStorages;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 
    

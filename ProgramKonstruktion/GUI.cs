@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,7 @@ namespace ProgramKonstruktion
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
         private ERP1WebService erpWebService = new ERP1WebService();
+        private ErrorHandler eh = new ErrorHandler();
 
 
 
@@ -38,7 +40,7 @@ namespace ProgramKonstruktion
         {
             comboBoxStorage.Items.Clear();
             comboBoxStorage.Text = "Select available storage";
-            List<Storage>  listOfStorage = storageDal.listOfAvailableStorages();
+            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
             Console.WriteLine(listOfStorage.Count);
             foreach (Storage s in listOfStorage)
             {
@@ -64,7 +66,7 @@ namespace ProgramKonstruktion
 
         }
 
-       
+
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -127,7 +129,7 @@ namespace ProgramKonstruktion
             //tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
 
             //errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
-    
+
         }
 
         //Book tenant on Storage
@@ -138,27 +140,41 @@ namespace ProgramKonstruktion
             tenant.Name = tenantNameTxt.Text;
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
-            
+            cleanTextFields();
+
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
             Boolean added = tenantDal.CreateTenant(tenant);
-            if (!added)
-            {
-                errorBoxBooking.Text = "Failed to add booking, try again.";
-            }
-            else
-            {
-                errorBoxBooking.Text = "Booking completed.";
-                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
-                cleanTextFields();
-                SetAllStoragesToComboBox();
-            }
+            try {
+
+                if (added)
+                {
+                    errorBoxBooking.Text = "Booking completed.";
+                    this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+
+                    SetAllStoragesToComboBox();
+                }
+
+                else if (!added)
+                {
+                    errorBoxBooking.Text = "Failed to add booking, try again.";
+                }
+
+                else if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrWhiteSpace(emailTxt.Text))
+                {
+                    errorBoxBooking.Text = "Please fill out all fields. \n Social Security Number, Tenant Name, Phone Number or E-mail are not filled correctly. \n Check it out and try again";
+                }
+                } catch (SqlException E) {
+                errorBoxBooking.Text = eh.HandleErrorExceptionSql(E);
+                {
+                    
+                }
             
-
-
+            } 
         }
+
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
            
