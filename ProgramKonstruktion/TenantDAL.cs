@@ -281,5 +281,41 @@ namespace ProgramKonstruktion
             return dtTenant;
                 }
 
+        public DataTable ShowAllBookings()
+        {
+            DataTable dtBookings = new DataTable();
+            string query = "SELECT * FROM TENANT";
+
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        dtBookings.Load(reader);
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        // errorHandler.HandleErrorExceptionSql(e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    finally
+                    {
+
+                        connect.CloseConnector(connection);
+                    }
+                    return dtBookings;
+                }
+
             }
+        }
+
+    }
         }
