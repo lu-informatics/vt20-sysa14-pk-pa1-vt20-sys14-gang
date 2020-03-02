@@ -33,7 +33,6 @@
             this.bookStorage = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTxtBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
             this.deleteBookingBtn = new System.Windows.Forms.Button();
@@ -104,6 +103,35 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ERP = new System.Windows.Forms.TabPage();
+            this.runButton = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.comboBoxChooseData = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.noTextBoxSearch = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.jobTitleTextBox = new System.Windows.Forms.TextBox();
+            this.noTextBox = new System.Windows.Forms.TextBox();
             this.tenantBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storeIT3DataSet = new ProgramKonstruktion.StoreIT3DataSet();
             this.storageBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
@@ -127,35 +155,6 @@
             this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
             this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
             this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
-            this.noTextBox = new System.Windows.Forms.TextBox();
-            this.jobTitleTextBox = new System.Windows.Forms.TextBox();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
-            this.ssnTextBox = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.noTextBoxSearch = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.comboBoxChooseData = new System.Windows.Forms.ComboBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.runButton = new System.Windows.Forms.Button();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -177,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ERP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).BeginInit();
@@ -191,7 +191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).BeginInit();
@@ -216,7 +215,6 @@
             // 
             this.bookStorage.Controls.Add(this.label6);
             this.bookStorage.Controls.Add(this.dateTxtBox);
-            this.bookStorage.Controls.Add(this.label5);
             this.bookStorage.Controls.Add(this.monthCalendar);
             this.bookStorage.Controls.Add(this.comboBoxStorage);
             this.bookStorage.Controls.Add(this.deleteBookingBtn);
@@ -250,7 +248,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(333, 351);
+            this.label6.Location = new System.Drawing.Point(213, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 30;
@@ -258,24 +256,15 @@
             // 
             // dateTxtBox
             // 
-            this.dateTxtBox.Location = new System.Drawing.Point(336, 367);
+            this.dateTxtBox.Location = new System.Drawing.Point(336, 374);
             this.dateTxtBox.Name = "dateTxtBox";
             this.dateTxtBox.Size = new System.Drawing.Size(100, 20);
             this.dateTxtBox.TabIndex = 29;
             this.dateTxtBox.TextChanged += new System.EventHandler(this.dateTxtBox_TextChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(213, 137);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Select Storage";
-            // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(216, 186);
+            this.monthCalendar.Location = new System.Drawing.Point(216, 206);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 27;
             this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
@@ -284,16 +273,17 @@
             // 
             this.comboBoxStorage.DisplayMember = "nbr";
             this.comboBoxStorage.FormattingEnabled = true;
-            this.comboBoxStorage.Location = new System.Drawing.Point(216, 153);
+            this.comboBoxStorage.Location = new System.Drawing.Point(216, 173);
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(220, 21);
             this.comboBoxStorage.TabIndex = 26;
+            this.comboBoxStorage.Text = "Select Storage...";
             this.comboBoxStorage.ValueMember = "nbr";
             this.comboBoxStorage.SelectedIndexChanged += new System.EventHandler(this.comboBoxStorage_SelectedIndexChanged);
             // 
             // deleteBookingBtn
             // 
-            this.deleteBookingBtn.Location = new System.Drawing.Point(630, 469);
+            this.deleteBookingBtn.Location = new System.Drawing.Point(469, 445);
             this.deleteBookingBtn.Name = "deleteBookingBtn";
             this.deleteBookingBtn.Size = new System.Drawing.Size(100, 23);
             this.deleteBookingBtn.TabIndex = 25;
@@ -316,7 +306,7 @@
             this.storageNbrDataGridViewTextBoxColumn,
             this.rentDateDataGridViewTextBoxColumn});
             this.dataGridBookings.DataSource = this.tenantBindingSource4;
-            this.dataGridBookings.Location = new System.Drawing.Point(470, 163);
+            this.dataGridBookings.Location = new System.Drawing.Point(469, 186);
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.ReadOnly = true;
             this.dataGridBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -379,7 +369,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProgramKonstruktion.Properties.Resources._86696795_2810123369128020_3283241522694193152_n;
-            this.pictureBox1.Location = new System.Drawing.Point(622, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(960, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(140, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -388,7 +378,7 @@
             // 
             // ssnBookTxt
             // 
-            this.ssnBookTxt.Location = new System.Drawing.Point(62, 155);
+            this.ssnBookTxt.Location = new System.Drawing.Point(62, 191);
             this.ssnBookTxt.Name = "ssnBookTxt";
             this.ssnBookTxt.Size = new System.Drawing.Size(130, 20);
             this.ssnBookTxt.TabIndex = 22;
@@ -407,7 +397,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(59, 374);
+            this.label10.Location = new System.Drawing.Point(467, 137);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 13);
             this.label10.TabIndex = 17;
@@ -434,17 +424,17 @@
             // 
             // updateTenantBtn
             // 
-            this.updateTenantBtn.Location = new System.Drawing.Point(92, 341);
+            this.updateTenantBtn.Location = new System.Drawing.Point(92, 393);
             this.updateTenantBtn.Name = "updateTenantBtn";
             this.updateTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.updateTenantBtn.TabIndex = 14;
-            this.updateTenantBtn.Text = "Update Tenant";
+            this.updateTenantBtn.Text = "Update Booking";
             this.updateTenantBtn.UseVisualStyleBackColor = true;
             this.updateTenantBtn.Click += new System.EventHandler(this.updateTenantBtn_Click);
             // 
             // bookBtn
             // 
-            this.bookBtn.Location = new System.Drawing.Point(336, 393);
+            this.bookBtn.Location = new System.Drawing.Point(92, 364);
             this.bookBtn.Name = "bookBtn";
             this.bookBtn.Size = new System.Drawing.Size(100, 23);
             this.bookBtn.TabIndex = 13;
@@ -455,7 +445,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 286);
+            this.label4.Location = new System.Drawing.Point(59, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 12;
@@ -464,7 +454,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 237);
+            this.label3.Location = new System.Drawing.Point(59, 264);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 11;
@@ -473,7 +463,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 186);
+            this.label2.Location = new System.Drawing.Point(59, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 10;
@@ -482,7 +472,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 139);
+            this.label1.Location = new System.Drawing.Point(59, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 9;
@@ -490,7 +480,7 @@
             // 
             // ssnSearchTxt
             // 
-            this.ssnSearchTxt.Location = new System.Drawing.Point(63, 396);
+            this.ssnSearchTxt.Location = new System.Drawing.Point(470, 153);
             this.ssnSearchTxt.Name = "ssnSearchTxt";
             this.ssnSearchTxt.Size = new System.Drawing.Size(129, 20);
             this.ssnSearchTxt.TabIndex = 8;
@@ -498,32 +488,32 @@
             // 
             // emailTxt
             // 
-            this.emailTxt.Location = new System.Drawing.Point(62, 302);
+            this.emailTxt.Location = new System.Drawing.Point(62, 328);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(130, 20);
             this.emailTxt.TabIndex = 7;
             // 
             // phoneNbrTxt
             // 
-            this.phoneNbrTxt.Location = new System.Drawing.Point(62, 253);
+            this.phoneNbrTxt.Location = new System.Drawing.Point(62, 282);
             this.phoneNbrTxt.Name = "phoneNbrTxt";
             this.phoneNbrTxt.Size = new System.Drawing.Size(130, 20);
             this.phoneNbrTxt.TabIndex = 4;
             // 
             // tenantNameTxt
             // 
-            this.tenantNameTxt.Location = new System.Drawing.Point(62, 202);
+            this.tenantNameTxt.Location = new System.Drawing.Point(62, 234);
             this.tenantNameTxt.Name = "tenantNameTxt";
             this.tenantNameTxt.Size = new System.Drawing.Size(130, 20);
             this.tenantNameTxt.TabIndex = 3;
             // 
             // searchTenantBtn
             // 
-            this.searchTenantBtn.Location = new System.Drawing.Point(216, 393);
+            this.searchTenantBtn.Location = new System.Drawing.Point(605, 150);
             this.searchTenantBtn.Name = "searchTenantBtn";
             this.searchTenantBtn.Size = new System.Drawing.Size(100, 23);
             this.searchTenantBtn.TabIndex = 0;
-            this.searchTenantBtn.Text = "Search Tenant";
+            this.searchTenantBtn.Text = "Search Booking";
             this.searchTenantBtn.UseVisualStyleBackColor = true;
             this.searchTenantBtn.Click += new System.EventHandler(this.searchTenantBtn_Click);
             // 
@@ -960,6 +950,257 @@
             this.ERP.Text = "ERP";
             this.ERP.UseVisualStyleBackColor = true;
             // 
+            // runButton
+            // 
+            this.runButton.Location = new System.Drawing.Point(577, 44);
+            this.runButton.Name = "runButton";
+            this.runButton.Size = new System.Drawing.Size(75, 23);
+            this.runButton.TabIndex = 29;
+            this.runButton.Text = "Run";
+            this.runButton.UseVisualStyleBackColor = true;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(385, 92);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(718, 400);
+            this.dataGridView3.TabIndex = 28;
+            // 
+            // comboBoxChooseData
+            // 
+            this.comboBoxChooseData.FormattingEnabled = true;
+            this.comboBoxChooseData.Location = new System.Drawing.Point(385, 47);
+            this.comboBoxChooseData.Name = "comboBoxChooseData";
+            this.comboBoxChooseData.Size = new System.Drawing.Size(175, 21);
+            this.comboBoxChooseData.TabIndex = 27;
+            this.comboBoxChooseData.Text = "Choose:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(406, 4);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(154, 17);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "ERP DEL 2 - Employee";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(453, 4);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(0, 13);
+            this.label28.TabIndex = 25;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(22, 258);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(56, 13);
+            this.label27.TabIndex = 24;
+            this.label27.Text = "Search no";
+            // 
+            // noTextBoxSearch
+            // 
+            this.noTextBoxSearch.Location = new System.Drawing.Point(22, 277);
+            this.noTextBoxSearch.Name = "noTextBoxSearch";
+            this.noTextBoxSearch.Size = new System.Drawing.Size(100, 20);
+            this.noTextBoxSearch.TabIndex = 23;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(141, 273);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Find";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(222, 273);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Delete";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(22, 223);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Update";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(178, 223);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(19, 4);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(154, 17);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "ERP DEL 1 - Employee";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(156, 169);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(32, 13);
+            this.label25.TabIndex = 16;
+            this.label25.Text = "Email";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(19, 166);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(25, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Ssn";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(156, 119);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(76, 13);
+            this.label23.TabIndex = 14;
+            this.label23.Text = "Phone number";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(19, 119);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Address";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(153, 73);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 13);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "Last name";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 13);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Job title";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(153, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "First name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "No_";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(19, 308);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(342, 124);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(153, 139);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.phoneNumberTextBox.TabIndex = 7;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(153, 92);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.TabIndex = 6;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(153, 47);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.TabIndex = 5;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(153, 188);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.emailTextBox.TabIndex = 4;
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Location = new System.Drawing.Point(19, 188);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ssnTextBox.TabIndex = 3;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(19, 139);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addressTextBox.TabIndex = 2;
+            // 
+            // jobTitleTextBox
+            // 
+            this.jobTitleTextBox.Location = new System.Drawing.Point(19, 92);
+            this.jobTitleTextBox.Name = "jobTitleTextBox";
+            this.jobTitleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.jobTitleTextBox.TabIndex = 1;
+            // 
+            // noTextBox
+            // 
+            this.noTextBox.Location = new System.Drawing.Point(19, 47);
+            this.noTextBox.Name = "noTextBox";
+            this.noTextBox.Size = new System.Drawing.Size(100, 20);
+            this.noTextBox.TabIndex = 0;
+            this.noTextBox.TextChanged += new System.EventHandler(this.noTextBox_TextChanged);
+            // 
             // tenantBindingSource2
             // 
             this.tenantBindingSource2.DataMember = "Tenant";
@@ -1066,257 +1307,6 @@
             // 
             this.storageTableAdapter3.ClearBeforeFill = true;
             // 
-            // noTextBox
-            // 
-            this.noTextBox.Location = new System.Drawing.Point(19, 47);
-            this.noTextBox.Name = "noTextBox";
-            this.noTextBox.Size = new System.Drawing.Size(100, 20);
-            this.noTextBox.TabIndex = 0;
-            this.noTextBox.TextChanged += new System.EventHandler(this.noTextBox_TextChanged);
-            // 
-            // jobTitleTextBox
-            // 
-            this.jobTitleTextBox.Location = new System.Drawing.Point(19, 92);
-            this.jobTitleTextBox.Name = "jobTitleTextBox";
-            this.jobTitleTextBox.Size = new System.Drawing.Size(100, 20);
-            this.jobTitleTextBox.TabIndex = 1;
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(19, 139);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addressTextBox.TabIndex = 2;
-            // 
-            // ssnTextBox
-            // 
-            this.ssnTextBox.Location = new System.Drawing.Point(19, 188);
-            this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ssnTextBox.TabIndex = 3;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(153, 188);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.emailTextBox.TabIndex = 4;
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(153, 47);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.firstNameTextBox.TabIndex = 5;
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(153, 92);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.lastNameTextBox.TabIndex = 6;
-            // 
-            // phoneNumberTextBox
-            // 
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(153, 139);
-            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.phoneNumberTextBox.TabIndex = 7;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(19, 308);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(342, 124);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "No_";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(153, 28);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 13);
-            this.label19.TabIndex = 10;
-            this.label19.Text = "First name";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 13);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "Job title";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(153, 73);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 13);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "Last name";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 119);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "Address";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(156, 119);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(76, 13);
-            this.label23.TabIndex = 14;
-            this.label23.Text = "Phone number";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 166);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(25, 13);
-            this.label24.TabIndex = 15;
-            this.label24.Text = "Ssn";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(156, 169);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(32, 13);
-            this.label25.TabIndex = 16;
-            this.label25.Text = "Email";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(19, 4);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(154, 17);
-            this.label26.TabIndex = 17;
-            this.label26.Text = "ERP DEL 1 - Employee";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(178, 223);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(22, 223);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Update";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(222, 273);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(141, 273);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 22;
-            this.button7.Text = "Find";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // noTextBoxSearch
-            // 
-            this.noTextBoxSearch.Location = new System.Drawing.Point(22, 277);
-            this.noTextBoxSearch.Name = "noTextBoxSearch";
-            this.noTextBoxSearch.Size = new System.Drawing.Size(100, 20);
-            this.noTextBoxSearch.TabIndex = 23;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(22, 258);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(56, 13);
-            this.label27.TabIndex = 24;
-            this.label27.Text = "Search no";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(453, 4);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(0, 13);
-            this.label28.TabIndex = 25;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(406, 4);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(154, 17);
-            this.label29.TabIndex = 26;
-            this.label29.Text = "ERP DEL 2 - Employee";
-            // 
-            // comboBoxChooseData
-            // 
-            this.comboBoxChooseData.FormattingEnabled = true;
-            this.comboBoxChooseData.Location = new System.Drawing.Point(385, 47);
-            this.comboBoxChooseData.Name = "comboBoxChooseData";
-            this.comboBoxChooseData.Size = new System.Drawing.Size(175, 21);
-            this.comboBoxChooseData.TabIndex = 27;
-            this.comboBoxChooseData.Text = "Choose:";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(385, 92);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(718, 400);
-            this.dataGridView3.TabIndex = 28;
-            // 
-            // runButton
-            // 
-            this.runButton.Location = new System.Drawing.Point(577, 44);
-            this.runButton.Name = "runButton";
-            this.runButton.Size = new System.Drawing.Size(75, 23);
-            this.runButton.TabIndex = 29;
-            this.runButton.Text = "Run";
-            this.runButton.UseVisualStyleBackColor = true;
-            this.runButton.Click += new System.EventHandler(this.runButton_Click);
-            // 
             // storageBindingSource4
             // 
             this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
@@ -1360,6 +1350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ERP.ResumeLayout(false);
             this.ERP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource5)).EndInit();
@@ -1374,7 +1365,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.storeIT2DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeIT3DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource1)).EndInit();
@@ -1434,7 +1424,6 @@
         private System.Windows.Forms.Button deleteBookingBtn;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ComboBox comboBoxStorage;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dateTxtBox;
         private System.Windows.Forms.Label label6;
         private StoreIT2DataSet storeIT2DataSet;

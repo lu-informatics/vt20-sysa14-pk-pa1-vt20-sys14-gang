@@ -119,11 +119,14 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            tenant.Ssn = ssnSearchTxt.Text;
 
-            tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
+            dataGridBookings.DataSource = tenantDal.findTenants(ssnSearchTxt.Text);
 
-            errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
+            //tenant.Ssn = ssnSearchTxt.Text;
+
+            //tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
+
+            //errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
     
         }
 
