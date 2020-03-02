@@ -399,8 +399,10 @@ namespace ProgramKonstruktion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
-            string response = client.ShowFile(textBoxFileName.Text);
+            WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
+            //OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
+            string response = client2.ShowFile(textBoxFileName.Text); 
+            //string response = client.ShowFile(textBoxFileName.Text);
 
             lblResult.Text = response;
 

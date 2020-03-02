@@ -84,6 +84,13 @@ namespace WebAppERP
         }
 
         [WebMethod]
+        public DataTable EmployeeAndRelatives()
+        {
+            DataTable empRel = employeeDal.EmployeeAndRelatives();
+            return empRel;
+        }
+
+        [WebMethod]
         public DataTable ShowSickEmployees2004()
         {
             DataTable sickEmp = employeeDal.ShowSickEmployees2004();
@@ -97,12 +104,6 @@ namespace WebAppERP
             return mostAbsentEmp; 
         }
 
-        [WebMethod]
-        public DataTable EmployeeAndRelatives()
-        {
-            DataTable empRel = employeeDal.EmployeeAndRelatives();
-            return empRel; 
-        }
 
         [WebMethod]
         public DataTable AllKeys()
@@ -118,6 +119,46 @@ namespace WebAppERP
             return index; 
         }
 
+        [WebMethod]
+        public DataTable AllTableConstrains()
+        {
+            DataTable tableConstraints = employeeDal.AllTableConstrains(); 
+            return tableConstraints;
+        }
+
+        [WebMethod]
+        public DataTable AllTablesInDatabaseSolOne()
+        {
+            DataTable allTables = employeeDal.AllTablesInDatabaseSolOne();
+            return allTables; 
+        }
+
+        [WebMethod]
+        public DataTable AllTablesInDatabaseSolTwo()
+        {
+            DataTable allTables = employeeDal.AllTablesInDatabaseSolTwo(); 
+            return allTables;
+        }
+
+        [WebMethod]
+        public DataTable AllColEmpTableSolOne()
+        {
+            DataTable allEmpTables = employeeDal.AllColEmpTableSolOne(); 
+            return allEmpTables;
+        }
+
+        [WebMethod]
+        public DataTable AllColEmpTableSolTwo()
+        {
+            DataTable allEmpTables = employeeDal.AllColEmpTableSolTwo(); 
+            return allEmpTables;
+        }
+
+
+
+
+
+
 
         //Webbmethod for showing what a file holds.
         [WebMethod]
@@ -126,7 +167,6 @@ namespace WebAppERP
             string location = @"C:\Users\WebServiceFile\" + fileName;
             string text = File.ReadAllText(location);
             return text;
-
 
         }
 

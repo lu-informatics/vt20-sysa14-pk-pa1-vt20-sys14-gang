@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2d9be9b9-5120-499d-9336-2f3e2e226f4a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d3b61edb-117e-449a-af7b-e7f3b8008f2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/ERP1WebApplication/ERP1WebService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/WebAppERP/WebServiceERP12.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ERP1WebService.disco" MetadataType="Disco" ID="7d942fc9-642d-4faa-9b41-804d331f8490" SourceId="1" SourceUrl="http://localhost/ERP1WebApplication/ERP1WebService.asmx?disco" />
-    <MetadataFile FileName="ERP1WebService.wsdl" MetadataType="Wsdl" ID="b3020b26-1ac2-4ca6-b9e0-8097c6279e78" SourceId="1" SourceUrl="http://localhost/ERP1WebApplication/ERP1WebService.asmx?wsdl" />
+    <MetadataFile FileName="WebServiceERP12.wsdl" MetadataType="Wsdl" ID="f4787942-77f3-42ba-b2f1-7248b1dd4883" SourceId="1" SourceUrl="http://localhost/WebAppERP/WebServiceERP12.asmx?wsdl" />
+    <MetadataFile FileName="WebServiceERP12.disco" MetadataType="Disco" ID="dbbd6912-e01e-478d-a1b5-4a08e0f34f35" SourceId="1" SourceUrl="http://localhost/WebAppERP/WebServiceERP12.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

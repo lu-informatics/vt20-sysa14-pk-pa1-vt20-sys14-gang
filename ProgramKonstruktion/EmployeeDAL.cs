@@ -504,9 +504,156 @@ namespace ProgramKonstruktion
             return content;
         }
 
+        
     }
+        public DataTable AllTableConstrains()
+        {
+            DataTable content = new DataTable();
+            string query = ("SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS");
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
-}
+                    content.Load(reader);
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                finally
+                {
+                    connect.CloseConnector(connection);
+                }
+                return content;
+            }
+
+        }
+        public DataTable AllTablesInDatabaseSolOne()
+        {
+            DataTable content = new DataTable();
+            string query = ("SELECT *FROM INFORMATION_SCHEMA.TABLES");
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    content.Load(reader);
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                finally
+                {
+                    connect.CloseConnector(connection);
+                }
+                return content;
+            }
+        }
+
+        public DataTable AllTablesInDatabaseSolTwo()
+        {
+            DataTable content = new DataTable();
+            string query = ("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'");
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    content.Load(reader);
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                finally
+                {
+                    connect.CloseConnector(connection);
+                }
+                return content;
+            }
+        }
+        public DataTable AllColEmpTableSolOne()
+        {
+            DataTable content = new DataTable();
+            string query = ("SELECT c.name FROM sys.objects o INNER JOIN sys.columns c ON c.object_id = o.object_id AND o.name = 'CRONUS Sverige AB$Employee'");
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    content.Load(reader);
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                finally
+                {
+                    connect.CloseConnector(connection);
+                }
+                return content;
+            }
+        }
+
+        public DataTable AllColEmpTableSolTwo()
+        {
+            DataTable content = new DataTable();
+            string query = ("SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'");
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    content.Load(reader);
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                finally
+                {
+                    connect.CloseConnector(connection);
+                }
+                return content;
+            }
+
+        }
+
+
+    }
 }
     
 
