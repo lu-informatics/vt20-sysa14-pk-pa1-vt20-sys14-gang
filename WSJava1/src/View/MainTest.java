@@ -1,6 +1,8 @@
-package se.lu.ics.grupp2;
+package View;
 
 import java.rmi.RemoteException;
+
+import se.lu.ics.grupp2.SqlWebServiceSoapProxy;
 
 public class MainTest {
 

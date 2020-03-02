@@ -1,4 +1,4 @@
-package se.lu.ics.grupp2;
+package View;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -12,6 +12,10 @@ import javax.swing.JTextArea;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+
+import se.lu.ics.grupp2.SqlWebServiceSoapProxy;
+import se.lu.ics.grupp2.Storage;
+
 import javax.swing.JComboBox;
 
 public class GUI_WS2 {
@@ -82,11 +86,22 @@ public class GUI_WS2 {
 		// method for viewing a chosen file 
 		btnViewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 
 				txtOutput.setText(""); 
 				String chosenList = cBoxFiles.getSelectedItem().toString(); 
+				//ArrayList<String> listOfStorages = new ArrayList<String>(); 
+				
 				if (chosenList.contentEquals("Storage")){ 
-					try {
-						txtOutput.setText(myProxy.getListOfStorages().toString());
+					try { 
+							for (Storage storage: myProxy.getListOfStorages()) {
+								txtOutput.setText(
+									"Storage number: " + storage.getNbr() + "\n"
+									+ "Price: " + storage.getPrice() + "\n"
+									+ "Size: " + storage.getSize() + "\n"
+									+ "Adress: " + storage.getAddress());
+							}
+						
+						//txtOutput.setText(myProxy.getListOfStorages().toString());
 					} catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
