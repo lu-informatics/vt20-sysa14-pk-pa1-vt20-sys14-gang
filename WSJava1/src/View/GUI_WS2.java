@@ -3,6 +3,8 @@ package View;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import java.awt.List;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
@@ -64,7 +66,7 @@ public class GUI_WS2 {
 		
 		//Textpane that sets text output from objects
 		final JTextPane txtOutput = new JTextPane();
-		txtOutput.setBounds(10, 60, 360, 190);
+		txtOutput.setBounds(10, 60, 361, 190);
 		frame.getContentPane().add(txtOutput);
 		
 		//Combobox that holds options
@@ -83,11 +85,14 @@ public class GUI_WS2 {
 		files.add("Tenant"); 
 		for (String value: files) { 
 		cBoxFiles.addItem(value); 
-			
-			
+		}
+		
+		
+		
 		
 		frame.getContentPane().add(cBoxFiles);
 		cBoxFiles.setBounds(10, 26, 281, 23); 
+		
 		// method for viewing a chosen file 
 		btnViewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -96,7 +101,8 @@ public class GUI_WS2 {
 				String chosenList = cBoxFiles.getSelectedItem().toString(); 
 				
 				if (chosenList.contentEquals("Storage")){ 
-					try { 
+					try {
+						//Storage[] storages = myProxy.getListOfStorages(); 
 							for (Storage storage: myProxy.getListOfStorages()) {
 								txtOutput.setText(
 									"Storage number: " + storage.getNbr() + "\n"
@@ -104,7 +110,6 @@ public class GUI_WS2 {
 									+ "Size: " + storage.getSize() + "\n"
 									+ "Adress: " + storage.getAddress());
 							}
-						
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 						txtOutput.setText("Failed to get list of storages");
