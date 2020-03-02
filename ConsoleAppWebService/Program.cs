@@ -11,11 +11,12 @@ namespace ConsoleAppWebService
     {
         static void Main(string[] args)
         {
-
-            RefService.WebServiceAssignmentSoapClient obj = new RefService.WebServiceAssignmentSoapClient();
+            Console.WriteLine("Hej");
+            ShowFileRef.WebServiceERP12SoapClient o = new ShowFileRef.WebServiceERP12SoapClient(); 
+          //  RefService.WebServiceAssignmentSoapClient obj = new RefService.WebServiceAssignmentSoapClient();
             Console.WriteLine("Pls fill in a fileName:");
             string s = Console.ReadLine();
-            Console.WriteLine(obj.ShowFile(s));
+            Console.WriteLine(o.ShowFile(s));
             Console.ReadLine(); 
            
 

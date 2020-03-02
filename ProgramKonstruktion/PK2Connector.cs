@@ -45,7 +45,6 @@ namespace ProgramKonstruktion
             try
             {
                 Connection = new SqlConnection(this.ConnectionString());
-                //Connection.Open();
                 if (Connection == null)
                 {
                     Console.WriteLine("error");
