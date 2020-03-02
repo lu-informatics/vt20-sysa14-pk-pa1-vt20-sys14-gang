@@ -24,7 +24,7 @@ namespace ProgramKonstruktion
         public List<Tenant> GetTenantBookings()
         {
             List<Tenant> tenantBookings = new List<Tenant>();
-            string query = "Select * FROM Tenant"; 
+            string query = "Select * FROM Tenant";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -46,7 +46,7 @@ namespace ProgramKonstruktion
                         tenant.Email = reader.GetString(3);
                         tenant.StorageNbr = reader.GetString(4);
                         tenant.RentDate = reader.GetDateTime(5);
-                       
+
                     }
 
                     tenantBookings.Add(tenant);
@@ -69,9 +69,9 @@ namespace ProgramKonstruktion
                 connect.CloseConnector(connection);
             }
             return tenantBookings;
-        
 
-    }
+
+        }
 
 
 
@@ -90,7 +90,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
             command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
-           
+
 
             try
             {
@@ -143,7 +143,7 @@ namespace ProgramKonstruktion
                 tenant.PhoneNbr = phoneNbr;
                 tenant.Email = email;
                 tenant.Ssn = ssn;
-            } 
+            }
             catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
@@ -177,31 +177,32 @@ namespace ProgramKonstruktion
             {
                 connection.Open();
                 int affectedRows = command.ExecuteNonQuery();
-               
+
 
                 if (affectedRows == 1)
                 {
                     deletedTenant = true;
-                    
+
                 }
-                
+
             }
             catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
                 //errorHandler.HandleErrorExceptionSql(e);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
                 MessageBox.Show(ex.Message);
-               // errorHandler.HandleExceptions(ex);
+                // errorHandler.HandleExceptions(ex);
             }
             finally
             {
                 connect.CloseConnector(connection);
             }
             return deletedTenant;
-            
+
         }
 
         public Tenant FindTenant(string ssn)
@@ -211,7 +212,7 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
             Tenant tenant = new Tenant();
 
-            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;          
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
 
             try
             { 
@@ -227,7 +228,7 @@ namespace ProgramKonstruktion
                     tenant.Email = reader.GetString(3);
                     tenant.StorageNbr = reader.GetString(4);
                     tenant.RentDate = reader.GetDateTime(5);
-                   // tenant.StorageAddress = reader.GetString(6);
+                    // tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)
@@ -245,13 +246,81 @@ namespace ProgramKonstruktion
                 connect.CloseConnector(connection);
 
             }
-          
+
             return tenant;
-           
-        }  
+
+        }
+
+
+        public DataTable findTenants(string ssn)
+        {
+            DataTable dtTenant = new DataTable();
+            Tenant tenant = new Tenant();
+
+            string query = "SELECT* FROM Tenant WHERE ssn = @ssn";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
+
+            try
+            {
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dtTenant.Load(reader);
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+
+                connect.CloseConnector(connection);
+            }
+            return dtTenant;
+                }
+
+        public DataTable ShowAllBookings()
+        {
+            DataTable dtBookings = new DataTable();
+            string query = "SELECT * FROM TENANT";
+
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        dtBookings.Load(reader);
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        // errorHandler.HandleErrorExceptionSql(e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    finally
+                    {
+
+                        connect.CloseConnector(connection);
+                    }
+                    return dtBookings;
+                }
+
+            }
+        }
+
     }
-
-
-
-
-}
+        }

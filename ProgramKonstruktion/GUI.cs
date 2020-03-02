@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,16 +13,11 @@ namespace ProgramKonstruktion
 {
     public partial class GUI : Form
     {
-        private ErrorHandler errorHandler = new ErrorHandler();
-        private Connector connect = new Connector();
-        private SqlConnection connection;
-
         public GUI()
         {
             InitializeComponent();
             SetAllStoragesToComboBox();
             setDataToShowComboBox();
-           
 
 
 
@@ -35,10 +29,7 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
-        //private controller controller = new controller();
-        //controller.create()
-      
-       
+        private ERP1WebService erpWebService = new ERP1WebService();
 
 
 
@@ -128,55 +119,41 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            if (!(ssnSearchTxt == null))
-            {
-                tenant.Ssn = ssnSearchTxt.Text;
-                try
-                {
-                    tenant = tenantDal.FindTenant(tenant.Ssn);
-                    errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
-                }
-                catch (SqlException e)
-                {
-                
-                    errorBoxBooking.Text = errorHandler.HandleErrorExceptionSql(e);
-                }
-            
-            else
-            {
-                errorBoxBooking.Text = "Please fill in the right ssn in textfield!";
 
-            }
-                }
-            }
-        
+            dataGridBookings.DataSource = tenantDal.findTenants(ssnSearchTxt.Text);
+
+            //tenant.Ssn = ssnSearchTxt.Text;
+
+            //tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
+
+            //errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
+    
+        }
 
         //Book tenant on Storage
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            if(!(ssnBookTxt.Text == "")&& tenantNameTxt.Text=="" && phoneNbrTxt.Text== "" && emailTxt.Text == "")
+            tenant.Ssn = ssnBookTxt.Text;
+            tenant.Name = tenantNameTxt.Text;
+            tenant.PhoneNbr = phoneNbrTxt.Text;
+            tenant.Email = emailTxt.Text;
+            
+            Object selectedItem = comboBoxStorage.SelectedItem;
+            var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
+            tenant.StorageNbr = selected;
+            tenant.RentDate = monthCalendar.SelectionRange.Start;
+            Boolean added = tenantDal.CreateTenant(tenant);
+            if (!added)
             {
-                tenant.Ssn = ssnBookTxt.Text;
-                tenant.Name = tenantNameTxt.Text;
-                tenant.PhoneNbr = phoneNbrTxt.Text;
-                tenant.Email = emailTxt.Text;
-
-                Object selectedItem = comboBoxStorage.SelectedItem;
-                var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
-                tenant.StorageNbr = selected;
-                tenant.RentDate = monthCalendar.SelectionRange.Start;
-                Boolean added = tenantDal.CreateTenant(tenant);
-
+                errorBoxBooking.Text = "Failed to add booking, try again.";
+            }
+            else
+            {
                 errorBoxBooking.Text = "Booking completed.";
                 this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
                 cleanTextFields();
                 SetAllStoragesToComboBox();
-            }
-          
-            else
-            {
-                errorBoxBooking.Text = "Failed to add booking, try again.";
             }
             
 
@@ -359,13 +336,15 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = storageNmbrSearch.Text;
-           // storage.Address = storageAddressSearch.Text;
 
-            storage = storageDal.FindStorage(storageNmbrSearch.Text);
+            dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
+            // storage.Address = storageAddressSearch.Text;
 
-            errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
+            //storage = storageDal.FindStorage(storageNmbrSearch.Text);
 
-            cleanTextFields();
+            //errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
+
+            //cleanTextFields();
         }
 
         public void cleanBoxes()
@@ -558,7 +537,7 @@ namespace ProgramKonstruktion
             string email = emailTextBox.Text;
 
 
-           
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
 
             emp = erpWebService.UpdateEmployee(no, firstName,lastName, jobTitle,address, phoneNumber, email);
 
@@ -580,7 +559,6 @@ namespace ProgramKonstruktion
 
         }
 
-        //run
         private void runButton_Click(object sender, EventArgs e)
         {
 
@@ -590,44 +568,22 @@ namespace ProgramKonstruktion
 
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
+              
+              
                
-            }
-            else if (choosenData.Equals("Employees and their relatives"))
-            {
-
-            }
-            else if (choosenData.Equals("Sick employees 2004"))
-            {
-
-            }
-            else if (choosenData.Equals("Most absent employee"))
-            {
-
-            }
-            else if (choosenData.Equals("Metadata: Keys"))
-            {
-
-            }
-            else if (choosenData.Equals("Metadata: Indexes"))
-            {
-
-            }
-            else if (choosenData.Equals("Metadata: Table constraint"))
-            {
-
-            }
-            else if (choosenData.Equals("Metadata: All tables"))
-            {
-
-            }
-            else if (choosenData.Equals("Metadata: All columns"))
-            {
-
             }
            // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
         }
 
+        private void showAllBookingsBtn_Click(object sender, EventArgs e)
+        {
+            dataGridBookings.DataSource = tenantDal.ShowAllBookings();
+        }
 
+        private void showAllStorages_Click(object sender, EventArgs e)
+        {
+            dataGridStorages.DataSource = storageDal.ShowAllStorages();
+        }
     }
     }
 

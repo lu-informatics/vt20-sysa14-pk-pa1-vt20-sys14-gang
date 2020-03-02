@@ -21,7 +21,7 @@ namespace ProgramKonstruktion
             connect = new Connector();
             connection = connect.Connection;
         }
-        
+
         public List<Storage> GetListOfStorages()
         {
             List<Storage> getListOfStorages = new List<Storage>();
@@ -33,16 +33,16 @@ namespace ProgramKonstruktion
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                
-                
+
+
 
                 while (reader.Read())
                 {
                     Storage storage = new Storage();
                     {
                         storage.Nbr = reader.GetString(0);
-                        storage.Price = (float) reader.GetSqlDouble(1);
-                        storage.Size = (float) reader.GetSqlDouble(2);
+                        storage.Price = (float)reader.GetSqlDouble(1);
+                        storage.Size = (float)reader.GetSqlDouble(2);
                         storage.Address = reader.GetString(3);
 
                     }
@@ -54,12 +54,12 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
-               // errorHandler.HandleErrorExceptionSql(e);
+                // errorHandler.HandleErrorExceptionSql(e);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-               // errorHandler.HandleExceptions(e);
+                // errorHandler.HandleExceptions(e);
 
             }
             finally
@@ -115,9 +115,9 @@ namespace ProgramKonstruktion
             return getListOfAvailableStorages;
         }
 
-    
 
-    public Boolean  CreateStorage(Storage storage)
+
+        public Boolean CreateStorage(Storage storage)
         {
             Boolean added = false;
             string query = "INSERT INTO Storage VALUES (@storageNbr, @price, @size, @address)";
@@ -149,6 +149,10 @@ namespace ProgramKonstruktion
 
                
                 errorHandler.HandleExceptions(e);
+
+
+                // errorHandler.HandleExceptions(e);
+
             }
             finally
             {
@@ -177,9 +181,9 @@ namespace ProgramKonstruktion
                 command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;
-               // storage.Nbr = nbr;
+                // storage.Nbr = nbr;
                 storage.Address = address;
-                     
+
 
             }
             catch (SqlException e)
@@ -210,7 +214,7 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-           // command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+            // command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
             try
             {
@@ -238,7 +242,7 @@ namespace ProgramKonstruktion
             return deletedStorage;
         }
 
-        public Boolean DeleteTenantFromStorage (string nbr)
+        public Boolean DeleteTenantFromStorage(string nbr)
         {
             Boolean deleteTenantFromStorage = false;
             string query = "DELETE Tenant FROM Storage WHERE storageNbr = @storageNbr";
@@ -246,7 +250,7 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = nbr;
-           // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
+            // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
 
             try
             {
@@ -283,7 +287,7 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
             //command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
-            
+
 
             try
             {
@@ -296,8 +300,8 @@ namespace ProgramKonstruktion
                     storage.Price = (float)reader.GetDouble(1);
                     storage.Size = (float)reader.GetDouble(2);
                     storage.Address = reader.GetString(3);
-                  
-                  
+
+
                 }
             }
             catch (SqlException e)
@@ -318,10 +322,78 @@ namespace ProgramKonstruktion
             return storage;
         }
 
-    }
+        public DataTable FindStorages(string nbr)
+        {
+            DataTable dtStorage = new DataTable();
+            Tenant tenant = new Tenant();
 
-         }
-     
+            string query = "SELECT* FROM Storage WHERE nbr = @nbr";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
+
+            try
+            {
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dtStorage.Load(reader);
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+                // errorHandler.HandleErrorExceptionSql(e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+
+                connect.CloseConnector(connection);
+            }
+            return dtStorage;
+        }
+
+        public DataTable ShowAllStorages()
+        {
+            DataTable dtStorages = new DataTable();
+            string query = "SELECT * FROM STORAGE";
+
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        dtStorages.Load(reader);
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        // errorHandler.HandleErrorExceptionSql(e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    finally
+                    {
+
+                        connect.CloseConnector(connection);
+                    }
+                    return dtStorages;
+                }
+
+            }
+
+        }
+    }
+}
 
    
 

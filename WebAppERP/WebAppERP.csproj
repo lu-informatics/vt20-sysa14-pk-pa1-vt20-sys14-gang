@@ -74,7 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServiceERP12.asmx.cs">
       <DependentUpon>WebServiceERP12.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
