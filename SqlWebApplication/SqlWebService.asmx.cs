@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -32,12 +33,21 @@ namespace SqlWebApplication
             return tenantDAL.FindTenant(ssn);
         }
 
+        [WebMethod]
         public List<Tenant> GetTenantBookings()
         {
             return tenantDAL.GetTenantBookings();
         }
 
-       [WebMethod]
+        [WebMethod]
+        public DataTable ShowAllBookings()
+        {
+            DataTable showAllBooking = tenantDAL.ShowAllBookings();
+            return showAllBooking;
+
+        }     
+
+        [WebMethod]
         public List<Storage> GetListOfStorages()
         {
             return storageDAL.GetListOfStorages(); 
@@ -48,7 +58,17 @@ namespace SqlWebApplication
         {
             return storageDAL.FindStorage(nbr);
         }
- 
+
+        [WebMethod]
+        public DataTable ShowAllStorages()
+        {
+            DataTable allStorages = storageDAL.ShowAllStorages();
+            return allStorages; 
+        }
+
+          
+
+
 
     }
 }
