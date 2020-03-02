@@ -57,22 +57,18 @@ public class GUI_WS2 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		//Button for viewing file
 		JButton btnViewFile = new JButton("View");
 		btnViewFile.setBounds(289, 26, 89, 23);
 		frame.getContentPane().add(btnViewFile);
 		
+		//Textpane that sets text output from objects
 		final JTextPane txtOutput = new JTextPane();
 		txtOutput.setBounds(10, 60, 360, 190);
 		frame.getContentPane().add(txtOutput);
 		
-		final JComboBox<String> cBoxFiles = new JComboBox<String>();
-		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Storage"); 
-		files.add("Tenant"); 
-		for (String value: files) { 
-			 cBoxFiles.addItem(value); 
-		}
-		myProxy.getListOfStorages();
+		//Combobox that holds options
+		
 		
 		//for each loop that populates cBox with up to date from database 
 		/*
@@ -80,7 +76,16 @@ public class GUI_WS2 {
 			 cBoxFiles.addItem(s.toString()); 
 		}
 		*/
-		 
+		//fill cBox with options Storage and Tenant 
+		final JComboBox<String> cBoxFiles = new JComboBox<String>();
+		ArrayList<String>files = new ArrayList<String>(); 
+		files.add("Storage"); 
+		files.add("Tenant"); 
+		for (String value: files) { 
+		cBoxFiles.addItem(value); 
+			
+			
+		
 		frame.getContentPane().add(cBoxFiles);
 		cBoxFiles.setBounds(10, 26, 281, 23); 
 		// method for viewing a chosen file 
@@ -89,7 +94,6 @@ public class GUI_WS2 {
 				 
 				txtOutput.setText(""); 
 				String chosenList = cBoxFiles.getSelectedItem().toString(); 
-				//ArrayList<String> listOfStorages = new ArrayList<String>(); 
 				
 				if (chosenList.contentEquals("Storage")){ 
 					try { 
@@ -101,22 +105,19 @@ public class GUI_WS2 {
 									+ "Adress: " + storage.getAddress());
 							}
 						
-						//txtOutput.setText(myProxy.getListOfStorages().toString());
 					} catch (RemoteException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						txtOutput.setText("Failed to get list of storages");
 					}
 					
-				}			
+				}
+				if (chosenList.contentEquals("Tenant")) {
+				}
 			}
 		});
 		
 		
 	}
 
-	private void fillComboBox() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
