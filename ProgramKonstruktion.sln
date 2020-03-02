@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlWebApplication", "SqlWebApplication\SqlWebApplication.csproj", "{18C6CB25-3D09-4042-87FD-DBF813ACE856}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppWebService", "ConsoleAppWebService\ConsoleAppWebService.csproj", "{86BCE12E-664E-47B8-83C3-38842008368F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9590976D-7A3C-4590-852A-5969001D9137} = {9590976D-7A3C-4590-852A-5969001D9137}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsWebService", "FormsWebService\FormsWebService.csproj", "{0C550D90-4197-42D0-A164-B53636CA8B17}"
 EndProject

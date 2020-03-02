@@ -145,10 +145,10 @@ namespace ProgramKonstruktion
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+               // MessageBox.Show(e.Message);
 
                
-                // errorHandler.HandleExceptions(e);
+                errorHandler.HandleExceptions(e);
             }
             finally
             {

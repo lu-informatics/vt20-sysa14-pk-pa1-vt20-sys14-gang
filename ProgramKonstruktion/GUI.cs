@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,16 @@ namespace ProgramKonstruktion
 {
     public partial class GUI : Form
     {
+        private ErrorHandler errorHandler = new ErrorHandler();
+        private Connector connect = new Connector();
+        private SqlConnection connection;
+
         public GUI()
         {
             InitializeComponent();
             SetAllStoragesToComboBox();
             setDataToShowComboBox();
+           
 
 
 
@@ -29,7 +35,9 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
-        private ERP1WebService erpWebService = new ERP1WebService();
+        //private controller controller = new controller();
+        //controller.create()
+      
        
 
 
@@ -120,38 +128,55 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            tenant.Ssn = ssnSearchTxt.Text;
+            if (!(ssnSearchTxt == null))
+            {
+                tenant.Ssn = ssnSearchTxt.Text;
+                try
+                {
+                    tenant = tenantDal.FindTenant(tenant.Ssn);
+                    errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
+                }
+                catch (SqlException e)
+                {
+                
+                    errorBoxBooking.Text = errorHandler.HandleErrorExceptionSql(e);
+                }
+            
+            else
+            {
+                errorBoxBooking.Text = "Please fill in the right ssn in textfield!";
 
-            tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
-
-            errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
-    
-        }
+            }
+                }
+            }
+        
 
         //Book tenant on Storage
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            tenant.Ssn = ssnBookTxt.Text;
-            tenant.Name = tenantNameTxt.Text;
-            tenant.PhoneNbr = phoneNbrTxt.Text;
-            tenant.Email = emailTxt.Text;
-            
-            Object selectedItem = comboBoxStorage.SelectedItem;
-            var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
-            tenant.StorageNbr = selected;
-            tenant.RentDate = monthCalendar.SelectionRange.Start;
-            Boolean added = tenantDal.CreateTenant(tenant);
-            if (!added)
+            if(!(ssnBookTxt.Text == "")&& tenantNameTxt.Text=="" && phoneNbrTxt.Text== "" && emailTxt.Text == "")
             {
-                errorBoxBooking.Text = "Failed to add booking, try again.";
-            }
-            else
-            {
+                tenant.Ssn = ssnBookTxt.Text;
+                tenant.Name = tenantNameTxt.Text;
+                tenant.PhoneNbr = phoneNbrTxt.Text;
+                tenant.Email = emailTxt.Text;
+
+                Object selectedItem = comboBoxStorage.SelectedItem;
+                var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
+                tenant.StorageNbr = selected;
+                tenant.RentDate = monthCalendar.SelectionRange.Start;
+                Boolean added = tenantDal.CreateTenant(tenant);
+
                 errorBoxBooking.Text = "Booking completed.";
                 this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
                 cleanTextFields();
                 SetAllStoragesToComboBox();
+            }
+          
+            else
+            {
+                errorBoxBooking.Text = "Failed to add booking, try again.";
             }
             
 
@@ -533,7 +558,7 @@ namespace ProgramKonstruktion
             string email = emailTextBox.Text;
 
 
-            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+           
 
             emp = erpWebService.UpdateEmployee(no, firstName,lastName, jobTitle,address, phoneNumber, email);
 
