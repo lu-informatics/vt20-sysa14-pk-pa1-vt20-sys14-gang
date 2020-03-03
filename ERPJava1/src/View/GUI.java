@@ -268,9 +268,55 @@ public class GUI {
 		}
 				
 				);
-		btnAdd.addActionListener(new ActionListener() {
+		btnUpdate.addActionListener(new ActionListener() {
 				public void actionPerformed (ActionEvent e) {
-				
+					String firstName = txtFFirstName.getText(); 
+					if (firstName.equals("")) { 
+						txtPOutput.setText("Please enter first name"); 
+						return;
+					}
+					String lastName = txtFLastName.getText();
+					if (lastName.equals("")) { 
+						txtPOutput.setText("Please enter last name"); 
+						return;
+					}
+					String ssn = txtFSsn.getText(); 
+					if (ssn.equals("")) { 
+						txtPOutput.setText("Please enter ssn"); 
+						return; 
+					}
+					String address = txtFAddress.getText(); 
+					if (address.equals("")) { 
+						txtPOutput.setText("Please enter address"); 
+						return;
+					}
+					String jobTitle = txtFJobTitle.getText(); 
+					if (jobTitle.equals("")) { 
+						txtPOutput.setText("Please enter job title"); 
+						return;
+					}
+					String empNbr = txtFEmpNo.getText(); 
+					if (firstName.equals("")) { 
+						txtPOutput.setText("Please enter employee number"); 
+						return;
+					}
+					String phoneNbr = txtFPhoneNbr.getText(); 
+					if (firstName.equals("")) { 
+						txtPOutput.setText("Please enter phone number"); 
+						return;
+					}
+					String email = txtFEmail.getText(); 
+					if (firstName.equals("")) { 
+						txtPOutput.setText("Please enter email"); 
+						return;
+					}
+					try {
+						myProxy.updateEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						txtPOutput.setText("Failed to update employee");
+					}
 					
 			}
 		}); 
