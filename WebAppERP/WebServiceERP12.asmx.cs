@@ -111,7 +111,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + ""+ ""+ ""+ "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -128,7 +128,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -145,7 +145,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -162,7 +162,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -179,7 +179,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + ""+"";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -196,7 +196,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = ""+""+""+ ""+""+ ""+""+""+"";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -213,7 +213,7 @@ namespace WebAppERP
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + "" + "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -224,13 +224,13 @@ namespace WebAppERP
         }
 
         [WebMethod]
-        public DataTable AllTablesInDatabaseSolTwo()
+        public List<String> AllTablesInDatabaseSolTwo()
         {
             dt = employeeDal.EmployeeAndRelatives();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = "" + "" + "" + "";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
@@ -241,7 +241,7 @@ namespace WebAppERP
         }
 
         [WebMethod]
-        public DataTable AllColEmpTableSolOne()
+        public List<String> AllColEmpTableSolOne()
         {
             dt = employeeDal.EmployeeAndRelatives();
             List<String> tableList = new List<string>();
@@ -258,13 +258,13 @@ namespace WebAppERP
         }
 
         [WebMethod]
-        public DataTable AllColEmpTableSolTwo()
+        public List<String> AllColEmpTableSolTwo()
         {
             dt = employeeDal.EmployeeAndRelatives();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
-                string value = ""+"";
+                string value = "";
                 foreach (DataColumn c in dt.Columns)
                 {
                     value += r[c].ToString() + " | ";
