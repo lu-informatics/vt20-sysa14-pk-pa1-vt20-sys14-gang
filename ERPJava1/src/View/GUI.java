@@ -13,6 +13,8 @@ import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import se.lu.ics.grupp2.Employee;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
@@ -27,7 +29,7 @@ public class GUI {
 	 //WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
 	 private JPanel panel;
 	 private JTextField txtFirstName;
-	 private JTextField textFFirstName;
+	 private JTextField txtFFirstName;
 	 private JTextField txtFLastName;
 	 private JTextField txtFSsn;
 	 private JTextField txtFAddress;
@@ -69,9 +71,9 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnViewFile = new JButton("Add");
-		btnViewFile.setBounds(196, 180, 89, 23);
-		frame.getContentPane().add(btnViewFile);
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setBounds(196, 180, 89, 23);
+		frame.getContentPane().add(btnAdd);
 		
 		final JTextPane txtPOutput = new JTextPane();
 		txtPOutput.setBounds(10, 330, 275, 68);
@@ -93,10 +95,10 @@ public class GUI {
 		btnFind.setBounds(196, 275, 89, 23);
 		frame.getContentPane().add(btnFind);
 		
-		textFFirstName = new JTextField();
-		textFFirstName.setBounds(10, 68, 86, 20);
-		frame.getContentPane().add(textFFirstName);
-		textFFirstName.setColumns(10);
+		txtFFirstName = new JTextField();
+		txtFFirstName.setBounds(10, 68, 86, 20);
+		frame.getContentPane().add(txtFFirstName);
+		txtFFirstName.setColumns(10);
 		
 		txtFLastName = new JTextField();
 		txtFLastName.setColumns(10);
@@ -201,6 +203,8 @@ public class GUI {
 		
 		final JComboBox<String> cBoxFiles = new JComboBox<String>();
 		
+		Employee emp = new Employee(); 
+		
 		//List of files from file system
 		ArrayList<String>files = new ArrayList<String>(); 
 		files.add("Test"); 
@@ -209,7 +213,46 @@ public class GUI {
 			 cBoxFiles.addItem(value); 
 		}
 		
-		
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				//public Employee (); 
+				String firstName = txtFFirstName.getText(); 
+				if (firstName.equals("")) { 
+					txtPOutput.setText("Please enter first name"); 
+				}
+				String lastName = txtFLastName.getText();
+				if (lastName.equals("")) { 
+					txtPOutput.setText("Please enter last name"); 
+				}
+				String ssn = txtFSsn.getText(); 
+				if (ssn.equals("")) { 
+					txtPOutput.setText("Please enter ssn"); 
+				}
+				String address = txtFAddress.getText(); 
+				if (address.equals("")) { 
+					txtPOutput.setText("Please enter address"); 
+				}
+				String jobTitle = txtFJobTitle.getText(); 
+				if (jobTitle.equals("")) { 
+					txtPOutput.setText("Please enter job title"); 
+				}
+				String empNbr = txtFEmpNo.getText(); 
+				if (firstName.equals("")) { 
+					txtPOutput.setText("Please enter employee number"); 
+				}
+				String phoneNbr = txtFPhoneNbr.getText(); 
+				if (firstName.equals("")) { 
+					txtPOutput.setText("Please enter phone number"); 
+				}
+				String email = txtFEmail.getText(); 
+				if (firstName.equals("")) { 
+					txtPOutput.setText("Please enter email"); 
+				}
+				
+			}
+		}
+				
+				);
 		
 }
 }
