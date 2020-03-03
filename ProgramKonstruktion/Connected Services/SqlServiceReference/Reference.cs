@@ -9,974 +9,236 @@
 //------------------------------------------------------------------------------
 
 namespace ProgramKonstruktion.SqlServiceReference {
-    using System.Runtime.Serialization;
-    using System;
+    using System.Data;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tenant", Namespace="http://grupp2.ics.lu.se/")]
-    [System.SerializableAttribute()]
-    public partial class Tenant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SsnField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneNbrField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StorageNbrField;
-        
-        private System.DateTime RentDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StorageAddressField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Ssn {
-            get {
-                return this.SsnField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SsnField, value) != true)) {
-                    this.SsnField = value;
-                    this.RaisePropertyChanged("Ssn");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string PhoneNbr {
-            get {
-                return this.PhoneNbrField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneNbrField, value) != true)) {
-                    this.PhoneNbrField = value;
-                    this.RaisePropertyChanged("PhoneNbr");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string StorageNbr {
-            get {
-                return this.StorageNbrField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StorageNbrField, value) != true)) {
-                    this.StorageNbrField = value;
-                    this.RaisePropertyChanged("StorageNbr");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public System.DateTime RentDate {
-            get {
-                return this.RentDateField;
-            }
-            set {
-                if ((this.RentDateField.Equals(value) != true)) {
-                    this.RentDateField = value;
-                    this.RaisePropertyChanged("RentDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string StorageAddress {
-            get {
-                return this.StorageAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StorageAddressField, value) != true)) {
-                    this.StorageAddressField = value;
-                    this.RaisePropertyChanged("StorageAddress");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Storage", Namespace="http://grupp2.ics.lu.se/")]
-    [System.SerializableAttribute()]
-    public partial class Storage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NbrField;
-        
-        private float PriceField;
-        
-        private float SizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AddressField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Nbr {
-            get {
-                return this.NbrField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NbrField, value) != true)) {
-                    this.NbrField = value;
-                    this.RaisePropertyChanged("Nbr");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public float Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public float Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((this.SizeField.Equals(value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string Address {
-            get {
-                return this.AddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
-                    this.AddressField = value;
-                    this.RaisePropertyChanged("Address");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://grupp2.ics.lu.se/", ConfigurationName="SqlServiceReference.SqlWebServiceSoap")]
     public interface SqlWebServiceSoap {
         
-        // CODEGEN: Generating message contract since element name ssn from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateTenant", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse UpdateTenant(ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/GetTenantBookings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ProgramKonstruktion.SqlServiceReference.Tenant[] GetTenantBookings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateTenant", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse> UpdateTenantAsync(ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/GetTenantBookings", ReplyAction="*")]
+        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Tenant[]> GetTenantBookingsAsync();
         
-        // CODEGEN: Generating message contract since element name ssn from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateTenant", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.CreateTenantResponse CreateTenant(ProgramKonstruktion.SqlServiceReference.CreateTenantRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowAllBookings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable ShowAllBookings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateTenant", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateTenantResponse> CreateTenantAsync(ProgramKonstruktion.SqlServiceReference.CreateTenantRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowAllBookings", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ShowAllBookingsAsync();
         
-        // CODEGEN: Generating message contract since element name ssn from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteTenant", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse DeleteTenant(ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/GetListOfStorages", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ProgramKonstruktion.SqlServiceReference.Storage[] GetListOfStorages();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteTenant", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse> DeleteTenantAsync(ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest request);
-        
-        // CODEGEN: Generating message contract since element name ssn from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindTenant", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.FindTenantResponse FindTenant(ProgramKonstruktion.SqlServiceReference.FindTenantRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindTenant", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindTenantResponse> FindTenantAsync(ProgramKonstruktion.SqlServiceReference.FindTenantRequest request);
-        
-        // CODEGEN: Generating message contract since element name nbr from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateStorage", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.CreateStorageResponse CreateStorage(ProgramKonstruktion.SqlServiceReference.CreateStorageRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateStorage", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateStorageResponse> CreateStorageAsync(ProgramKonstruktion.SqlServiceReference.CreateStorageRequest request);
-        
-        // CODEGEN: Generating message contract since element name nbr from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateStorage", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse UpdateStorage(ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateStorage", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse> UpdateStorageAsync(ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest request);
-        
-        // CODEGEN: Generating message contract since element name nbr from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteStorage", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse DeleteStorage(ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteStorage", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse> DeleteStorageAsync(ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest request);
-        
-        // CODEGEN: Generating message contract since element name nbr from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteTenantFromStorage", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse DeleteTenantFromStorage(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteTenantFromStorage", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse> DeleteTenantFromStorageAsync(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest request);
-        
-        // CODEGEN: Generating message contract since element name nbr from namespace http://grupp2.ics.lu.se/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindStorage", ReplyAction="*")]
-        ProgramKonstruktion.SqlServiceReference.FindStorageResponse FindStorage(ProgramKonstruktion.SqlServiceReference.FindStorageRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/GetListOfStorages", ReplyAction="*")]
+        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Storage[]> GetListOfStoragesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindStorage", ReplyAction="*")]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindStorageResponse> FindStorageAsync(ProgramKonstruktion.SqlServiceReference.FindStorageRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ProgramKonstruktion.SqlServiceReference.Storage FindStorage(string nbr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindStorage", ReplyAction="*")]
+        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Storage> FindStorageAsync(string nbr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowAllStorages", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable ShowAllStorages();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowAllStorages", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ShowAllStoragesAsync();
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateTenantRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp2.ics.lu.se/")]
+    public partial class Tenant : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateTenant", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.UpdateTenantRequestBody Body;
+        private string ssnField;
         
-        public UpdateTenantRequest() {
+        private string nameField;
+        
+        private string phoneNbrField;
+        
+        private string emailField;
+        
+        private string storageNbrField;
+        
+        private System.DateTime rentDateField;
+        
+        private string storageAddressField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Ssn {
+            get {
+                return this.ssnField;
+            }
+            set {
+                this.ssnField = value;
+                this.RaisePropertyChanged("Ssn");
+            }
         }
         
-        public UpdateTenantRequest(ProgramKonstruktion.SqlServiceReference.UpdateTenantRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class UpdateTenantRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ssn;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string phoneNbr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string email;
-        
-        public UpdateTenantRequestBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
         }
         
-        public UpdateTenantRequestBody(string ssn, string name, string phoneNbr, string email) {
-            this.ssn = ssn;
-            this.name = name;
-            this.phoneNbr = phoneNbr;
-            this.email = email;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateTenantResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateTenantResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.UpdateTenantResponseBody Body;
-        
-        public UpdateTenantResponse() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string PhoneNbr {
+            get {
+                return this.phoneNbrField;
+            }
+            set {
+                this.phoneNbrField = value;
+                this.RaisePropertyChanged("PhoneNbr");
+            }
         }
         
-        public UpdateTenantResponse(ProgramKonstruktion.SqlServiceReference.UpdateTenantResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class UpdateTenantResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.Tenant UpdateTenantResult;
-        
-        public UpdateTenantResponseBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("Email");
+            }
         }
         
-        public UpdateTenantResponseBody(ProgramKonstruktion.SqlServiceReference.Tenant UpdateTenantResult) {
-            this.UpdateTenantResult = UpdateTenantResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateTenantRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreateTenant", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.CreateTenantRequestBody Body;
-        
-        public CreateTenantRequest() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string StorageNbr {
+            get {
+                return this.storageNbrField;
+            }
+            set {
+                this.storageNbrField = value;
+                this.RaisePropertyChanged("StorageNbr");
+            }
         }
         
-        public CreateTenantRequest(ProgramKonstruktion.SqlServiceReference.CreateTenantRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class CreateTenantRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ssn;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string phoneNbr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string email;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string storageNbr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public System.DateTime rentDate;
-        
-        public CreateTenantRequestBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public System.DateTime RentDate {
+            get {
+                return this.rentDateField;
+            }
+            set {
+                this.rentDateField = value;
+                this.RaisePropertyChanged("RentDate");
+            }
         }
         
-        public CreateTenantRequestBody(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate) {
-            this.ssn = ssn;
-            this.name = name;
-            this.phoneNbr = phoneNbr;
-            this.email = email;
-            this.storageNbr = storageNbr;
-            this.rentDate = rentDate;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string StorageAddress {
+            get {
+                return this.storageAddressField;
+            }
+            set {
+                this.storageAddressField = value;
+                this.RaisePropertyChanged("StorageAddress");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateTenantResponse {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp2.ics.lu.se/")]
+    public partial class Storage : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreateTenantResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.CreateTenantResponseBody Body;
+        private string nbrField;
         
-        public CreateTenantResponse() {
+        private float priceField;
+        
+        private float sizeField;
+        
+        private string addressField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Nbr {
+            get {
+                return this.nbrField;
+            }
+            set {
+                this.nbrField = value;
+                this.RaisePropertyChanged("Nbr");
+            }
         }
         
-        public CreateTenantResponse(ProgramKonstruktion.SqlServiceReference.CreateTenantResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class CreateTenantResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool CreateTenantResult;
-        
-        public CreateTenantResponseBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public float Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("Price");
+            }
         }
         
-        public CreateTenantResponseBody(bool CreateTenantResult) {
-            this.CreateTenantResult = CreateTenantResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteTenantRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTenant", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteTenantRequestBody Body;
-        
-        public DeleteTenantRequest() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public float Size {
+            get {
+                return this.sizeField;
+            }
+            set {
+                this.sizeField = value;
+                this.RaisePropertyChanged("Size");
+            }
         }
         
-        public DeleteTenantRequest(ProgramKonstruktion.SqlServiceReference.DeleteTenantRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteTenantRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ssn;
-        
-        public DeleteTenantRequestBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+                this.RaisePropertyChanged("Address");
+            }
         }
         
-        public DeleteTenantRequestBody(string ssn) {
-            this.ssn = ssn;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteTenantResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTenantResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteTenantResponseBody Body;
-        
-        public DeleteTenantResponse() {
-        }
-        
-        public DeleteTenantResponse(ProgramKonstruktion.SqlServiceReference.DeleteTenantResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteTenantResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool DeleteTenantResult;
-        
-        public DeleteTenantResponseBody() {
-        }
-        
-        public DeleteTenantResponseBody(bool DeleteTenantResult) {
-            this.DeleteTenantResult = DeleteTenantResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindTenantRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindTenant", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.FindTenantRequestBody Body;
-        
-        public FindTenantRequest() {
-        }
-        
-        public FindTenantRequest(ProgramKonstruktion.SqlServiceReference.FindTenantRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class FindTenantRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ssn;
-        
-        public FindTenantRequestBody() {
-        }
-        
-        public FindTenantRequestBody(string ssn) {
-            this.ssn = ssn;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindTenantResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindTenantResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.FindTenantResponseBody Body;
-        
-        public FindTenantResponse() {
-        }
-        
-        public FindTenantResponse(ProgramKonstruktion.SqlServiceReference.FindTenantResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class FindTenantResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.Tenant FindTenantResult;
-        
-        public FindTenantResponseBody() {
-        }
-        
-        public FindTenantResponseBody(ProgramKonstruktion.SqlServiceReference.Tenant FindTenantResult) {
-            this.FindTenantResult = FindTenantResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateStorageRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreateStorage", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.CreateStorageRequestBody Body;
-        
-        public CreateStorageRequest() {
-        }
-        
-        public CreateStorageRequest(ProgramKonstruktion.SqlServiceReference.CreateStorageRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class CreateStorageRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nbr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public float price;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public float size;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string address;
-        
-        public CreateStorageRequestBody() {
-        }
-        
-        public CreateStorageRequestBody(string nbr, float price, float size, string address) {
-            this.nbr = nbr;
-            this.price = price;
-            this.size = size;
-            this.address = address;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CreateStorageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreateStorageResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.CreateStorageResponseBody Body;
-        
-        public CreateStorageResponse() {
-        }
-        
-        public CreateStorageResponse(ProgramKonstruktion.SqlServiceReference.CreateStorageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class CreateStorageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool CreateStorageResult;
-        
-        public CreateStorageResponseBody() {
-        }
-        
-        public CreateStorageResponseBody(bool CreateStorageResult) {
-            this.CreateStorageResult = CreateStorageResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateStorageRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateStorage", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.UpdateStorageRequestBody Body;
-        
-        public UpdateStorageRequest() {
-        }
-        
-        public UpdateStorageRequest(ProgramKonstruktion.SqlServiceReference.UpdateStorageRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class UpdateStorageRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nbr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string address;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public float price;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public float size;
-        
-        public UpdateStorageRequestBody() {
-        }
-        
-        public UpdateStorageRequestBody(string nbr, string address, float price, float size) {
-            this.nbr = nbr;
-            this.address = address;
-            this.price = price;
-            this.size = size;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateStorageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateStorageResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.UpdateStorageResponseBody Body;
-        
-        public UpdateStorageResponse() {
-        }
-        
-        public UpdateStorageResponse(ProgramKonstruktion.SqlServiceReference.UpdateStorageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class UpdateStorageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.Storage UpdateStorageResult;
-        
-        public UpdateStorageResponseBody() {
-        }
-        
-        public UpdateStorageResponseBody(ProgramKonstruktion.SqlServiceReference.Storage UpdateStorageResult) {
-            this.UpdateStorageResult = UpdateStorageResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteStorageRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteStorage", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteStorageRequestBody Body;
-        
-        public DeleteStorageRequest() {
-        }
-        
-        public DeleteStorageRequest(ProgramKonstruktion.SqlServiceReference.DeleteStorageRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteStorageRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nbr;
-        
-        public DeleteStorageRequestBody() {
-        }
-        
-        public DeleteStorageRequestBody(string nbr) {
-            this.nbr = nbr;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteStorageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteStorageResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteStorageResponseBody Body;
-        
-        public DeleteStorageResponse() {
-        }
-        
-        public DeleteStorageResponse(ProgramKonstruktion.SqlServiceReference.DeleteStorageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteStorageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool DeleteStorageResult;
-        
-        public DeleteStorageResponseBody() {
-        }
-        
-        public DeleteStorageResponseBody(bool DeleteStorageResult) {
-            this.DeleteStorageResult = DeleteStorageResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteTenantFromStorageRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTenantFromStorage", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequestBody Body;
-        
-        public DeleteTenantFromStorageRequest() {
-        }
-        
-        public DeleteTenantFromStorageRequest(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteTenantFromStorageRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nbr;
-        
-        public DeleteTenantFromStorageRequestBody() {
-        }
-        
-        public DeleteTenantFromStorageRequestBody(string nbr) {
-            this.nbr = nbr;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class DeleteTenantFromStorageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTenantFromStorageResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponseBody Body;
-        
-        public DeleteTenantFromStorageResponse() {
-        }
-        
-        public DeleteTenantFromStorageResponse(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class DeleteTenantFromStorageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool DeleteTenantFromStorageResult;
-        
-        public DeleteTenantFromStorageResponseBody() {
-        }
-        
-        public DeleteTenantFromStorageResponseBody(bool DeleteTenantFromStorageResult) {
-            this.DeleteTenantFromStorageResult = DeleteTenantFromStorageResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindStorageRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindStorage", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.FindStorageRequestBody Body;
-        
-        public FindStorageRequest() {
-        }
-        
-        public FindStorageRequest(ProgramKonstruktion.SqlServiceReference.FindStorageRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class FindStorageRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nbr;
-        
-        public FindStorageRequestBody() {
-        }
-        
-        public FindStorageRequestBody(string nbr) {
-            this.nbr = nbr;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindStorageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindStorageResponse", Namespace="http://grupp2.ics.lu.se/", Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.FindStorageResponseBody Body;
-        
-        public FindStorageResponse() {
-        }
-        
-        public FindStorageResponse(ProgramKonstruktion.SqlServiceReference.FindStorageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://grupp2.ics.lu.se/")]
-    public partial class FindStorageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ProgramKonstruktion.SqlServiceReference.Storage FindStorageResult;
-        
-        public FindStorageResponseBody() {
-        }
-        
-        public FindStorageResponseBody(ProgramKonstruktion.SqlServiceReference.Storage FindStorageResult) {
-            this.FindStorageResult = FindStorageResult;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -1007,257 +269,44 @@ namespace ProgramKonstruktion.SqlServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.UpdateTenant(ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest request) {
-            return base.Channel.UpdateTenant(request);
+        public ProgramKonstruktion.SqlServiceReference.Tenant[] GetTenantBookings() {
+            return base.Channel.GetTenantBookings();
         }
         
-        public ProgramKonstruktion.SqlServiceReference.Tenant UpdateTenant(string ssn, string name, string phoneNbr, string email) {
-            ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.UpdateTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            inValue.Body.name = name;
-            inValue.Body.phoneNbr = phoneNbr;
-            inValue.Body.email = email;
-            ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).UpdateTenant(inValue);
-            return retVal.Body.UpdateTenantResult;
+        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Tenant[]> GetTenantBookingsAsync() {
+            return base.Channel.GetTenantBookingsAsync();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.UpdateTenantAsync(ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest request) {
-            return base.Channel.UpdateTenantAsync(request);
+        public System.Data.DataTable ShowAllBookings() {
+            return base.Channel.ShowAllBookings();
         }
         
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse> UpdateTenantAsync(string ssn, string name, string phoneNbr, string email) {
-            ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.UpdateTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.UpdateTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            inValue.Body.name = name;
-            inValue.Body.phoneNbr = phoneNbr;
-            inValue.Body.email = email;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).UpdateTenantAsync(inValue);
+        public System.Threading.Tasks.Task<System.Data.DataTable> ShowAllBookingsAsync() {
+            return base.Channel.ShowAllBookingsAsync();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.CreateTenantResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.CreateTenant(ProgramKonstruktion.SqlServiceReference.CreateTenantRequest request) {
-            return base.Channel.CreateTenant(request);
+        public ProgramKonstruktion.SqlServiceReference.Storage[] GetListOfStorages() {
+            return base.Channel.GetListOfStorages();
         }
         
-        public bool CreateTenant(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate) {
-            ProgramKonstruktion.SqlServiceReference.CreateTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.CreateTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.CreateTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            inValue.Body.name = name;
-            inValue.Body.phoneNbr = phoneNbr;
-            inValue.Body.email = email;
-            inValue.Body.storageNbr = storageNbr;
-            inValue.Body.rentDate = rentDate;
-            ProgramKonstruktion.SqlServiceReference.CreateTenantResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).CreateTenant(inValue);
-            return retVal.Body.CreateTenantResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateTenantResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.CreateTenantAsync(ProgramKonstruktion.SqlServiceReference.CreateTenantRequest request) {
-            return base.Channel.CreateTenantAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateTenantResponse> CreateTenantAsync(string ssn, string name, string phoneNbr, string email, string storageNbr, System.DateTime rentDate) {
-            ProgramKonstruktion.SqlServiceReference.CreateTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.CreateTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.CreateTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            inValue.Body.name = name;
-            inValue.Body.phoneNbr = phoneNbr;
-            inValue.Body.email = email;
-            inValue.Body.storageNbr = storageNbr;
-            inValue.Body.rentDate = rentDate;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).CreateTenantAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteTenant(ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest request) {
-            return base.Channel.DeleteTenant(request);
-        }
-        
-        public bool DeleteTenant(string ssn) {
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteTenant(inValue);
-            return retVal.Body.DeleteTenantResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteTenantAsync(ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest request) {
-            return base.Channel.DeleteTenantAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse> DeleteTenantAsync(string ssn) {
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteTenantAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.FindTenantResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.FindTenant(ProgramKonstruktion.SqlServiceReference.FindTenantRequest request) {
-            return base.Channel.FindTenant(request);
-        }
-        
-        public ProgramKonstruktion.SqlServiceReference.Tenant FindTenant(string ssn) {
-            ProgramKonstruktion.SqlServiceReference.FindTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.FindTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.FindTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            ProgramKonstruktion.SqlServiceReference.FindTenantResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).FindTenant(inValue);
-            return retVal.Body.FindTenantResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindTenantResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.FindTenantAsync(ProgramKonstruktion.SqlServiceReference.FindTenantRequest request) {
-            return base.Channel.FindTenantAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindTenantResponse> FindTenantAsync(string ssn) {
-            ProgramKonstruktion.SqlServiceReference.FindTenantRequest inValue = new ProgramKonstruktion.SqlServiceReference.FindTenantRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.FindTenantRequestBody();
-            inValue.Body.ssn = ssn;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).FindTenantAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.CreateStorageResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.CreateStorage(ProgramKonstruktion.SqlServiceReference.CreateStorageRequest request) {
-            return base.Channel.CreateStorage(request);
-        }
-        
-        public bool CreateStorage(string nbr, float price, float size, string address) {
-            ProgramKonstruktion.SqlServiceReference.CreateStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.CreateStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.CreateStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            inValue.Body.price = price;
-            inValue.Body.size = size;
-            inValue.Body.address = address;
-            ProgramKonstruktion.SqlServiceReference.CreateStorageResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).CreateStorage(inValue);
-            return retVal.Body.CreateStorageResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateStorageResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.CreateStorageAsync(ProgramKonstruktion.SqlServiceReference.CreateStorageRequest request) {
-            return base.Channel.CreateStorageAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.CreateStorageResponse> CreateStorageAsync(string nbr, float price, float size, string address) {
-            ProgramKonstruktion.SqlServiceReference.CreateStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.CreateStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.CreateStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            inValue.Body.price = price;
-            inValue.Body.size = size;
-            inValue.Body.address = address;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).CreateStorageAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.UpdateStorage(ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest request) {
-            return base.Channel.UpdateStorage(request);
-        }
-        
-        public ProgramKonstruktion.SqlServiceReference.Storage UpdateStorage(string nbr, string address, float price, float size) {
-            ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.UpdateStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            inValue.Body.address = address;
-            inValue.Body.price = price;
-            inValue.Body.size = size;
-            ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).UpdateStorage(inValue);
-            return retVal.Body.UpdateStorageResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.UpdateStorageAsync(ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest request) {
-            return base.Channel.UpdateStorageAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse> UpdateStorageAsync(string nbr, string address, float price, float size) {
-            ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.UpdateStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.UpdateStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            inValue.Body.address = address;
-            inValue.Body.price = price;
-            inValue.Body.size = size;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).UpdateStorageAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteStorage(ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest request) {
-            return base.Channel.DeleteStorage(request);
-        }
-        
-        public bool DeleteStorage(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteStorage(inValue);
-            return retVal.Body.DeleteStorageResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteStorageAsync(ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest request) {
-            return base.Channel.DeleteStorageAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse> DeleteStorageAsync(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteStorageAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteTenantFromStorage(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest request) {
-            return base.Channel.DeleteTenantFromStorage(request);
-        }
-        
-        public bool DeleteTenantFromStorage(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteTenantFromStorage(inValue);
-            return retVal.Body.DeleteTenantFromStorageResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.DeleteTenantFromStorageAsync(ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest request) {
-            return base.Channel.DeleteTenantFromStorageAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse> DeleteTenantFromStorageAsync(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).DeleteTenantFromStorageAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ProgramKonstruktion.SqlServiceReference.FindStorageResponse ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.FindStorage(ProgramKonstruktion.SqlServiceReference.FindStorageRequest request) {
-            return base.Channel.FindStorage(request);
+        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Storage[]> GetListOfStoragesAsync() {
+            return base.Channel.GetListOfStoragesAsync();
         }
         
         public ProgramKonstruktion.SqlServiceReference.Storage FindStorage(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.FindStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.FindStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.FindStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            ProgramKonstruktion.SqlServiceReference.FindStorageResponse retVal = ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).FindStorage(inValue);
-            return retVal.Body.FindStorageResult;
+            return base.Channel.FindStorage(nbr);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindStorageResponse> ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap.FindStorageAsync(ProgramKonstruktion.SqlServiceReference.FindStorageRequest request) {
-            return base.Channel.FindStorageAsync(request);
+        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.Storage> FindStorageAsync(string nbr) {
+            return base.Channel.FindStorageAsync(nbr);
         }
         
-        public System.Threading.Tasks.Task<ProgramKonstruktion.SqlServiceReference.FindStorageResponse> FindStorageAsync(string nbr) {
-            ProgramKonstruktion.SqlServiceReference.FindStorageRequest inValue = new ProgramKonstruktion.SqlServiceReference.FindStorageRequest();
-            inValue.Body = new ProgramKonstruktion.SqlServiceReference.FindStorageRequestBody();
-            inValue.Body.nbr = nbr;
-            return ((ProgramKonstruktion.SqlServiceReference.SqlWebServiceSoap)(this)).FindStorageAsync(inValue);
+        public System.Data.DataTable ShowAllStorages() {
+            return base.Channel.ShowAllStorages();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ShowAllStoragesAsync() {
+            return base.Channel.ShowAllStoragesAsync();
         }
     }
 }

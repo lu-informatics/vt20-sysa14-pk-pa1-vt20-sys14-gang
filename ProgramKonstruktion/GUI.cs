@@ -594,12 +594,49 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
             string choosenData = selected;
 
+            NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
                 dataGridView3.DataSource = emplyeeDal.ShowContentOfCronusDataTable();
 
             }
-           // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+            else if(choosenData.Equals("Employees and their relatives"))
+            {
+                dataGridView3.DataSource = client.EmployeeAndRelatives(); 
+            }
+            else if(choosenData.Equals("Sick employees 2004"))
+            {
+
+            }
+            else if(choosenData.Equals("Most absent employee"))
+            {
+
+            }
+            else if(choosenData.Equals("Metadata: Keys"))
+            {
+
+            }
+            else if(choosenData.Equals("Metadata: Indexes"))
+            {
+
+            }
+            else if(choosenData.Equals("Metadata: Table constraint"))
+            {
+
+            }
+            else if (choosenData.Equals("Metadata: All tables"))
+            {
+
+            }
+            else if(choosenData.Equals("Metadata: All columns"))
+            {
+
+            }
+                // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+
+
+            
         }
 
         private void showAllBookingsBtn_Click(object sender, EventArgs e)

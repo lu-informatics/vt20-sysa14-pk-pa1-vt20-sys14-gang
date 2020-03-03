@@ -27,7 +27,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceERP12Soap", Namespace="http://tempuri.org/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceERP12Soap", Namespace="http://grupp2.ics.lu.se/")]
     public partial class WebServiceERP12 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback CreateEmployeeOperationCompleted;
@@ -149,7 +149,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         public event ShowFileCompletedEventHandler ShowFileCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/CreateEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn) {
             object[] results = this.Invoke("CreateEmployee", new object[] {
                         no,
@@ -192,7 +192,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FindEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/FindEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee FindEmployee(string no) {
             object[] results = this.Invoke("FindEmployee", new object[] {
                         no});
@@ -221,7 +221,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/UpdateEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee UpdateEmployee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string email) {
             object[] results = this.Invoke("UpdateEmployee", new object[] {
                         no,
@@ -262,7 +262,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/DeleteEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool DeleteEmployee(string no) {
             object[] results = this.Invoke("DeleteEmployee", new object[] {
                         no});
@@ -291,7 +291,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ShowContentOfCronus", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowContentOfCronus", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable ShowContentOfCronus() {
             object[] results = this.Invoke("ShowContentOfCronus", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -318,7 +318,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EmployeeAndRelatives", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/EmployeeAndRelatives", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable EmployeeAndRelatives() {
             object[] results = this.Invoke("EmployeeAndRelatives", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -345,7 +345,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ShowSickEmployees2004", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowSickEmployees2004", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable ShowSickEmployees2004() {
             object[] results = this.Invoke("ShowSickEmployees2004", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -372,7 +372,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/MostAbsentEmployees", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/MostAbsentEmployees", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable MostAbsentEmployees() {
             object[] results = this.Invoke("MostAbsentEmployees", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -399,7 +399,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllKeys", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllKeys", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllKeys() {
             object[] results = this.Invoke("AllKeys", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -426,7 +426,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllIndexes", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllIndexes", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllIndexes() {
             object[] results = this.Invoke("AllIndexes", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -453,7 +453,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllTableConstrains", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllTableConstrains", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllTableConstrains() {
             object[] results = this.Invoke("AllTableConstrains", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -480,7 +480,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllTablesInDatabaseSolOne", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllTablesInDatabaseSolOne() {
             object[] results = this.Invoke("AllTablesInDatabaseSolOne", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -507,7 +507,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllTablesInDatabaseSolTwo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllTablesInDatabaseSolTwo() {
             object[] results = this.Invoke("AllTablesInDatabaseSolTwo", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -534,7 +534,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllColEmpTableSolOne", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllColEmpTableSolOne", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllColEmpTableSolOne() {
             object[] results = this.Invoke("AllColEmpTableSolOne", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -561,7 +561,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AllColEmpTableSolTwo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/AllColEmpTableSolTwo", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AllColEmpTableSolTwo() {
             object[] results = this.Invoke("AllColEmpTableSolTwo", new object[0]);
             return ((System.Data.DataTable)(results[0]));
@@ -588,7 +588,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ShowFile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowFile", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string ShowFile(string fileName) {
             object[] results = this.Invoke("ShowFile", new object[] {
                         fileName});
@@ -640,7 +640,7 @@ namespace ProgramKonstruktion.NewWebRefMeta {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp2.ics.lu.se/")]
     public partial class Employee {
         
         private string noField;

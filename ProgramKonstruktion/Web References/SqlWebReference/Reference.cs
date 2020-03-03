@@ -20,6 +20,7 @@ namespace ProgramKonstruktion.SqlWebReference {
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Data;
     
     
     /// <remarks/>
@@ -29,11 +30,15 @@ namespace ProgramKonstruktion.SqlWebReference {
     [System.Web.Services.WebServiceBindingAttribute(Name="SqlWebServiceSoap", Namespace="http://grupp2.ics.lu.se/")]
     public partial class SqlWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback FindTenantOperationCompleted;
+        private System.Threading.SendOrPostCallback GetTenantBookingsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ShowAllBookingsOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetListOfStoragesOperationCompleted;
         
         private System.Threading.SendOrPostCallback FindStorageOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ShowAllStoragesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -74,7 +79,10 @@ namespace ProgramKonstruktion.SqlWebReference {
         }
         
         /// <remarks/>
-        public event FindTenantCompletedEventHandler FindTenantCompleted;
+        public event GetTenantBookingsCompletedEventHandler GetTenantBookingsCompleted;
+        
+        /// <remarks/>
+        public event ShowAllBookingsCompletedEventHandler ShowAllBookingsCompleted;
         
         /// <remarks/>
         public event GetListOfStoragesCompletedEventHandler GetListOfStoragesCompleted;
@@ -83,31 +91,59 @@ namespace ProgramKonstruktion.SqlWebReference {
         public event FindStorageCompletedEventHandler FindStorageCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/FindTenant", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Tenant FindTenant(string ssn) {
-            object[] results = this.Invoke("FindTenant", new object[] {
-                        ssn});
-            return ((Tenant)(results[0]));
+        public event ShowAllStoragesCompletedEventHandler ShowAllStoragesCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/GetTenantBookings", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Tenant[] GetTenantBookings() {
+            object[] results = this.Invoke("GetTenantBookings", new object[0]);
+            return ((Tenant[])(results[0]));
         }
         
         /// <remarks/>
-        public void FindTenantAsync(string ssn) {
-            this.FindTenantAsync(ssn, null);
+        public void GetTenantBookingsAsync() {
+            this.GetTenantBookingsAsync(null);
         }
         
         /// <remarks/>
-        public void FindTenantAsync(string ssn, object userState) {
-            if ((this.FindTenantOperationCompleted == null)) {
-                this.FindTenantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFindTenantOperationCompleted);
+        public void GetTenantBookingsAsync(object userState) {
+            if ((this.GetTenantBookingsOperationCompleted == null)) {
+                this.GetTenantBookingsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetTenantBookingsOperationCompleted);
             }
-            this.InvokeAsync("FindTenant", new object[] {
-                        ssn}, this.FindTenantOperationCompleted, userState);
+            this.InvokeAsync("GetTenantBookings", new object[0], this.GetTenantBookingsOperationCompleted, userState);
         }
         
-        private void OnFindTenantOperationCompleted(object arg) {
-            if ((this.FindTenantCompleted != null)) {
+        private void OnGetTenantBookingsOperationCompleted(object arg) {
+            if ((this.GetTenantBookingsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FindTenantCompleted(this, new FindTenantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetTenantBookingsCompleted(this, new GetTenantBookingsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowAllBookings", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable ShowAllBookings() {
+            object[] results = this.Invoke("ShowAllBookings", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ShowAllBookingsAsync() {
+            this.ShowAllBookingsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ShowAllBookingsAsync(object userState) {
+            if ((this.ShowAllBookingsOperationCompleted == null)) {
+                this.ShowAllBookingsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnShowAllBookingsOperationCompleted);
+            }
+            this.InvokeAsync("ShowAllBookings", new object[0], this.ShowAllBookingsOperationCompleted, userState);
+        }
+        
+        private void OnShowAllBookingsOperationCompleted(object arg) {
+            if ((this.ShowAllBookingsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ShowAllBookingsCompleted(this, new ShowAllBookingsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -164,6 +200,33 @@ namespace ProgramKonstruktion.SqlWebReference {
             if ((this.FindStorageCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FindStorageCompleted(this, new FindStorageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowAllStorages", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable ShowAllStorages() {
+            object[] results = this.Invoke("ShowAllStorages", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ShowAllStoragesAsync() {
+            this.ShowAllStoragesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ShowAllStoragesAsync(object userState) {
+            if ((this.ShowAllStoragesOperationCompleted == null)) {
+                this.ShowAllStoragesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnShowAllStoragesOperationCompleted);
+            }
+            this.InvokeAsync("ShowAllStorages", new object[0], this.ShowAllStoragesOperationCompleted, userState);
+        }
+        
+        private void OnShowAllStoragesOperationCompleted(object arg) {
+            if ((this.ShowAllStoragesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ShowAllStoragesCompleted(this, new ShowAllStoragesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -338,26 +401,52 @@ namespace ProgramKonstruktion.SqlWebReference {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void FindTenantCompletedEventHandler(object sender, FindTenantCompletedEventArgs e);
+    public delegate void GetTenantBookingsCompletedEventHandler(object sender, GetTenantBookingsCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FindTenantCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetTenantBookingsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal FindTenantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetTenantBookingsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Tenant Result {
+        public Tenant[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Tenant)(this.results[0]));
+                return ((Tenant[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    public delegate void ShowAllBookingsCompletedEventHandler(object sender, ShowAllBookingsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ShowAllBookingsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ShowAllBookingsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
             }
         }
     }
@@ -410,6 +499,32 @@ namespace ProgramKonstruktion.SqlWebReference {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Storage)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    public delegate void ShowAllStoragesCompletedEventHandler(object sender, ShowAllStoragesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ShowAllStoragesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ShowAllStoragesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
             }
         }
     }

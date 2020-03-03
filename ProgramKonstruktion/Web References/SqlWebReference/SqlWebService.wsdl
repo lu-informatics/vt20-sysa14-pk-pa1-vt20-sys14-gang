@@ -2,20 +2,21 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://grupp2.ics.lu.se/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://grupp2.ics.lu.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://grupp2.ics.lu.se/">
-      <s:element name="FindTenant">
+      <s:element name="GetTenantBookings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTenantBookingsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetTenantBookingsResult" type="tns:ArrayOfTenant" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FindTenantResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindTenantResult" type="tns:Tenant" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="ArrayOfTenant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tenant" nillable="true" type="tns:Tenant" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Tenant">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Ssn" type="s:string" />
@@ -27,6 +28,23 @@
           <s:element minOccurs="0" maxOccurs="1" name="StorageAddress" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="ShowAllBookings">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowAllBookingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowAllBookingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetListOfStorages">
         <s:complexType />
       </s:element>
@@ -64,13 +82,36 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ShowAllStorages">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowAllStoragesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowAllStoragesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="FindTenantSoapIn">
-    <wsdl:part name="parameters" element="tns:FindTenant" />
+  <wsdl:message name="GetTenantBookingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTenantBookings" />
   </wsdl:message>
-  <wsdl:message name="FindTenantSoapOut">
-    <wsdl:part name="parameters" element="tns:FindTenantResponse" />
+  <wsdl:message name="GetTenantBookingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTenantBookingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllBookingsSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowAllBookings" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllBookingsSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowAllBookingsResponse" />
   </wsdl:message>
   <wsdl:message name="GetListOfStoragesSoapIn">
     <wsdl:part name="parameters" element="tns:GetListOfStorages" />
@@ -84,10 +125,20 @@
   <wsdl:message name="FindStorageSoapOut">
     <wsdl:part name="parameters" element="tns:FindStorageResponse" />
   </wsdl:message>
+  <wsdl:message name="ShowAllStoragesSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowAllStorages" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllStoragesSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowAllStoragesResponse" />
+  </wsdl:message>
   <wsdl:portType name="SqlWebServiceSoap">
-    <wsdl:operation name="FindTenant">
-      <wsdl:input message="tns:FindTenantSoapIn" />
-      <wsdl:output message="tns:FindTenantSoapOut" />
+    <wsdl:operation name="GetTenantBookings">
+      <wsdl:input message="tns:GetTenantBookingsSoapIn" />
+      <wsdl:output message="tns:GetTenantBookingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllBookings">
+      <wsdl:input message="tns:ShowAllBookingsSoapIn" />
+      <wsdl:output message="tns:ShowAllBookingsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetListOfStorages">
       <wsdl:input message="tns:GetListOfStoragesSoapIn" />
@@ -97,11 +148,24 @@
       <wsdl:input message="tns:FindStorageSoapIn" />
       <wsdl:output message="tns:FindStorageSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ShowAllStorages">
+      <wsdl:input message="tns:ShowAllStoragesSoapIn" />
+      <wsdl:output message="tns:ShowAllStoragesSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SqlWebServiceSoap" type="tns:SqlWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="FindTenant">
-      <soap:operation soapAction="http://grupp2.ics.lu.se/FindTenant" style="document" />
+    <wsdl:operation name="GetTenantBookings">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/GetTenantBookings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllBookings">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowAllBookings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -127,11 +191,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ShowAllStorages">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowAllStorages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SqlWebServiceSoap12" type="tns:SqlWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="FindTenant">
-      <soap12:operation soapAction="http://grupp2.ics.lu.se/FindTenant" style="document" />
+    <wsdl:operation name="GetTenantBookings">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/GetTenantBookings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllBookings">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowAllBookings" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -150,6 +232,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindStorage">
       <soap12:operation soapAction="http://grupp2.ics.lu.se/FindStorage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllStorages">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowAllStorages" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

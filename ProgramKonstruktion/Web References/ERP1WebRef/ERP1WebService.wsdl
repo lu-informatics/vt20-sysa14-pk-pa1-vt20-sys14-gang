@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://grupp2.ics.lu.se/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://grupp2.ics.lu.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://grupp2.ics.lu.se/">
       <s:element name="CreateEmployee">
         <s:complexType>
           <s:sequence>
@@ -83,6 +83,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ShowContentOfCronus">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowContentOfCronusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowContentOfCronusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CreateEmployeeSoapIn">
@@ -109,6 +126,12 @@
   <wsdl:message name="DeleteEmployeeSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
   </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronus" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronusResponse" />
+  </wsdl:message>
   <wsdl:portType name="ERP1WebServiceSoap">
     <wsdl:operation name="CreateEmployee">
       <wsdl:input message="tns:CreateEmployeeSoapIn" />
@@ -126,11 +149,15 @@
       <wsdl:input message="tns:DeleteEmployeeSoapIn" />
       <wsdl:output message="tns:DeleteEmployeeSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <wsdl:input message="tns:ShowContentOfCronusSoapIn" />
+      <wsdl:output message="tns:ShowContentOfCronusSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ERP1WebServiceSoap" type="tns:ERP1WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateEmployee">
-      <soap:operation soapAction="http://tempuri.org/CreateEmployee" style="document" />
+      <soap:operation soapAction="http://grupp2.ics.lu.se/CreateEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -139,7 +166,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEmployee">
-      <soap:operation soapAction="http://tempuri.org/FindEmployee" style="document" />
+      <soap:operation soapAction="http://grupp2.ics.lu.se/FindEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -148,7 +175,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEmployee">
-      <soap:operation soapAction="http://tempuri.org/UpdateEmployee" style="document" />
+      <soap:operation soapAction="http://grupp2.ics.lu.se/UpdateEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -157,7 +184,16 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
-      <soap:operation soapAction="http://tempuri.org/DeleteEmployee" style="document" />
+      <soap:operation soapAction="http://grupp2.ics.lu.se/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -169,7 +205,7 @@
   <wsdl:binding name="ERP1WebServiceSoap12" type="tns:ERP1WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateEmployee">
-      <soap12:operation soapAction="http://tempuri.org/CreateEmployee" style="document" />
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/CreateEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -178,7 +214,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindEmployee">
-      <soap12:operation soapAction="http://tempuri.org/FindEmployee" style="document" />
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/FindEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -187,7 +223,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEmployee">
-      <soap12:operation soapAction="http://tempuri.org/UpdateEmployee" style="document" />
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/UpdateEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -196,7 +232,16 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
-      <soap12:operation soapAction="http://tempuri.org/DeleteEmployee" style="document" />
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

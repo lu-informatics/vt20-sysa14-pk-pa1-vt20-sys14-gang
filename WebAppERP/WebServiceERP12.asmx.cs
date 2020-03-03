@@ -22,6 +22,8 @@ namespace WebAppERP
 
 
         EmployeeDAL employeeDal = new EmployeeDAL();
+        DataTable dt = new DataTable(); 
+
 
         [WebMethod]
         public Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn)
@@ -86,8 +88,9 @@ namespace WebAppERP
         [WebMethod]
         public DataTable EmployeeAndRelatives()
         {
-            DataTable empRel = employeeDal.EmployeeAndRelatives();
-            return empRel;
+            DataTable dt = new DataTable();
+            dt.Equals(employeeDal.EmployeeAndRelatives());
+            return dt; 
         }
 
         [WebMethod]

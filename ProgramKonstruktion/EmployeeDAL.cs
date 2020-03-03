@@ -430,16 +430,16 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        MessageBox.Show(e.Message);
+                       // MessageBox.Show(e.Message);
                     }
                     catch (Exception e)
                     {
                         MessageBox.Show(e.Message);
                     }
-                    finally
+                    /*finally
                     {
                         connect.CloseConnector(connection);
-                    }
+                    }*/
                     return content;
                 }
             }

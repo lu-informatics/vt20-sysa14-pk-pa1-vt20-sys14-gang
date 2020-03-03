@@ -178,37 +178,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\OpenFileService\WebServiceAssignment.wsdl" />
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.CreateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.CreateTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.FindStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.FindTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.Storage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.Tenant.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SqlServiceReference\sqlWebService.wsdl" />

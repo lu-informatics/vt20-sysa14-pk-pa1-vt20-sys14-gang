@@ -13,119 +13,119 @@ namespace ProgramKonstruktion.NewServWebMeta {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NewServWebMeta.WebServiceERP12Soap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://grupp2.ics.lu.se/", ConfigurationName="NewServWebMeta.WebServiceERP12Soap")]
     public interface WebServiceERP12Soap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateEmployee", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ProgramKonstruktion.NewServWebMeta.Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreateEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/CreateEmployee", ReplyAction="*")]
         System.Threading.Tasks.Task<ProgramKonstruktion.NewServWebMeta.Employee> CreateEmployeeAsync(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindEmployee", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ProgramKonstruktion.NewServWebMeta.Employee FindEmployee(string no);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/FindEmployee", ReplyAction="*")]
         System.Threading.Tasks.Task<ProgramKonstruktion.NewServWebMeta.Employee> FindEmployeeAsync(string no);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateEmployee", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ProgramKonstruktion.NewServWebMeta.Employee UpdateEmployee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/UpdateEmployee", ReplyAction="*")]
         System.Threading.Tasks.Task<ProgramKonstruktion.NewServWebMeta.Employee> UpdateEmployeeAsync(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteEmployee", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool DeleteEmployee(string no);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteEmployee", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/DeleteEmployee", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> DeleteEmployeeAsync(string no);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowContentOfCronus", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowContentOfCronus", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable ShowContentOfCronus();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowContentOfCronus", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowContentOfCronus", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> ShowContentOfCronusAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EmployeeAndRelatives", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/EmployeeAndRelatives", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable EmployeeAndRelatives();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EmployeeAndRelatives", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/EmployeeAndRelatives", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> EmployeeAndRelativesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowSickEmployees2004", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowSickEmployees2004", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable ShowSickEmployees2004();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowSickEmployees2004", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowSickEmployees2004", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> ShowSickEmployees2004Async();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MostAbsentEmployees", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable MostAbsentEmployees();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MostAbsentEmployees", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> MostAbsentEmployeesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllKeys", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllKeys", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllKeys();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllKeys", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllKeys", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllKeysAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllIndexes", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllIndexes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllIndexes();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllIndexes", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllIndexes", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllIndexesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTableConstrains", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTableConstrains", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllTableConstrains();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTableConstrains", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTableConstrains", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllTableConstrainsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTablesInDatabaseSolOne", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllTablesInDatabaseSolOne();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTablesInDatabaseSolOne", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolOneAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTablesInDatabaseSolTwo", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllTablesInDatabaseSolTwo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllTablesInDatabaseSolTwo", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolTwoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllColEmpTableSolOne", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolOne", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllColEmpTableSolOne();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllColEmpTableSolOne", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolOne", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolOneAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllColEmpTableSolTwo", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolTwo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable AllColEmpTableSolTwo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllColEmpTableSolTwo", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolTwo", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolTwoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowFile", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowFile", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string ShowFile(string fileName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowFile", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowFile", ReplyAction="*")]
         System.Threading.Tasks.Task<string> ShowFileAsync(string fileName);
     }
     
@@ -134,7 +134,7 @@ namespace ProgramKonstruktion.NewServWebMeta {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp2.ics.lu.se/")]
     public partial class Employee : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string noField;
