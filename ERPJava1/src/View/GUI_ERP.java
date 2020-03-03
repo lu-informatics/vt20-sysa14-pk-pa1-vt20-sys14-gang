@@ -1,25 +1,18 @@
 package View;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
-
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 
 public class GUI_ERP {
 
