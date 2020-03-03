@@ -41,8 +41,6 @@ public class GUI {
 	 private JTextField txtFEmail;
 	 private JTextField txtFSearchEmp;
 	 private JTable table;
-
-
 	
 	/**
 	 * Launch the application.
@@ -318,9 +316,26 @@ public class GUI {
 						e1.printStackTrace();
 						txtPOutput.setText("Failed to update employee");
 					}
-					
 			}
 		}); 
+		
+		//method for findButton 
+		//find should return lastname, job title and email
+		btnFind.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				String emp = txtFSearchEmp.getText(); 
+				try {
+					myProxy.findEmployee(emp);
+					Employee employee = new Employee(); 
+					txtPOutput.setText("Found employee: " + employee.getFirstName() + employee.getJobTitle());
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					txtPOutput.setText("Failed to find employee, try entering a valid ssn");
+				} 
+			}
+		}); 
+			
 			
 		
 }
