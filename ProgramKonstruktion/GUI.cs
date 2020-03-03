@@ -594,44 +594,111 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
             string choosenData = selected;
 
-            NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+            //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
 
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
-                dataGridView3.DataSource = emplyeeDal.ShowContentOfCronusDataTable();
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.ShowContentOfCronus()); //OBS Fel!
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
 
             }
             else if(choosenData.Equals("Employees and their relatives"))
             {
-                dataGridView3.DataSource = client.EmployeeAndRelatives(); 
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.EmployeeAndRelatives());
+                dataGridView3.Columns.Add(" ", " "); 
+                foreach(string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s); 
+                }
+               
             }
             else if(choosenData.Equals("Sick employees 2004"))
             {
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.ShowSickEmployees2004());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
 
             }
             else if(choosenData.Equals("Most absent employee"))
             {
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.MostAbsentEmployees());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
 
             }
             else if(choosenData.Equals("Metadata: Keys"))
             {
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.AllKeys());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
 
             }
             else if(choosenData.Equals("Metadata: Indexes"))
             {
-
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.AllIndexes());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
             }
             else if(choosenData.Equals("Metadata: Table constraint"))
             {
-
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.AllTableConstrains());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
             }
             else if (choosenData.Equals("Metadata: All tables"))
             {
-
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.AllTablesInDatabaseSolOne());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
             }
             else if(choosenData.Equals("Metadata: All columns"))
             {
-
+                dataGridView3.Rows.Clear();
+                NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(client.AllColEmpTableSolOne());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
             }
                 // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
 
