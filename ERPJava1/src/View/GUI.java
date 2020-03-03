@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
+import javax.swing.JTable;
 
 public class GUI {
 
@@ -35,6 +36,7 @@ public class GUI {
 	 private JTextField txtFPhoneNbr;
 	 private JTextField txtFEmail;
 	 private JTextField txtFSearchEmp;
+	 private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -71,9 +73,9 @@ public class GUI {
 		btnViewFile.setBounds(196, 180, 89, 23);
 		frame.getContentPane().add(btnViewFile);
 		
-		final JTextPane txtFileOutput = new JTextPane();
-		txtFileOutput.setBounds(10, 330, 275, 68);
-		frame.getContentPane().add(txtFileOutput);
+		final JTextPane txtPOutput = new JTextPane();
+		txtPOutput.setBounds(10, 330, 275, 68);
+		frame.getContentPane().add(txtPOutput);
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
@@ -176,6 +178,27 @@ public class GUI {
 		lblSearchEmployee.setBounds(10, 305, 86, 18);
 		frame.getContentPane().add(lblSearchEmployee);
 		
+		JComboBox cBoxQuery = new JComboBox();
+		cBoxQuery.setToolTipText(" ");
+		cBoxQuery.setBounds(298, 67, 251, 23);
+		frame.getContentPane().add(cBoxQuery);
+		
+		JButton btnRunQuery = new JButton("Run Query");
+		btnRunQuery.setBounds(559, 67, 89, 23);
+		frame.getContentPane().add(btnRunQuery);
+		
+		table = new JTable();
+		table.setBounds(298, 142, 351, 256);
+		frame.getContentPane().add(table);
+		
+		JLabel lblErpUppgift = new JLabel("ERP Uppgift 1");
+		lblErpUppgift.setBounds(10, 28, 108, 14);
+		frame.getContentPane().add(lblErpUppgift);
+		
+		JLabel lblErpUppgift_2 = new JLabel("ERP Uppgift 2");
+		lblErpUppgift_2.setBounds(298, 28, 108, 14);
+		frame.getContentPane().add(lblErpUppgift_2);
+		
 		final JComboBox<String> cBoxFiles = new JComboBox<String>();
 		
 		//List of files from file system
@@ -185,5 +208,8 @@ public class GUI {
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
+		
+		
+		
 }
 }
