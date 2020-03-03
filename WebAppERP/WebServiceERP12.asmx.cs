@@ -85,13 +85,37 @@ namespace WebAppERP
 
         }
 
-        [WebMethod]
-        public DataTable EmployeeAndRelatives()
+        /*[WebMethod]
+        public string EmployeeAndRelatives()
         {
-            DataTable dt = new DataTable();
-            dt.Equals(employeeDal.EmployeeAndRelatives());
-            return dt; 
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable("name");
+           dt.Equals(employeeDal.EmployeeAndRelatives());
+            ds.Tables.Add(dt);
+            //dt.WriteXml(@"path", true);
+            return ds.GetXml();
         }
+        */
+
+        [WebMethod]
+        public List<String> EmployeeAndRelatives()
+        {
+            dt = employeeDal.EmployeeAndRelatives();
+            List<String> tableList = new List<string>(); 
+            foreach(DataRow r in dt.Rows)
+            {
+                string value = ""; 
+                foreach(DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | "; 
+                }
+                tableList.Add(value); 
+            }
+            return tableList; 
+        }
+
+
+
 
         [WebMethod]
         public DataTable ShowSickEmployees2004()

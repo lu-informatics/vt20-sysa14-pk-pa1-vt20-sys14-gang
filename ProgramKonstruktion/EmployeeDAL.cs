@@ -416,17 +416,24 @@ namespace ProgramKonstruktion
         public DataTable EmployeeAndRelatives()
         {
             DataTable content = new DataTable();
+            SqlDataReader reader = null; 
+            string query = $"SELECT e.[First Name] AS [Employee First Name], e.[Last Name] AS [Employee Last Name], c.[First Name] AS [Relative First Name], c.[Last Name] AS [Relative Last Name], c.[Relative Code], c.[Birth Date] FROM[CRONUS Sverige AB$Employee Relative] c INNER JOIN[CRONUS Sverige AB$Employee] e ON c.[Employee No_] = e.No_";
+ 
 
-            string query = "SELECT e.[First Name] AS [Employee First Name], e.[Last Name] AS [Employee Last Name], c.[First Name] AS [Relative First Name], c.[Last Name] AS [Relative Last Name], c.[Relative Code], c.[Birth Date] FROM[CRONUS Sverige AB$Employee Relative] c INNER JOIN[CRONUS Sverige AB$Employee] e ON c.[Employee No_] = e.No_";
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     try
                     {
                         connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
+                        command.CommandTimeout = 200;
+                       using (reader = command.ExecuteReader())
+                        {
+                            content.Load(reader);
+                            return content;  
+                        }
 
-                        content.Load(reader);
+         
                     }
                     catch (SqlException e)
                     {
@@ -440,7 +447,7 @@ namespace ProgramKonstruktion
                     {
                         connect.CloseConnector(connection);
                     }*/
-                    return content;
+                    return null; 
                 }
             }
         }
@@ -649,6 +656,9 @@ namespace ProgramKonstruktion
                 }
                 return content;
             }
+
+
+
 
         }
 
