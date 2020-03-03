@@ -206,10 +206,10 @@ public class GUI {
 		lblErpUppgift_2.setBounds(298, 28, 108, 14);
 		frame.getContentPane().add(lblErpUppgift_2);
 		
-		final JComboBox<String> cBoxFiles = new JComboBox<String>();
 		
 		Employee emp = new Employee(); 
 		
+		//method for creating new employee 
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 		
@@ -268,6 +268,13 @@ public class GUI {
 		}
 				
 				);
+		btnAdd.addActionListener(new ActionListener() {
+				public void actionPerformed (ActionEvent e) {
+				
+					
+			}
+		}); 
+			
 		
 }
 }
