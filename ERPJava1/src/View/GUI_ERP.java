@@ -26,7 +26,6 @@ public class GUI_ERP {
 	 private JFrame frame;
 	 
 	 WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
-	 private JTabbedPane tabbedPane;
 	 private JPanel panel;
 	 private JTextField txtFirstName;
 	/**
@@ -57,24 +56,42 @@ public class GUI_ERP {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(700, 700, 633, 411);
+		frame.setBounds(700, 700, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		frame.getContentPane().setLayout(null);
 		
-		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane);
+		JButton btnViewFile = new JButton("Add");
+		btnViewFile.setBounds(118, 22, 89, 23);
+		frame.getContentPane().add(btnViewFile);
 		
-		panel = new JPanel();
-		tabbedPane.addTab("ERP1", null, panel, null);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0};
-		gbl_panel.rowHeights = new int[]{0};
-		gbl_panel.columnWeights = new double[]{Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+		final JTextPane txtFileOutput = new JTextPane();
+		txtFileOutput.setBounds(10, 182, 241, 68);
+		frame.getContentPane().add(txtFileOutput);
 		
+		JButton btnUpdate = new JButton("Update");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnUpdate.setBounds(118, 56, 89, 23);
+		frame.getContentPane().add(btnUpdate);
 		
-		panel = new JPanel();
-		tabbedPane.addTab("ERP2", null, panel, null);
-	}
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBounds(162, 148, 89, 23);
+		frame.getContentPane().add(btnDelete);
+		
+		JButton btnFind = new JButton("Find");
+		btnFind.setBounds(133, 88, 89, 23);
+		frame.getContentPane().add(btnFind);
+		
+		final JComboBox<String> cBoxFiles = new JComboBox<String>();
+		
+		//List of files from file system
+		ArrayList<String>files = new ArrayList<String>(); 
+		files.add("Test"); 
+		files.add("Top Secret"); 
+		for (String value: files) { 
+			 cBoxFiles.addItem(value); 
+		}
+}
 }
