@@ -26,14 +26,15 @@ public class GUI {
 	 //WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
 	 private JPanel panel;
 	 private JTextField txtFirstName;
-	 private JTextField textField;
-	 private JTextField textField_1;
-	 private JTextField textField_2;
-	 private JTextField textField_3;
-	 private JTextField textField_4;
-	 private JTextField textField_5;
-	 private JTextField textField_6;
-	 private JTextField textField_7;
+	 private JTextField textFFirstName;
+	 private JTextField txtFLastName;
+	 private JTextField txtFSsn;
+	 private JTextField txtFAddress;
+	 private JTextField txtFJobTitle;
+	 private JTextField txtFEmpNo;
+	 private JTextField txtFPhoneNbr;
+	 private JTextField txtFEmail;
+	 private JTextField txtFSearchEmp;
 	/**
 	 * Launch the application.
 	 */
@@ -83,52 +84,52 @@ public class GUI {
 		frame.getContentPane().add(btnUpdate);
 		
 		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(196, 302, 89, 23);
+		btnDelete.setBounds(196, 303, 89, 23);
 		frame.getContentPane().add(btnDelete);
 		
 		JButton btnFind = new JButton("Find");
 		btnFind.setBounds(196, 275, 89, 23);
 		frame.getContentPane().add(btnFind);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 68, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		textFFirstName = new JTextField();
+		textFFirstName.setBounds(10, 68, 86, 20);
+		frame.getContentPane().add(textFFirstName);
+		textFFirstName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(100, 68, 86, 20);
-		frame.getContentPane().add(textField_1);
+		txtFLastName = new JTextField();
+		txtFLastName.setColumns(10);
+		txtFLastName.setBounds(100, 68, 86, 20);
+		frame.getContentPane().add(txtFLastName);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(10, 111, 86, 20);
-		frame.getContentPane().add(textField_2);
+		txtFSsn = new JTextField();
+		txtFSsn.setColumns(10);
+		txtFSsn.setBounds(10, 111, 86, 20);
+		frame.getContentPane().add(txtFSsn);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(100, 111, 86, 20);
-		frame.getContentPane().add(textField_3);
+		txtFAddress = new JTextField();
+		txtFAddress.setColumns(10);
+		txtFAddress.setBounds(100, 111, 86, 20);
+		frame.getContentPane().add(txtFAddress);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(10, 159, 86, 20);
-		frame.getContentPane().add(textField_4);
+		txtFJobTitle = new JTextField();
+		txtFJobTitle.setColumns(10);
+		txtFJobTitle.setBounds(10, 159, 86, 20);
+		frame.getContentPane().add(txtFJobTitle);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(100, 159, 86, 20);
-		frame.getContentPane().add(textField_5);
+		txtFEmpNo = new JTextField();
+		txtFEmpNo.setColumns(10);
+		txtFEmpNo.setBounds(100, 159, 86, 20);
+		frame.getContentPane().add(txtFEmpNo);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(10, 208, 86, 20);
-		frame.getContentPane().add(textField_6);
+		txtFPhoneNbr = new JTextField();
+		txtFPhoneNbr.setColumns(10);
+		txtFPhoneNbr.setBounds(10, 208, 86, 20);
+		frame.getContentPane().add(txtFPhoneNbr);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(100, 208, 86, 20);
-		frame.getContentPane().add(textField_7);
+		txtFEmail = new JTextField();
+		txtFEmail.setColumns(10);
+		txtFEmail.setBounds(100, 208, 86, 20);
+		frame.getContentPane().add(txtFEmail);
 		
 		JLabel lblNewLabel = new JLabel("First name");
 		lblNewLabel.setBounds(10, 53, 62, 14);
@@ -150,17 +151,30 @@ public class GUI {
 		lblJobTitle.setBounds(10, 142, 62, 14);
 		frame.getContentPane().add(lblJobTitle);
 		
-		JLabel lblEmployeeName = new JLabel("Employee name");
+		JLabel lblEmployeeName = new JLabel("Employee no");
 		lblEmployeeName.setBounds(100, 142, 62, 14);
 		frame.getContentPane().add(lblEmployeeName);
 		
-		JLabel lblPhoneNumber = new JLabel("Phone number");
-		lblPhoneNumber.setBounds(10, 189, 62, 14);
-		frame.getContentPane().add(lblPhoneNumber);
+		JLabel lblPhoneNbr = new JLabel("Phone number");
+		lblPhoneNbr.setBounds(10, 189, 86, 14);
+		frame.getContentPane().add(lblPhoneNbr);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setBounds(100, 189, 62, 14);
 		frame.getContentPane().add(lblEmail);
+		
+		txtFSearchEmp = new JTextField();
+		txtFSearchEmp.setColumns(10);
+		txtFSearchEmp.setBounds(124, 304, 62, 20);
+		frame.getContentPane().add(txtFSearchEmp);
+		
+		JLabel lblEmployeeNo = new JLabel("Employee no");
+		lblEmployeeNo.setBounds(124, 289, 62, 14);
+		frame.getContentPane().add(lblEmployeeNo);
+		
+		JLabel lblSearchEmployee = new JLabel("Search employee:");
+		lblSearchEmployee.setBounds(10, 305, 86, 18);
+		frame.getContentPane().add(lblSearchEmployee);
 		
 		final JComboBox<String> cBoxFiles = new JComboBox<String>();
 		
