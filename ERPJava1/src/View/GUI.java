@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import se.lu.ics.grupp2.Employee;
+import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -26,7 +27,8 @@ public class GUI {
 
 	 private JFrame frame;
 	 
-	 //WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
+	 
+	 WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
 	 private JPanel panel;
 	 private JTextField txtFirstName;
 	 private JTextField txtFFirstName;
@@ -39,6 +41,9 @@ public class GUI {
 	 private JTextField txtFEmail;
 	 private JTextField txtFSearchEmp;
 	 private JTable table;
+
+
+	
 	/**
 	 * Launch the application.
 	 */
@@ -215,39 +220,57 @@ public class GUI {
 		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				//public Employee (); 
+		
 				String firstName = txtFFirstName.getText(); 
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter first name"); 
+					return;
 				}
 				String lastName = txtFLastName.getText();
 				if (lastName.equals("")) { 
 					txtPOutput.setText("Please enter last name"); 
+					return;
 				}
 				String ssn = txtFSsn.getText(); 
 				if (ssn.equals("")) { 
 					txtPOutput.setText("Please enter ssn"); 
+					return; 
 				}
 				String address = txtFAddress.getText(); 
 				if (address.equals("")) { 
 					txtPOutput.setText("Please enter address"); 
+					return;
 				}
 				String jobTitle = txtFJobTitle.getText(); 
 				if (jobTitle.equals("")) { 
 					txtPOutput.setText("Please enter job title"); 
+					return;
 				}
 				String empNbr = txtFEmpNo.getText(); 
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter employee number"); 
+					return;
 				}
 				String phoneNbr = txtFPhoneNbr.getText(); 
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter phone number"); 
+					return;
 				}
 				String email = txtFEmail.getText(); 
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter email"); 
+					return;
 				}
+				try {
+					myProxy.createEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email, ssn);
+					txtPOutput.setText("Employee created");
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					txtPOutput.setText("Failed to create employee");
+				} {
+					
+				}; 
 				
 			}
 		}
