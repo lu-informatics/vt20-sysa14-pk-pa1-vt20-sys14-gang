@@ -210,14 +210,6 @@ public class GUI {
 		
 		Employee emp = new Employee(); 
 		
-		//List of files from file system
-		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Test"); 
-		files.add("Top Secret"); 
-		for (String value: files) { 
-			 cBoxFiles.addItem(value); 
-		}
-		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 		
