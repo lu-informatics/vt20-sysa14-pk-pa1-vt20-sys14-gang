@@ -312,7 +312,7 @@ public class GUI {
 					}
 					try {
 						myProxy.updateEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email);
-						txtPOutput.setText("Updated employee with employee number" + empNbr); 
+						txtPOutput.setText("Updated employee with employee number " + empNbr); 
 					} catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
