@@ -102,7 +102,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.filename = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ERP = new System.Windows.Forms.TabPage();
@@ -907,7 +906,6 @@
             // 
             // integrations2
             // 
-            this.integrations2.Controls.Add(this.button2);
             this.integrations2.Controls.Add(this.dataGridView2);
             this.integrations2.Controls.Add(this.dataGridView1);
             this.integrations2.Location = new System.Drawing.Point(4, 22);
@@ -918,22 +916,12 @@
             this.integrations2.UseVisualStyleBackColor = true;
             this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(789, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(774, 189);
+            this.dataGridView2.Location = new System.Drawing.Point(66, 232);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(510, 150);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -942,7 +930,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(66, 43);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(638, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -1508,7 +1496,6 @@
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox phoneNumberTextBox;

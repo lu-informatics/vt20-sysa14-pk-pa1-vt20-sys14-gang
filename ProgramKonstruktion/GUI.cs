@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -147,9 +148,21 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
-            Boolean added = tenantDal.CreateTenant(tenant);
-            try {
+            //Boolean added = tenantDal.CreateTenant(tenant);
 
+
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrEmpty(emailTxt.Text))
+            {
+                errorBoxBooking.Text = "Please fill out all fields.";
+            }
+            else if (!(Regex.IsMatch(ssnBookTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(tenantNameTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(phoneNbrTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(emailTxt.Text, @"^[a-zA-Z]+$")))
+            {
+                errorBoxBooking.Text = "Please fill in the fields with right value";
+            }
+            else
+            {
+                Boolean added = tenantDal.CreateTenant(tenant);  
+               
                 if (added)
                 {
                     errorBoxBooking.Text = "Booking completed.";
@@ -163,17 +176,10 @@ namespace ProgramKonstruktion
                     errorBoxBooking.Text = "Failed to add booking, try again.";
                 }
 
-                else if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrWhiteSpace(emailTxt.Text))
-                {
-                    errorBoxBooking.Text = "Please fill out all fields. \n Social Security Number, Tenant Name, Phone Number or E-mail are not filled correctly. \n Check it out and try again";
-                }
-                } catch (SqlException E) {
-                errorBoxBooking.Text = eh.HandleErrorExceptionSql(E);
-                {
-                    
-                }
+                
+            }
+
             
-            } 
         }
 
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
@@ -189,7 +195,6 @@ namespace ProgramKonstruktion
             //ToSingle eller ToDouble?
             storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
-           
 
             Boolean added = storageDal.CreateStorage(storage);
             if (!added)
@@ -352,7 +357,10 @@ namespace ProgramKonstruktion
         private void storageSearchBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
+    
+            
             storage.Nbr = storageNmbrSearch.Text;
+            
 
             dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
             // storage.Address = storageAddressSearch.Text;
