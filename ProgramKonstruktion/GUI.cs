@@ -30,6 +30,7 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
+        private EmployeeDAL emplyeeDal = new EmployeeDAL();
         private ERP1WebService erpWebService = new ERP1WebService();
         private ErrorHandler eh = new ErrorHandler();
 
@@ -587,9 +588,8 @@ namespace ProgramKonstruktion
 
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
-              
-              
-               
+                dataGridView3.DataSource = emplyeeDal.ShowContentOfCronusDataTable();
+
             }
            // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
         }
@@ -602,6 +602,11 @@ namespace ProgramKonstruktion
         private void showAllStorages_Click(object sender, EventArgs e)
         {
             dataGridStorages.DataSource = storageDal.ShowAllStorages();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     }

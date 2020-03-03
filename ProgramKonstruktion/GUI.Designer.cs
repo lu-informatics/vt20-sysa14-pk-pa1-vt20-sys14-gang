@@ -91,6 +91,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.programkonst2 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
@@ -160,7 +161,6 @@
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -803,6 +803,14 @@
             this.programkonst2.Text = "Programkonstruktion 2";
             this.programkonst2.UseVisualStyleBackColor = true;
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(83, 502);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(622, 69);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = "";
+            // 
             // numberOfRowsBtn
             // 
             this.numberOfRowsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -993,6 +1001,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(697, 353);
             this.dataGridView3.TabIndex = 28;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // comboBoxChooseData
             // 
@@ -1344,14 +1353,6 @@
             // storageBindingSource1
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(83, 502);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(622, 69);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
             // 
             // GUI
             // 
