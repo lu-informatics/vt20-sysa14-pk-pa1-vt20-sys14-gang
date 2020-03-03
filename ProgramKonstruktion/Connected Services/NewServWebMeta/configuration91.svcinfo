@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="lHZUeAhC23dA0J+mpmk1s7Yhy5o=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="mY25fIIqJq1N77hOVIZGcVwhbWc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WebServiceERP12Soap">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WebServiceERP12Soap" contract="WebServiceNew.WebServiceERP12Soap" bindingType="basicHttpBinding" address="http://localhost/WebAppERP/WebServiceERP12.asmx" bindingConfiguration="WebServiceERP12Soap">
+    <endpoint name="WebServiceERP12Soap" contract="NewServWebMeta.WebServiceERP12Soap" bindingType="basicHttpBinding" address="http://localhost/WebAppERP/WebServiceERP12.asmx" bindingConfiguration="WebServiceERP12Soap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost/WebAppERP/WebServiceERP12.asmx</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>WebServiceERP12Soap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WebServiceNew.WebServiceERP12Soap</serializedValue>
+          <serializedValue>NewServWebMeta.WebServiceERP12Soap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

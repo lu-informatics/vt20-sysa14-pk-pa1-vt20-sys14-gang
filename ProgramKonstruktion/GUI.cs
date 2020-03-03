@@ -415,9 +415,10 @@ namespace ProgramKonstruktion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
+            NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+            //WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
             //OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
-            string response = client2.ShowFile(textBoxFileName.Text); 
+            string response = client.ShowFile(textBoxFileName.Text); 
             //string response = client.ShowFile(textBoxFileName.Text);
 
             lblResult.Text = response;
