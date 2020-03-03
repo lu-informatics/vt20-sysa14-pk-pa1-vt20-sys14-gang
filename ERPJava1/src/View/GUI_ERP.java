@@ -16,12 +16,18 @@ import javax.swing.JTextPane;
 import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
 
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
+import javax.swing.JPanel;
 
 public class GUI_ERP {
 
-	private JFrame frame;
-	 WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy (); 
-	
+	 private JFrame frame;
+	 
+	 WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy ();
+	 private JTabbedPane tabbedPane;
+	 private JPanel panel;
+	 private JTextField txtFirstName;
 	/**
 	 * Launch the application.
 	 */
@@ -50,50 +56,19 @@ public class GUI_ERP {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(700, 700, 633, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnViewFile = new JButton("View");
-		btnViewFile.setBounds(119, 26, 89, 23);
-		frame.getContentPane().add(btnViewFile);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		frame.getContentPane().add(tabbedPane);
 		
-		final JTextPane txtFileOutput = new JTextPane();
-		txtFileOutput.setBounds(10, 60, 197, 190);
-		frame.getContentPane().add(txtFileOutput);
-		
-		final JComboBox<String> cBoxFiles = new JComboBox<String>();
-		
-		//List of files from file system
-		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Test"); 
-		files.add("Top Secret"); 
-		for (String value: files) { 
-			 cBoxFiles.addItem(value); 
-		}
-		 
-		frame.getContentPane().add(cBoxFiles);
-		cBoxFiles.setBounds(10, 26, 111, 23); 
-		
-		// method for viewing a chosen file 
-		btnViewFile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-						String chosenFile = cBoxFiles.getSelectedItem().toString() + ".txt"; 
-						String fileOutput = myProxy.showFile(chosenFile); 
-						
-						txtFileOutput.setText(fileOutput);
-					} catch (RemoteException e1) {
-						txtFileOutput.setText("ojsan");
-						e1.printStackTrace();
-					} 
-				
-				
-				
-				
-			}
-		});
+		panel = new JPanel();
+		tabbedPane.addTab("ERP1", null, panel, null);
+		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		
+		panel = new JPanel();
+		tabbedPane.addTab("ERP2", null, panel, null);
 	}
 }
