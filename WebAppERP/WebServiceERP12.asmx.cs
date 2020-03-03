@@ -107,7 +107,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> ShowSickEmployees2004()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.ShowSickEmployees2004();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -124,7 +124,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllKeys()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllKeys();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -141,7 +141,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> ShowContentOfCronusDataTable()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.ShowContentOfCronusDataTable();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -158,7 +158,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> MostAbsentEmployees()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.MostAbsentEmployees();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -175,7 +175,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllIndexes()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllIndexes();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -192,7 +192,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllTableConstrains()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllTableConstrains();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -209,7 +209,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllTablesInDatabaseSolOne()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllTablesInDatabaseSolOne();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -226,7 +226,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllTablesInDatabaseSolTwo()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllTablesInDatabaseSolTwo();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -243,7 +243,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllColEmpTableSolOne()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllColEmpTableSolOne();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -260,7 +260,7 @@ namespace WebAppERP
         [WebMethod]
         public List<String> AllColEmpTableSolTwo()
         {
-            dt = employeeDal.EmployeeAndRelatives();
+            dt = employeeDal.AllColEmpTableSolTwo();
             List<String> tableList = new List<string>();
             foreach (DataRow r in dt.Rows)
             {
@@ -343,10 +343,6 @@ namespace WebAppERP
 
 
     */
-
-
-
-
         //Webbmethod for showing what a file holds.
         [WebMethod]
         public string ShowFile(string fileName)
