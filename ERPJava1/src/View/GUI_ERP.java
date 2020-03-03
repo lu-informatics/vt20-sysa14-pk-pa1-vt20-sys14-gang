@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
+import java.awt.GridBagLayout;
 
 public class GUI_ERP {
 
@@ -65,7 +66,12 @@ public class GUI_ERP {
 		
 		panel = new JPanel();
 		tabbedPane.addTab("ERP1", null, panel, null);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0};
+		gbl_panel.rowHeights = new int[]{0};
+		gbl_panel.columnWeights = new double[]{Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
 		
 		
 		panel = new JPanel();
