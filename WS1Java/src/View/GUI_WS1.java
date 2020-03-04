@@ -68,6 +68,7 @@ public class GUI_WS1 {
 		ArrayList<String>files = new ArrayList<String>(); 
 		files.add("Test"); 
 		files.add("Top Secret"); 
+		files.add("HelloWorld"); 
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
