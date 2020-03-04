@@ -113,7 +113,7 @@ namespace ProgramKonstruktion
 
         private void ssnSearchTxt_TextChanged(object sender, EventArgs e)
         {
- 
+
         }
 
         private void dateTxtBox_TextChanged(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //When button is clicked the tenant with the ssn searched is shown in GridView
+        //Search after Booking with TenantSsn
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -129,7 +129,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //Creates a booking on a Storage
+        //Add Booking
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -137,43 +137,25 @@ namespace ProgramKonstruktion
             tenant.Name = tenantNameTxt.Text;
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
-            cleanTextFields();
-
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
-            tenant.RentDate = monthCalendar.SelectionRange.Start;       
+            tenant.RentDate = monthCalendar.SelectionRange.Start;
 
-
-            if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrEmpty(emailTxt.Text))
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) && (string.IsNullOrEmpty(tenantNameTxt.Text)) && (string.IsNullOrEmpty(phoneNbrTxt.Text)) && (string.IsNullOrEmpty(emailTxt.Text)))
             {
-                errorBoxBooking.Text = "Please fill out all fields.";
+                errorBoxBooking.Text = "Failed to add booking. All fields has to be filled. Please try again.";
             }
-            else if (!(Regex.IsMatch(ssnBookTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(tenantNameTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(phoneNbrTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(emailTxt.Text, @"^[a-zA-Z]+$")))
+            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
             {
-                errorBoxBooking.Text = "Please fill in the fields with right value";
-            }
-            else
-            {
-                Boolean added = tenantDal.CreateTenant(tenant);  
-               
-                if (added)
-                {
-                    errorBoxBooking.Text = "Booking completed.";
-                    this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
-
-                    SetAllStoragesToComboBox();
-                }
-
-                else if (!added)
-                {
-                    errorBoxBooking.Text = "Failed to add booking, try again.";
-                }
-
+                tenantDal.CreateTenant(tenant);
+                errorBoxBooking.Text = "Booking completed!";
+                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+                SetAllStoragesToComboBox();
                 
-            }
+            }   
+            cleanTextFields();
 
-            
         }
 
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
