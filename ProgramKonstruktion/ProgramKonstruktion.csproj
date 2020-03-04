@@ -53,7 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\WebServiceNew\Reference.cs">
+    <Compile Include="Connected Services\NewServWebMeta\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\NewWebRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -143,6 +148,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\NewWebRefMeta\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\OpenFileService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,48 +175,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\NewServWebMeta\ProgramKonstruktion.NewServWebMeta.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NewServWebMeta\WebServiceERP12.wsdl" />
+    <None Include="Connected Services\NewWebRef\ProgramKonstruktion.NewWebRef.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NewWebRef\WebServiceERP12.wsdl" />
     <None Include="Connected Services\OpenFileService\ProgramKonstruktion.OpenFileService.ShowFileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\OpenFileService\WebServiceAssignment.wsdl" />
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.CreateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.CreateTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteTenantFromStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.DeleteTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.FindStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.FindTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.Storage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.Tenant.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.UpdateStorageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.UpdateTenantResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SqlServiceReference\sqlWebService.wsdl" />
-    <None Include="Connected Services\WebServiceNew\ProgramKonstruktion.WebServiceNew.Employee.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WebServiceNew\WebServiceERP12.wsdl" />
     <None Include="Properties\DataSources\Storage.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
@@ -336,6 +323,14 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\NewWebRefMeta\Employee.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NewWebRefMeta\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\NewWebRefMeta\WebServiceERP12.wsdl" />
     <None Include="Web References\OpenFileService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -385,6 +380,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ProgramKonstruktion_SqlWebReference_SqlWebService</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/WebAppERP/WebServiceERP12.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewWebRefMeta\</RelPath>
+      <UpdateFromURL>http://localhost/WebAppERP/WebServiceERP12.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProgramKonstruktion_NewWebRefMeta_WebServiceERP12</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost/WebApplication/WebServiceAssignment.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\OpenFileService\</RelPath>
@@ -401,9 +407,10 @@
     <None Include="Web References\OpenFileService\WebServiceAssignment.disco" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\NewServWebMeta\" />
+    <WCFMetadataStorage Include="Connected Services\NewWebRef\" />
     <WCFMetadataStorage Include="Connected Services\OpenFileService\" />
     <WCFMetadataStorage Include="Connected Services\SqlServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\WebServiceNew\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\OpenFileService\WebServiceAssignment.disco" />
@@ -442,16 +449,34 @@
     <None Include="Web References\ERP1WebRef\ERP1WebService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WebServiceNew\WebServiceERP12.disco" />
+    <None Include="Web References\NewWebRefMeta\WebServiceERP12.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WebServiceNew\configuration91.svcinfo" />
+    <None Include="Connected Services\NewServWebMeta\WebServiceERP12.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WebServiceNew\configuration.svcinfo" />
+    <None Include="Connected Services\NewServWebMeta\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WebServiceNew\Reference.svcmap">
+    <None Include="Connected Services\NewServWebMeta\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewServWebMeta\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\WebServiceERP12.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -91,6 +91,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.programkonst2 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
@@ -101,7 +102,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.filename = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ERP = new System.Windows.Forms.TabPage();
@@ -263,9 +263,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(213, 384);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Date Selected";
+            this.label6.Text = "Date Selected:";
             // 
             // dateTxtBox
             // 
@@ -422,9 +422,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(58, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 20);
+            this.label7.Size = new System.Drawing.Size(152, 20);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Make new Booking";
+            this.label7.Text = "Create new Booking";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // errorBoxBooking
@@ -647,7 +647,7 @@
             // 
             // addStorageBtn
             // 
-            this.addStorageBtn.Location = new System.Drawing.Point(169, 387);
+            this.addStorageBtn.Location = new System.Drawing.Point(150, 387);
             this.addStorageBtn.Name = "addStorageBtn";
             this.addStorageBtn.Size = new System.Drawing.Size(75, 23);
             this.addStorageBtn.TabIndex = 10;
@@ -791,6 +791,7 @@
             // 
             // programkonst2
             // 
+            this.programkonst2.Controls.Add(this.richTextBox2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
             this.programkonst2.Controls.Add(this.dataGridProgram2);
@@ -800,6 +801,14 @@
             this.programkonst2.TabIndex = 3;
             this.programkonst2.Text = "Programkonstruktion 2";
             this.programkonst2.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(83, 502);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(622, 69);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = "";
             // 
             // numberOfRowsBtn
             // 
@@ -897,7 +906,6 @@
             // 
             // integrations2
             // 
-            this.integrations2.Controls.Add(this.button2);
             this.integrations2.Controls.Add(this.dataGridView2);
             this.integrations2.Controls.Add(this.dataGridView1);
             this.integrations2.Location = new System.Drawing.Point(4, 22);
@@ -908,22 +916,12 @@
             this.integrations2.UseVisualStyleBackColor = true;
             this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(789, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(774, 189);
+            this.dataGridView2.Location = new System.Drawing.Point(66, 232);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(510, 150);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -932,7 +930,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(66, 43);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(638, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -991,6 +989,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(697, 353);
             this.dataGridView3.TabIndex = 28;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // comboBoxChooseData
             // 
@@ -1497,7 +1496,6 @@
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
@@ -1529,6 +1527,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button showAllBookingsBtn;
         private System.Windows.Forms.Button showAllStorages;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 
    

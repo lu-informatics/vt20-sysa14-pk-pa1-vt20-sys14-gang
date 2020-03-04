@@ -84,5 +84,15 @@ namespace ProgramKonstruktion.Properties {
                 return ((string)(this["ProgramKonstruktion_ERP1WebRef_ERP1WebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/WebAppERP/WebServiceERP12.asmx")]
+        public string ProgramKonstruktion_NewWebRefMeta_WebServiceERP12 {
+            get {
+                return ((string)(this["ProgramKonstruktion_NewWebRefMeta_WebServiceERP12"]));
+            }
+        }
     }
 }

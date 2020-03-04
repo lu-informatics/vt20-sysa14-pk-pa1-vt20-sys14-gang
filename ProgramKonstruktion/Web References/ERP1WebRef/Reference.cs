@@ -20,13 +20,14 @@ namespace ProgramKonstruktion.ERP1WebRef {
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Data;
     
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ERP1WebServiceSoap", Namespace="http://tempuri.org/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="ERP1WebServiceSoap", Namespace="http://grupp2.ics.lu.se/")]
     public partial class ERP1WebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback CreateEmployeeOperationCompleted;
@@ -36,6 +37,8 @@ namespace ProgramKonstruktion.ERP1WebRef {
         private System.Threading.SendOrPostCallback UpdateEmployeeOperationCompleted;
         
         private System.Threading.SendOrPostCallback DeleteEmployeeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ShowContentOfCronusOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -88,7 +91,10 @@ namespace ProgramKonstruktion.ERP1WebRef {
         public event DeleteEmployeeCompletedEventHandler DeleteEmployeeCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public event ShowContentOfCronusCompletedEventHandler ShowContentOfCronusCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/CreateEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn) {
             object[] results = this.Invoke("CreateEmployee", new object[] {
                         no,
@@ -131,7 +137,7 @@ namespace ProgramKonstruktion.ERP1WebRef {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FindEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/FindEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee FindEmployee(string no) {
             object[] results = this.Invoke("FindEmployee", new object[] {
                         no});
@@ -160,7 +166,7 @@ namespace ProgramKonstruktion.ERP1WebRef {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/UpdateEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Employee UpdateEmployee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string email) {
             object[] results = this.Invoke("UpdateEmployee", new object[] {
                         no,
@@ -201,7 +207,7 @@ namespace ProgramKonstruktion.ERP1WebRef {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteEmployee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/DeleteEmployee", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool DeleteEmployee(string no) {
             object[] results = this.Invoke("DeleteEmployee", new object[] {
                         no});
@@ -230,6 +236,33 @@ namespace ProgramKonstruktion.ERP1WebRef {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp2.ics.lu.se/ShowContentOfCronus", RequestNamespace="http://grupp2.ics.lu.se/", ResponseNamespace="http://grupp2.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable ShowContentOfCronus() {
+            object[] results = this.Invoke("ShowContentOfCronus", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ShowContentOfCronusAsync() {
+            this.ShowContentOfCronusAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ShowContentOfCronusAsync(object userState) {
+            if ((this.ShowContentOfCronusOperationCompleted == null)) {
+                this.ShowContentOfCronusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnShowContentOfCronusOperationCompleted);
+            }
+            this.InvokeAsync("ShowContentOfCronus", new object[0], this.ShowContentOfCronusOperationCompleted, userState);
+        }
+        
+        private void OnShowContentOfCronusOperationCompleted(object arg) {
+            if ((this.ShowContentOfCronusCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ShowContentOfCronusCompleted(this, new ShowContentOfCronusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -253,7 +286,7 @@ namespace ProgramKonstruktion.ERP1WebRef {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp2.ics.lu.se/")]
     public partial class Employee {
         
         private string noField;
@@ -453,6 +486,32 @@ namespace ProgramKonstruktion.ERP1WebRef {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    public delegate void ShowContentOfCronusCompletedEventHandler(object sender, ShowContentOfCronusCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ShowContentOfCronusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ShowContentOfCronusCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
             }
         }
     }

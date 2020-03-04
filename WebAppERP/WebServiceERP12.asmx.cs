@@ -22,6 +22,8 @@ namespace WebAppERP
 
 
         EmployeeDAL employeeDal = new EmployeeDAL();
+        DataTable dt = new DataTable(); 
+
 
         [WebMethod]
         public Employee CreateEmployee(string no, string FirstName, string lastName, string jobTitle, string address, string phoneNumber, string email, string ssn)
@@ -83,13 +85,197 @@ namespace WebAppERP
 
         }
 
+
+        //New webmethods from Tove  
         [WebMethod]
-        public DataTable EmployeeAndRelatives()
+        public List<String> EmployeeAndRelatives()
         {
-            DataTable empRel = employeeDal.EmployeeAndRelatives();
-            return empRel;
+            dt = employeeDal.EmployeeAndRelatives();
+            List<String> tableList = new List<string>(); 
+            foreach(DataRow r in dt.Rows)
+            {
+                string value = ""; 
+                foreach(DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | "; 
+                }
+                tableList.Add(value); 
+            }
+            return tableList; 
         }
 
+        [WebMethod]
+        public List<String> ShowSickEmployees2004()
+        {
+            dt = employeeDal.ShowSickEmployees2004();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllKeys()
+        {
+            dt = employeeDal.AllKeys();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> ShowContentOfCronusDataTable()
+        {
+            dt = employeeDal.ShowContentOfCronusDataTable();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> MostAbsentEmployees()
+        {
+            dt = employeeDal.MostAbsentEmployees();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllIndexes()
+        {
+            dt = employeeDal.AllIndexes();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllTableConstrains()
+        {
+            dt = employeeDal.AllTableConstrains();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllTablesInDatabaseSolOne()
+        {
+            dt = employeeDal.AllTablesInDatabaseSolOne();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllTablesInDatabaseSolTwo()
+        {
+            dt = employeeDal.AllTablesInDatabaseSolTwo();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllColEmpTableSolOne()
+        {
+            dt = employeeDal.AllColEmpTableSolOne();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "" ;
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+        [WebMethod]
+        public List<String> AllColEmpTableSolTwo()
+        {
+            dt = employeeDal.AllColEmpTableSolTwo();
+            List<String> tableList = new List<string>();
+            foreach (DataRow r in dt.Rows)
+            {
+                string value = "";
+                foreach (DataColumn c in dt.Columns)
+                {
+                    value += r[c].ToString() + " | ";
+                }
+                tableList.Add(value);
+            }
+            return tableList;
+        }
+
+
+        /*
         [WebMethod]
         public DataTable ShowSickEmployees2004()
         {
@@ -103,8 +289,9 @@ namespace WebAppERP
             DataTable mostAbsentEmp = employeeDal.MostAbsentEmployees();
             return mostAbsentEmp; 
         }
+        */
 
-
+/*
         [WebMethod]
         public DataTable AllKeys()
         {
@@ -155,11 +342,7 @@ namespace WebAppERP
         }
 
 
-
-
-
-
-
+    */
         //Webbmethod for showing what a file holds.
         [WebMethod]
         public string ShowFile(string fileName)

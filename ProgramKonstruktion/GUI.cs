@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,7 +31,9 @@ namespace ProgramKonstruktion
         private Storage storage = new Storage();
         private Employee employee = new Employee();
         private PK2DAL PK2Dal = new PK2DAL();
+        private EmployeeDAL emplyeeDal = new EmployeeDAL();
         private ERP1WebService erpWebService = new ERP1WebService();
+        private ErrorHandler eh = new ErrorHandler();
 
 
 
@@ -38,7 +42,7 @@ namespace ProgramKonstruktion
         {
             comboBoxStorage.Items.Clear();
             comboBoxStorage.Text = "Select available storage";
-            List<Storage>  listOfStorage = storageDal.listOfAvailableStorages();
+            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
             Console.WriteLine(listOfStorage.Count);
             foreach (Storage s in listOfStorage)
             {
@@ -64,7 +68,7 @@ namespace ProgramKonstruktion
 
         }
 
-       
+
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -127,7 +131,7 @@ namespace ProgramKonstruktion
             //tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
 
             //errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
-    
+
         }
 
         //Book tenant on Storage
@@ -138,27 +142,46 @@ namespace ProgramKonstruktion
             tenant.Name = tenantNameTxt.Text;
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
-            
+            cleanTextFields();
+
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
-            Boolean added = tenantDal.CreateTenant(tenant);
-            if (!added)
+            //Boolean added = tenantDal.CreateTenant(tenant);
+
+
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrEmpty(emailTxt.Text))
             {
-                errorBoxBooking.Text = "Failed to add booking, try again.";
+                errorBoxBooking.Text = "Please fill out all fields.";
+            }
+            else if (!(Regex.IsMatch(ssnBookTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(tenantNameTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(phoneNbrTxt.Text, @"^[a-zA-Z]+$") || Regex.IsMatch(emailTxt.Text, @"^[a-zA-Z]+$")))
+            {
+                errorBoxBooking.Text = "Please fill in the fields with right value";
             }
             else
             {
-                errorBoxBooking.Text = "Booking completed.";
-                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
-                cleanTextFields();
-                SetAllStoragesToComboBox();
+                Boolean added = tenantDal.CreateTenant(tenant);  
+               
+                if (added)
+                {
+                    errorBoxBooking.Text = "Booking completed.";
+                    this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+
+                    SetAllStoragesToComboBox();
+                }
+
+                else if (!added)
+                {
+                    errorBoxBooking.Text = "Failed to add booking, try again.";
+                }
+
+                
             }
+
             
-
-
         }
+
         private void dataGridBookings_CellContentClick (object sender, DataGridViewCellEventArgs e)
         {
            
@@ -172,7 +195,6 @@ namespace ProgramKonstruktion
             //ToSingle eller ToDouble?
             storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
-           
 
             Boolean added = storageDal.CreateStorage(storage);
             if (!added)
@@ -335,7 +357,10 @@ namespace ProgramKonstruktion
         private void storageSearchBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
+    
+            
             storage.Nbr = storageNmbrSearch.Text;
+            
 
             dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
             // storage.Address = storageAddressSearch.Text;
@@ -399,9 +424,10 @@ namespace ProgramKonstruktion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
+            NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+            //WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
             //OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
-            string response = client2.ShowFile(textBoxFileName.Text); 
+            string response = client.ShowFile(textBoxFileName.Text); 
             //string response = client.ShowFile(textBoxFileName.Text);
 
             lblResult.Text = response;
@@ -568,13 +594,125 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
             string choosenData = selected;
 
+            //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
-              
-              
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.ShowContentOfCronusDataTable()); //OBS Fel!
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+
+            }
+            else if(choosenData.Equals("Employees and their relatives"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.EmployeeAndRelatives());
+                dataGridView3.Columns.Add(" ", " "); 
+                foreach(string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s); 
+                }
                
             }
-           // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+            else if(choosenData.Equals("Sick employees 2004"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.ShowSickEmployees2004());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+
+            }
+            else if(choosenData.Equals("Most absent employee"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.MostAbsentEmployees());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+
+            }
+            else if(choosenData.Equals("Metadata: Keys"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.AllKeys());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+
+            }
+            else if(choosenData.Equals("Metadata: Indexes"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.AllIndexes());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+            }
+            else if(choosenData.Equals("Metadata: Table constraint"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.AllTableConstrains());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+            }
+            else if (choosenData.Equals("Metadata: All tables"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.AllTablesInDatabaseSolOne());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+            }
+            else if(choosenData.Equals("Metadata: All columns"))
+            {
+                dataGridView3.Rows.Clear();
+                NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
+               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                List<string> listOfRelatives = new List<string>(c.AllColEmpTableSolOne());
+                dataGridView3.Columns.Add(" ", " ");
+                foreach (string s in listOfRelatives)
+                {
+                    dataGridView3.Rows.Add(s);
+                }
+            }
+                // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+
+
+            
         }
 
         private void showAllBookingsBtn_Click(object sender, EventArgs e)
@@ -585,6 +723,11 @@ namespace ProgramKonstruktion
         private void showAllStorages_Click(object sender, EventArgs e)
         {
             dataGridStorages.DataSource = storageDal.ShowAllStorages();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     }
