@@ -119,7 +119,7 @@ public class GUI_WS2 {
 				}
 				if (chosenList.contentEquals("Tenant")) {
 					try {
-						Tenant [] tenantList = myProxy.getTenantBookings(); 
+					
 						for (Tenant tenant: myProxy.getTenantBookings()) {
 								tenantOutput+= (
 									"Email: " + tenant.getEmail() + "\n"

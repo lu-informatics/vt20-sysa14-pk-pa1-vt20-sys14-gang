@@ -1,12 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/org/tempuri/Employee.java=UTF-8
-encoding//src/org/tempuri/ShowContentOfCronusResponseShowContentOfCronusResult.java=UTF-8
-encoding//src/org/tempuri/ShowFile.java=UTF-8
-encoding//src/org/tempuri/ShowFileResponse.java=UTF-8
-encoding//src/org/tempuri/WebServiceERP12.java=UTF-8
-encoding//src/org/tempuri/WebServiceERP12Locator.java=UTF-8
-encoding//src/org/tempuri/WebServiceERP12Soap.java=UTF-8
-encoding//src/org/tempuri/WebServiceERP12SoapStub.java=UTF-8
 encoding//src/se/lu/ics/grupp2/AllColEmpTableSolOne.java=UTF-8
 encoding//src/se/lu/ics/grupp2/AllColEmpTableSolOneResponse.java=UTF-8
 encoding//src/se/lu/ics/grupp2/AllColEmpTableSolTwo.java=UTF-8
