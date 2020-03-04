@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramKonstruktion", "Prog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlWebApplication", "SqlWebApplication\SqlWebApplication.csproj", "{18C6CB25-3D09-4042-87FD-DBF813ACE856}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppWebService", "ConsoleAppWebService\ConsoleAppWebService.csproj", "{86BCE12E-664E-47B8-83C3-38842008368F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9590976D-7A3C-4590-852A-5969001D9137} = {9590976D-7A3C-4590-852A-5969001D9137}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSql", "ConsoleAppSql\ConsoleAppSql.csproj", "{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856} = {18C6CB25-3D09-4042-87FD-DBF813ACE856}
@@ -40,10 +35,6 @@ Global
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18C6CB25-3D09-4042-87FD-DBF813ACE856}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86BCE12E-664E-47B8-83C3-38842008368F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86BCE12E-664E-47B8-83C3-38842008368F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86BCE12E-664E-47B8-83C3-38842008368F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86BCE12E-664E-47B8-83C3-38842008368F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A0BDA4-0BC4-4E93-A41C-DDCC52C45FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -26,8 +26,6 @@ namespace ConsoleAppSql
                 Console.WriteLine("Number: {0}, Price: {1}, Size: {2}, Address: {3}", s.Nbr, Convert.ToString(s.Price), Convert.ToString(s.Size), s.Address);
             }
 
-            Console.ReadLine();
-
             List<Tenant> listOfTenants = service.GetTenantBookings();
             Console.WriteLine("----- TENANTS -----");
             foreach (Tenant t in listOfTenants)

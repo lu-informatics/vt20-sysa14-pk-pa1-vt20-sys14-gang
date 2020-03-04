@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost/WebApplication/WebServiceAssignment.asmx?wsdl" docRef="http://localhost/WebApplication/WebServiceAssignment.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://localhost/WebApplication/WebServiceAssignment.asmx" xmlns:q1="http://grupp2.ics.lu.se/" binding="q1:WebServiceAssignmentSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://localhost/WebApplication/WebServiceAssignment.asmx" xmlns:q2="http://grupp2.ics.lu.se/" binding="q2:WebServiceAssignmentSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-</discovery>
