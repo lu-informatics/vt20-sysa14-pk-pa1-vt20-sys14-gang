@@ -20,8 +20,7 @@ namespace ProgramKonstruktion
             InitializeComponent();
             SetAllStoragesToComboBox();
             setDataToShowComboBox();
-
-
+            setDataToComboBoxINT1();
 
         }
 
@@ -68,7 +67,11 @@ namespace ProgramKonstruktion
 
         }
 
-
+        public void setDataToComboBoxINT1()
+        {
+            comboBoxINT1.Items.Add("Mats Merged");
+            comboBoxINT1.Items.Add("Errorgan");
+        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -424,13 +427,28 @@ namespace ProgramKonstruktion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
+           // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
             //WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
             //OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
-            string response = client.ShowFile(textBoxFileName.Text); 
-            //string response = client.ShowFile(textBoxFileName.Text);
 
-            lblResult.Text = response;
+            Object selectedItem = comboBoxINT1.SelectedItem;
+            var selected = this.comboBoxINT1.GetItemText(this.comboBoxINT1.SelectedItem);          
+            string choosenData = selected;
+
+            if (choosenData.Equals("Mats Merged"))
+            {
+                NewWebRef.WebServiceERP12SoapClient client = new NewWebRef.WebServiceERP12SoapClient();
+                //ewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+                string chosenData = client.ShowFile("Mats.txt");
+                richTextBoxINT1.Text = chosenData;
+
+            }
+            else if (choosenData.Equals("Errorgan"))
+            {
+                NewWebRef.WebServiceERP12SoapClient client = new NewWebRef.WebServiceERP12SoapClient();
+                string chosenData = client.ShowFile("Erdogan.txt");
+                richTextBoxINT1.Text = chosenData;
+            }
 
         }
 
@@ -743,6 +761,16 @@ namespace ProgramKonstruktion
         {
             SqlServiceReference.SqlWebServiceSoapClient client = new SqlServiceReference.SqlWebServiceSoapClient();
             dataGridView2.DataSource = client.ShowAllStorages();
+        }
+
+        private void comboBoxChooseData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxINT1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }
