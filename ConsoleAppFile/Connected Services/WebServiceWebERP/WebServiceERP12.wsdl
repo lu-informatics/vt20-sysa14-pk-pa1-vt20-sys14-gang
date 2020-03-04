@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://grupp2.ics.lu.se/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://grupp2.ics.lu.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://grupp2.ics.lu.se/">
+      <s:element name="CreateEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateEmployeeResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="No" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ssn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindEmployeeResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateEmployeeResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteEmployeeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowContentOfCronus">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowContentOfCronusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowContentOfCronusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeAndRelatives">
+        <s:complexType />
+      </s:element>
+      <s:element name="EmployeeAndRelativesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmployeeAndRelativesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ShowSickEmployees2004">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowSickEmployees2004Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowSickEmployees2004Result" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllKeys">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllKeysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllKeysResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowContentOfCronusDataTable">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowContentOfCronusDataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowContentOfCronusDataTableResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MostAbsentEmployees">
+        <s:complexType />
+      </s:element>
+      <s:element name="MostAbsentEmployeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MostAbsentEmployeesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllIndexes">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllIndexesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllIndexesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllTableConstrains">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllTableConstrainsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllTableConstrainsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllTablesInDatabaseSolOne">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllTablesInDatabaseSolOneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllTablesInDatabaseSolOneResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllTablesInDatabaseSolTwo">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllTablesInDatabaseSolTwoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllTablesInDatabaseSolTwoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllColEmpTableSolOne">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllColEmpTableSolOneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllColEmpTableSolOneResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllColEmpTableSolTwo">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllColEmpTableSolTwoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllColEmpTableSolTwoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:FindEmployee" />
+  </wsdl:message>
+  <wsdl:message name="FindEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:FindEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronus" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronusResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeeAndRelativesSoapIn">
+    <wsdl:part name="parameters" element="tns:EmployeeAndRelatives" />
+  </wsdl:message>
+  <wsdl:message name="EmployeeAndRelativesSoapOut">
+    <wsdl:part name="parameters" element="tns:EmployeeAndRelativesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowSickEmployees2004SoapIn">
+    <wsdl:part name="parameters" element="tns:ShowSickEmployees2004" />
+  </wsdl:message>
+  <wsdl:message name="ShowSickEmployees2004SoapOut">
+    <wsdl:part name="parameters" element="tns:ShowSickEmployees2004Response" />
+  </wsdl:message>
+  <wsdl:message name="AllKeysSoapIn">
+    <wsdl:part name="parameters" element="tns:AllKeys" />
+  </wsdl:message>
+  <wsdl:message name="AllKeysSoapOut">
+    <wsdl:part name="parameters" element="tns:AllKeysResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusDataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronusDataTable" />
+  </wsdl:message>
+  <wsdl:message name="ShowContentOfCronusDataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowContentOfCronusDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="MostAbsentEmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:MostAbsentEmployees" />
+  </wsdl:message>
+  <wsdl:message name="MostAbsentEmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:MostAbsentEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllIndexesSoapIn">
+    <wsdl:part name="parameters" element="tns:AllIndexes" />
+  </wsdl:message>
+  <wsdl:message name="AllIndexesSoapOut">
+    <wsdl:part name="parameters" element="tns:AllIndexesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllTableConstrainsSoapIn">
+    <wsdl:part name="parameters" element="tns:AllTableConstrains" />
+  </wsdl:message>
+  <wsdl:message name="AllTableConstrainsSoapOut">
+    <wsdl:part name="parameters" element="tns:AllTableConstrainsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllTablesInDatabaseSolOneSoapIn">
+    <wsdl:part name="parameters" element="tns:AllTablesInDatabaseSolOne" />
+  </wsdl:message>
+  <wsdl:message name="AllTablesInDatabaseSolOneSoapOut">
+    <wsdl:part name="parameters" element="tns:AllTablesInDatabaseSolOneResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllTablesInDatabaseSolTwoSoapIn">
+    <wsdl:part name="parameters" element="tns:AllTablesInDatabaseSolTwo" />
+  </wsdl:message>
+  <wsdl:message name="AllTablesInDatabaseSolTwoSoapOut">
+    <wsdl:part name="parameters" element="tns:AllTablesInDatabaseSolTwoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllColEmpTableSolOneSoapIn">
+    <wsdl:part name="parameters" element="tns:AllColEmpTableSolOne" />
+  </wsdl:message>
+  <wsdl:message name="AllColEmpTableSolOneSoapOut">
+    <wsdl:part name="parameters" element="tns:AllColEmpTableSolOneResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllColEmpTableSolTwoSoapIn">
+    <wsdl:part name="parameters" element="tns:AllColEmpTableSolTwo" />
+  </wsdl:message>
+  <wsdl:message name="AllColEmpTableSolTwoSoapOut">
+    <wsdl:part name="parameters" element="tns:AllColEmpTableSolTwoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowFile" />
+  </wsdl:message>
+  <wsdl:message name="ShowFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceERP12Soap">
+    <wsdl:operation name="CreateEmployee">
+      <wsdl:input message="tns:CreateEmployeeSoapIn" />
+      <wsdl:output message="tns:CreateEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindEmployee">
+      <wsdl:input message="tns:FindEmployeeSoapIn" />
+      <wsdl:output message="tns:FindEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input message="tns:UpdateEmployeeSoapIn" />
+      <wsdl:output message="tns:UpdateEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input message="tns:DeleteEmployeeSoapIn" />
+      <wsdl:output message="tns:DeleteEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <wsdl:input message="tns:ShowContentOfCronusSoapIn" />
+      <wsdl:output message="tns:ShowContentOfCronusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAndRelatives">
+      <wsdl:input message="tns:EmployeeAndRelativesSoapIn" />
+      <wsdl:output message="tns:EmployeeAndRelativesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowSickEmployees2004">
+      <wsdl:input message="tns:ShowSickEmployees2004SoapIn" />
+      <wsdl:output message="tns:ShowSickEmployees2004SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllKeys">
+      <wsdl:input message="tns:AllKeysSoapIn" />
+      <wsdl:output message="tns:AllKeysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronusDataTable">
+      <wsdl:input message="tns:ShowContentOfCronusDataTableSoapIn" />
+      <wsdl:output message="tns:ShowContentOfCronusDataTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MostAbsentEmployees">
+      <wsdl:input message="tns:MostAbsentEmployeesSoapIn" />
+      <wsdl:output message="tns:MostAbsentEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllIndexes">
+      <wsdl:input message="tns:AllIndexesSoapIn" />
+      <wsdl:output message="tns:AllIndexesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllTableConstrains">
+      <wsdl:input message="tns:AllTableConstrainsSoapIn" />
+      <wsdl:output message="tns:AllTableConstrainsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolOne">
+      <wsdl:input message="tns:AllTablesInDatabaseSolOneSoapIn" />
+      <wsdl:output message="tns:AllTablesInDatabaseSolOneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolTwo">
+      <wsdl:input message="tns:AllTablesInDatabaseSolTwoSoapIn" />
+      <wsdl:output message="tns:AllTablesInDatabaseSolTwoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolOne">
+      <wsdl:input message="tns:AllColEmpTableSolOneSoapIn" />
+      <wsdl:output message="tns:AllColEmpTableSolOneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolTwo">
+      <wsdl:input message="tns:AllColEmpTableSolTwoSoapIn" />
+      <wsdl:output message="tns:AllColEmpTableSolTwoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <wsdl:input message="tns:ShowFileSoapIn" />
+      <wsdl:output message="tns:ShowFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceERP12Soap" type="tns:WebServiceERP12Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateEmployee">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/CreateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindEmployee">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/FindEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAndRelatives">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/EmployeeAndRelatives" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowSickEmployees2004">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowSickEmployees2004" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllKeys">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllKeys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronusDataTable">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronusDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostAbsentEmployees">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/MostAbsentEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllIndexes">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllIndexes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTableConstrains">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllTableConstrains" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolOne">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolTwo">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolOne">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllColEmpTableSolOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolTwo">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/AllColEmpTableSolTwo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <soap:operation soapAction="http://grupp2.ics.lu.se/ShowFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceERP12Soap12" type="tns:WebServiceERP12Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateEmployee">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/CreateEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindEmployee">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/FindEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronus">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAndRelatives">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/EmployeeAndRelatives" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowSickEmployees2004">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowSickEmployees2004" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllKeys">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllKeys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowContentOfCronusDataTable">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowContentOfCronusDataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostAbsentEmployees">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/MostAbsentEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllIndexes">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllIndexes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTableConstrains">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllTableConstrains" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolOne">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTablesInDatabaseSolTwo">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolOne">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllColEmpTableSolOne" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllColEmpTableSolTwo">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/AllColEmpTableSolTwo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFile">
+      <soap12:operation soapAction="http://grupp2.ics.lu.se/ShowFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceERP12">
+    <wsdl:port name="WebServiceERP12Soap" binding="tns:WebServiceERP12Soap">
+      <soap:address location="http://localhost/WebAppERP/WebServiceERP12.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceERP12Soap12" binding="tns:WebServiceERP12Soap12">
+      <soap12:address location="http://localhost/WebAppERP/WebServiceERP12.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
