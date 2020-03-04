@@ -3,6 +3,8 @@ package view;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import java.awt.List;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
@@ -40,7 +42,7 @@ public class JavaClientGui {
 	 private JTextField txtFPhoneNbr;
 	 private JTextField txtFEmail;
 	 private JTextField txtFSearchEmp;
-	 private JTable table;
+	 private JTable tableQuerys;
 	
 	/**
 	 * Launch the application.
@@ -192,9 +194,9 @@ public class JavaClientGui {
 		btnRunQuery.setBounds(559, 67, 89, 23);
 		frame.getContentPane().add(btnRunQuery);
 		
-		table = new JTable();
-		table.setBounds(298, 142, 351, 256);
-		frame.getContentPane().add(table);
+		tableQuerys = new JTable();
+		tableQuerys.setBounds(298, 142, 351, 256);
+		frame.getContentPane().add(tableQuerys);
 		
 		JLabel lblErpUppgift = new JLabel("ERP Uppgift 1");
 		lblErpUppgift.setBounds(10, 28, 108, 14);
@@ -345,9 +347,6 @@ public class JavaClientGui {
 							+ "Last name: " + employee.getLastName() + "\n"
 							+ "Job title: " + employee.getJobTitle() + "\n"
 							+ "Email: " + employee.getEmail());
-					 //find should return lastname, job title and email
-					
-					
 					
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
@@ -396,7 +395,17 @@ public class JavaClientGui {
 		btnRunQuery.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				String query = cBoxQuery.getSelectedItem().toString(); 
-				
+				if (query.equals("Content and metadata for Employee tables")) { 
+					try {
+						Employee emp = new Employee(); 
+						String[] listOfRelatives = myProxy.showContentOfCronusDataTable(); 
+						txtPOutput.setText(listOfRelatives.toString());
+						
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
 			}
 		}); 
 			 
