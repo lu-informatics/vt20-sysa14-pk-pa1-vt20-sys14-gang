@@ -252,7 +252,7 @@ namespace ProgramKonstruktion
         }
 
         //Find Booking in dataGrid
-        public DataTable findTenants(string ssn)
+        public DataTable FindTenants(string ssn)
         {
             DataTable dtTenant = new DataTable();
             Tenant tenant = new Tenant();
