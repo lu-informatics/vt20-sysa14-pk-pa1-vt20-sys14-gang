@@ -86,11 +86,7 @@ public class GUI_WS1 {
 					} catch (RemoteException e1) {
 						txtFileOutput.setText("ojsan");
 						e1.printStackTrace();
-					} 
-				
-				
-				
-				
+					} 			
 			}
 		});
 		
