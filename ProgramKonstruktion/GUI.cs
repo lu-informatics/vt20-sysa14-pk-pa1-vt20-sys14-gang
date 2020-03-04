@@ -729,6 +729,21 @@ namespace ProgramKonstruktion
         {
 
         }
+
+        private void showAllBookingsINT2_Click(object sender, EventArgs e)
+        {
+
+            SqlServiceReference.SqlWebServiceSoapClient client = new SqlServiceReference.SqlWebServiceSoapClient();
+            //DataTable dt = client.ShowAllBookings();
+            dataGridView2.DataSource = client.ShowAllBookings();
+            //dataGridView2.DataBindingComplete();
+        }
+
+        private void showAllStoragesINT2_Click(object sender, EventArgs e)
+        {
+            SqlServiceReference.SqlWebServiceSoapClient client = new SqlServiceReference.SqlWebServiceSoapClient();
+            dataGridView2.DataSource = client.ShowAllStorages();
+        }
     }
     }
 

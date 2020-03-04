@@ -35,8 +35,12 @@ namespace SqlWebApplication
         [WebMethod]
         public DataTable ShowAllBookings()
         {
-            DataTable showAllBooking = tenantDAL.ShowAllBookings();
-            return showAllBooking;
+            DataTable dt = new DataTable();
+            dt = tenantDAL.ShowAllBookings();
+            //dt.Columns.Add("");
+            //dt.Rows.Add("");
+            dt.TableName = "Table Name";
+            return dt;
 
         }     
 
@@ -55,8 +59,10 @@ namespace SqlWebApplication
         [WebMethod]
         public DataTable ShowAllStorages()
         {
-            DataTable allStorages = storageDAL.ShowAllStorages();
-            return allStorages; 
+            DataTable dt = new DataTable();
+            dt = storageDAL.ShowAllStorages();
+            dt.TableName = "Table Name";
+            return dt; 
         }
 
           

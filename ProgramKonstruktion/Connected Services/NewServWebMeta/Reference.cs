@@ -53,73 +53,80 @@ namespace ProgramKonstruktion.NewServWebMeta {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/EmployeeAndRelatives", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable EmployeeAndRelatives();
+        string[] EmployeeAndRelatives();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/EmployeeAndRelatives", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> EmployeeAndRelativesAsync();
+        System.Threading.Tasks.Task<string[]> EmployeeAndRelativesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowSickEmployees2004", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable ShowSickEmployees2004();
+        string[] ShowSickEmployees2004();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowSickEmployees2004", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ShowSickEmployees2004Async();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable MostAbsentEmployees();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> MostAbsentEmployeesAsync();
+        System.Threading.Tasks.Task<string[]> ShowSickEmployees2004Async();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllKeys", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllKeys();
+        string[] AllKeys();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllKeys", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllKeysAsync();
+        System.Threading.Tasks.Task<string[]> AllKeysAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowContentOfCronusDataTable", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string[] ShowContentOfCronusDataTable();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowContentOfCronusDataTable", ReplyAction="*")]
+        System.Threading.Tasks.Task<string[]> ShowContentOfCronusDataTableAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string[] MostAbsentEmployees();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/MostAbsentEmployees", ReplyAction="*")]
+        System.Threading.Tasks.Task<string[]> MostAbsentEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllIndexes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllIndexes();
+        string[] AllIndexes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllIndexes", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllIndexesAsync();
+        System.Threading.Tasks.Task<string[]> AllIndexesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTableConstrains", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllTableConstrains();
+        string[] AllTableConstrains();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTableConstrains", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllTableConstrainsAsync();
+        System.Threading.Tasks.Task<string[]> AllTableConstrainsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllTablesInDatabaseSolOne();
+        string[] AllTablesInDatabaseSolOne();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolOne", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolOneAsync();
+        System.Threading.Tasks.Task<string[]> AllTablesInDatabaseSolOneAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllTablesInDatabaseSolTwo();
+        string[] AllTablesInDatabaseSolTwo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllTablesInDatabaseSolTwo", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolTwoAsync();
+        System.Threading.Tasks.Task<string[]> AllTablesInDatabaseSolTwoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolOne", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllColEmpTableSolOne();
+        string[] AllColEmpTableSolOne();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolOne", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolOneAsync();
+        System.Threading.Tasks.Task<string[]> AllColEmpTableSolOneAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolTwo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable AllColEmpTableSolTwo();
+        string[] AllColEmpTableSolTwo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/AllColEmpTableSolTwo", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolTwoAsync();
+        System.Threading.Tasks.Task<string[]> AllColEmpTableSolTwoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://grupp2.ics.lu.se/ShowFile", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -326,83 +333,91 @@ namespace ProgramKonstruktion.NewServWebMeta {
             return base.Channel.ShowContentOfCronusAsync();
         }
         
-        public System.Data.DataTable EmployeeAndRelatives() {
+        public string[] EmployeeAndRelatives() {
             return base.Channel.EmployeeAndRelatives();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> EmployeeAndRelativesAsync() {
+        public System.Threading.Tasks.Task<string[]> EmployeeAndRelativesAsync() {
             return base.Channel.EmployeeAndRelativesAsync();
         }
         
-        public System.Data.DataTable ShowSickEmployees2004() {
+        public string[] ShowSickEmployees2004() {
             return base.Channel.ShowSickEmployees2004();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> ShowSickEmployees2004Async() {
+        public System.Threading.Tasks.Task<string[]> ShowSickEmployees2004Async() {
             return base.Channel.ShowSickEmployees2004Async();
         }
         
-        public System.Data.DataTable MostAbsentEmployees() {
-            return base.Channel.MostAbsentEmployees();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> MostAbsentEmployeesAsync() {
-            return base.Channel.MostAbsentEmployeesAsync();
-        }
-        
-        public System.Data.DataTable AllKeys() {
+        public string[] AllKeys() {
             return base.Channel.AllKeys();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllKeysAsync() {
+        public System.Threading.Tasks.Task<string[]> AllKeysAsync() {
             return base.Channel.AllKeysAsync();
         }
         
-        public System.Data.DataTable AllIndexes() {
+        public string[] ShowContentOfCronusDataTable() {
+            return base.Channel.ShowContentOfCronusDataTable();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ShowContentOfCronusDataTableAsync() {
+            return base.Channel.ShowContentOfCronusDataTableAsync();
+        }
+        
+        public string[] MostAbsentEmployees() {
+            return base.Channel.MostAbsentEmployees();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> MostAbsentEmployeesAsync() {
+            return base.Channel.MostAbsentEmployeesAsync();
+        }
+        
+        public string[] AllIndexes() {
             return base.Channel.AllIndexes();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllIndexesAsync() {
+        public System.Threading.Tasks.Task<string[]> AllIndexesAsync() {
             return base.Channel.AllIndexesAsync();
         }
         
-        public System.Data.DataTable AllTableConstrains() {
+        public string[] AllTableConstrains() {
             return base.Channel.AllTableConstrains();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllTableConstrainsAsync() {
+        public System.Threading.Tasks.Task<string[]> AllTableConstrainsAsync() {
             return base.Channel.AllTableConstrainsAsync();
         }
         
-        public System.Data.DataTable AllTablesInDatabaseSolOne() {
+        public string[] AllTablesInDatabaseSolOne() {
             return base.Channel.AllTablesInDatabaseSolOne();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolOneAsync() {
+        public System.Threading.Tasks.Task<string[]> AllTablesInDatabaseSolOneAsync() {
             return base.Channel.AllTablesInDatabaseSolOneAsync();
         }
         
-        public System.Data.DataTable AllTablesInDatabaseSolTwo() {
+        public string[] AllTablesInDatabaseSolTwo() {
             return base.Channel.AllTablesInDatabaseSolTwo();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllTablesInDatabaseSolTwoAsync() {
+        public System.Threading.Tasks.Task<string[]> AllTablesInDatabaseSolTwoAsync() {
             return base.Channel.AllTablesInDatabaseSolTwoAsync();
         }
         
-        public System.Data.DataTable AllColEmpTableSolOne() {
+        public string[] AllColEmpTableSolOne() {
             return base.Channel.AllColEmpTableSolOne();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolOneAsync() {
+        public System.Threading.Tasks.Task<string[]> AllColEmpTableSolOneAsync() {
             return base.Channel.AllColEmpTableSolOneAsync();
         }
         
-        public System.Data.DataTable AllColEmpTableSolTwo() {
+        public string[] AllColEmpTableSolTwo() {
             return base.Channel.AllColEmpTableSolTwo();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> AllColEmpTableSolTwoAsync() {
+        public System.Threading.Tasks.Task<string[]> AllColEmpTableSolTwoAsync() {
             return base.Channel.AllColEmpTableSolTwoAsync();
         }
         

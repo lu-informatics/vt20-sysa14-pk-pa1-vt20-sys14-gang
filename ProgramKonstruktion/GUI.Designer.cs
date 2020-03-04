@@ -102,8 +102,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.filename = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
+            this.showAllStoragesINT2 = new System.Windows.Forms.Button();
+            this.showAllBookingsINT2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ERP = new System.Windows.Forms.TabPage();
             this.runButton = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -176,7 +177,6 @@
             this.integration1.SuspendLayout();
             this.integrations2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ERP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tenantBindingSource2)).BeginInit();
@@ -906,8 +906,9 @@
             // 
             // integrations2
             // 
+            this.integrations2.Controls.Add(this.showAllStoragesINT2);
+            this.integrations2.Controls.Add(this.showAllBookingsINT2);
             this.integrations2.Controls.Add(this.dataGridView2);
-            this.integrations2.Controls.Add(this.dataGridView1);
             this.integrations2.Location = new System.Drawing.Point(4, 22);
             this.integrations2.Name = "integrations2";
             this.integrations2.Size = new System.Drawing.Size(1106, 626);
@@ -916,23 +917,38 @@
             this.integrations2.UseVisualStyleBackColor = true;
             this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
             // 
+            // showAllStoragesINT2
+            // 
+            this.showAllStoragesINT2.Location = new System.Drawing.Point(453, 97);
+            this.showAllStoragesINT2.Name = "showAllStoragesINT2";
+            this.showAllStoragesINT2.Size = new System.Drawing.Size(139, 23);
+            this.showAllStoragesINT2.TabIndex = 3;
+            this.showAllStoragesINT2.Text = "Show All Storages";
+            this.showAllStoragesINT2.UseVisualStyleBackColor = true;
+            this.showAllStoragesINT2.Click += new System.EventHandler(this.showAllStoragesINT2_Click);
+            // 
+            // showAllBookingsINT2
+            // 
+            this.showAllBookingsINT2.Location = new System.Drawing.Point(224, 97);
+            this.showAllBookingsINT2.Name = "showAllBookingsINT2";
+            this.showAllBookingsINT2.Size = new System.Drawing.Size(136, 23);
+            this.showAllBookingsINT2.TabIndex = 2;
+            this.showAllBookingsINT2.Text = "Show All Bookings";
+            this.showAllBookingsINT2.UseVisualStyleBackColor = true;
+            this.showAllBookingsINT2.Click += new System.EventHandler(this.showAllBookingsINT2_Click);
+            // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(66, 232);
+            this.dataGridView2.Location = new System.Drawing.Point(66, 145);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(510, 150);
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(683, 341);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(66, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(510, 150);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ERP
             // 
@@ -984,9 +1000,13 @@
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(385, 139);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(697, 353);
             this.dataGridView3.TabIndex = 28;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
@@ -1370,7 +1390,6 @@
             this.integration1.PerformLayout();
             this.integrations2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ERP.ResumeLayout(false);
             this.ERP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -1494,7 +1513,6 @@
         private System.Windows.Forms.Label filename;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -1528,6 +1546,8 @@
         private System.Windows.Forms.Button showAllBookingsBtn;
         private System.Windows.Forms.Button showAllStorages;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button showAllStoragesINT2;
+        private System.Windows.Forms.Button showAllBookingsINT2;
     }
 
    
