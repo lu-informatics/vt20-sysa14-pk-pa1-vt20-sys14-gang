@@ -64,11 +64,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
-    <Compile Include="Connected Services\OpenFileService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\SqlServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,11 +148,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="Web References\OpenFileService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Web References\SqlWebReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,10 +173,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\NewWebRef\WebServiceERP12.wsdl" />
-    <None Include="Connected Services\OpenFileService\ProgramKonstruktion.OpenFileService.ShowFileResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\OpenFileService\WebServiceAssignment.wsdl" />
     <None Include="Connected Services\SqlServiceReference\ProgramKonstruktion.SqlServiceReference.Storage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -331,11 +317,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\NewWebRefMeta\WebServiceERP12.wsdl" />
-    <None Include="Web References\OpenFileService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\OpenFileService\WebServiceAssignment.wsdl" />
     <None Include="Web References\SqlWebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -391,41 +372,11 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ProgramKonstruktion_NewWebRefMeta_WebServiceERP12</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost/WebApplication/WebServiceAssignment.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\OpenFileService\</RelPath>
-      <UpdateFromURL>http://localhost/WebApplication/WebServiceAssignment.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ProgramKonstruktion_OpenFileService_WebServiceAssignment</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\OpenFileService\WebServiceAssignment.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\NewServWebMeta\" />
     <WCFMetadataStorage Include="Connected Services\NewWebRef\" />
-    <WCFMetadataStorage Include="Connected Services\OpenFileService\" />
     <WCFMetadataStorage Include="Connected Services\SqlServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OpenFileService\WebServiceAssignment.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OpenFileService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OpenFileService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OpenFileService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\SqlWebReference\SqlWebService.disco" />

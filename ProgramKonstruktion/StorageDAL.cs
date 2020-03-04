@@ -15,13 +15,15 @@ namespace ProgramKonstruktion
         private SqlConnection connection;
         private ErrorHandler errorHandler = new ErrorHandler();
 
+        //constructor
         public StorageDAL()
-        { //constructor
+        {
 
             connect = new Connector();
             connection = connect.Connection;
         }
 
+        //Get allStorages 
         public List<Storage> GetListOfStorages()
         {
             List<Storage> getListOfStorages = new List<Storage>();
@@ -71,6 +73,7 @@ namespace ProgramKonstruktion
             return getListOfStorages;
         }
 
+        //All available storages
         public List<Storage> listOfAvailableStorages()
         {
             List<Storage> getListOfAvailableStorages = new List<Storage>();
@@ -116,7 +119,7 @@ namespace ProgramKonstruktion
         }
 
 
-
+        //Create Storage
         public Boolean CreateStorage(Storage storage)
         {
             Boolean added = false;
@@ -161,6 +164,7 @@ namespace ProgramKonstruktion
             return added;
         }
 
+        //Update Storage
         public Storage UpdateStorage(string nbr, string address, float price, float size)
         {
 
@@ -181,9 +185,7 @@ namespace ProgramKonstruktion
                 command.ExecuteNonQuery();
                 storage.Price = price;
                 storage.Size = size;
-                // storage.Nbr = nbr;
                 storage.Address = address;
-
 
             }
             catch (SqlException e)
@@ -206,6 +208,7 @@ namespace ProgramKonstruktion
             return storage;
         }
 
+        //Delete Storage
         public Boolean DeleteStorage(string nbr)
         {
             Boolean deletedStorage = false;
@@ -214,7 +217,6 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-            // command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
 
             try
             {
@@ -242,52 +244,15 @@ namespace ProgramKonstruktion
             return deletedStorage;
         }
 
-        public Boolean DeleteTenantFromStorage(string nbr)
-        {
-            Boolean deleteTenantFromStorage = false;
-            string query = "DELETE Tenant FROM Storage WHERE storageNbr = @storageNbr";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = nbr;
-            // command.Parameters.Add("@storageAddress", SqlDbType.NVarChar).Value = address;
-
-            try
-            {
-                connection.Open();
-                int affectedRows = command.ExecuteNonQuery();
-
-                if (affectedRows == 1)
-                {
-                    deleteTenantFromStorage = true;
-                }
-            }
-            catch (SqlException e)
-            {
-                errorHandler.HandleErrorExceptionSql(e);
-            }
-            catch (Exception ex)
-            {
-                errorHandler.HandleExceptions(ex);
-            }
-            finally
-            {
-                connect.CloseConnector(connection);
-            }
-            return deleteTenantFromStorage;
-        }
-
+        //Find Storage for WebMethod
         public Storage FindStorage(string nbr)
         {
-            string query = "SELECT * FROM Storage WHERE nbr = @nbr"; //AND address = @address";
+            string query = "SELECT * FROM Storage WHERE nbr = @nbr";
 
             SqlCommand command = new SqlCommand(query, connection);
             Storage storage = new Storage();
 
             command.Parameters.Add("@nbr", SqlDbType.NVarChar).Value = nbr;
-            //command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
-
-
 
             try
             {
@@ -300,7 +265,6 @@ namespace ProgramKonstruktion
                     storage.Price = (float)reader.GetDouble(1);
                     storage.Size = (float)reader.GetDouble(2);
                     storage.Address = reader.GetString(3);
-
 
                 }
             }
@@ -322,6 +286,7 @@ namespace ProgramKonstruktion
             return storage;
         }
 
+        //Find Storage in dataGrid
         public DataTable FindStorages(string nbr)
         {
             DataTable dtStorage = new DataTable();
@@ -356,6 +321,7 @@ namespace ProgramKonstruktion
             return dtStorage;
         }
 
+        //Show all storages in dataGrid
         public DataTable ShowAllStorages()
         {
             DataTable dtStorages = new DataTable();

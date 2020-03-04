@@ -13,9 +13,10 @@ namespace ProgramKonstruktion
     {
         private ConnectorForCronus connect = new ConnectorForCronus();
         private SqlConnection connection;
-
+        
+        //constructor
         public EmployeeDAL()
-        { //constructor
+        { 
 
             connect = new ConnectorForCronus();
             connection = connect.Connection;
@@ -414,11 +415,7 @@ namespace ProgramKonstruktion
                     return content;
                 }
             }
-            */
-
-       
-
-
+            */   
 /*
         public DataTable AllKeys()
             {
@@ -634,18 +631,11 @@ namespace ProgramKonstruktion
                 return content;
             }
 
-
-
-
         }
         */
 
 
-
-        //New methods from Tove
-
-
-       
+        //New methods from Tove       
 
         public DataTable EmployeeAndRelatives()
         {
@@ -677,10 +667,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -715,10 +705,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -753,10 +743,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -790,10 +780,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -827,10 +817,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -864,10 +854,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -901,10 +891,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -938,10 +928,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -975,10 +965,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -1012,10 +1002,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }
@@ -1049,10 +1039,10 @@ namespace ProgramKonstruktion
                     {
                         MessageBox.Show(e.Message);
                     }
-                    /*finally
+                    finally
                     {
                         connect.CloseConnector(connection);
-                    }*/
+                    }
                     return null;
                 }
             }

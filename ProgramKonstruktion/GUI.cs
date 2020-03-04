@@ -35,7 +35,7 @@ namespace ProgramKonstruktion
         private ErrorHandler eh = new ErrorHandler();
 
 
-
+        //Method that sets all available storages to Combo Box
         public void SetAllStoragesToComboBox()
 
         {
@@ -52,6 +52,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //Method that sets all Queries to Combo Box
         public void setDataToShowComboBox()
         {
             comboBoxChooseData.Items.Add("Content and metadata for Employee tables");
@@ -64,9 +65,9 @@ namespace ProgramKonstruktion
             comboBoxChooseData.Items.Add("Metadata: All tables");
             comboBoxChooseData.Items.Add("Metadata: All columns");
 
-
         }
 
+        //Method that sets files to Combo Box
         public void setDataToComboBoxINT1()
         {
             comboBoxINT1.Items.Add("Mats Merged");
@@ -102,6 +103,7 @@ namespace ProgramKonstruktion
 
         }
 
+        // Sets the selected date to a Text Box
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
 
@@ -111,11 +113,7 @@ namespace ProgramKonstruktion
 
         private void ssnSearchTxt_TextChanged(object sender, EventArgs e)
         {
-            //TextBox ssnSearchTxt = (TextBox)sender;
-            //string inputSsn = ssnSearchTxt.Text;
-
-
-
+ 
         }
 
         private void dateTxtBox_TextChanged(object sender, EventArgs e)
@@ -123,21 +121,15 @@ namespace ProgramKonstruktion
 
         }
 
+        //When button is clicked the tenant with the ssn searched is shown in GridView
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-
             dataGridBookings.DataSource = tenantDal.findTenants(ssnSearchTxt.Text);
-
-            //tenant.Ssn = ssnSearchTxt.Text;
-
-            //tenant = tenantDal.FindTenant(ssnSearchTxt.Text);
-
-            //errorBoxBooking.Text = "Tenant: " + tenant.Ssn + ", " + tenant.Name + ", " + tenant.Email;
 
         }
 
-        //Book tenant on Storage
+        //Creates a booking on a Storage
         private void bookBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -150,8 +142,7 @@ namespace ProgramKonstruktion
             Object selectedItem = comboBoxStorage.SelectedItem;
             var selected = this.comboBoxStorage.GetItemText(this.comboBoxStorage.SelectedItem);
             tenant.StorageNbr = selected;
-            tenant.RentDate = monthCalendar.SelectionRange.Start;
-            //Boolean added = tenantDal.CreateTenant(tenant);
+            tenant.RentDate = monthCalendar.SelectionRange.Start;       
 
 
             if (string.IsNullOrEmpty(ssnBookTxt.Text) || string.IsNullOrEmpty(tenantNameTxt.Text) || string.IsNullOrEmpty(phoneNbrTxt.Text) || string.IsNullOrEmpty(emailTxt.Text))
@@ -190,12 +181,12 @@ namespace ProgramKonstruktion
            
 
         }
-        //addstorage
+        
+        //Adds a new Storage to the database
         private void addStorageBtn_Click(object sender, EventArgs e)
         {
             storage.Nbr = storageNbrTxt.Text;
             storage.Address = storageLocationTxt.Text;
-            //ToSingle eller ToDouble?
             storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
@@ -209,13 +200,11 @@ namespace ProgramKonstruktion
             {
                 errorBoxUpdateStorages.Text = "Storage was added succefully!";
                 cleanTextFields();
-                this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);//this.storageTableAdapter2.Fill(this.storeIT3DataSet1.Storage);
+                this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
                 SetAllStoragesToComboBox();
             }
 
-        }
-
-        
+        }      
 
         private void GUI_Load(object sender, EventArgs e)
         {
@@ -237,12 +226,11 @@ namespace ProgramKonstruktion
            // this.tenantTableAdapter.Fill(this.storeIT2DataSet1.Tenant);
             // TODO: This line of code loads data into the 'storeIT2DataSet.Storage' table. You can move, or remove it, as needed.
            // this.storageTableAdapter.Fill(this.storeIT2DataSet.Storage);
-
-           
+  
 
         }
 
-        //delete tenantBooking
+        //Delete a Booking
         private void deleteBookingBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -271,12 +259,11 @@ namespace ProgramKonstruktion
 
         }
         
-        //delete storage
+        //Delete a Storage
         private void button8_Click(object sender, EventArgs e)
         {
             cleanBoxes();
             storage.Nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
-            //storage.Address = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[3].Value;
 
             Boolean deleted = storageDal.DeleteStorage(storage.Nbr);
             if (!deleted)
@@ -305,6 +292,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //Updates Booking Information
         private void updateTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -329,12 +317,12 @@ namespace ProgramKonstruktion
 
         }
 
+        //Updates Storage Information
         private void updateStorageBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
             storage.Nbr = storageNbrTxt.Text;
             storage.Address = storageLocationTxt.Text;
-            //ToSingle eller ToDouble?
             storage.Price = (float)Convert.ToSingle(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
@@ -356,25 +344,16 @@ namespace ProgramKonstruktion
         }
 
 
-
+        //Search Storage
         private void storageSearchBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-    
-            
             storage.Nbr = storageNmbrSearch.Text;
-            
-
             dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
-            // storage.Address = storageAddressSearch.Text;
-
-            //storage = storageDal.FindStorage(storageNmbrSearch.Text);
-
-            //errorBoxUpdateStorages.Text = "Storage: " + storage.Nbr;
-
-            //cleanTextFields();
+            
         }
 
+        //Cleans all rich textboxes
         public void cleanBoxes()
         {
             errorBoxUpdateStorages.Text = "";
@@ -382,6 +361,7 @@ namespace ProgramKonstruktion
             richTextBox1.Text = "";
         }
 
+        //Cleans all text fields
         public void cleanTextFields()
         {
             
@@ -406,10 +386,9 @@ namespace ProgramKonstruktion
             ssnTextBox.Text = "";
             noTextBoxSearch.Text = "";
 
-
-
         }
 
+        //Show all columnNames from the table TablesOfInterest
         private void allColumnNamesBtn_Click(object sender, EventArgs e)
         {
                 dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
@@ -420,17 +399,15 @@ namespace ProgramKonstruktion
 
         }
 
+        //Shows the numberOfRows from the table TablesOfInterest 
         private void numberOfRowsBtn_Click(object sender, EventArgs e)
         {
             dataGridProgram2.DataSource = PK2Dal.ShowNumberOfRows();
         }
 
+        //Open files in GUI with WebMethods
         private void button1_Click(object sender, EventArgs e)
         {
-           // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
-            //WebServiceNew.WebServiceERP12SoapClient client2 = new WebServiceNew.WebServiceERP12SoapClient();
-            //OpenFileService.WebServiceAssignmentSoapClient client = new OpenFileService.WebServiceAssignmentSoapClient();
-
             Object selectedItem = comboBoxINT1.SelectedItem;
             var selected = this.comboBoxINT1.GetItemText(this.comboBoxINT1.SelectedItem);          
             string choosenData = selected;
@@ -438,7 +415,6 @@ namespace ProgramKonstruktion
             if (choosenData.Equals("Mats Merged"))
             {
                 NewWebRef.WebServiceERP12SoapClient client = new NewWebRef.WebServiceERP12SoapClient();
-                //ewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 string chosenData = client.ShowFile("Mats.txt");
                 richTextBoxINT1.Text = chosenData;
 
@@ -482,7 +458,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //Add Employee
+        //Add Employee to CRONUS database
         private void button4_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -499,7 +475,6 @@ namespace ProgramKonstruktion
 
             ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
 
-        
            emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
 
             if (emp == null)
@@ -513,10 +488,6 @@ namespace ProgramKonstruktion
             }
 
 
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -524,7 +495,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //Find Employee
+        //Find Employee in CRONUS database
         private void button7_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -548,7 +519,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //Delete employee
+        //Delete Employee from CRONUS datbase
         private void button6_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -568,7 +539,7 @@ namespace ProgramKonstruktion
 
         }
 
-        //update Employee
+        //Update Employee in CRONUS database
         private void button5_Click(object sender, EventArgs e)
         {
             cleanBoxes();
@@ -605,6 +576,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //Run Queries from CRONUS database
         private void runButton_Click(object sender, EventArgs e)
         {
 
@@ -612,14 +584,11 @@ namespace ProgramKonstruktion
             var selected = this.comboBoxChooseData.GetItemText(this.comboBoxChooseData.SelectedItem);
             string choosenData = selected;
 
-            //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient(); 
-
             if (choosenData.Equals("Content and metadata for Employee tables"))
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
-                List<string> listOfRelatives = new List<string>(c.ShowContentOfCronusDataTable()); //OBS Fel!
+                List<string> listOfRelatives = new List<string>(c.ShowContentOfCronusDataTable());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
                 {
@@ -631,7 +600,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.EmployeeAndRelatives());
                 dataGridView3.Columns.Add(" ", " "); 
                 foreach(string s in listOfRelatives)
@@ -644,7 +612,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.ShowSickEmployees2004());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -657,7 +624,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.MostAbsentEmployees());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -670,7 +636,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.AllKeys());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -683,7 +648,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.AllIndexes());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -695,7 +659,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.AllTableConstrains());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -707,7 +670,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.AllTablesInDatabaseSolOne());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -719,7 +681,6 @@ namespace ProgramKonstruktion
             {
                 dataGridView3.Rows.Clear();
                 NewWebRef.WebServiceERP12SoapClient c = new NewWebRef.WebServiceERP12SoapClient();
-               // NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
                 List<string> listOfRelatives = new List<string>(c.AllColEmpTableSolOne());
                 dataGridView3.Columns.Add(" ", " ");
                 foreach (string s in listOfRelatives)
@@ -727,17 +688,16 @@ namespace ProgramKonstruktion
                     dataGridView3.Rows.Add(s);
                 }
             }
-                // dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
-
-
             
         }
 
+        //Show all Bookings in dataGrid
         private void showAllBookingsBtn_Click(object sender, EventArgs e)
         {
             dataGridBookings.DataSource = tenantDal.ShowAllBookings();
         }
 
+        //Show all Storages in dataGrid
         private void showAllStorages_Click(object sender, EventArgs e)
         {
             dataGridStorages.DataSource = storageDal.ShowAllStorages();
@@ -748,15 +708,14 @@ namespace ProgramKonstruktion
 
         }
 
+        //Show all Bookings in dataGrid WebMethod
         private void showAllBookingsINT2_Click(object sender, EventArgs e)
         {
-
             SqlServiceReference.SqlWebServiceSoapClient client = new SqlServiceReference.SqlWebServiceSoapClient();
-            //DataTable dt = client.ShowAllBookings();
             dataGridView2.DataSource = client.ShowAllBookings();
-            //dataGridView2.DataBindingComplete();
         }
 
+        //Show all Storages in dataGrid WebMethod
         private void showAllStoragesINT2_Click(object sender, EventArgs e)
         {
             SqlServiceReference.SqlWebServiceSoapClient client = new SqlServiceReference.SqlWebServiceSoapClient();
@@ -769,6 +728,11 @@ namespace ProgramKonstruktion
         }
 
         private void comboBoxINT1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ssnBookTxt_TextChanged(object sender, EventArgs e)
         {
 
         }

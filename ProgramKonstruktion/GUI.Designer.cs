@@ -91,14 +91,20 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.programkonst2 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
             this.integration1 = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
+            this.richTextBoxINT1 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxINT1 = new System.Windows.Forms.ComboBox();
             this.openFileINT1 = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
             this.showAllStoragesINT2 = new System.Windows.Forms.Button();
             this.showAllBookingsINT2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -155,15 +161,9 @@
             this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
             this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
             this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
-            this.comboBoxINT1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBoxINT1 = new System.Windows.Forms.RichTextBox();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -398,6 +398,7 @@
             this.ssnBookTxt.Name = "ssnBookTxt";
             this.ssnBookTxt.Size = new System.Drawing.Size(130, 20);
             this.ssnBookTxt.TabIndex = 22;
+            this.ssnBookTxt.TextChanged += new System.EventHandler(this.ssnBookTxt_TextChanged);
             // 
             // label11
             // 
@@ -806,6 +807,16 @@
             this.programkonst2.Text = "Programkonstruktion 2";
             this.programkonst2.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(79, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(261, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Programkonstruktion: Assignment 2";
+            // 
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(83, 502);
@@ -864,6 +875,43 @@
             this.integration1.Text = "Integrationsteknologier 1";
             this.integration1.UseVisualStyleBackColor = true;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(100, 39);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(277, 20);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "Integrationsteknologier: Assignment 1";
+            // 
+            // richTextBoxINT1
+            // 
+            this.richTextBoxINT1.Location = new System.Drawing.Point(104, 202);
+            this.richTextBoxINT1.Name = "richTextBoxINT1";
+            this.richTextBoxINT1.Size = new System.Drawing.Size(498, 142);
+            this.richTextBoxINT1.TabIndex = 7;
+            this.richTextBoxINT1.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(101, 141);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Choose a file to open:";
+            // 
+            // comboBoxINT1
+            // 
+            this.comboBoxINT1.FormattingEnabled = true;
+            this.comboBoxINT1.Location = new System.Drawing.Point(104, 157);
+            this.comboBoxINT1.Name = "comboBoxINT1";
+            this.comboBoxINT1.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxINT1.TabIndex = 5;
+            this.comboBoxINT1.SelectedIndexChanged += new System.EventHandler(this.comboBoxINT1_SelectedIndexChanged);
+            // 
             // openFileINT1
             // 
             this.openFileINT1.Location = new System.Drawing.Point(281, 155);
@@ -895,6 +943,16 @@
             this.integrations2.Text = "Integrationsteknologier 2";
             this.integrations2.UseVisualStyleBackColor = true;
             this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(75, 45);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(277, 20);
+            this.label31.TabIndex = 4;
+            this.label31.Text = "Integrationsteknologier: Assignment 2";
             // 
             // showAllStoragesINT2
             // 
@@ -1332,33 +1390,6 @@
             // 
             this.storageTableAdapter3.ClearBeforeFill = true;
             // 
-            // comboBoxINT1
-            // 
-            this.comboBoxINT1.FormattingEnabled = true;
-            this.comboBoxINT1.Location = new System.Drawing.Point(104, 157);
-            this.comboBoxINT1.Name = "comboBoxINT1";
-            this.comboBoxINT1.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxINT1.TabIndex = 5;
-            this.comboBoxINT1.SelectedIndexChanged += new System.EventHandler(this.comboBoxINT1_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(101, 141);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Choose a file to open:";
-            // 
-            // richTextBoxINT1
-            // 
-            this.richTextBoxINT1.Location = new System.Drawing.Point(104, 202);
-            this.richTextBoxINT1.Name = "richTextBoxINT1";
-            this.richTextBoxINT1.Size = new System.Drawing.Size(498, 142);
-            this.richTextBoxINT1.TabIndex = 7;
-            this.richTextBoxINT1.Text = "";
-            // 
             // storageBindingSource4
             // 
             this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
@@ -1370,36 +1401,6 @@
             // storageBindingSource1
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(79, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(261, 20);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Programkonstruktion: Assignment 2";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(100, 39);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(277, 20);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "Integrationsteknologier: Assignment 1";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(75, 45);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(277, 20);
-            this.label31.TabIndex = 4;
-            this.label31.Text = "Integrationsteknologier: Assignment 2";
             // 
             // GUI
             // 
