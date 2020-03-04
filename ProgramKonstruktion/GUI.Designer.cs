@@ -92,7 +92,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.programkonst2 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.numberOfRowsBtn = new System.Windows.Forms.Button();
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
@@ -247,7 +246,7 @@
             this.bookStorage.Padding = new System.Windows.Forms.Padding(3);
             this.bookStorage.Size = new System.Drawing.Size(1106, 626);
             this.bookStorage.TabIndex = 0;
-            this.bookStorage.Text = "Book Storage";
+            this.bookStorage.Text = "Booking";
             this.bookStorage.UseVisualStyleBackColor = true;
             this.bookStorage.Click += new System.EventHandler(this.tabPage1_Click);
             // 
@@ -561,7 +560,7 @@
             this.updateStorage.Padding = new System.Windows.Forms.Padding(3);
             this.updateStorage.Size = new System.Drawing.Size(1106, 626);
             this.updateStorage.TabIndex = 2;
-            this.updateStorage.Text = "Update Storage";
+            this.updateStorage.Text = "Storage";
             this.updateStorage.UseVisualStyleBackColor = true;
             // 
             // showAllStorages
@@ -796,7 +795,6 @@
             // programkonst2
             // 
             this.programkonst2.Controls.Add(this.label8);
-            this.programkonst2.Controls.Add(this.richTextBox2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
             this.programkonst2.Controls.Add(this.dataGridProgram2);
@@ -816,14 +814,6 @@
             this.label8.Size = new System.Drawing.Size(261, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "Programkonstruktion: Assignment 2";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(83, 502);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(622, 69);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
             // 
             // numberOfRowsBtn
             // 
@@ -1083,9 +1073,9 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(150, 296);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(56, 13);
+            this.label27.Size = new System.Drawing.Size(64, 13);
             this.label27.TabIndex = 24;
-            this.label27.Text = "Search no";
+            this.label27.Text = "Search No_";
             // 
             // noTextBoxSearch
             // 
@@ -1157,7 +1147,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 123);
+            this.label24.Location = new System.Drawing.Point(150, 159);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(25, 13);
             this.label24.TabIndex = 15;
@@ -1203,7 +1193,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 80);
+            this.label19.Location = new System.Drawing.Point(16, 123);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(55, 13);
             this.label19.TabIndex = 10;
@@ -1212,7 +1202,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(155, 162);
+            this.label9.Location = new System.Drawing.Point(16, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 13);
             this.label9.TabIndex = 9;
@@ -1243,7 +1233,7 @@
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(19, 96);
+            this.firstNameTextBox.Location = new System.Drawing.Point(19, 139);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.firstNameTextBox.TabIndex = 5;
@@ -1257,7 +1247,7 @@
             // 
             // ssnTextBox
             // 
-            this.ssnTextBox.Location = new System.Drawing.Point(19, 139);
+            this.ssnTextBox.Location = new System.Drawing.Point(153, 175);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(100, 20);
             this.ssnTextBox.TabIndex = 3;
@@ -1278,7 +1268,7 @@
             // 
             // noTextBox
             // 
-            this.noTextBox.Location = new System.Drawing.Point(153, 178);
+            this.noTextBox.Location = new System.Drawing.Point(19, 93);
             this.noTextBox.Name = "noTextBox";
             this.noTextBox.Size = new System.Drawing.Size(100, 20);
             this.noTextBox.TabIndex = 0;
@@ -1584,7 +1574,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button showAllBookingsBtn;
         private System.Windows.Forms.Button showAllStorages;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button showAllStoragesINT2;
         private System.Windows.Forms.Button showAllBookingsINT2;
         private System.Windows.Forms.Label label5;

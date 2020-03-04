@@ -465,16 +465,15 @@ namespace ProgramKonstruktion
             string email = emailTextBox.Text;
 
 
-            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();          
 
-           emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
-
-            if (emp == null)
+            if (noTextBox.Text.Equals(controller.FindEmployee(noTextBox.Text).No) || (string.IsNullOrEmpty(no)) || (string.IsNullOrEmpty(firstName)) || (string.IsNullOrEmpty(lastName)) || (string.IsNullOrEmpty(jobTitle)) || (string.IsNullOrEmpty(address)) || (string.IsNullOrEmpty(phoneNumber)) || (string.IsNullOrEmpty(ssn)) || (string.IsNullOrEmpty(email)))
             {
-                richTextBox1.Text = "Failed to create employee, try again!";
+                richTextBox1.Text = "Failed to create employee. \n Please fill out all fields or enter an Employee No_ that doesn't already exist.";
             }
             else
             {
+                emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
                 richTextBox1.Text = "Employee added!";
                 cleanTextFields();
             }
@@ -497,9 +496,9 @@ namespace ProgramKonstruktion
 
             emp = erpWebService.FindEmployee(no);
 
-            if (emp == null)
+            if ((emp == null) || (string.IsNullOrEmpty(no)))
             {
-                richTextBox1.Text = "Could not find employee, try again!";
+                richTextBox1.Text = "Could not find Employee. Please try again!";
             }
             else
             {
@@ -535,7 +534,6 @@ namespace ProgramKonstruktion
         private void button5_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-
             string no = noTextBox.Text;
             string firstName = firstNameTextBox.Text;
             string lastName = lastNameTextBox.Text;
@@ -545,22 +543,40 @@ namespace ProgramKonstruktion
             string ssn = ssnTextBox.Text;
             string email = emailTextBox.Text;
 
-
             ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
 
             emp = erpWebService.UpdateEmployee(no, firstName,lastName, jobTitle,address, phoneNumber, email);
 
-            if (!(ssn.Equals(""))){
-                richTextBox1.Text = "Can't update ssn, remove and try again!";
+            if ((ssn.Equals("")) || (string.IsNullOrEmpty(no)) || (string.IsNullOrEmpty(firstName)) || (string.IsNullOrEmpty(lastName)) || (string.IsNullOrEmpty(jobTitle)) || (string.IsNullOrEmpty(address)) || (string.IsNullOrEmpty(phoneNumber)) || (string.IsNullOrEmpty(ssn)) || (string.IsNullOrEmpty(email)))
+                {
+                richTextBox1.Text = "Failed to update. Please fill out all fields and try again.";
             }
                else if (emp == null) {
-                richTextBox1.Text = "Can't update employee, try again!";
+                richTextBox1.Text = "Can not update. Employee is not in the database";
           
             } else
             {
                 richTextBox1.Text = "Employee is updated!";
                 cleanTextFields();
             }
+
+            /*
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) || (string.IsNullOrEmpty(tenantNameTxt.Text)) || (string.IsNullOrEmpty(phoneNbrTxt.Text)) || (string.IsNullOrEmpty(emailTxt.Text)))
+            {
+                errorBoxBooking.Text = "Failed to update Tenant Information. \n All Tenant Fields has to be filled. Please try again.";
+                cleanTextFields();
+            }
+            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
+            {
+                tenantDal.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
+                errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
+                this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
+                cleanTextFields();
+                
+            }
+            */
+
+
         }
 
         private void label26_Click(object sender, EventArgs e)
