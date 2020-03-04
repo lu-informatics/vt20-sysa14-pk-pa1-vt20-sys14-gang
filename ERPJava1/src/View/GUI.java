@@ -351,10 +351,17 @@ public class GUI {
 					txtPOutput.setText("Please enter a ssn");
 				} else {
 					try {
+						myProxy.deleteEmployee(empNo);
+					} catch (RemoteException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+					txtPOutput.setText("Employee deleted");
+					
+					/*try {
 						if (empNo.equals(myProxy.findEmployee(empNo))) {
 							try {
-								myProxy.deleteEmployee(empNo);
-								txtPOutput.setText("Employee deleted");
+								
 							} catch (RemoteException e1) {
 								txtPOutput.setText("Could't delete employee from database");
 								e1.printStackTrace();
@@ -363,7 +370,7 @@ public class GUI {
 					} catch (RemoteException e1) {
 						txtPOutput.setText("Can't find employee in database");
 						e1.printStackTrace();
-					}
+					}*/
 				}
 			}
 		}); 
