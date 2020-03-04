@@ -60,8 +60,7 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e)); 
-                //MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+
             }
             catch (Exception ex)
             {
@@ -108,14 +107,11 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-               // MessageBox.Show(e.Message);
-                //   errorHandler.HandleErrorExceptionSql(e);
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine(errorHandler.HandleExceptions(ex));
-                //MessageBox.Show(e.Message);
             }
             finally
             {
@@ -150,15 +146,12 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-                //MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
                 return null;
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(errorHandler.HandleExceptions(ex));
-               // errorHandler.HandleExceptions(ex);
                 return null;
             }
             finally
@@ -195,14 +188,11 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-               // MessageBox.Show(e.Message);
-                //errorHandler.HandleErrorExceptionSql(e);
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(errorHandler.HandleExceptions(ex));
-               // MessageBox.Show(ex.Message);
-                // errorHandler.HandleExceptions(ex);
             }
             finally
             {
@@ -241,14 +231,10 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-               // errorHandler.HandleErrorExceptionSql(e);
-               // MessageBox.Show(e.Message);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(errorHandler.HandleExceptions(ex));
-              //  errorHandler.HandleExceptions(ex);
-                //MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -280,13 +266,11 @@ namespace ProgramKonstruktion
             catch (SqlException e)
             {
                 Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-               // MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(errorHandler.HandleExceptions(ex));
-               // MessageBox.Show(ex.Message);
             }
 
             finally
@@ -316,13 +300,10 @@ namespace ProgramKonstruktion
                     catch (SqlException e)
                     {
                         Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
-                       // MessageBox.Show(e.Message);
-                        // errorHandler.HandleErrorExceptionSql(e);
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(errorHandler.HandleExceptions(ex));
-                       // MessageBox.Show(ex.Message);
                     }
 
                     finally

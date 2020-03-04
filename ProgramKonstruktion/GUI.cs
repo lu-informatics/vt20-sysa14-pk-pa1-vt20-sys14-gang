@@ -145,18 +145,21 @@ namespace ProgramKonstruktion
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
 
-            if (string.IsNullOrEmpty(ssnBookTxt.Text) && (string.IsNullOrEmpty(tenantNameTxt.Text)) && (string.IsNullOrEmpty(phoneNbrTxt.Text)) && (string.IsNullOrEmpty(emailTxt.Text)))
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) && (string.IsNullOrEmpty(tenantNameTxt.Text)) && (string.IsNullOrEmpty(phoneNbrTxt.Text)))
             {
                 errorBoxBooking.Text = "Failed to add booking. \n All fields has to be filled. Please try again.";
             }
-            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
+            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))) && (string.IsNullOrEmpty(emailTxt.Text)) && (!(ssnBookTxt.Text.Equals(controller.FindTenant(ssnBookTxt.Text).Ssn))))
             {
                 controller.CreateTenant(tenant);
                 errorBoxBooking.Text = "Booking completed!";
                 this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
-                SetAllStoragesToComboBox();
-                
-            }   
+                SetAllStoragesToComboBox();    
+            }
+            else
+            {
+                errorBoxBooking.Text = "Booking failed"; 
+            }
             cleanTextFields();
 
         }
