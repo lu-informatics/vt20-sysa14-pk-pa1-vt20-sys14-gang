@@ -311,9 +311,6 @@ namespace ProgramKonstruktion
             storage.Nbr = storageNbrTxt.Text;
             storage.Address = storageLocationTxt.Text;
 
-            Storage updated = controller.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
-            if (updated == null)
-
             if (string.IsNullOrEmpty(storage.Nbr) || (string.IsNullOrEmpty(storage.Address)) || (string.IsNullOrEmpty(storagePriceTxt.Text)) || (string.IsNullOrEmpty(storageSizeTxt.Text)))
 
             {
