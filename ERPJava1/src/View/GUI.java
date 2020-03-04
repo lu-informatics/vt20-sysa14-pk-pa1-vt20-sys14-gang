@@ -328,9 +328,16 @@ public class GUI {
 				}
 				else { 
 					try {
-					myProxy.findEmployee(emp);
-					Employee employee = new Employee(); 
-					txtPOutput.setText("Found employee: " + emp); //find should return lastname, job title and email
+					Employee employee = myProxy.findEmployee(emp);  
+					myProxy.findEmployee(emp); 
+					txtPOutput.setText("Found employee with ssn: " + emp 
+							+ "Last name: " + employee.getLastName() 
+							+ "Job title: " + employee.getJobTitle() 
+							+ "Email: " + employee.getEmail());
+					 //find should return lastname, job title and email
+					
+					
+					
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 					txtPOutput.setText("Failed to find employee, try entering a valid ssn");
