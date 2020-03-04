@@ -125,7 +125,7 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            dataGridBookings.DataSource = tenantDal.findTenants(ssnSearchTxt.Text);
+            dataGridBookings.DataSource = tenantDal.FindTenants(ssnSearchTxt.Text);
 
         }
 
