@@ -24,6 +24,7 @@ namespace ProgramKonstruktion
 
         }
 
+        private Controller controller = new Controller(); 
         private TenantDAL tenantDal = new TenantDAL();
         private StorageDAL storageDal = new StorageDAL();
         private Tenant tenant = new Tenant();
@@ -41,7 +42,7 @@ namespace ProgramKonstruktion
         {
             comboBoxStorage.Items.Clear();
             comboBoxStorage.Text = "Select available storage";
-            List<Storage> listOfStorage = storageDal.listOfAvailableStorages();
+            List<Storage> listOfStorage = controller.listOfAvailableStorages();
             Console.WriteLine(listOfStorage.Count);
             foreach (Storage s in listOfStorage)
             {
@@ -125,7 +126,7 @@ namespace ProgramKonstruktion
         private void searchTenantBtn_Click(object sender, EventArgs e)
         {
             cleanBoxes();
-            dataGridBookings.DataSource = tenantDal.FindTenants(ssnSearchTxt.Text);
+            dataGridBookings.DataSource = controller.FindTenants(ssnSearchTxt.Text);
 
         }
 
@@ -148,7 +149,7 @@ namespace ProgramKonstruktion
             }
             else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
             {
-                tenantDal.CreateTenant(tenant);
+                controller.CreateTenant(tenant);
                 errorBoxBooking.Text = "Booking completed!";
                 this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
                 SetAllStoragesToComboBox();
@@ -172,7 +173,7 @@ namespace ProgramKonstruktion
             storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
-            Boolean added = storageDal.CreateStorage(storage);
+            Boolean added = controller.CreateStorage(storage);
             if (!added)
             {
                 errorBoxUpdateStorages.Text = "Failed to add, try again";
@@ -218,7 +219,7 @@ namespace ProgramKonstruktion
             cleanBoxes();
             tenant.Ssn = (string)dataGridBookings.Rows[dataGridBookings.CurrentCell.RowIndex].Cells[0].Value;
 
-            Boolean deleted = tenantDal.DeleteTenant(tenant.Ssn);
+            Boolean deleted = controller.DeleteTenant(tenant.Ssn);
 
             if (!deleted)
             {
@@ -247,7 +248,7 @@ namespace ProgramKonstruktion
             cleanBoxes();
             storage.Nbr = (string)dataGridStorages.Rows[dataGridStorages.CurrentCell.RowIndex].Cells[0].Value;
 
-            Boolean deleted = storageDal.DeleteStorage(storage.Nbr);
+            Boolean deleted = controller.DeleteStorage(storage.Nbr);
             if (!deleted)
             {
                 errorBoxUpdateStorages.Text = "Failed, try again";
@@ -283,7 +284,7 @@ namespace ProgramKonstruktion
             tenant.PhoneNbr = phoneNbrTxt.Text;
             tenant.Email = emailTxt.Text;
 
-            Tenant updated = tenantDal.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
+            Tenant updated = controller.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
 
             if(updated == null)
             {
@@ -309,7 +310,7 @@ namespace ProgramKonstruktion
             storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
 
-            Storage updated = storageDal.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
+            Storage updated = controller.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
             if (updated == null)
             {
                 errorBoxUpdateStorages.Text = "Failed to update, try again";
@@ -331,7 +332,7 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             storage.Nbr = storageNmbrSearch.Text;
-            dataGridStorages.DataSource = storageDal.FindStorages(storageNmbrSearch.Text);
+            dataGridStorages.DataSource = controller.FindStorages(storageNmbrSearch.Text);
             
         }
 
@@ -373,7 +374,7 @@ namespace ProgramKonstruktion
         //Show all columnNames from the table TablesOfInterest
         private void allColumnNamesBtn_Click(object sender, EventArgs e)
         {
-                dataGridProgram2.DataSource = PK2Dal.ShowAllColumnNames();
+                dataGridProgram2.DataSource = controller.ShowAllColumnNames();
         }
 
         private void dataGridProgram2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -384,7 +385,7 @@ namespace ProgramKonstruktion
         //Shows the numberOfRows from the table TablesOfInterest 
         private void numberOfRowsBtn_Click(object sender, EventArgs e)
         {
-            dataGridProgram2.DataSource = PK2Dal.ShowNumberOfRows();
+            dataGridProgram2.DataSource = controller.ShowNumberOfRows();
         }
 
         //Open files in GUI with WebMethods
@@ -676,13 +677,13 @@ namespace ProgramKonstruktion
         //Show all Bookings in dataGrid
         private void showAllBookingsBtn_Click(object sender, EventArgs e)
         {
-            dataGridBookings.DataSource = tenantDal.ShowAllBookings();
+            dataGridBookings.DataSource = controller.ShowAllBookings();
         }
 
         //Show all Storages in dataGrid
         private void showAllStorages_Click(object sender, EventArgs e)
         {
-            dataGridStorages.DataSource = storageDal.ShowAllStorages();
+            dataGridStorages.DataSource = controller.ShowAllStorages();
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -13,6 +13,7 @@ namespace ProgramKonstruktion
         private TenantDAL tenantDal = new TenantDAL();
         private StorageDAL storageDal = new StorageDAL();
         private EmployeeDAL employeeDal = new EmployeeDAL();
+        private PK2DAL pkdal = new PK2DAL(); 
 
 
         public Boolean CreateTenant(Tenant tenant)
@@ -170,6 +171,15 @@ namespace ProgramKonstruktion
             return employeeDal.AllColEmpTableSolTwo(); 
         }
 
+        public DataTable ShowAllColumnNames()
+        {
+            return pkdal.ShowAllColumnNames(); 
+        }
+
+        public DataTable ShowNumberOfRows()
+        {
+            return pkdal.ShowNumberOfRows(); 
+        }
 
     }
 }
