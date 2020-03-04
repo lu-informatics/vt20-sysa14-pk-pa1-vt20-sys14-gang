@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 
 
@@ -14,13 +15,13 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import se.lu.ics.grupp2.Employee;
-import se.lu.ics.grupp2.Tenant;
 import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JSpinner;
 
 public class JavaClientGui {
 
@@ -39,7 +40,6 @@ public class JavaClientGui {
 	 private JTextField txtFPhoneNbr;
 	 private JTextField txtFEmail;
 	 private JTextField txtFSearchEmp;
-	 private JTable tableQuerys;
 	
 	/**
 	 * Launch the application.
@@ -69,7 +69,7 @@ public class JavaClientGui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(700, 700, 696, 448);
+		frame.setBounds(800, 800, 934, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -78,14 +78,11 @@ public class JavaClientGui {
 		frame.getContentPane().add(btnAdd);
 		
 		final JTextPane txtPOutput = new JTextPane();
-		txtPOutput.setBounds(10, 330, 275, 68);
+		txtPOutput.setBounds(10, 330, 275, 230);
 		frame.getContentPane().add(txtPOutput);
 		
 		JButton btnUpdate = new JButton("Update");
-		btnUpdate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		btnUpdate.setBounds(196, 207, 89, 23);
 		frame.getContentPane().add(btnUpdate);
 		
@@ -191,10 +188,6 @@ public class JavaClientGui {
 		btnRunQuery.setBounds(559, 67, 89, 23);
 		frame.getContentPane().add(btnRunQuery);
 		
-		tableQuerys = new JTable();
-		tableQuerys.setBounds(298, 142, 351, 256);
-		frame.getContentPane().add(tableQuerys);
-		
 		JLabel lblErpUppgift = new JLabel("ERP Uppgift 1");
 		lblErpUppgift.setBounds(10, 28, 108, 14);
 		frame.getContentPane().add(lblErpUppgift);
@@ -202,6 +195,14 @@ public class JavaClientGui {
 		JLabel lblErpUppgift_2 = new JLabel("ERP Uppgift 2");
 		lblErpUppgift_2.setBounds(298, 28, 108, 14);
 		frame.getContentPane().add(lblErpUppgift_2);
+		
+		final JTextPane txtPQuery = new JTextPane();
+		txtPQuery.setBounds(295, 122, 613, 438);
+		frame.getContentPane().add(txtPQuery);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(618, 149, 30, 249);
+		frame.getContentPane().add(spinner);
 		
 		//populates cBox with querys 
 		ArrayList<String>querys = new ArrayList<String>(); 
@@ -370,7 +371,7 @@ public class JavaClientGui {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}
-					txtPOutput.setText("Employee deleted");
+					txtPQuery.setText("Employee deleted");
 					
 					/*try {
 						if (empNo.equals(myProxy.findEmployee(empNo))) {
@@ -396,10 +397,10 @@ public class JavaClientGui {
 					try {
 						String output = ""; 
 						for (String s: myProxy.allTablesInDatabaseSolOne()) {
-							output+=s;
+							output+=s + "\n";
 							
 						}
-						txtPOutput.setText(output); 
+						txtPQuery.setText(output); 
 						
 					}
 					 catch (RemoteException e1) {
