@@ -394,7 +394,8 @@ public class JavaClientGui {
 			public void actionPerformed (ActionEvent e) {
 				txtPQuery.setText(""); 
 				String query = cBoxQuery.getSelectedItem().toString(); 
-				if (query.equals("Content and metadata for employee")) { 
+				if (query.equals("Content and metadata for employee")) {
+					txtPQuery.setText("");
 					try {
 						String output = ""; 
 						for (String s: myProxy.allTablesInDatabaseSolOne()) {
@@ -410,6 +411,103 @@ public class JavaClientGui {
 					} 
 				}
 				else if (query.equals("Employees and their relatives")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.employeeAndRelatives()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Sick employees 2004")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.showSickEmployees2004()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Most absent employee")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.mostAbsentEmployees()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Metadata: Keys")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.allKeys()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Metadata: Indexes")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.allIndexes()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Metadata: Table constraint")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.allTableConstrains()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Metadata: All tables")) { 
+					txtPQuery.setText("");
 					try {
 						String output = ""; 
 						for (String s: myProxy.allTablesInDatabaseSolOne()) {
@@ -424,6 +522,23 @@ public class JavaClientGui {
 						e1.printStackTrace();
 					} 
 				}
+				else if (query.equals("Metadata: All columns")) { 
+					txtPQuery.setText("");
+					try {
+						String output = ""; 
+						for (String s: myProxy.allColEmpTableSolOne()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else {txtPQuery.setText("Failed to read query ");} 
 			}
 		}); 
 			 
