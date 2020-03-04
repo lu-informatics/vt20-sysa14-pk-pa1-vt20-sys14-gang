@@ -66,8 +66,8 @@ public class GUI_WS1 {
 		
 		//List of files from file system
 		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Test"); 
-		files.add("HelloWorld"); 
+		files.add("Mats"); 
+		files.add("Erdogan"); 
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
