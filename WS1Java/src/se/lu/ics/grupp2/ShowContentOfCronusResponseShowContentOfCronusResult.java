@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.tempuri;
+package se.lu.ics.grupp2;
 
 public class ShowContentOfCronusResponseShowContentOfCronusResult  implements java.io.Serializable, org.apache.axis.encoding.AnyContentType {
     private org.apache.axis.message.MessageElement [] _any;
@@ -122,7 +122,7 @@ public class ShowContentOfCronusResponseShowContentOfCronusResult  implements ja
         new org.apache.axis.description.TypeDesc(ShowContentOfCronusResponseShowContentOfCronusResult.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://tempuri.org/", ">>ShowContentOfCronusResponse>ShowContentOfCronusResult"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", ">>ShowContentOfCronusResponse>ShowContentOfCronusResult"));
     }
 
     /**

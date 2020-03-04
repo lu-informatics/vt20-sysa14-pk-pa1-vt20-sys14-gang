@@ -5,9 +5,9 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.tempuri;
+package se.lu.ics.grupp2;
 
-public class WebServiceERP12Locator extends org.apache.axis.client.Service implements org.tempuri.WebServiceERP12 {
+public class WebServiceERP12Locator extends org.apache.axis.client.Service implements se.lu.ics.grupp2.WebServiceERP12 {
 
     public WebServiceERP12Locator() {
     }
@@ -39,7 +39,7 @@ public class WebServiceERP12Locator extends org.apache.axis.client.Service imple
         WebServiceERP12SoapWSDDServiceName = name;
     }
 
-    public org.tempuri.WebServiceERP12Soap getWebServiceERP12Soap() throws javax.xml.rpc.ServiceException {
+    public se.lu.ics.grupp2.WebServiceERP12Soap getWebServiceERP12Soap() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(WebServiceERP12Soap_address);
@@ -50,9 +50,9 @@ public class WebServiceERP12Locator extends org.apache.axis.client.Service imple
         return getWebServiceERP12Soap(endpoint);
     }
 
-    public org.tempuri.WebServiceERP12Soap getWebServiceERP12Soap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public se.lu.ics.grupp2.WebServiceERP12Soap getWebServiceERP12Soap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            org.tempuri.WebServiceERP12SoapStub _stub = new org.tempuri.WebServiceERP12SoapStub(portAddress, this);
+            se.lu.ics.grupp2.WebServiceERP12SoapStub _stub = new se.lu.ics.grupp2.WebServiceERP12SoapStub(portAddress, this);
             _stub.setPortName(getWebServiceERP12SoapWSDDServiceName());
             return _stub;
         }
@@ -72,8 +72,8 @@ public class WebServiceERP12Locator extends org.apache.axis.client.Service imple
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (org.tempuri.WebServiceERP12Soap.class.isAssignableFrom(serviceEndpointInterface)) {
-                org.tempuri.WebServiceERP12SoapStub _stub = new org.tempuri.WebServiceERP12SoapStub(new java.net.URL(WebServiceERP12Soap_address), this);
+            if (se.lu.ics.grupp2.WebServiceERP12Soap.class.isAssignableFrom(serviceEndpointInterface)) {
+                se.lu.ics.grupp2.WebServiceERP12SoapStub _stub = new se.lu.ics.grupp2.WebServiceERP12SoapStub(new java.net.URL(WebServiceERP12Soap_address), this);
                 _stub.setPortName(getWebServiceERP12SoapWSDDServiceName());
                 return _stub;
             }
@@ -105,7 +105,7 @@ public class WebServiceERP12Locator extends org.apache.axis.client.Service imple
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://tempuri.org/", "WebServiceERP12");
+        return new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "WebServiceERP12");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class WebServiceERP12Locator extends org.apache.axis.client.Service imple
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://tempuri.org/", "WebServiceERP12Soap"));
+            ports.add(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "WebServiceERP12Soap"));
         }
         return ports.iterator();
     }

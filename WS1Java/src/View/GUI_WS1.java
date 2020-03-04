@@ -13,14 +13,16 @@ import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import org.tempuri.WebServiceERP12SoapProxy;
+import  se.lu.ics.grupp2.WebServiceERP12SoapProxy;
+
+import se.lu.ics.grupp2.WebServiceERP12;
 
 import javax.swing.JComboBox;
 
 public class GUI_WS1 {
 
 	private JFrame frame;
-	WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy(); 
+	WebServiceERP12SoapProxy myProxy = new WebServiceERP12SoapProxy();
 	
 	/**
 	 * Launch the application.

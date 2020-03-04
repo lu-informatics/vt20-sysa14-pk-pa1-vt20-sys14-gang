@@ -1,47 +1,20 @@
 /**
- * ShowFile.java
+ * EmployeeAndRelatives.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.tempuri;
+package se.lu.ics.grupp2;
 
-public class ShowFile  implements java.io.Serializable {
-    private java.lang.String fileName;
-
-    public ShowFile() {
-    }
-
-    public ShowFile(
-           java.lang.String fileName) {
-           this.fileName = fileName;
-    }
-
-
-    /**
-     * Gets the fileName value for this ShowFile.
-     * 
-     * @return fileName
-     */
-    public java.lang.String getFileName() {
-        return fileName;
-    }
-
-
-    /**
-     * Sets the fileName value for this ShowFile.
-     * 
-     * @param fileName
-     */
-    public void setFileName(java.lang.String fileName) {
-        this.fileName = fileName;
+public class EmployeeAndRelatives  implements java.io.Serializable {
+    public EmployeeAndRelatives() {
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ShowFile)) return false;
-        ShowFile other = (ShowFile) obj;
+        if (!(obj instanceof EmployeeAndRelatives)) return false;
+        EmployeeAndRelatives other = (EmployeeAndRelatives) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -49,10 +22,7 @@ public class ShowFile  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.fileName==null && other.getFileName()==null) || 
-             (this.fileName!=null &&
-              this.fileName.equals(other.getFileName())));
+        _equals = true;
         __equalsCalc = null;
         return _equals;
     }
@@ -64,26 +34,16 @@ public class ShowFile  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getFileName() != null) {
-            _hashCode += getFileName().hashCode();
-        }
         __hashCodeCalc = false;
         return _hashCode;
     }
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ShowFile.class, true);
+        new org.apache.axis.description.TypeDesc(EmployeeAndRelatives.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://tempuri.org/", ">ShowFile"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("fileName");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "fileName"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", ">EmployeeAndRelatives"));
     }
 
     /**

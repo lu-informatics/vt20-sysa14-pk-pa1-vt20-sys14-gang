@@ -1,47 +1,47 @@
 /**
- * ShowFileResponse.java
+ * AllIndexesResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.tempuri;
+package se.lu.ics.grupp2;
 
-public class ShowFileResponse  implements java.io.Serializable {
-    private java.lang.String showFileResult;
+public class AllIndexesResponse  implements java.io.Serializable {
+    private java.lang.String[] allIndexesResult;
 
-    public ShowFileResponse() {
+    public AllIndexesResponse() {
     }
 
-    public ShowFileResponse(
-           java.lang.String showFileResult) {
-           this.showFileResult = showFileResult;
-    }
-
-
-    /**
-     * Gets the showFileResult value for this ShowFileResponse.
-     * 
-     * @return showFileResult
-     */
-    public java.lang.String getShowFileResult() {
-        return showFileResult;
+    public AllIndexesResponse(
+           java.lang.String[] allIndexesResult) {
+           this.allIndexesResult = allIndexesResult;
     }
 
 
     /**
-     * Sets the showFileResult value for this ShowFileResponse.
+     * Gets the allIndexesResult value for this AllIndexesResponse.
      * 
-     * @param showFileResult
+     * @return allIndexesResult
      */
-    public void setShowFileResult(java.lang.String showFileResult) {
-        this.showFileResult = showFileResult;
+    public java.lang.String[] getAllIndexesResult() {
+        return allIndexesResult;
+    }
+
+
+    /**
+     * Sets the allIndexesResult value for this AllIndexesResponse.
+     * 
+     * @param allIndexesResult
+     */
+    public void setAllIndexesResult(java.lang.String[] allIndexesResult) {
+        this.allIndexesResult = allIndexesResult;
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ShowFileResponse)) return false;
-        ShowFileResponse other = (ShowFileResponse) obj;
+        if (!(obj instanceof AllIndexesResponse)) return false;
+        AllIndexesResponse other = (AllIndexesResponse) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -50,9 +50,9 @@ public class ShowFileResponse  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.showFileResult==null && other.getShowFileResult()==null) || 
-             (this.showFileResult!=null &&
-              this.showFileResult.equals(other.getShowFileResult())));
+            ((this.allIndexesResult==null && other.getAllIndexesResult()==null) || 
+             (this.allIndexesResult!=null &&
+              java.util.Arrays.equals(this.allIndexesResult, other.getAllIndexesResult())));
         __equalsCalc = null;
         return _equals;
     }
@@ -64,8 +64,16 @@ public class ShowFileResponse  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getShowFileResult() != null) {
-            _hashCode += getShowFileResult().hashCode();
+        if (getAllIndexesResult() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAllIndexesResult());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAllIndexesResult(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -73,16 +81,17 @@ public class ShowFileResponse  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ShowFileResponse.class, true);
+        new org.apache.axis.description.TypeDesc(AllIndexesResponse.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://tempuri.org/", ">ShowFileResponse"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", ">AllIndexesResponse"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("showFileResult");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "ShowFileResult"));
+        elemField.setFieldName("allIndexesResult");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "AllIndexesResult"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

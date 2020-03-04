@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package org.tempuri;
+package se.lu.ics.grupp2;
 
 public class Employee  implements java.io.Serializable {
     private java.lang.String no;
@@ -286,59 +286,59 @@ public class Employee  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(Employee.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://tempuri.org/", "Employee"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "Employee"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("no");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "No"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "No"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("firstName");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "FirstName"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "FirstName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("lastName");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "LastName"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "LastName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("jobTitle");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "JobTitle"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "JobTitle"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("address");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "Address"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "Address"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("phoneNumber");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "PhoneNumber"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "PhoneNumber"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("ssn");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "Ssn"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "Ssn"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("email");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://tempuri.org/", "Email"));
+        elemField.setXmlName(new javax.xml.namespace.QName("http://grupp2.ics.lu.se/", "Email"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
