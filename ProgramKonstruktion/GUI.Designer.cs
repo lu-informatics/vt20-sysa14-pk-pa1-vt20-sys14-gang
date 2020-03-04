@@ -96,11 +96,8 @@
             this.allColumnNamesBtn = new System.Windows.Forms.Button();
             this.dataGridProgram2 = new System.Windows.Forms.DataGridView();
             this.integration1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.openFileINT1 = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
-            this.textBoxFileName = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.filename = new System.Windows.Forms.Label();
             this.integrations2 = new System.Windows.Forms.TabPage();
             this.showAllStoragesINT2 = new System.Windows.Forms.Button();
             this.showAllBookingsINT2 = new System.Windows.Forms.Button();
@@ -158,9 +155,15 @@
             this.tenantTableAdapter3 = new ProgramKonstruktion.StoreIT3DataSet2TableAdapters.TenantTableAdapter();
             this.tenantTableAdapter4 = new ProgramKonstruktion.STOREITNEWDataSetTableAdapters.TenantTableAdapter();
             this.storageTableAdapter3 = new ProgramKonstruktion.STOREITNEWDataSet1TableAdapters.StorageTableAdapter();
+            this.comboBoxINT1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTextBoxINT1 = new System.Windows.Forms.RichTextBox();
             this.storageBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.storageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.bookStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
@@ -791,6 +794,7 @@
             // 
             // programkonst2
             // 
+            this.programkonst2.Controls.Add(this.label8);
             this.programkonst2.Controls.Add(this.richTextBox2);
             this.programkonst2.Controls.Add(this.numberOfRowsBtn);
             this.programkonst2.Controls.Add(this.allColumnNamesBtn);
@@ -847,27 +851,28 @@
             // 
             // integration1
             // 
-            this.integration1.Controls.Add(this.button1);
+            this.integration1.Controls.Add(this.label30);
+            this.integration1.Controls.Add(this.richTextBoxINT1);
+            this.integration1.Controls.Add(this.label5);
+            this.integration1.Controls.Add(this.comboBoxINT1);
+            this.integration1.Controls.Add(this.openFileINT1);
             this.integration1.Controls.Add(this.lblResult);
-            this.integration1.Controls.Add(this.textBoxFileName);
-            this.integration1.Controls.Add(this.label8);
-            this.integration1.Controls.Add(this.filename);
             this.integration1.Location = new System.Drawing.Point(4, 22);
             this.integration1.Name = "integration1";
             this.integration1.Size = new System.Drawing.Size(1106, 626);
             this.integration1.TabIndex = 4;
-            this.integration1.Text = "Interaktionsteknologier 1";
+            this.integration1.Text = "Integrationsteknologier 1";
             this.integration1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // openFileINT1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Open File";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.openFileINT1.Location = new System.Drawing.Point(281, 155);
+            this.openFileINT1.Name = "openFileINT1";
+            this.openFileINT1.Size = new System.Drawing.Size(75, 23);
+            this.openFileINT1.TabIndex = 4;
+            this.openFileINT1.Text = "Open File";
+            this.openFileINT1.UseVisualStyleBackColor = true;
+            this.openFileINT1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblResult
             // 
@@ -877,35 +882,9 @@
             this.lblResult.Size = new System.Drawing.Size(0, 13);
             this.lblResult.TabIndex = 3;
             // 
-            // textBoxFileName
-            // 
-            this.textBoxFileName.Location = new System.Drawing.Point(133, 29);
-            this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(154, 20);
-            this.textBoxFileName.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(34, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 20);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Result: ";
-            // 
-            // filename
-            // 
-            this.filename.AutoSize = true;
-            this.filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filename.Location = new System.Drawing.Point(31, 29);
-            this.filename.Name = "filename";
-            this.filename.Size = new System.Drawing.Size(78, 20);
-            this.filename.TabIndex = 0;
-            this.filename.Text = "Filename:";
-            // 
             // integrations2
             // 
+            this.integrations2.Controls.Add(this.label31);
             this.integrations2.Controls.Add(this.showAllStoragesINT2);
             this.integrations2.Controls.Add(this.showAllBookingsINT2);
             this.integrations2.Controls.Add(this.dataGridView2);
@@ -913,15 +892,16 @@
             this.integrations2.Name = "integrations2";
             this.integrations2.Size = new System.Drawing.Size(1106, 626);
             this.integrations2.TabIndex = 5;
-            this.integrations2.Text = "Interaktionsteknologier 2";
+            this.integrations2.Text = "Integrationsteknologier 2";
             this.integrations2.UseVisualStyleBackColor = true;
             this.integrations2.Click += new System.EventHandler(this.integrations2_Click);
             // 
             // showAllStoragesINT2
             // 
-            this.showAllStoragesINT2.Location = new System.Drawing.Point(453, 97);
+            this.showAllStoragesINT2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showAllStoragesINT2.Location = new System.Drawing.Point(496, 129);
             this.showAllStoragesINT2.Name = "showAllStoragesINT2";
-            this.showAllStoragesINT2.Size = new System.Drawing.Size(139, 23);
+            this.showAllStoragesINT2.Size = new System.Drawing.Size(150, 25);
             this.showAllStoragesINT2.TabIndex = 3;
             this.showAllStoragesINT2.Text = "Show All Storages";
             this.showAllStoragesINT2.UseVisualStyleBackColor = true;
@@ -929,9 +909,10 @@
             // 
             // showAllBookingsINT2
             // 
-            this.showAllBookingsINT2.Location = new System.Drawing.Point(224, 97);
+            this.showAllBookingsINT2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showAllBookingsINT2.Location = new System.Drawing.Point(225, 129);
             this.showAllBookingsINT2.Name = "showAllBookingsINT2";
-            this.showAllBookingsINT2.Size = new System.Drawing.Size(136, 23);
+            this.showAllBookingsINT2.Size = new System.Drawing.Size(150, 25);
             this.showAllBookingsINT2.TabIndex = 2;
             this.showAllBookingsINT2.Text = "Show All Bookings";
             this.showAllBookingsINT2.UseVisualStyleBackColor = true;
@@ -943,7 +924,7 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(66, 145);
+            this.dataGridView2.Location = new System.Drawing.Point(79, 191);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(683, 341);
@@ -1019,6 +1000,7 @@
             this.comboBoxChooseData.Size = new System.Drawing.Size(175, 21);
             this.comboBoxChooseData.TabIndex = 27;
             this.comboBoxChooseData.Text = "Choose CRONUS Query...";
+            this.comboBoxChooseData.SelectedIndexChanged += new System.EventHandler(this.comboBoxChooseData_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -1350,6 +1332,33 @@
             // 
             this.storageTableAdapter3.ClearBeforeFill = true;
             // 
+            // comboBoxINT1
+            // 
+            this.comboBoxINT1.FormattingEnabled = true;
+            this.comboBoxINT1.Location = new System.Drawing.Point(104, 157);
+            this.comboBoxINT1.Name = "comboBoxINT1";
+            this.comboBoxINT1.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxINT1.TabIndex = 5;
+            this.comboBoxINT1.SelectedIndexChanged += new System.EventHandler(this.comboBoxINT1_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(101, 141);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Choose a file to open:";
+            // 
+            // richTextBoxINT1
+            // 
+            this.richTextBoxINT1.Location = new System.Drawing.Point(104, 202);
+            this.richTextBoxINT1.Name = "richTextBoxINT1";
+            this.richTextBoxINT1.Size = new System.Drawing.Size(498, 142);
+            this.richTextBoxINT1.TabIndex = 7;
+            this.richTextBoxINT1.Text = "";
+            // 
             // storageBindingSource4
             // 
             this.storageBindingSource4.DataSource = typeof(ProgramKonstruktion.Storage);
@@ -1361,6 +1370,36 @@
             // storageBindingSource1
             // 
             this.storageBindingSource1.DataSource = typeof(ProgramKonstruktion.Storage);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(79, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(261, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Programkonstruktion: Assignment 2";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(100, 39);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(277, 20);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "Integrationsteknologier: Assignment 1";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(75, 45);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(277, 20);
+            this.label31.TabIndex = 4;
+            this.label31.Text = "Integrationsteknologier: Assignment 2";
             // 
             // GUI
             // 
@@ -1385,10 +1424,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOREITNEWDataSet1)).EndInit();
             this.programkonst2.ResumeLayout(false);
+            this.programkonst2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProgram2)).EndInit();
             this.integration1.ResumeLayout(false);
             this.integration1.PerformLayout();
             this.integrations2.ResumeLayout(false);
+            this.integrations2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ERP.ResumeLayout(false);
             this.ERP.PerformLayout();
@@ -1508,10 +1549,7 @@
         private STOREITNEWDataSet1 sTOREITNEWDataSet1;
         private System.Windows.Forms.BindingSource storageBindingSource6;
         private STOREITNEWDataSet1TableAdapters.StorageTableAdapter storageTableAdapter3;
-        private System.Windows.Forms.TextBox textBoxFileName;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label filename;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button openFileINT1;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label9;
@@ -1548,6 +1586,12 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button showAllStoragesINT2;
         private System.Windows.Forms.Button showAllBookingsINT2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxINT1;
+        private System.Windows.Forms.RichTextBox richTextBoxINT1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
     }
 
    
