@@ -206,8 +206,14 @@ public class JavaClientGui {
 		
 		//populates cBox with querys 
 		ArrayList<String>querys = new ArrayList<String>(); 
-		querys.add("hej"); 
-		querys.add("hej"); 
+		querys.add("Content and metadata for employee"); 
+		querys.add("Employees and their relatives"); 
+		querys.add("Sick employees 2004"); 
+		querys.add("Metadata: Keys");
+		querys.add("Metadata: Indexes");
+		querys.add("Metadata: Table constraint");
+		querys.add("Metadata: All tables");
+		querys.add("Metadata: All columns");
 		for (String value: querys) { 
 			 cBoxQuery.addItem(value); 
 		}
