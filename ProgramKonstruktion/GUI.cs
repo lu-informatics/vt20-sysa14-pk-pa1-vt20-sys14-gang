@@ -167,19 +167,20 @@ namespace ProgramKonstruktion
         //Adds a new Storage to the database
         private void addStorageBtn_Click(object sender, EventArgs e)
         {
+            cleanBoxes();
             storage.Nbr = storageNbrTxt.Text;
             storage.Address = storageLocationTxt.Text;
-            storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
-            storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
 
-            Boolean added = storageDal.CreateStorage(storage);
-            if (!added)
-            {
-                errorBoxUpdateStorages.Text = "Failed to add, try again";
+            if (string.IsNullOrEmpty(storage.Nbr) && (string.IsNullOrEmpty(storage.Address)) && (string.IsNullOrEmpty(storagePriceTxt.Text)) && (string.IsNullOrEmpty(storageSizeTxt.Text)))
+               {
+                errorBoxUpdateStorages.Text = "Failed to add Storage. Please fill out all fields and try again.";
             }
 
-           else if (added)
+           else if ((!(string.IsNullOrEmpty(storage.Nbr))) && (!(string.IsNullOrEmpty(storage.Address))))
             {
+                storageDal.CreateStorage(storage);
+                storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
+                storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
                 errorBoxUpdateStorages.Text = "Storage was added succefully!";
                 cleanTextFields();
                 this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
@@ -309,7 +310,7 @@ namespace ProgramKonstruktion
 
             if (string.IsNullOrEmpty(storage.Nbr) || (string.IsNullOrEmpty(storage.Address)) || (string.IsNullOrEmpty(storagePriceTxt.Text)) || (string.IsNullOrEmpty(storageSizeTxt.Text)))
             {
-                errorBoxUpdateStorages.Text = "Failed to update Storage, try again";
+                errorBoxUpdateStorages.Text = "Failed to update Storage. Please fill out all fields and try again.";
                 cleanTextFields();
             }
             else if((!(string.IsNullOrEmpty(storage.Nbr))) && (!(string.IsNullOrEmpty(storage.Address))))
@@ -324,7 +325,6 @@ namespace ProgramKonstruktion
             }
 
         }
-
 
         //Search Storage
         private void storageSearchBtn_Click(object sender, EventArgs e)
