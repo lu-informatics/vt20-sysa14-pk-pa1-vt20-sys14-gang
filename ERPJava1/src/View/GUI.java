@@ -330,18 +330,41 @@ public class GUI {
 					try {
 					myProxy.findEmployee(emp);
 					Employee employee = new Employee(); 
-					txtPOutput.setText("Found employee: "); //find should return lastname, job title and email
+					txtPOutput.setText("Found employee: " + emp); //find should return lastname, job title and email
 				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 					txtPOutput.setText("Failed to find employee, try entering a valid ssn");
 				} 
 			}
 		}
 		}); 
+		/*
+		 * Deletes emp from database by emp no search. Checks if a ssn has been entered as
+		 * that is where it collects the chosen emp from (and not e.g. cBox)
+		 * Else statement checks that the entered ssn exists in DB. If it does, object 
+		 * will be deleted. 
+		 */
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				
+				String empNo = txtFSearchEmp.getText(); 
+				if (empNo.equals("")) { 
+					txtPOutput.setText("Please enter a ssn");
+				} else {
+					try {
+						if (empNo.equals(myProxy.findEmployee(empNo))) {
+							try {
+								myProxy.deleteEmployee(empNo);
+								txtPOutput.setText("Employee deleted");
+							} catch (RemoteException e1) {
+								txtPOutput.setText("Could't delete employee from database");
+								e1.printStackTrace();
+							} 
+						}
+					} catch (RemoteException e1) {
+						txtPOutput.setText("Can't find employee in database");
+						e1.printStackTrace();
+					}
+				}
 			}
 		}); 
 			
