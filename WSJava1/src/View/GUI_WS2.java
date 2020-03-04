@@ -20,6 +20,7 @@ import se.lu.ics.grupp2.Storage;
 import se.lu.ics.grupp2.Tenant;
 
 import javax.swing.JComboBox;
+import javax.swing.JScrollPane;
 
 public class GUI_WS2 {
 
@@ -65,10 +66,13 @@ public class GUI_WS2 {
 		btnViewFile.setBounds(492, 11, 89, 23);
 		frame.getContentPane().add(btnViewFile);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 45, 561, 409);
+		frame.getContentPane().add(scrollPane);
+		
 		//Textpane that sets text output from objects
 		final JTextPane txtOutput = new JTextPane();
-		txtOutput.setBounds(20, 45, 561, 409);
-		frame.getContentPane().add(txtOutput);
+		scrollPane.setViewportView(txtOutput);
 		
 		//Combobox that holds options
 		

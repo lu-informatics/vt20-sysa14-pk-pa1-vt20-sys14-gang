@@ -22,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JSpinner;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class JavaClientGui {
 
@@ -181,11 +183,11 @@ public class JavaClientGui {
 		
 		final JComboBox cBoxQuery = new JComboBox();
 		cBoxQuery.setToolTipText(" ");
-		cBoxQuery.setBounds(298, 67, 251, 23);
+		cBoxQuery.setBounds(298, 67, 450, 23);
 		frame.getContentPane().add(cBoxQuery);
 		
 		JButton btnRunQuery = new JButton("Run Query");
-		btnRunQuery.setBounds(559, 67, 89, 23);
+		btnRunQuery.setBounds(758, 67, 89, 23);
 		frame.getContentPane().add(btnRunQuery);
 		
 		JLabel lblErpUppgift = new JLabel("ERP Uppgift 1");
@@ -196,13 +198,16 @@ public class JavaClientGui {
 		lblErpUppgift_2.setBounds(298, 28, 108, 14);
 		frame.getContentPane().add(lblErpUppgift_2);
 		
-		final JTextPane txtPQuery = new JTextPane();
-		txtPQuery.setBounds(295, 122, 613, 438);
-		frame.getContentPane().add(txtPQuery);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(295, 122, 613, 438);
+		frame.getContentPane().add(scrollPane);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(618, 149, 30, 249);
-		frame.getContentPane().add(spinner);
+		final JTextPane txtPQuery = new JTextPane();
+		scrollPane.setViewportView(txtPQuery);
+		
+		
+		
+		
 		
 		//populates cBox with querys 
 		ArrayList<String>querys = new ArrayList<String>(); 
@@ -236,45 +241,47 @@ public class JavaClientGui {
 					return;
 				}
 			
-				if (lastName.equals("")) { 
+				else if (lastName.equals("")) { 
 					txtPOutput.setText("Please enter last name"); 
 					return;
 				}
 			
-				if (ssn.equals("")) { 
+				else if (ssn.equals("")) { 
 					txtPOutput.setText("Please enter ssn"); 
 					return; 
 				}
-			
-				if (address.equals("")) { 
+				else if (address.equals("")) { 
 					txtPOutput.setText("Please enter address"); 
 					return;
 				}
 			
-				if (jobTitle.equals("")) { 
+				else if (jobTitle.equals("")) { 
 					txtPOutput.setText("Please enter job title"); 
 					return;
 				}
 				
-				if (firstName.equals("")) { 
+				else if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter employee number"); 
 					return;
 				}
 			
-				if (firstName.equals("")) { 
+				else if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter phone number"); 
 					return;
 				}
 			
-				if (firstName.equals("")) { 
+				else if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter email"); 
 					return;
 				}
+				else { 	txtPOutput.setText("Please fill out fields"); }
+				
 				try {
+					
 					myProxy.createEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email, ssn);
 					txtPOutput.setText("Employee created");
 				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 					txtPOutput.setText("Failed to create employee");
 				} {
@@ -285,13 +292,7 @@ public class JavaClientGui {
 		}
 				
 				);
-		/*txtFFirstName.setText(""); 
-		txtFLastName.setText(""); 
-		txtFSsn.setText(""); 
-		txtFAddress.setText("");
-		txtFJobTitle.setText("");
-		txtFPhoneNbr.setText("");
-		txtFEmail.setText("");*/
+		
 		btnUpdate.addActionListener(new ActionListener() {
 				public void actionPerformed (ActionEvent e) {
 				
@@ -421,7 +422,9 @@ public class JavaClientGui {
 				}
 			}
 		}); 
-		
+		/*
+		 * method takes string and opens query. Result is shown in textpane. 
+		 */
 		btnRunQuery.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				txtPQuery.setText(""); 
