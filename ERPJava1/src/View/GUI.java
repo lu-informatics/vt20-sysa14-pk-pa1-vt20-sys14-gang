@@ -330,9 +330,9 @@ public class GUI {
 					try {
 					Employee employee = myProxy.findEmployee(emp);  
 					myProxy.findEmployee(emp); 
-					txtPOutput.setText("Found employee with ssn: " + emp 
-							+ "Last name: " + employee.getLastName() 
-							+ "Job title: " + employee.getJobTitle() 
+					txtPOutput.setText("Found employee with ssn: " + emp + "\n"
+							+ "Last name: " + employee.getLastName() + "\n"
+							+ "Job title: " + employee.getJobTitle() + "\n"
 							+ "Email: " + employee.getEmail());
 					 //find should return lastname, job title and email
 					
