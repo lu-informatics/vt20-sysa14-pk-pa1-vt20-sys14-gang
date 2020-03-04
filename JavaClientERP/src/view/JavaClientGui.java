@@ -2,27 +2,24 @@ package view;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-import java.awt.GridLayout;
-import java.awt.List;
+
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.FlowLayout;
+
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import se.lu.ics.grupp2.Employee;
+import se.lu.ics.grupp2.Tenant;
 import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import javax.swing.JTable;
 
 public class JavaClientGui {
@@ -395,13 +392,17 @@ public class JavaClientGui {
 		btnRunQuery.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				String query = cBoxQuery.getSelectedItem().toString(); 
-				if (query.equals("Content and metadata for Employee tables")) { 
+				if (query.equals("Content and metadata for employee")) { 
 					try {
-						Employee emp = new Employee(); 
-						String[] listOfRelatives = myProxy.showContentOfCronusDataTable(); 
-						txtPOutput.setText(listOfRelatives.toString());
+						String output = ""; 
+						for (String s: myProxy.allTablesInDatabaseSolOne()) {
+							output+=s;
+							
+						}
+						txtPOutput.setText(output); 
 						
-					} catch (RemoteException e1) {
+					}
+					 catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
