@@ -127,6 +127,8 @@ namespace ProgramKonstruktion
         {
             cleanBoxes();
             dataGridBookings.DataSource = controller.FindTenants(ssnSearchTxt.Text);
+            dataGridBookings.DataSource = tenantDal.FindTenants(ssnSearchTxt.Text);
+
 
         }
 
@@ -145,7 +147,7 @@ namespace ProgramKonstruktion
 
             if (string.IsNullOrEmpty(ssnBookTxt.Text) && (string.IsNullOrEmpty(tenantNameTxt.Text)) && (string.IsNullOrEmpty(phoneNbrTxt.Text)) && (string.IsNullOrEmpty(emailTxt.Text)))
             {
-                errorBoxBooking.Text = "Failed to add booking. All fields has to be filled. Please try again.";
+                errorBoxBooking.Text = "Failed to add booking. \n All fields has to be filled. Please try again.";
             }
             else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
             {
@@ -286,17 +288,19 @@ namespace ProgramKonstruktion
 
             Tenant updated = controller.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
 
-            if(updated == null)
+            if (string.IsNullOrEmpty(ssnBookTxt.Text) || (string.IsNullOrEmpty(tenantNameTxt.Text)) || (string.IsNullOrEmpty(phoneNbrTxt.Text)) || (string.IsNullOrEmpty(emailTxt.Text)))
             {
-                errorBoxBooking.Text = "Failed to update, try again!";
-            } 
-            else
+                errorBoxBooking.Text = "Failed to update Tenant Information. \n All Tenant Fields has to be filled. Please try again.";
+                cleanTextFields();
+            }
+            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
             {
+                tenantDal.UpdateTenant(tenant.Ssn, tenant.Name, tenant.PhoneNbr, tenant.Email);
                 errorBoxBooking.Text = "Tenant with ssn: " + tenant.Ssn + " was updated succefully!";
                 this.tenantTableAdapter4.Fill(this.sTOREITNEWDataSet.Tenant);
                 cleanTextFields();
+
             }
-            
 
         }
 
@@ -306,24 +310,27 @@ namespace ProgramKonstruktion
             cleanBoxes();
             storage.Nbr = storageNbrTxt.Text;
             storage.Address = storageLocationTxt.Text;
-            storage.Price = (float)Convert.ToSingle(storagePriceTxt.Text);
-            storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
-
 
             Storage updated = controller.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
             if (updated == null)
+
+            if (string.IsNullOrEmpty(storage.Nbr) || (string.IsNullOrEmpty(storage.Address)) || (string.IsNullOrEmpty(storagePriceTxt.Text)) || (string.IsNullOrEmpty(storageSizeTxt.Text)))
+
             {
-                errorBoxUpdateStorages.Text = "Failed to update, try again";
+                errorBoxUpdateStorages.Text = "Failed to update Storage, try again";
+                cleanTextFields();
             }
-            else
+            else if((!(string.IsNullOrEmpty(storage.Nbr))) && (!(string.IsNullOrEmpty(storage.Address))))
             {
+                storage.Price = (float)Convert.ToSingle(storagePriceTxt.Text);
+                storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
+                storageDal.UpdateStorage(storage.Nbr, storage.Address, storage.Price, storage.Size);
                 errorBoxUpdateStorages.Text = "Storage with nbr: " + storage.Nbr + " was updated succefully!";
                 this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
                 cleanTextFields();
 
             }
 
-            
         }
 
 
