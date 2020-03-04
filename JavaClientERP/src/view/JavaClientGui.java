@@ -221,43 +221,51 @@ public class JavaClientGui {
 		//method for creating new employee 
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-		
+				
 				String firstName = txtFFirstName.getText(); 
+				String lastName = txtFLastName.getText();
+				String ssn = txtFSsn.getText();
+				String address = txtFAddress.getText(); 
+				String jobTitle = txtFJobTitle.getText(); 
+				String empNbr = txtFEmpNo.getText(); 
+				String phoneNbr = txtFPhoneNbr.getText(); 
+				String email = txtFEmail.getText();
+				
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter first name"); 
 					return;
 				}
-				String lastName = txtFLastName.getText();
+			
 				if (lastName.equals("")) { 
 					txtPOutput.setText("Please enter last name"); 
 					return;
 				}
-				String ssn = txtFSsn.getText(); 
+			
 				if (ssn.equals("")) { 
 					txtPOutput.setText("Please enter ssn"); 
 					return; 
 				}
-				String address = txtFAddress.getText(); 
+			
 				if (address.equals("")) { 
 					txtPOutput.setText("Please enter address"); 
 					return;
 				}
-				String jobTitle = txtFJobTitle.getText(); 
+			
 				if (jobTitle.equals("")) { 
 					txtPOutput.setText("Please enter job title"); 
 					return;
 				}
-				String empNbr = txtFEmpNo.getText(); 
+				
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter employee number"); 
 					return;
 				}
-				String phoneNbr = txtFPhoneNbr.getText(); 
+			
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter phone number"); 
 					return;
 				}
-				String email = txtFEmail.getText(); 
+			
 				if (firstName.equals("")) { 
 					txtPOutput.setText("Please enter email"); 
 					return;
@@ -277,62 +285,90 @@ public class JavaClientGui {
 		}
 				
 				);
+		/*txtFFirstName.setText(""); 
+		txtFLastName.setText(""); 
+		txtFSsn.setText(""); 
+		txtFAddress.setText("");
+		txtFJobTitle.setText("");
+		txtFPhoneNbr.setText("");
+		txtFEmail.setText("");*/
 		btnUpdate.addActionListener(new ActionListener() {
 				public void actionPerformed (ActionEvent e) {
-					String firstName = txtFFirstName.getText(); 
-					if (firstName.equals("")) { 
-						txtPOutput.setText("Please enter first name"); 
-						return;
-					}
-					String lastName = txtFLastName.getText();
-					if (lastName.equals("")) { 
-						txtPOutput.setText("Please enter last name"); 
-						return;
-					}
-					String ssn = txtFSsn.getText(); 
-					if (ssn.equals("")) { 
-						txtPOutput.setText("Please enter ssn"); 
-						return; 
-					}
-					String address = txtFAddress.getText(); 
-					if (address.equals("")) { 
-						txtPOutput.setText("Please enter address"); 
-						return;
-					}
-					String jobTitle = txtFJobTitle.getText(); 
-					if (jobTitle.equals("")) { 
-						txtPOutput.setText("Please enter job title"); 
-						return;
-					}
-					String empNbr = txtFEmpNo.getText(); 
-					if (firstName.equals("")) { 
-						txtPOutput.setText("Please enter employee number"); 
-						return;
-					}
-					String phoneNbr = txtFPhoneNbr.getText(); 
-					if (firstName.equals("")) { 
-						txtPOutput.setText("Please enter phone number"); 
-						return;
-					}
-					String email = txtFEmail.getText(); 
-					if (firstName.equals("")) { 
-						txtPOutput.setText("Please enter email"); 
-						return;
-					}
-					try {
-						myProxy.updateEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email);
-						txtPOutput.setText("Updated employee with employee number " + empNbr); 
-					} catch (RemoteException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-						txtPOutput.setText("Failed to update employee");
-					}
-			}
+				
+						
+						String firstName = txtFFirstName.getText(); 
+						String lastName = txtFLastName.getText();
+						String ssn = txtFSsn.getText();
+						String address = txtFAddress.getText(); 
+						String jobTitle = txtFJobTitle.getText(); 
+						String empNbr = txtFEmpNo.getText(); 
+						String phoneNbr = txtFPhoneNbr.getText(); 
+						String email = txtFEmail.getText(); 
+						
+						
+						if (firstName.equals("")) { 
+							txtPOutput.setText("Please enter first name"); 
+							return;
+						}
+						
+						else if (lastName.equals("")) { 
+							txtPOutput.setText("Please enter last name"); 
+							return;
+						}
+						 
+						else if (ssn.equals("")) { 
+							txtPOutput.setText("Please enter ssn"); 
+							return; 
+						}
+						
+						else if (address.equals("")) { 
+							txtPOutput.setText("Please enter address"); 
+							return;
+						}
+						else if (jobTitle.equals("")) { 
+							txtPOutput.setText("Please enter job title"); 
+							return;
+						}
+						else if (empNbr.equals("")) { 
+							txtPOutput.setText("Please enter employee number"); 
+							return;
+						}
+						else if (phoneNbr.equals("")) { 
+							txtPOutput.setText("Please enter phone number"); 
+							return;
+						}
+						else if (email.equals("")) { 
+							txtPOutput.setText("Please enter email"); 
+							return;
+						}
+						else { txtPOutput.setText("Något gick fel, försök igen");
+						
+						
+						try {
+							myProxy.updateEmployee(empNbr, firstName, lastName, jobTitle, address, phoneNbr, email);
+							txtPOutput.setText("Updated employee with employee number " + empNbr); 
+						} catch (RemoteException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+							txtPOutput.setText("Failed to update employee");
+						}
+				}	
+				}
+				
 		}); 
 		
 		//method for findButton 
 		btnFind.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
+				txtFFirstName.setText(""); 
+				txtFLastName.setText(""); 
+				txtFSsn.setText(""); 
+				txtFAddress.setText("");
+				txtFJobTitle.setText("");
+				txtFPhoneNbr.setText("");
+				txtFEmpNo.setText("");
+				txtFEmail.setText("");
+				
 				String emp = txtFSearchEmp.getText(); 
 				if (emp.equals("")) { 
 					txtPOutput.setText("Please enter a ssn");
@@ -361,6 +397,15 @@ public class JavaClientGui {
 		 */
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
+				txtFFirstName.setText(""); 
+				txtFLastName.setText(""); 
+				txtFSsn.setText(""); 
+				txtFAddress.setText("");
+				txtFJobTitle.setText("");
+				txtFPhoneNbr.setText("");
+				txtFEmpNo.setText("");
+				txtFEmail.setText("");
+				
 				String empNo = txtFSearchEmp.getText(); 
 				if (empNo.equals("")) { 
 					txtPOutput.setText("Please enter a ssn");
@@ -371,21 +416,8 @@ public class JavaClientGui {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}
-					txtPQuery.setText("Employee deleted");
+					txtPOutput.setText("Employee with" + empNo +  "deleted");
 					
-					/*try {
-						if (empNo.equals(myProxy.findEmployee(empNo))) {
-							try {
-								
-							} catch (RemoteException e1) {
-								txtPOutput.setText("Could't delete employee from database");
-								e1.printStackTrace();
-							} 
-						}
-					} catch (RemoteException e1) {
-						txtPOutput.setText("Can't find employee in database");
-						e1.printStackTrace();
-					}*/
 				}
 			}
 		}); 
@@ -406,7 +438,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -422,7 +454,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -438,7 +470,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -454,7 +486,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -470,7 +502,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -486,7 +518,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -502,7 +534,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -518,7 +550,7 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
@@ -534,18 +566,12 @@ public class JavaClientGui {
 						
 					}
 					 catch (RemoteException e1) {
-						// TODO Auto-generated catch block
+						 txtPQuery.setText("Connection failed");
 						e1.printStackTrace();
 					} 
 				}
 				else {txtPQuery.setText("Failed to read query ");} 
 			}
-		}); 
-			 
-			
-		
-			
-			
-		
+		}); 		
 }
 }
