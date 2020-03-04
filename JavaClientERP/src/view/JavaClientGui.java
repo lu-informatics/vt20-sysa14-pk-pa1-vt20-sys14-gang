@@ -392,8 +392,24 @@ public class JavaClientGui {
 		
 		btnRunQuery.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
+				txtPQuery.setText(""); 
 				String query = cBoxQuery.getSelectedItem().toString(); 
 				if (query.equals("Content and metadata for employee")) { 
+					try {
+						String output = ""; 
+						for (String s: myProxy.allTablesInDatabaseSolOne()) {
+							output+=s + "\n";
+							
+						}
+						txtPQuery.setText(output); 
+						
+					}
+					 catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+				else if (query.equals("Employees and their relatives")) { 
 					try {
 						String output = ""; 
 						for (String s: myProxy.allTablesInDatabaseSolOne()) {
