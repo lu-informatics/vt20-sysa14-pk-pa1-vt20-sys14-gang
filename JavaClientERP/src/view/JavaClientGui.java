@@ -378,7 +378,7 @@ public class JavaClientGui {
 					try {
 					Employee employee = myProxy.findEmployee(emp);  
 					myProxy.findEmployee(emp); 
-					txtPOutput.setText("Found employee with ssn: " + emp + "\n"
+					txtPOutput.setText("Found employee with No: " + emp + "\n"
 							+ "Last name: " + employee.getLastName() + "\n"
 							+ "Job title: " + employee.getJobTitle() + "\n"
 							+ "Email: " + employee.getEmail());
