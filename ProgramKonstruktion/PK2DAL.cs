@@ -16,14 +16,14 @@ namespace ProgramKonstruktion
         private SqlConnection connection;
         private ErrorHandler errorHandler = new ErrorHandler();
 
-        public PK2DAL() //constructor
+        //constructor
+        public PK2DAL() 
         {
             connect = new PK2Connector();
             connection = connect.Connection;
         }
 
-        //Show all column names method 2
-
+        //Show AllcolumnNames from TablesOfInterest in SYSA14 database
         public DataTable ShowAllColumnNames()
         {
             DataTable dtNames = new DataTable();
@@ -42,7 +42,7 @@ namespace ProgramKonstruktion
                     catch (SqlException e)
                     {
                         MessageBox.Show(e.Message);
-                        // errorHandler.HandleErrorExceptionSql(e);
+                        
                     }
                     catch (Exception ex)
                     {
@@ -61,8 +61,7 @@ namespace ProgramKonstruktion
         }
 
 
-        //Show Number of rows method 2
-
+        //Show NumberOfRows from TablesOfInterest in SYSA14 database
         public DataTable ShowNumberOfRows()
         {
             DataTable dtRows = new DataTable();
@@ -90,7 +89,7 @@ namespace ProgramKonstruktion
 
                     finally
                     {
-                        //connection.Close();
+                        
                         connect.CloseConnection(connection);
                     }
                     return dtRows;

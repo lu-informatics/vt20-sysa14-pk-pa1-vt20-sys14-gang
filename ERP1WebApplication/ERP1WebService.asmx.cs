@@ -84,16 +84,3 @@ namespace ERP1WebApplication
         }
 
         }
-
-            
-    
-
-
-    /*[WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-    }
-}
-*/

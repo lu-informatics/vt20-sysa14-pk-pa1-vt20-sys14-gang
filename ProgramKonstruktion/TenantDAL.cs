@@ -15,12 +15,14 @@ namespace ProgramKonstruktion
         private SqlConnection connection;
         private ErrorHandler errorHandler = new ErrorHandler();
 
-        public TenantDAL() //constructor
+        //constructor
+        public TenantDAL()
         {
             connect = new Connector();
             connection = connect.Connection;
         }
 
+        //Get all Bookings 
         public List<Tenant> GetTenantBookings()
         {
             List<Tenant> tenantBookings = new List<Tenant>();
@@ -73,9 +75,7 @@ namespace ProgramKonstruktion
 
         }
 
-
-
-        //Create tenant
+        //Create new Booking for Tenant
         public Boolean CreateTenant(Tenant tenant)
         {
             Boolean added = false;
@@ -90,7 +90,6 @@ namespace ProgramKonstruktion
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = tenant.Email;
             command.Parameters.Add("@storageNbr", SqlDbType.NVarChar).Value = tenant.StorageNbr;
             command.Parameters.Add("@rentDate", SqlDbType.Date).Value = tenant.RentDate;
-
 
             try
             {
@@ -122,6 +121,7 @@ namespace ProgramKonstruktion
             return added;
         }
 
+        //Update Booking Information
         public Tenant UpdateTenant(string ssn, string name, string phoneNbr, string email)
         {
 
@@ -162,6 +162,7 @@ namespace ProgramKonstruktion
             return tenant;
         }
 
+        //Delete Booking/Tenant for WebMethods
         public Boolean DeleteTenant(string ssn)
         {
             Boolean deletedTenant = false;
@@ -171,7 +172,6 @@ namespace ProgramKonstruktion
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@ssn", SqlDbType.NVarChar).Value = ssn;
-
 
             try
             {
@@ -205,6 +205,7 @@ namespace ProgramKonstruktion
 
         }
 
+        //Find Booking/Tenant for WebMethods
         public Tenant FindTenant(string ssn)
         {
             string query = "SELECT * FROM Tenant WHERE ssn = @ssn";
@@ -228,7 +229,6 @@ namespace ProgramKonstruktion
                     tenant.Email = reader.GetString(3);
                     tenant.StorageNbr = reader.GetString(4);
                     tenant.RentDate = reader.GetDateTime(5);
-                    // tenant.StorageAddress = reader.GetString(6);
                 }
             }
             catch (SqlException e)
@@ -251,7 +251,7 @@ namespace ProgramKonstruktion
 
         }
 
-
+        //Find Booking in dataGrid
         public DataTable findTenants(string ssn)
         {
             DataTable dtTenant = new DataTable();
@@ -286,6 +286,7 @@ namespace ProgramKonstruktion
             return dtTenant;
                 }
 
+        //ShowAllBokkings in dataGrid
         public DataTable ShowAllBookings()
         {
             DataTable dtBookings = new DataTable();

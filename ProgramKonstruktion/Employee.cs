@@ -23,18 +23,6 @@ namespace ProgramKonstruktion
 
         }
 
-       /* public Employee(string no, string firstName, string lastName, string jobTitle, string address, string phoneNumber, string ssn, string email)
-        {
-            this.no = no;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.jobTitle = jobTitle;
-            this.address = address;
-            this.phoneNumber = phoneNumber;
-            this.ssn = ssn;
-            this.email = email;
-        }*/
-
         public string No
         {
             get => no;

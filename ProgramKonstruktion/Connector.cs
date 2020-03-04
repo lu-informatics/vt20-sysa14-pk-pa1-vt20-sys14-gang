@@ -27,24 +27,18 @@ namespace ProgramKonstruktion
             try
             {
                 Connection = new SqlConnection(connectionString);
-                //connection.Open();
-                //return connection;
             }
             catch (SqlException sqlE)
             {
                 //Errorhantering
             }
-            //return null;
+            
         }
-
 
         public void CloseConnector(SqlConnection con)
         {
             con.Close();
         }
-
-
-
 
     }
 }

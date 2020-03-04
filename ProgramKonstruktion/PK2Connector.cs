@@ -20,6 +20,7 @@ namespace ProgramKonstruktion
 
         public SqlConnection Connection { get; set; }
 
+        //Close connector
         public void CloseConnection(SqlConnection connection)
         {
             connection.Close();
@@ -35,6 +36,7 @@ namespace ProgramKonstruktion
             return connectionString;
         }
 
+        //Connector to SYSA14_PK_ProgAssignment2 Database
         public PK2Connector()
         {
             ConnectToDb();
