@@ -13,7 +13,7 @@ import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import org.tempuri.WebServiceERP12SoapProxy;
+import se.lu.ics.grupp2.WebServiceERP12SoapProxy;
 
 import javax.swing.JComboBox;
 
@@ -66,8 +66,8 @@ public class GUI_WS1 {
 		
 		//List of files from file system
 		ArrayList<String>files = new ArrayList<String>(); 
-		files.add("Test"); 
-		files.add("Top Secret"); 
+		files.add("Mats"); 
+		files.add("Erdogan"); 
 		for (String value: files) { 
 			 cBoxFiles.addItem(value); 
 		}
@@ -86,11 +86,7 @@ public class GUI_WS1 {
 					} catch (RemoteException e1) {
 						txtFileOutput.setText("ojsan");
 						e1.printStackTrace();
-					} 
-				
-				
-				
-				
+					} 			
 			}
 		});
 		
