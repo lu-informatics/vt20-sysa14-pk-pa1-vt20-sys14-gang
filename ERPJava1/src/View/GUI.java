@@ -320,21 +320,31 @@ public class GUI {
 		}); 
 		
 		//method for findButton 
-		//find should return lastname, job title and email
 		btnFind.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				String emp = txtFSearchEmp.getText(); 
-				try {
+				if (emp.equals("")) { 
+					txtPOutput.setText("Please enter a ssn");
+				}
+				else { 
+					try {
 					myProxy.findEmployee(emp);
 					Employee employee = new Employee(); 
-					txtPOutput.setText("Found employee: " + employee.getFirstName() + employee.getJobTitle());
+					txtPOutput.setText("Found employee: "); //find should return lastname, job title and email
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 					txtPOutput.setText("Failed to find employee, try entering a valid ssn");
 				} 
 			}
+		}
 		}); 
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		}); 
+			
 			
 			
 		
