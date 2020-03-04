@@ -183,7 +183,7 @@ public class JavaClientGui {
 		lblSearchEmployee.setBounds(10, 305, 86, 18);
 		frame.getContentPane().add(lblSearchEmployee);
 		
-		JComboBox cBoxQuery = new JComboBox();
+		final JComboBox cBoxQuery = new JComboBox();
 		cBoxQuery.setToolTipText(" ");
 		cBoxQuery.setBounds(298, 67, 251, 23);
 		frame.getContentPane().add(cBoxQuery);
@@ -204,8 +204,13 @@ public class JavaClientGui {
 		lblErpUppgift_2.setBounds(298, 28, 108, 14);
 		frame.getContentPane().add(lblErpUppgift_2);
 		
-		
-		Employee emp = new Employee(); 
+		//populates cBox with querys 
+		ArrayList<String>querys = new ArrayList<String>(); 
+		querys.add("hej"); 
+		querys.add("hej"); 
+		for (String value: querys) { 
+			 cBoxQuery.addItem(value); 
+		}
 		
 		//method for creating new employee 
 		btnAdd.addActionListener(new ActionListener() {
@@ -384,6 +389,7 @@ public class JavaClientGui {
 		
 		btnRunQuery.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
+				String query = cBoxQuery.getSelectedItem().toString(); 
 				
 			}
 		}); 
