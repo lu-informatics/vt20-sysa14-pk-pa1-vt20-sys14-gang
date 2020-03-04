@@ -58,6 +58,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\NewWebRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Connected Services\OpenFileService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -174,6 +179,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\NewServWebMeta\WebServiceERP12.wsdl" />
+    <None Include="Connected Services\NewWebRef\ProgramKonstruktion.NewWebRef.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NewWebRef\WebServiceERP12.wsdl" />
     <None Include="Connected Services\OpenFileService\ProgramKonstruktion.OpenFileService.ShowFileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -399,6 +408,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\NewServWebMeta\" />
+    <WCFMetadataStorage Include="Connected Services\NewWebRef\" />
     <WCFMetadataStorage Include="Connected Services\OpenFileService\" />
     <WCFMetadataStorage Include="Connected Services\SqlServiceReference\" />
   </ItemGroup>
@@ -452,6 +462,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\NewServWebMeta\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\WebServiceERP12.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\NewWebRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
