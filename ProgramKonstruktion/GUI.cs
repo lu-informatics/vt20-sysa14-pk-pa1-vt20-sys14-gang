@@ -145,11 +145,11 @@ namespace ProgramKonstruktion
             tenant.StorageNbr = selected;
             tenant.RentDate = monthCalendar.SelectionRange.Start;
 
-            if (string.IsNullOrEmpty(ssnBookTxt.Text) && (string.IsNullOrEmpty(tenantNameTxt.Text)) && (string.IsNullOrEmpty(phoneNbrTxt.Text)) && (string.IsNullOrEmpty(emailTxt.Text)))
+            if (ssnBookTxt.Text.Equals(controller.FindTenant(ssnBookTxt.Text).Ssn) ||string.IsNullOrEmpty(ssnBookTxt.Text) || (string.IsNullOrEmpty(tenantNameTxt.Text)) || (string.IsNullOrEmpty(phoneNbrTxt.Text)) || (string.IsNullOrEmpty(emailTxt.Text)))
             {
                 errorBoxBooking.Text = "Failed to add booking. \n All fields has to be filled. Please try again.";
             }
-            else if ((!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
+            else if (!(ssnBookTxt.Text.Equals(controller.FindTenant(ssnBookTxt.Text).Ssn)) || (!(string.IsNullOrEmpty(ssnBookTxt.Text))) && (!(string.IsNullOrEmpty(tenantNameTxt.Text))) && (!(string.IsNullOrEmpty(phoneNbrTxt.Text))) && (!(string.IsNullOrEmpty(emailTxt.Text))))
             {
                 controller.CreateTenant(tenant);
                 errorBoxBooking.Text = "Booking completed!";
@@ -462,7 +462,7 @@ namespace ProgramKonstruktion
             string email = emailTextBox.Text;
 
 
-            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();          
+            ERP1WebRef.Employee emp = new ERP1WebRef.Employee();
 
             if (noTextBox.Text.Equals(controller.FindEmployee(noTextBox.Text).No) || (string.IsNullOrEmpty(no)) || (string.IsNullOrEmpty(firstName)) || (string.IsNullOrEmpty(lastName)) || (string.IsNullOrEmpty(jobTitle)) || (string.IsNullOrEmpty(address)) || (string.IsNullOrEmpty(phoneNumber)) || (string.IsNullOrEmpty(ssn)) || (string.IsNullOrEmpty(email)))
             {
@@ -470,6 +470,8 @@ namespace ProgramKonstruktion
             }
             else
             {
+                //NewServWebMeta.WebServiceERP12SoapClient client = new NewServWebMeta.WebServiceERP12SoapClient();
+               // client.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email); 
                 emp = erpWebService.CreateEmployee(no, firstName, lastName, jobTitle, address, phoneNumber, ssn, email);
                 richTextBox1.Text = "Employee added!";
                 cleanTextFields();

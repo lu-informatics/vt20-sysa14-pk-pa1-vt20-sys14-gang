@@ -13,6 +13,7 @@ namespace ProgramKonstruktion
     {
         private ConnectorForCronus connect = new ConnectorForCronus();
         private SqlConnection connection;
+        private ErrorHandler errorHandler = new ErrorHandler();
         
         //constructor
         public EmployeeDAL()
@@ -59,12 +60,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
 
             catch (Exception e)
             {
-
+                Console.WriteLine(errorHandler.HandleExceptions(e));
             }
 
             finally
@@ -102,15 +103,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.Message);
-                //  MessageBox.Show(e.Message);
-                //errorhandling?
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                //  MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(e));
             }
             finally
             {
@@ -144,12 +142,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                // MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
 
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(errorHandler.HandleExceptions(e));
             }
             finally
             {
@@ -192,11 +190,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
             finally
             {
@@ -227,12 +225,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
             finally
             {
@@ -269,13 +266,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleExceptions(e);
+                Console.WriteLine(errorHandler.HandleExceptions(e));
 
             }
             finally
@@ -316,325 +311,7 @@ namespace ProgramKonstruktion
             }
         
         }
-        //datatable
-      /*  public DataTable ShowContentOfCronusDataTable()
-        {
-            DataTable content = new DataTable();
-
-            string query = "SELECT DISTINCT TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA IN('dbo', 'meta') AND TABLE_NAME like '%Employ%' AND TABLE_NAME NOT LIKE '%Warehouse%'";
-
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        content.Load(reader);
-                    }
-                    catch (SqlException e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    catch(Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    finally
-                    {
-                        connect.CloseConnector(connection);
-                    }
-                    return content;
-                }
-            }
-            
-        }
-        */
-        /*
-        public DataTable ShowSickEmployees2004()
-        {
-            DataTable content = new DataTable();
-
-            string query = "SELECT e.No_, e.[First Name] AS [Employee First Name], e.[Last Name] AS [Employee Last Name], a.[From Date], a.[To Date], a.Description FROM[CRONUS Sverige AB$Employee] e INNER JOIN[CRONUS Sverige AB$Employee Absence] a ON a.[Employee No_] = e.No_ WHERE a.[From Date] like '%2004%' AND a.Description = 'Sjuk'";
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        content.Load(reader);
-                    }
-                    catch (SqlException e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    finally
-                    {
-                        connect.CloseConnector(connection);
-                    }
-                    return content;
-                }
-            }
-
-        }
-        */
-        /*
-        public DataTable MostAbsentEmployees()
-        {
-            DataTable content = new DataTable();
-
-            string query = "SELECT TOP 1 e.[First Name], a.[From Date], a.[To Date] FROM[CRONUS Sverige AB$Employee Absence] a INNER JOIN[CRONUS Sverige AB$Employee] e ON a.[Employee No_] = e.No_";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        content.Load(reader);
-                    }
-                    catch (SqlException e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    finally
-                    {
-                        connect.CloseConnector(connection);
-                    }
-                    return content;
-                }
-            }
-            */   
-/*
-        public DataTable AllKeys()
-            {
-                DataTable content = new DataTable();
-
-            string query = "SELECT OBJECT_NAME(OBJECT_ID) AS NameofConstraint, SCHEMA_NAME(schema_id) AS SchemaName, OBJECT_NAME(parent_object_id) AS TableName, type_desc AS ConstraintType FROM sys.objects WHERE type_desc IN('FOREIGN_KEY_CONSTRAINT','PRIMARY_KEY_CONSTRAINT')";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        content.Load(reader);
-                    }
-                    catch (SqlException e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                    finally
-                    {
-                        connect.CloseConnector(connection);
-                    }
-                    return content;
-                }
-            }
-
-       */
-   /* public DataTable AllIndexes()
-    {
-        DataTable content = new DataTable();
-
-            string query = "SELECT o.name AS Table_Name, i.name AS Index_Name, i.type_desc AS Index_Type, i.index_id AS Index_ID FROM sys.indexes i INNER JOIN sys.objects o ON i.object_id = o.object_id INNER JOIN sys.schemas sc ON o.schema_id = sc.schema_id WHERE i.name IS NOT NULL AND o.type = 'U' ORDER BY o.name, i.type";
-        using (SqlCommand command = new SqlCommand(query, connection))
-        {
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                content.Load(reader);
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            finally
-            {
-                connect.CloseConnector(connection);
-            }
-            return content;
-        }
-
-        
-    }
-    */
-
-            /*
-        public DataTable AllTableConstrains()
-        {
-            DataTable content = new DataTable();
-            string query = ("SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS");
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    content.Load(reader);
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                finally
-                {
-                    connect.CloseConnector(connection);
-                }
-                return content;
-            }
-
-        }
-        */
-        /*
-        public DataTable AllTablesInDatabaseSolOne()
-        {
-            DataTable content = new DataTable();
-            string query = ("SELECT *FROM INFORMATION_SCHEMA.TABLES");
-
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    content.Load(reader);
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                finally
-                {
-                    connect.CloseConnector(connection);
-                }
-                return content;
-            }
-        }
-        */
-        /*
-        public DataTable AllTablesInDatabaseSolTwo()
-        {
-            DataTable content = new DataTable();
-            string query = ("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'");
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    content.Load(reader);
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                finally
-                {
-                    connect.CloseConnector(connection);
-                }
-                return content;
-            }
-        }
-        */
-        /*public DataTable AllColEmpTableSolOne()
-        {
-            DataTable content = new DataTable();
-            string query = ("SELECT c.name FROM sys.objects o INNER JOIN sys.columns c ON c.object_id = o.object_id AND o.name = 'CRONUS Sverige AB$Employee'");
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    content.Load(reader);
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                finally
-                {
-                    connect.CloseConnector(connection);
-                }
-                return content;
-            }
-        }
-        */
-        /*
-        public DataTable AllColEmpTableSolTwo()
-        {
-            DataTable content = new DataTable();
-            string query = ("SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'");
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    content.Load(reader);
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                finally
-                {
-                    connect.CloseConnector(connection);
-                }
-                return content;
-            }
-
-        }
-        */
-
-
+      
         //New methods from Tove       
 
         public DataTable EmployeeAndRelatives()
@@ -661,11 +338,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -699,11 +376,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -737,11 +414,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -774,11 +451,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -811,11 +488,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -848,11 +525,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -885,11 +562,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -922,11 +599,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -959,11 +636,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -996,11 +673,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {
@@ -1033,11 +710,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        // MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(e.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(e));
                     }
                     finally
                     {

@@ -59,12 +59,11 @@ namespace ProgramKonstruktion
 
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
             finally
             {
@@ -106,13 +105,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                //   errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(e));
             }
             finally
             {
@@ -146,13 +144,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                 return null;
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
                 return null;
             }
             finally
@@ -188,14 +185,12 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                //errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
-                // errorHandler.HandleExceptions(ex);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
             finally
             {
@@ -233,13 +228,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                errorHandler.HandleErrorExceptionSql(e);
-               // MessageBox.Show(e.Message);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
-                errorHandler.HandleExceptions(ex);
-                //MessageBox.Show(ex.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
             finally
             {
@@ -270,12 +263,11 @@ namespace ProgramKonstruktion
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
-                // errorHandler.HandleErrorExceptionSql(e);
+                Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(errorHandler.HandleExceptions(ex));
             }
 
             finally
@@ -304,12 +296,11 @@ namespace ProgramKonstruktion
                     }
                     catch (SqlException e)
                     {
-                        MessageBox.Show(e.Message);
-                        // errorHandler.HandleErrorExceptionSql(e);
+                        Console.WriteLine(errorHandler.HandleErrorExceptionSql(e));
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Console.WriteLine(errorHandler.HandleExceptions(ex));
                     }
 
                     finally
