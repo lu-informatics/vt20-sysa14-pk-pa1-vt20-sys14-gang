@@ -381,6 +381,13 @@ public class JavaClientGui {
 				}
 			}
 		}); 
+		
+		btnRunQuery.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		}); 
+			 
 			
 		
 			
