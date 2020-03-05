@@ -183,13 +183,13 @@ namespace ProgramKonstruktion
 
            else if ((!(string.IsNullOrEmpty(storage.Nbr))) && (!(string.IsNullOrEmpty(storage.Address))))
             {
-                storageDal.CreateStorage(storage);
                 storage.Price = (float)Convert.ToDouble(storagePriceTxt.Text);
                 storage.Size = (float)Convert.ToSingle(storageSizeTxt.Text);
+                storageDal.CreateStorage(storage);
                 errorBoxUpdateStorages.Text = "Storage was added succefully!";
-                cleanTextFields();
                 this.storageTableAdapter3.Fill(this.sTOREITNEWDataSet1.Storage);
                 SetAllStoragesToComboBox();
+                cleanTextFields();
             }
 
         }      
@@ -256,7 +256,7 @@ namespace ProgramKonstruktion
             Boolean deleted = controller.DeleteStorage(storage.Nbr);
             if (!deleted)
             {
-                errorBoxUpdateStorages.Text = "Failed, try again";
+                errorBoxUpdateStorages.Text = "Failed to delete storage. \n You can not delete a storage that is already booked. Please try again. ";
 
             }
             else

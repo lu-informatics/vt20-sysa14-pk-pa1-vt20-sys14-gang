@@ -21,10 +21,10 @@ namespace ProgramKonstruktion
         {
             switch (e.Number)
             {
-                case 2627: //two entrys with same primary key
+               case 2627: //two entrys with same primary key
                     return "This object is already in the database";
                     break;
-
+               
                 case 515: //nullerror
                     return "Null exception";
                     break;
